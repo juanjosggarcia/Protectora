@@ -15,7 +15,8 @@ namespace Protectora.Persistencia
         private static AgenteDB AgenteBD = null;
         private static OleDbConnection conexionBD = new OleDbConnection();
         //private static string rutaBD = @".\protectoraDB.accdb";
-        private static string rutaBD = @"C:\Users\juanj\vs2019-workspace\Protectora\protectoraDB.accdb";
+
+        private static string rutaBD = @"C:\Users\34627\Desktop\EjemploAppConsola\protectoraDB.accdb";
         private string cadenaConexionBD = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source=";
 
         private AgenteDB()
