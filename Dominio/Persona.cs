@@ -9,13 +9,21 @@ namespace Protectora.Dominio
 {
     class Persona
     {
-        public int id;
-        public String nombre;
-        public String password;
-        public DateTime fechaUltimaConex;
-       
-        
-        
+        private int id;
+        private String nombre;
+        private String password;
+        private DateTime fechaUltimaConex;
+
+
+        public void set(int idR, String nR, String passwordR, DateTime fechaUltimaConexR)
+        {
+            id = idR;
+            nombre = nR;
+            password = passwordR;
+            fechaUltimaConex = fechaUltimaConexR;
+
+        }
+
         public List<Persona> LeerTodasPersonas()
         {
             PersonaDAO perAUX = new PersonaDAO();

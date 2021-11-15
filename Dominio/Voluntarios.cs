@@ -1,22 +1,38 @@
-using System;
-using Protectora.Persistencia;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Protectora.Persistencia;
 
 namespace Protectora
 {
     class Voluntarios
     {
-        public int id;
-        public String nombreCompleto;
-        public String correo;
-        public String dni;
-        public int telefono;
-        public String foto;
-        public String horario;
-        public String zonaDisponibilidad;
+        private int id;
+        private String nombreCompleto;
+        private String correo;
+        private String dni;
+        private int telefono;
+        private String foto;
+        private String horario;
+        private String zonaDisponibilidad;
+
+        public void set(int idR, String nCR, String correoR, String dniR
+            , int telefonoR, String fotoR, String horarioR,
+            String zonaDisponibilidadR)
+        {
+            id = idR;
+            nombreCompleto = nCR;
+            correo = correoR;
+            dni = dniR;
+            telefono = telefonoR;
+            foto = fotoR;
+            horario = horarioR;
+            zonaDisponibilidad = zonaDisponibilidadR;
+
+
+        }
 
 
         public List<Voluntarios> LeerTodosVoluntarios()
@@ -30,6 +46,5 @@ namespace Protectora
 
             return arrayVoluntarios;
         }
-
     }
 }

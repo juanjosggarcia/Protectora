@@ -1,4 +1,4 @@
-using Protectora.Dominio;
+﻿using Protectora.Dominio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,16 +28,7 @@ namespace Protectora.Persistencia
             foreach (List<String> user in arrayCarSocios)
             {
                 Socios s = new Socios();
-                s.id = Int32.Parse(user[0]);
-                s.nombreCompleto = user[1];
-                s.dni = user[2];
-                s.telefono = Int32.Parse(user[3]);
-                s.correo = user[4];
-                s.datosBancarios = user[5];
-                s.importeMensual = Int32.Parse(user[6]);
-                s.formaPago = user[7];
-                
-
+                s.set(Int32.Parse(user[0]), user[1], user[2], Int32.Parse(user[3]), user[4], user[5], Int32.Parse(user[6]), user[7]);
                 arraySocios.Add(s);
             }
             Console.Write(" ");

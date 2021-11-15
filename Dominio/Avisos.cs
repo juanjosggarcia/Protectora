@@ -1,36 +1,52 @@
-using System;
-using Protectora.Persistencia;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Protectora.Persistencia;
 
-namespace Protectora
+namespace Protectora.Dominio
 {
     class Avisos
     {
-        public int id;
-        public String nombre;
-        public String sexo;
-        public String raza;
-        public int tamanio;
-        public String descripcionAnimal;
-        public String descripcionLocalizacion;
-        public String foto;
-        public DateTime fechaPerdida;
-        public String datosDuenios;
+        private int id;
+        private String nombre;
+        private String sexo;
+        private String raza;
+        private int tamanio;
+        private String descripcionAnimal;
+        private String descripcionLocalizacion;
+        private String foto;
+        private DateTime fechaPerdida;
+        private String datosDuenios;
 
+        public void set(int idR, String nR, String sexoR, String razaR
+            , int tamanioR, String descripcionAnimalR, String descripcionLocalizacionR, 
+            String fotoR , DateTime fechaPerdidaR, String datosDueniosR)
+        {
+            id = idR;
+            nombre = nR;
+            sexo = sexoR;
+            raza = razaR;
+            tamanio = tamanioR;
+            descripcionAnimal = descripcionAnimalR;
+            descripcionLocalizacion = descripcionLocalizacionR;
+            foto = fotoR;
+            fechaPerdida = fechaPerdidaR;
+            datosDuenios = datosDueniosR;
+
+        }
 
 
         public List<Avisos> LeerTodosAvisos()
         {
             List<Avisos> arrayAvisos = new List<Avisos>();
+            
             AvisosDAO aviDao = new AvisosDAO();
             arrayAvisos = aviDao.LeerTodosAvisos();
             Console.Write(" ");
 
             return arrayAvisos;
         }
-
     }
-} 
+}

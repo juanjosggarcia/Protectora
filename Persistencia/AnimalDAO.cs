@@ -27,19 +27,10 @@ namespace Protectora.Persistencia
             foreach (List<String> user in arrayCarAnimales)
             {
                 Animales a = new Animales();
-                a.id= Int32.Parse(user[0]);
-                a.nombre= user[1];
-                a.sexo= user[2];
-                a.raza= user[3];
-                a.tamanio= Int32.Parse(user[4]);
-                a.peso= Int32.Parse(user[5]);
-                a.edad= Int32.Parse(user[6]);
-                a.fechaEntrada=DateTime.Parse(user[7]);
-                a.foto= user[8];
-                a.enlace= user[9];
-                a.descripcion= user[10];
-                a.estado= user[11];
-                a.apadrinado= Int32.Parse(user[4]);
+                a.set(Int32.Parse(user[0]), user[1], user[2], user[3],
+                    Int32.Parse(user[4]), Int32.Parse(user[5]), Int32.Parse(user[6]),
+                    DateTime.Parse(user[7]), user[8], user[9], user[10], user[11]
+                    , Int32.Parse(user[12]));
 
 
                 arrayAnimales.Add(a);

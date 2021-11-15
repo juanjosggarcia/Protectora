@@ -9,22 +9,40 @@ namespace Protectora
 {
     class Animales
     {
-        public int id;
-        public String nombre;
-        public String sexo;
-        public String raza;
-        public int tamanio;
-        public int peso;
-        public int edad;
-        public DateTime fechaEntrada;
-        public String foto;
-        public String enlace;
-        public String descripcion;
-        public String estado;
-        public int apadrinado;
-       
-        
-        
+        private int id;
+        private String nombre;
+        private String sexo;
+        private String raza;
+        private int tamanio;
+        private int peso;
+        private int edad;
+        private DateTime fechaEntrada;
+        private String foto;
+        private String enlace;
+        private String descripcion;
+        private String estado;
+        private int apadrinado;
+
+        public void set(int idR, String nR, String sexoR, String razaR, int tamanioR,
+             int pesoR, int edadR, DateTime fechaEntradaR, String fotoR, 
+             String enlaceR, String descripcionR,  String estadoR, int apadrinadoR)
+        {
+            id = idR;
+            nombre = nR;
+            sexo = sexoR;
+            raza = razaR;
+            tamanio = tamanioR;
+            peso = pesoR;
+            edad = edadR;
+            fechaEntrada = fechaEntradaR;
+            foto = fotoR;
+            enlace = enlaceR;
+            descripcion = descripcionR;
+            estado = estadoR;
+            apadrinado = apadrinadoR;
+        }
+
+
         public List<Animales> LeerTodosAnimales()
         {
             List<Animales> arrayAnimales = new List<Animales>();
