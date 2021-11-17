@@ -11,24 +11,35 @@ namespace Protectora.Dominio
     {
         public static void Main(string[] args)
         {
-            Perro perro = new Perro();
+
+            //Conexión BBDD
             AgenteDB agente = AgenteDB.obtenerAgente();
 
             agente.conectar();
 
-            List<List<String>> arrayUsuarios = new List<List<String>>();
+            //Obtener todos usuarios
+            Persona usuAUX = new Persona();
+            List<Persona> arrayUsuarios =  usuAUX.LeerTodasPersonas();
 
-            arrayUsuarios = agente.leer("SELECT * FROM usuarios");
+            //Obtener todos los animales
+            Animales aniAUX = new Animales();
+            List<Animales> arrayAnimales =  aniAUX.LeerTodosAnimales();
 
+            //Obtener todos los voluntarios
+            Voluntarios volAUX = new Voluntarios();
+            List<Voluntarios> arrayVoluntarios =  volAUX.LeerTodosVoluntarios();
 
-            foreach (List<String> user in arrayUsuarios)
-            {
-                foreach (object item in user)
-                {
-                    Console.Write(item + " ");
-                }
+            //Obtener todos los socios
+            Socios socAUX = new Socios();
+            List<Socios> arraySocios =  socAUX.LeerTodosSocios();
 
-            }
+            //Obtener todos los socios
+            Avisos aviAUX = new Avisos();
+            List<Avisos> arrayAvisos =  aviAUX.LeerTodosAvisos();
+
+            Console.Write(" ");
+
         }
     }
+}
 }
