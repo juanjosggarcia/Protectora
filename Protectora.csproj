@@ -35,7 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Protectora.Dominio.ClassPruebas</StartupObject>
+    <StartupObject>Protectora.App</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -54,15 +54,15 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
+    <ApplicationDefinition Include="Presentacion\App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Presentacion\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="App.xaml.cs">
+    <Compile Include="Presentacion\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -70,7 +70,7 @@
     <Compile Include="Dominio\ClassPruebas.cs" />
     <Compile Include="Dominio\Persona.cs" />
     <Compile Include="Dominio\Perro.cs" />
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Presentacion\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -102,10 +102,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="Presentacion\App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Presentacion\" />
+    <Resource Include="recursos\fondo.jpg" />
+    <Resource Include="recursos\fondo2.jpg" />
+    <Resource Include="recursos\login.png" />
+    <Resource Include="recursos\pawprint.ico" />
+    <Resource Include="recursos\spain.png" />
+    <Resource Include="recursos\united-kingdom.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
