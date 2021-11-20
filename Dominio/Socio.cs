@@ -7,7 +7,7 @@ using Protectora.Persistencia;
 
 namespace Protectora.Dominio
 {
-    class Socios
+    class Socio
     {
       
         private int id;
@@ -20,7 +20,7 @@ namespace Protectora.Dominio
         private String formaPago;
 
 
-        public void set(int idR, String nCR, String dniR, int telefonoR, String correoR, String datosBancariosR, int importeMensualR, String formaPagoR)
+        public Socio(int idR, String nCR, String dniR, int telefonoR, String correoR, String datosBancariosR, int importeMensualR, String formaPagoR)
         {
             id = idR;
             nombreCompleto = nCR;
@@ -33,9 +33,9 @@ namespace Protectora.Dominio
 
         }
 
-        public List<Socios> LeerTodosSocios()
+        public List<Socio> LeerTodosSocios()
         {
-            List<Socios> arraySocios = new List<Socios>();
+            List<Socio> arraySocios = new List<Socio>();
             SociosDAO socDAO = new SociosDAO();
             arraySocios = socDAO.LeerTodosSocios();
             Console.Write(" ");

@@ -22,20 +22,20 @@ namespace Protectora.Dominio
             List<Persona> arrayUsuarios =  usuAUX.LeerTodasPersonas();
 
             //Obtener todos los animales
-            Animales aniAUX = new Animales();
-            List<Animales> arrayAnimales =  aniAUX.LeerTodosAnimales();
+            Perro aniAUX = new Perro(1);
+            List<Perro> arrayAnimales =  aniAUX.LeerTodosAnimales();
 
             //Obtener todos los voluntarios
-            Voluntarios volAUX = new Voluntarios();
-            List<Voluntarios> arrayVoluntarios =  volAUX.LeerTodosVoluntarios();
+            Voluntario volAUX = new Voluntario();
+            List<Voluntario> arrayVoluntarios =  volAUX.LeerTodosVoluntarios();
 
             //Obtener todos los socios
-            Socios socAUX = new Socios();
-            List<Socios> arraySocios =  socAUX.LeerTodosSocios();
+            Socio socAUX = new Socio();
+            List<Socio> arraySocios =  socAUX.LeerTodosSocios();
 
             //Obtener todos los socios
-            Avisos aviAUX = new Avisos();
-            List<Avisos> arrayAvisos =  aviAUX.LeerTodosAvisos();
+            Aviso aviAUX = new Aviso();
+            List<Aviso> arrayAvisos =  aviAUX.LeerTodosAvisos();
 
             Console.Write(" ");
 

@@ -7,7 +7,7 @@ using Protectora.Persistencia;
 
 namespace Protectora
 {
-    class Voluntarios
+    class Voluntario
     {
         private int id;
         private String nombreCompleto;
@@ -18,7 +18,7 @@ namespace Protectora
         private String horario;
         private String zonaDisponibilidad;
 
-        public void set(int idR, String nCR, String correoR, String dniR
+        public Voluntario(int idR, String nCR, String correoR, String dniR
             , int telefonoR, String fotoR, String horarioR,
             String zonaDisponibilidadR)
         {
@@ -35,9 +35,9 @@ namespace Protectora
         }
 
 
-        public List<Voluntarios> LeerTodosVoluntarios()
+        public List<Voluntario> LeerTodosVoluntarios()
         {
-            List<Voluntarios> arrayVoluntarios = new List<Voluntarios>();
+            List<Voluntario> arrayVoluntarios = new List<Voluntario>();
 
             VoluntariosDAO volDao = new VoluntariosDAO();
             arrayVoluntarios = volDao.LeerTodosVoluntarios();

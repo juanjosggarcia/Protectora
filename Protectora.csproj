@@ -35,7 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Protectora.Dominio.ClassPruebas</StartupObject>
+    <StartupObject>Protectora.App</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -58,13 +58,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Dominio\Animal.cs" />
     <Compile Include="Persistencia\AvisosDAO.cs" />
-    <Compile Include="Dominio\Avisos.cs" />
+    <Compile Include="Dominio\Aviso.cs" />
     <Compile Include="Dominio\Persona.cs" />
-    <Compile Include="Dominio\Voluntarios.cs" />
+    <Compile Include="Dominio\Voluntario.cs" />
     <Compile Include="Persistencia\SociosDAO.cs" />
     <Compile Include="Persistencia\VoluntariosDAO.cs" />
-    <Compile Include="Dominio\Socios.cs" />
+    <Compile Include="Dominio\Socio.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -73,7 +74,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Dominio\Animal.cs" />
+    <Compile Include="Dominio\Perro.cs" />
     <Compile Include="Dominio\ClassPruebas.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

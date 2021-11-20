@@ -1,56 +1,40 @@
 ﻿using System;
-using Protectora.Persistencia;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Protectora
+namespace Protectora.Dominio
 {
-    class Animales
+    public class Animal
     {
-        private int id;
-        private String nombre;
-        private String sexo;
-        private String raza;
-        private int tamanio;
-        private int peso;
-        private int edad;
-        private DateTime fechaEntrada;
-        private String foto;
-        private String enlace;
-        private String descripcion;
-        private String estado;
-        private int apadrinado;
+        protected int id;
+        protected string nombre;
+        protected string sexo;
+        protected int tamanio;
+        protected int peso;
+        protected int edad;
+        protected DateTime fechaEntrada;
+        protected string foto;
+        protected string enlace;
+        protected string descripcion;
+        protected string estado;
+        protected int apadrinado;
 
-        public void set(int idR, String nR, String sexoR, String razaR, int tamanioR,
-             int pesoR, int edadR, DateTime fechaEntradaR, String fotoR, 
-             String enlaceR, String descripcionR,  String estadoR, int apadrinadoR)
+        public Animal(int id, string nombre, string sexo, int tamanio, int peso, int edad, DateTime fechaEntrada, string foto, string enlace, string descripcion, string estado, int apadrinado)
         {
-            id = idR;
-            nombre = nR;
-            sexo = sexoR;
-            raza = razaR;
-            tamanio = tamanioR;
-            peso = pesoR;
-            edad = edadR;
-            fechaEntrada = fechaEntradaR;
-            foto = fotoR;
-            enlace = enlaceR;
-            descripcion = descripcionR;
-            estado = estadoR;
-            apadrinado = apadrinadoR;
-        }
-
-
-        public List<Animales> LeerTodosAnimales()
-        {
-            List<Animales> arrayAnimales = new List<Animales>();
-            AnimalDAO aniDao = new AnimalDAO();
-            arrayAnimales = aniDao.LeerTodosAnimales();
-            Console.Write(" ");
-
-            return arrayAnimales;
+            this.id = id;
+            this.nombre = nombre;
+            this.sexo = sexo;
+            this.tamanio = tamanio;
+            this.peso = peso;
+            this.edad = edad;
+            this.fechaEntrada = fechaEntrada;
+            this.foto = foto;
+            this.enlace = enlace;
+            this.descripcion = descripcion;
+            this.estado = estado;
+            this.apadrinado = apadrinado;
         }
 
     }

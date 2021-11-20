@@ -7,7 +7,7 @@ using Protectora.Persistencia;
 
 namespace Protectora.Dominio
 {
-    class Avisos
+    class Aviso
     {
         private int id;
         private String nombre;
@@ -20,7 +20,7 @@ namespace Protectora.Dominio
         private DateTime fechaPerdida;
         private String datosDuenios;
 
-        public void set(int idR, String nR, String sexoR, String razaR
+        public Aviso(int idR, String nR, String sexoR, String razaR
             , int tamanioR, String descripcionAnimalR, String descripcionLocalizacionR, 
             String fotoR , DateTime fechaPerdidaR, String datosDueniosR)
         {
@@ -38,9 +38,9 @@ namespace Protectora.Dominio
         }
 
 
-        public List<Avisos> LeerTodosAvisos()
+        public List<Aviso> LeerTodosAvisos()
         {
-            List<Avisos> arrayAvisos = new List<Avisos>();
+            List<Aviso> arrayAvisos = new List<Aviso>();
             
             AvisosDAO aviDao = new AvisosDAO();
             arrayAvisos = aviDao.LeerTodosAvisos();

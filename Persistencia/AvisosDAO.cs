@@ -14,12 +14,12 @@ namespace Protectora.Persistencia
 
         public void leerTodos()
         {
-            Avisos aviso = new Avisos();
+            Aviso aviso = new Aviso();
         }
 
-        public List<Avisos> LeerTodosAvisos()
+        public List<Aviso> LeerTodosAvisos()
         {
-            List<Avisos> arrayAvisos = new List<Avisos>();
+            List<Aviso> arrayAvisos = new List<Aviso>();
             AgenteDB agente = AgenteDB.obtenerAgente();
 
             List<List<String>> arrayCarAvisos = new List<List<String>>();
@@ -27,7 +27,7 @@ namespace Protectora.Persistencia
 
             foreach (List<String> user in arrayCarAvisos)
             {
-                Avisos a = new Avisos();
+                Aviso a = new Aviso();
                 a.set(Int32.Parse(user[0]), user[1], user[2], user[3], Int32.Parse(user[4]),
                     user[5], user[6], user[7], DateTime.Parse(user[8]), user[9]);
                

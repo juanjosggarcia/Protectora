@@ -13,12 +13,12 @@ namespace Protectora.Persistencia
         private String Tabla = "Animal";
 
         public void leerTodos() {
-            Animales animal = new Animales();
+            Perro animal = new Perro();
         }
 
-        public List<Animales> LeerTodosAnimales()
+        public List<Perro> LeerTodosAnimales()
         {
-            List<Animales> arrayAnimales = new List<Animales>();
+            List<Perro> arrayAnimales = new List<Perro>();
             AgenteDB agente = AgenteDB.obtenerAgente();
 
             List<List<String>> arrayCarAnimales = new List<List<String>>();
@@ -26,7 +26,7 @@ namespace Protectora.Persistencia
 
             foreach (List<String> user in arrayCarAnimales)
             {
-                Animales a = new Animales();
+                Perro a = new Perro();
                 a.set(Int32.Parse(user[0]), user[1], user[2], user[3],
                     Int32.Parse(user[4]), Int32.Parse(user[5]), Int32.Parse(user[6]),
                     DateTime.Parse(user[7]), user[8], user[9], user[10], user[11]
