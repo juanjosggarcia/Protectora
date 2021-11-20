@@ -14,4 +14,5 @@ namespace Protectora
     public partial class App : Application
     {
     }
+
 }

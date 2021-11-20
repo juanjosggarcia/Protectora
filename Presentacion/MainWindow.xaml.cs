@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Protectora.Presentacion;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,32 @@ namespace Protectora
     /// </summary>
     public partial class MainWindow : Window
     {
+        private string usuario = "1234";
+        private string password = "1234";
         public MainWindow()
         {
             InitializeComponent();
         }
+
+        private void BtnIniciarSesion_Click(object sender, RoutedEventArgs e)
+        {
+            
+                if (Usuario.Text.Equals(usuario) && Contrasenia.Password.Equals(password))
+                {
+                        
+                    Presentacion.Window1 nw = new Window1();
+                    nw.Show();
+
+                    this.Close();
+
+            }
+                else
+                {
+                    // feedback al usuario
+                    Usuario.Text = "Combinación usuario-contraseña incorrecta";
+                }
+            
+        }
     }
+
 }

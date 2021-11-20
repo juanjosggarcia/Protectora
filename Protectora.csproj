@@ -74,11 +74,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Presentacion\Window1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Persistencia\AgenteDB.cs" />
     <Compile Include="Persistencia\AnimalDAO.cs" />
     <Compile Include="Persistencia\PersonaDAO.cs" />
+    <Compile Include="Presentacion\Window1.xaml.cs">
+      <DependentUpon>Window1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -111,6 +118,21 @@
     <Resource Include="recursos\pawprint.ico" />
     <Resource Include="recursos\spain.png" />
     <Resource Include="recursos\united-kingdom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\alert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\caridad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\dogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\fondo4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\socios.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
