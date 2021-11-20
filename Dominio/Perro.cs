@@ -12,6 +12,10 @@ namespace Protectora
     {
         private string raza;
         
+         public Perro(): base()
+        {
+        }
+
         public Perro(int id, string nombre, string sexo, int tamanio, int peso, int edad, DateTime fechaEntrada, string foto, string enlace, string descripcion, string estado, int apadrinado, string raza) : base(id, nombre, sexo, tamanio, peso, edad, fechaEntrada, foto, enlace, descripcion, estado, apadrinado)
         //public Perro(string raza) : base()
         {

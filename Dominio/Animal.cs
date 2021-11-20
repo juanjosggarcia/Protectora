@@ -37,5 +37,9 @@ namespace Protectora.Dominio
             this.apadrinado = apadrinado;
         }
 
+        public Animal()
+        {
+        }
+
     }
 }

@@ -18,6 +18,11 @@ namespace Protectora
         private String horario;
         private String zonaDisponibilidad;
 
+        public Voluntario()
+        {
+        }
+
+
         public Voluntario(int idR, String nCR, String correoR, String dniR
             , int telefonoR, String fotoR, String horarioR,
             String zonaDisponibilidadR)
@@ -30,8 +35,6 @@ namespace Protectora
             foto = fotoR;
             horario = horarioR;
             zonaDisponibilidad = zonaDisponibilidadR;
-
-
         }
 
 

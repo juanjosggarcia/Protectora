@@ -22,7 +22,7 @@ namespace Protectora.Dominio
             List<Persona> arrayUsuarios =  usuAUX.LeerTodasPersonas();
 
             //Obtener todos los animales
-            Perro aniAUX = new Perro(1);
+            Perro aniAUX = new Perro();
             List<Perro> arrayAnimales =  aniAUX.LeerTodosAnimales();
 
             //Obtener todos los voluntarios
@@ -41,5 +41,4 @@ namespace Protectora.Dominio
 
         }
     }
-}
 }

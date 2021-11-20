@@ -15,6 +15,11 @@ namespace Protectora.Dominio
         private DateTime fechaUltimaConex;
 
 
+        public Persona()
+        {
+        }
+
+
         public Persona(int idR, String nR, String passwordR, DateTime fechaUltimaConexR)
         {
             id = idR;

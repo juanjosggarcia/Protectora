@@ -14,7 +14,7 @@ namespace Protectora.Persistencia
 
         public void leerTodos()
         {
-            Socio socios = new Socios();
+            Socio socios = new Socio();
         }
 
         public List<Socio> LeerTodosSocios()
@@ -27,8 +27,7 @@ namespace Protectora.Persistencia
 
             foreach (List<String> user in arrayCarSocios)
             {
-                Socio s = new Socios();
-                s.set(Int32.Parse(user[0]), user[1], user[2], Int32.Parse(user[3]), user[4], user[5], Int32.Parse(user[6]), user[7]);
+                Socio s = new Socio(Int32.Parse(user[0]), user[1], user[2], Int32.Parse(user[3]), user[4], user[5], Int32.Parse(user[6]), user[7]);
                 arraySocios.Add(s);
             }
             Console.Write(" ");

@@ -24,8 +24,7 @@ namespace Protectora.Persistencia
 
             foreach (List<String> user in arrayCarUsuarios)
             {
-                Persona p = new Persona();
-                p.set(Int32.Parse(user[0]),user[1],user[2],DateTime.Parse(user[3]));
+                Persona p = new Persona(Int32.Parse(user[0]),user[1],user[2],DateTime.Parse(user[3]));
                 arrayUsuarios.Add(p);
             }
             Console.Write(" ");

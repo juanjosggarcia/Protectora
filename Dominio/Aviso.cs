@@ -20,6 +20,12 @@ namespace Protectora.Dominio
         private DateTime fechaPerdida;
         private String datosDuenios;
 
+
+         public Aviso()
+        {
+        }
+
+
         public Aviso(int idR, String nR, String sexoR, String razaR
             , int tamanioR, String descripcionAnimalR, String descripcionLocalizacionR, 
             String fotoR , DateTime fechaPerdidaR, String datosDueniosR)
