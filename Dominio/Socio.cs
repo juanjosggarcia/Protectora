@@ -7,31 +7,23 @@ using Protectora.Persistencia;
 
 namespace Protectora.Dominio
 {
-    class Socio
+    class Socio : Persona
     {
       
-        private int id;
-        private String nombreCompleto;
-        private String dni;
-        private int telefono;
-        private String correo;
         private String datosBancarios;
         private int importeMensual;
         private String formaPago;
 
 
-        public Socio()
+        public Socio():base()
         {
 
         }
 
-        public Socio(int idR, String nCR, String dniR, int telefonoR, String correoR, String datosBancariosR, int importeMensualR, String formaPagoR)
+        public Socio(int id, String nombreCompleto, String dni, int telefono, String correo,
+            String datosBancariosR, int importeMensualR, String formaPagoR) : base(id, nombreCompleto, correo, dni, telefono)
         {
-            id = idR;
-            nombreCompleto = nCR;
-            dni=dniR;
-            telefono= telefonoR;
-            correo= correoR;
+
             datosBancarios= datosBancariosR;
             importeMensual= importeMensualR;
             formaPago = formaPagoR;
@@ -41,7 +33,7 @@ namespace Protectora.Dominio
         public List<Socio> LeerTodosSocios()
         {
             List<Socio> arraySocios = new List<Socio>();
-            SociosDAO socDAO = new SociosDAO();
+            SocioDAO socDAO = new SocioDAO();
             arraySocios = socDAO.LeerTodosSocios();
             Console.Write(" ");
 

@@ -1,51 +1,39 @@
 ﻿using System;
+using Protectora.Persistencia;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Protectora.Persistencia;
 
 namespace Protectora.Dominio
 {
-    class Socio
+    class Usuario
     {
-      
         private int id;
-        private String nombreCompleto;
-        private String dni;
-        private int telefono;
-        private String correo;
-        private String datosBancarios;
-        private int importeMensual;
-        private String formaPago;
+        private String nombre;
+        private String password;
+        private DateTime fechaUltimaConex;
 
 
-        public Socio()
+        public Usuario()
         {
-
         }
 
-        public Socio(int idR, String nCR, String dniR, int telefonoR, String correoR, String datosBancariosR, int importeMensualR, String formaPagoR)
+
+        public Usuario(int idR, String nR, String passwordR, DateTime fechaUltimaConexR)
         {
             id = idR;
-            nombreCompleto = nCR;
-            dni=dniR;
-            telefono= telefonoR;
-            correo= correoR;
-            datosBancarios= datosBancariosR;
-            importeMensual= importeMensualR;
-            formaPago = formaPagoR;
+            nombre = nR;
+            password = passwordR;
+            fechaUltimaConex = fechaUltimaConexR;
 
         }
 
-        public List<Socio> LeerTodosSocios()
+        public List<Usuario> LeerTodosUsuarios()
         {
-            List<Socio> arraySocios = new List<Socio>();
-            SociosDAO socDAO = new SociosDAO();
-            arraySocios = socDAO.LeerTodosSocios();
-            Console.Write(" ");
-
-            return arraySocios;
+            UsuarioDAO perAUX = new UsuarioDAO();
+            List<Usuario> arrayUsuarios = perAUX.LeerTodosUsuarios();
+            return arrayUsuarios;
         }
     }
 }

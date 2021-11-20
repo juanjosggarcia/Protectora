@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Protectora.Persistencia
 {
-    class VoluntariosDAO
+    class VoluntarioDAO
     {
 
         private String Tabla = "Voluntarios";

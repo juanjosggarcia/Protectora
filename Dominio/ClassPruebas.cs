@@ -18,8 +18,8 @@ namespace Protectora.Dominio
             agente.conectar();
 
             //Obtener todos usuarios
-            Persona usuAUX = new Persona();
-            List<Persona> arrayUsuarios =  usuAUX.LeerTodasPersonas();
+            Usuario usuAUX = new Usuario();
+            List<Usuario> arrayUsuarios =  usuAUX.LeerTodosUsuarios();
 
             //Obtener todos los animales
             Perro aniAUX = new Perro();
@@ -42,3 +42,4 @@ namespace Protectora.Dominio
         }
     }
 }
+

@@ -42,7 +42,7 @@ namespace Protectora
         {
             List<Voluntario> arrayVoluntarios = new List<Voluntario>();
 
-            VoluntariosDAO volDao = new VoluntariosDAO();
+            VoluntarioDAO volDao = new VoluntarioDAO();
             arrayVoluntarios = volDao.LeerTodosVoluntarios();
 
             Console.Write(" ");

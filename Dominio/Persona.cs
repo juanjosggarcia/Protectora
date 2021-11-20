@@ -1,5 +1,4 @@
 ﻿using System;
-using Protectora.Persistencia;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,31 +8,24 @@ namespace Protectora.Dominio
 {
     class Persona
     {
-        private int id;
-        private String nombre;
-        private String password;
-        private DateTime fechaUltimaConex;
+        protected int id;
+        protected string nombreCompleto;
+        protected string correo;
+        protected string dni;
+        protected int telefono;
 
+        public Persona(int id, string nombreCompleto, string correo, string dni, int telefono)
+        {
+            this.id = id;
+            this.nombreCompleto = nombreCompleto;
+            this.correo = correo;
+            this.dni = dni;
+            this.telefono = telefono;
+        }
 
         public Persona()
         {
         }
 
-
-        public Persona(int idR, String nR, String passwordR, DateTime fechaUltimaConexR)
-        {
-            id = idR;
-            nombre = nR;
-            password = passwordR;
-            fechaUltimaConex = fechaUltimaConexR;
-
-        }
-
-        public List<Persona> LeerTodasPersonas()
-        {
-            PersonaDAO perAUX = new PersonaDAO();
-            List<Persona> arrayUsuarios = perAUX.LeerTodasPersonas();
-            return arrayUsuarios;
-        }
     }
 }

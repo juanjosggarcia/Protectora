@@ -48,7 +48,7 @@ namespace Protectora.Dominio
         {
             List<Aviso> arrayAvisos = new List<Aviso>();
             
-            AvisosDAO aviDao = new AvisosDAO();
+            AvisoDAO aviDao = new AvisoDAO();
             arrayAvisos = aviDao.LeerTodosAvisos();
             Console.Write(" ");
 
