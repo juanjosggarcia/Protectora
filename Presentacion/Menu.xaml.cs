@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Protectora.Presentacion
 {
     /// <summary>
-    /// Lógica de interacción para Window1.xaml
+    /// Lógica de interacción para Menu.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class Menu : Window
     {
-        public Window1()
+        public Menu()
         {
             InitializeComponent();
         }

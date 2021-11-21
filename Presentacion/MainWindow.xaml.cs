@@ -31,10 +31,10 @@ namespace Protectora
         private void BtnIniciarSesion_Click(object sender, RoutedEventArgs e)
         {
             
-                if (Usuario.Text.Equals(usuario) && Contrasenia.Password.Equals(password))
+                if (txtUsuario.Text.Equals(usuario) && txtContrasenia.Password.Equals(password))
                 {
                         
-                    Presentacion.Window1 nw = new Window1();
+                    Presentacion.Menu nw = new Presentacion.Menu();
                     nw.Show();
 
                     this.Close();
@@ -42,10 +42,18 @@ namespace Protectora
             }
                 else
                 {
-                    // feedback al usuario
-                    Usuario.Text = "Combinación usuario-contraseña incorrecta";
+                // feedback al usuario
+                txtUsuario.Text = "Combinación usuario-contraseña incorrecta";
                 }
             
+        }
+
+        private void OnKeyDownHandler(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                BtnIniciarSesion_Click(sender, e);
+            }
         }
     }
 

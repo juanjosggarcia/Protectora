@@ -1,11 +1,12 @@
-﻿<Window x:Class="Protectora.Presentacion.Window1"
+﻿<Window x:Class="Protectora.Presentacion.Menu"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Protectora.Presentacion"
         mc:Ignorable="d"
-        Title="Window1" Height="650" Width="900">
+        Icon="/recursos/pawprint.ico"
+        Height="650" Width="900">
 
     <Window.Background>
         <ImageBrush ImageSource="/recursos/fondo4.jpg"/>
@@ -78,7 +79,8 @@
 
             <!-- FontFamily="Tahoma" FontFamily="PMingLiU-ExtB" -->
         </Grid>
-        <Label Content="Ultimo inicio de sesión: 16 de noviembre 18:35" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="544,15,-4,0" VerticalAlignment="Top" Width="260"/>
+        <Label x:Name ="lblFinalSesion" Content="Ultimo inicio de sesión: 16 de noviembre 18:35" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="530,15,0,0" VerticalAlignment="Top" Width="260"/>
 
     </Grid>
 </Window>
+

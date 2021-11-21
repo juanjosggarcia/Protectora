@@ -74,7 +74,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Presentacion\Window1.xaml">
+    <Page Include="Presentacion\Menu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -83,8 +83,8 @@
     <Compile Include="Persistencia\AgenteDB.cs" />
     <Compile Include="Persistencia\AnimalDAO.cs" />
     <Compile Include="Persistencia\PersonaDAO.cs" />
-    <Compile Include="Presentacion\Window1.xaml.cs">
-      <DependentUpon>Window1.xaml</DependentUpon>
+    <Compile Include="Presentacion\Menu.xaml.cs">
+      <DependentUpon>Menu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
