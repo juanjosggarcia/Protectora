@@ -1,4 +1,5 @@
-﻿using Protectora.Presentacion;
+﻿using Protectora.Dominio;
+using Protectora.Presentacion;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,16 +31,14 @@ namespace Protectora
 
         private void BtnIniciarSesion_Click(object sender, RoutedEventArgs e)
         {
-            
-                if (txtUsuario.Text.Equals(usuario) && txtContrasenia.Password.Equals(password))
+                if (GestorUsuario.autentificar(txtUsuario.Text.ToString(), txtContrasenia.Password.ToString()))
                 {
-                        
-                    Presentacion.Menu nw = new Presentacion.Menu();
-                    nw.Show();
+                Presentacion.Menu nw = new Presentacion.Menu();
+                nw.Show();
 
-                    this.Close();
+                this.Close();
+                }
 
-            }
                 else
                 {
                 // feedback al usuario

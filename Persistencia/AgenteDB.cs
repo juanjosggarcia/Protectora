@@ -14,14 +14,19 @@ namespace Protectora.Persistencia
     {
         private static AgenteDB AgenteBD = null;
         private static OleDbConnection conexionBD = new OleDbConnection();
-        //private static string rutaBD = @".\protectoraDB.accdb";
-        private static string rutaBD = @"C:\Users\juanj\vs2019-workspace\Protectora\protectoraDB.accdb";
+        private static string rutaBD = @"..\..\protectoraDB.accdb";
         private string cadenaConexionBD = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source=";
 
         private AgenteDB()
         {
             conexionBD = new OleDbConnection();
             conexionBD.ConnectionString = cadenaConexionBD + rutaBD;
+            conexionBD.Open();
+        }
+
+        internal int modificar(string v1, string v2, object p)
+        {
+            throw new NotImplementedException();
         }
 
         public static AgenteDB obtenerAgente()
@@ -42,18 +47,11 @@ namespace Protectora.Persistencia
             }
             catch (Exception ex)
             {
+                List<String> fila;
                 return false;
             }
         }
-        /*
-        public void conectarCutre()
-        {
-            if (conexionBD.State == ConnectionState.Closed)
-            {
-                conexionBD.Open();
-            }
-        }
-        */
+
         public void desconectar()
         {
             if (conexionBD.State == ConnectionState.Open)
