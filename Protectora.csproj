@@ -67,9 +67,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Dominio\Animal.cs" />
+    <Compile Include="Dominio\Aviso.cs" />
     <Compile Include="Dominio\ClassPruebas.cs" />
+    <Compile Include="Dominio\Padrino.cs" />
     <Compile Include="Dominio\Persona.cs" />
     <Compile Include="Dominio\Perro.cs" />
+    <Compile Include="Dominio\Socio.cs" />
+    <Compile Include="Dominio\Usuario.cs" />
+    <Compile Include="Dominio\Voluntario.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -78,7 +83,11 @@
   <ItemGroup>
     <Compile Include="Persistencia\AgenteDB.cs" />
     <Compile Include="Persistencia\AnimalDAO.cs" />
-    <Compile Include="Persistencia\PersonaDAO.cs" />
+    <Compile Include="Persistencia\AvisoDAO.cs" />
+    <Compile Include="Persistencia\PadrinoDAO.cs" />
+    <Compile Include="Persistencia\SocioDAO.cs" />
+    <Compile Include="Persistencia\UsuarioDAO.cs" />
+    <Compile Include="Persistencia\VoluntarioDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

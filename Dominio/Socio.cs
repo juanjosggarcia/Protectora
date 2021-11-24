@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Protectora.Persistencia
+namespace Protectora.Dominio
 {
-    class PersonaDAO
+    class Socio
     {
     }
 }
