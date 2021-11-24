@@ -58,6 +58,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Presentacion\GestionPerro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Presentacion\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -70,6 +74,9 @@
     <Compile Include="Dominio\ClassPruebas.cs" />
     <Compile Include="Dominio\Persona.cs" />
     <Compile Include="Dominio\Perro.cs" />
+    <Compile Include="Presentacion\GestionPerro.xaml.cs">
+      <DependentUpon>GestionPerro.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -133,6 +140,18 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="recursos\socios.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\fondo3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\fondo6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\return.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\fondo7.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

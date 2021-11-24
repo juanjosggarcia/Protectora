@@ -6,13 +6,14 @@
         xmlns:local="clr-namespace:Protectora"
         mc:Ignorable="d"
 		Icon="/recursos/pawprint.ico"
-        Title="Inicio" Height="650" Width="900">
+        Title="Inicio" Height="650" Width="900"
+        WindowStartupLocation="CenterScreen">
     
    <Window.Background>
         <ImageBrush ImageSource="/recursos/fondo.jpg"/>
     </Window.Background>
 
-    <Border  BorderBrush="Black" Background="#f1eee2" Margin="220,161,220,164" BorderThickness="3" CornerRadius="6" >
+    <Border  BorderBrush="Black" Background="#e2d9d2" Margin="220,161,220,164" BorderThickness="3" CornerRadius="6" >
 
         <Grid x:Name="pnlInicioSesion" Margin="0,0,-2,-1" >
             <Grid.ColumnDefinitions>

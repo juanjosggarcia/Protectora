@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:Protectora.Presentacion"
         mc:Ignorable="d"
         Icon="/recursos/pawprint.ico"
-        Height="650" Width="900">
+        Height="650" Width="900"
+        WindowStartupLocation="CenterScreen">
 
     <Window.Background>
         <ImageBrush ImageSource="/recursos/fondo4.jpg"/>
@@ -27,7 +28,7 @@
                 <ColumnDefinition Width="49*"/>
             </Grid.ColumnDefinitions>
             <Label Content="MENU"  HorizontalAlignment="Left" Width="70" FontFamily="Lucida Sans Unicode" FontSize="20" FontWeight="Bold" Margin="10,0,0,0"/>
-            <Button BorderThickness="2" BorderBrush="Black" Background="#a4c3a2" HorizontalAlignment="Left" Height="175" Margin="235,135,0,-270" VerticalAlignment="Top" Width="185" RenderTransformOrigin="0.6,0.5">
+            <Button x:Name="BtnPerro"  BorderThickness="2" BorderBrush="Black" Background="#a4c3a2" HorizontalAlignment="Left" Height="175" Margin="235,135,0,-270" VerticalAlignment="Top" Width="185" RenderTransformOrigin="0.6,0.5" Click="BtnPerro_Click">
                 <StackPanel>
                     <Image Source="/recursos/dogo.png" Width="112" Height="104"/>
                     <TextBlock Text="PERROS" VerticalAlignment="Center" FontFamily="Lucida Sans Unicode" FontSize ="15"  FontWeight="Bold" Width="60"/>

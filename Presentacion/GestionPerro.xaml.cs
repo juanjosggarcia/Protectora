@@ -15,26 +15,21 @@ using System.Windows.Shapes;
 namespace Protectora.Presentacion
 {
     /// <summary>
-    /// Lógica de interacción para Menu.xaml
+    /// Lógica de interacción para GestionPerro.xaml
     /// </summary>
-    public partial class Menu : Window
+    public partial class GestionPerro : Window
     {
-        public Menu()
+        public GestionPerro()
         {
             InitializeComponent();
         }
 
-        private void BtnPerro_Click(object sender, RoutedEventArgs e)
+        private void BtnVolver_Click(object sender, RoutedEventArgs e)
         {
-         
-            Presentacion.GestionPerro nw = new Presentacion.GestionPerro();
+            Presentacion.Menu nw = new Presentacion.Menu();
             nw.Show();
 
             this.Close();
-
-            
         }
     }
-
-
 }

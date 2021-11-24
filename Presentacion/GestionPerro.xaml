@@ -1,0 +1,63 @@
+﻿<Window x:Class="Protectora.Presentacion.GestionPerro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Protectora.Presentacion"
+        mc:Ignorable="d"
+        Title="GestionPerro"  Height="650" Width="900"
+        Icon="/recursos/pawprint.ico"
+        WindowStartupLocation="CenterScreen"
+        >
+    <Window.Background>
+        <ImageBrush ImageSource="/recursos/fondo7.jpg"/>
+    </Window.Background>
+
+    <Grid RenderTransformOrigin="0.517,0.515" Margin="0,0,4,0">
+        <Button x:Name="BtnVolver"  BorderThickness="2" BorderBrush="Black" Background="#ffff" HorizontalAlignment="Left" Height="43" Margin="10,10,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="0.6,0.5" Click="BtnVolver_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="80"/>
+                </Style>
+            </Button.Resources>
+            <StackPanel>
+                <Image Source="/Protectora;component/recursos/return.png" Width="27" Height="33"/>
+            </StackPanel>
+        </Button>
+        <Label Content="MENU" HorizontalAlignment="Left" Height="43" Margin="30,257,0,0" VerticalAlignment="Top" Width="100" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="30"/>
+        <Button x:Name="BtnListar_Copy" Content="MODIFICAR" BorderThickness="2" BorderBrush="Black" Background="#FFFF" HorizontalAlignment="Left" Height="53" Margin="20,457,0,0" VerticalAlignment="Top" Width="125" RenderTransformOrigin="0.6,0.5" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="15">
+
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="30"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="BtnListar_Copy1" Content="BORRAR" BorderThickness="2" BorderBrush="Black" Background="#FFFF" HorizontalAlignment="Left" Height="53" Margin="20,390,0,0" VerticalAlignment="Top" Width="125" RenderTransformOrigin="0.6,0.5" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="15">
+
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="30"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="BtnListar_Copy2" Content="AÑADIR" BorderThickness="2" BorderBrush="Black" Background="#FFFF" HorizontalAlignment="Left" Height="53" Margin="20,322,0,0" VerticalAlignment="Top" Width="125" RenderTransformOrigin="0.5,0.5" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="15">
+
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="30"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="BtnListar_Copy3" Content="LISTAR" BorderThickness="2" BorderBrush="Black" Background="#FFFF" HorizontalAlignment="Left" Height="53" Margin="20,523,0,0" VerticalAlignment="Top" Width="125" RenderTransformOrigin="0.6,0.5" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="15">
+
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="30"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+
+
+</Window>
