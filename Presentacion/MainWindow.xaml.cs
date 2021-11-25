@@ -43,8 +43,10 @@ namespace Protectora
                 else
                 {
                 // feedback al usuario
-                txtUsuario.Text = "Combinación usuario-contraseña incorrecta";
-                }
+                txtUsuario.Text = "";
+                txtContrasenia.Password = "";
+                errorInicioSesion.Content = "Usuario o contraseña incorrectos";
+            }
             
         }
 
