@@ -31,20 +31,41 @@ namespace Protectora
 
         private void BtnIniciarSesion_Click(object sender, RoutedEventArgs e)
         {
-                if (GestorUsuario.autentificar(txtUsuario.Text.ToString(), txtContrasenia.Password.ToString()))
+
+            Usuario usuario = new Usuario();
+            if (usuario.LeerUsuario(txtUsuario.Text.ToString(), txtContrasenia.Password.ToString()) != null)
+            {
+                Presentacion.Menu menu = new Presentacion.Menu();
+                menu.Show();
+                menu.pasaUltimaConexion(usuario.FechaUltimaConex.ToString());
+
+                Close();
+            }
+            else
+            {
+                // feedback al usuario
+                string message = "Usuario o contraseña invalido";
+                string title = "Error autentificacion";
+                MessageBox.Show(message, title);
+            }
+
+            /*
+            if (GestorUsuario.autentificar(txtUsuario.Text.ToString(), txtContrasenia.Password.ToString()))
                 {
-                Presentacion.Menu nw = new Presentacion.Menu();
-                nw.Show();
+                Presentacion.Menu menu = new Presentacion.Menu();
+                menu.Show();
+                menu.pasaUltimaConexion("ayer");
 
                 this.Close();
-                }
+
+            }
 
                 else
                 {
                 // feedback al usuario
                 txtUsuario.Text = "Combinación usuario-contraseña incorrecta";
                 }
-            
+            */
         }
 
         private void OnKeyDownHandler(object sender, KeyEventArgs e)

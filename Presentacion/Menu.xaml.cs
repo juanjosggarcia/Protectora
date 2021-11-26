@@ -17,11 +17,15 @@ namespace Protectora.Presentacion
     /// <summary>
     /// Lógica de interacción para Menu.xaml
     /// </summary>
-    public partial class Menu : Window
+    public partial class Menu : Window, ICompartir
     {
         public Menu()
         {
             InitializeComponent();
+        }
+        public void pasaUltimaConexion(string texto)
+        {
+            lblFinalSesion.Content = texto;
         }
 
         private void BtnPerro_Click(object sender, RoutedEventArgs e)
@@ -29,7 +33,6 @@ namespace Protectora.Presentacion
          
             Presentacion.GestionPerro nw = new Presentacion.GestionPerro();
             nw.Show();
-
             this.Close();
 
             

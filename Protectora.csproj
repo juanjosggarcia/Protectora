@@ -90,6 +90,7 @@
     <Compile Include="Presentacion\GestionPerro.xaml.cs">
       <DependentUpon>GestionPerro.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\ICompartir.cs" />
     <Compile Include="Presentacion\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

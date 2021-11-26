@@ -10,8 +10,8 @@ namespace Protectora.Dominio
     class Usuario
     {
         private int id;
-        private String nombre;
-        private String password;
+        private string nombre;
+        private string password;
         private DateTime fechaUltimaConex;
 
 
@@ -20,14 +20,19 @@ namespace Protectora.Dominio
         }
 
 
-        public Usuario(int idR, String nR, String passwordR, DateTime fechaUltimaConexR)
+        public Usuario(int idR, string nR, string passwordR, DateTime fechaUltimaConexR)
         {
-            id = idR;
-            nombre = nR;
-            password = passwordR;
-            fechaUltimaConex = fechaUltimaConexR;
+            Id = idR;
+            Nombre = nR;
+            Password = passwordR;
+            FechaUltimaConex = fechaUltimaConexR;
 
         }
+
+        public int Id { get => id; set => id = value; }
+        public string Nombre { get => nombre; set => nombre = value; }
+        public string Password { get => password; set => password = value; }
+        public DateTime FechaUltimaConex { get => fechaUltimaConex; set => fechaUltimaConex = value; }
 
         public List<Usuario> LeerTodosUsuarios()
         {
