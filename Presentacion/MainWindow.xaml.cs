@@ -22,8 +22,6 @@ namespace Protectora
     /// </summary>
     public partial class MainWindow : Window
     {
-        private string usuario = "1234";
-        private string password = "1234";
         public MainWindow()
         {
             InitializeComponent();
@@ -31,42 +29,36 @@ namespace Protectora
 
         private void BtnIniciarSesion_Click(object sender, RoutedEventArgs e)
         {
+            errorInicioSesion.Content = "";
+            Usuario usuario = new Usuario(null, txtUsuario.Text.ToString(), txtContrasenia.Password.ToString(), null);
+            usuario = GestorUsuario.obtenerUser(usuario);
+            //usuario.LeerUsuario();
 
-            Usuario usuario = new Usuario();
-            if (usuario.LeerUsuario(txtUsuario.Text.ToString(), txtContrasenia.Password.ToString()) != null)
+            if (usuario != null)
             {
-                Presentacion.Menu menu = new Presentacion.Menu();
-                menu.Show();
-                menu.pasaUltimaConexion(usuario.FechaUltimaConex.ToString());
+                Presentacion.Menu menuWin = new Presentacion.Menu(usuario);
+                menuWin.Show();
+                //menuWin.pasarUltimaConexion(usuario.FechaUltimaConex.ToString());
 
+                //Hide();
                 Close();
             }
             else
             {
                 // feedback al usuario
-                string message = "Usuario o contraseña invalido";
-                string title = "Error autentificacion";
-                MessageBox.Show(message, title);
-            }
-
-            /*
-            if (GestorUsuario.autentificar(txtUsuario.Text.ToString(), txtContrasenia.Password.ToString()))
-                {
-                Presentacion.Menu menu = new Presentacion.Menu();
-                menu.Show();
-                menu.pasaUltimaConexion("ayer");
-
-                this.Close();
-
-            }
-
-                else
-                {
-                // feedback al usuario
                 txtUsuario.Text = "";
                 txtContrasenia.Password = "";
                 errorInicioSesion.Content = "Usuario o contraseña incorrectos";
             }
+            /*
+            else
+            {
+                // feedback al usuario con ventana emergente
+                string message = "Usuario o contraseña invalido";
+                string title = "Error autentificacion";
+                MessageBox.Show(message, title);
+            }
+            */
             
         }
 

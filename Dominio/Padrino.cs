@@ -7,7 +7,7 @@ using Protectora.Persistencia;
 
 namespace Protectora.Dominio
 {
-    class Padrino : Persona
+    public class Padrino : Persona
     {
 
         private string datosBancarios;
@@ -61,6 +61,11 @@ namespace Protectora.Dominio
             Console.Write(" ");
         }
 
+        public Padrino LeerunPadrino(int padrino)
+        {
+            return this.padDAO.LeerunPadrino(padrino);
+        }
+        
         public List<Padrino> LeerTodosPadrino()
         {
             List<Padrino> arrayPadrino = new List<Padrino>();

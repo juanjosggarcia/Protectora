@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Protectora.Dominio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace Protectora.Presentacion
 {
     interface ICompartir
     {
-        void pasaUltimaConexion(string texto);
+        void pasarUltimaConexion(string texto);
+        void pasarUsuario(Usuario user);
     }
 }

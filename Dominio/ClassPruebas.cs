@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Protectora.Dominio
 {
-    class ClassPruebas
+    public class ClassPruebas
     {
         public static void Main(string[] args)
         {
@@ -21,9 +21,9 @@ namespace Protectora.Dominio
             //Obtener todos usuarios
             Usuario usuAUX = new Usuario();
 
-            usuAUX.LeerUsuario("root", "root");
+            //usuAUX.LeerUsuario("root", "root");
 
-            List<Usuario> arrayUsuarios = usuAUX.LeerTodosUsuarios();
+            //List<Usuario> arrayUsuarios = usuAUX.LeerTodosUsuarios();
 
             //Obtener todos los animales
             Perro aniAUX = new Perro();

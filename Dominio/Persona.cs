@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Protectora.Dominio
 {
-    class Persona
+    public class Persona
     {
         protected int id;
         protected string nombreCompleto;

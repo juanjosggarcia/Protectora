@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Globalization;
+using Protectora.Dominio;
 
 namespace Protectora.Presentacion
 {
@@ -19,32 +21,53 @@ namespace Protectora.Presentacion
     /// </summary>
     public partial class Menu : Window, ICompartir
     {
-        public Menu()
+        private Usuario usuarioActual;
+        public Menu(Usuario usuarioActual)
         {
+            this.usuarioActual = usuarioActual;
             InitializeComponent();
+            lblFinalSesion.Content = usuarioActual.FechaUltimaConex.ToString();
         }
-        public void pasaUltimaConexion(string texto)
+        public void pasarUltimaConexion(string texto)
         {
             lblFinalSesion.Content = texto;
+        }
+
+        public void pasarUsuario(Usuario user)
+        {
+            usuarioActual=user;
         }
 
         private void BtnPerro_Click(object sender, RoutedEventArgs e)
         {
          
-            Presentacion.GestionPerro nw = new Presentacion.GestionPerro();
-            nw.Show();
-            this.Close();
+            GestionPerro gestionPerroWin = new GestionPerro();
+            gestionPerroWin.Show();
+            this.Hide();
+            //this.Close();
 
             
         }
 
         private void BtnCerrarSesion_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mw = new MainWindow();
-            mw.Show();
+            //MainWindow loginWin = new MainWindow();
+
+            DateTime localDate = DateTime.Now;
+
+            pasarUltimaConexion(localDate.ToString());
+
+            usuarioActual.FechaUltimaConex = localDate;
+            GestorUsuario.addUltimaConexion(usuarioActual);
+
+            Application.Current.MainWindow.Show();
+
+            //loginWin.Show();
 
             this.Close();
         }
+
+
     }
 
 

@@ -7,7 +7,7 @@ using Protectora.Persistencia;
 
 namespace Protectora.Dominio
 {
-    class Socio : Persona
+    public class Socio : Persona
     {
 
         private string datosBancarios;

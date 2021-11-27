@@ -7,50 +7,50 @@ using System.Threading.Tasks;
 
 namespace Protectora.Dominio
 {
-    class Usuario
+    public class Usuario
     {
-        private int id;
+        private int? id; // ? hace que la variable acepte los valores propios del tipo de dato y tambien el valor null
         private string nombre;
         private string password;
-        private DateTime fechaUltimaConex;
+        private DateTime? fechaUltimaConex;
+        private UsuarioDAO usuDAO;
 
 
         public Usuario()
         {
+            this.UsuDAO = new UsuarioDAO();
         }
 
 
-        public Usuario(int idR, string nR, string passwordR, DateTime fechaUltimaConexR)
+        public Usuario(Nullable<int> id, string nombre, string password, DateTime? fechaUltimaConex)
         {
-            Id = idR;
-            Nombre = nR;
-            Password = passwordR;
-            FechaUltimaConex = fechaUltimaConexR;
-
+            this.UsuDAO = new UsuarioDAO();
+            this.id = id;
+            this.nombre = nombre;
+            this.password = password;
+            this.fechaUltimaConex = fechaUltimaConex;
         }
 
-        public int Id { get => id; set => id = value; }
+        public int? Id { get => id; set => id = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public string Password { get => password; set => password = value; }
-        public DateTime FechaUltimaConex { get => fechaUltimaConex; set => fechaUltimaConex = value; }
+        public DateTime? FechaUltimaConex { get => fechaUltimaConex; set => fechaUltimaConex = value; }
+        internal UsuarioDAO UsuDAO { get => usuDAO; set => usuDAO = value; }
 
-        public List<Usuario> LeerTodosUsuarios()
+        public void LeerTodosUsuarios()
         {
-            UsuarioDAO perAUX = new UsuarioDAO();
-            List<Usuario> arrayUsuarios = perAUX.LeerTodosUsuarios();
-            return arrayUsuarios;
+            UsuDAO.leerTodas<Usuario>();
         }
 
-        public Usuario LeerUsuario(string usuario, string pass)
+        public void LeerUsuario()
         {
-            UsuarioDAO perAUX = new UsuarioDAO();
-            List<Usuario> arrayUsuarios = perAUX.LeerUsuario(usuario, pass);
+            UsuDAO.leer<Usuario>(this);
+        }
 
-            if (arrayUsuarios.Count == 1)
-            {
-                return arrayUsuarios[0];
-            }
-            return null;
+        public int ModificarUsuarioFecha()
+        {
+            //usuDAO.ModificarUsuarioFecha_ALBERTO((Usuario)this.MemberwiseClone());
+            return UsuDAO.actualizar<Usuario>(this);
         }
     }
 }
