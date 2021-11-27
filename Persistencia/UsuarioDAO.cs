@@ -32,6 +32,12 @@ namespace Protectora.Persistencia
             return arrayUsuarios;
         }
 
+        public int ModificarUsuarioFecha(Usuario u)
+        {
+            AgenteDB agente = AgenteDB.obtenerAgente();
+            return agente.modificar("UPDATE usuarios SET ultimaConexion= '" + u.getfechaUltimaConex().ToString() + "' WHERE Id = " + u.getid().ToString() + "; ");
+        }
+
         public List<Usuario> LeerUsuario(string usuario, string pass)
         {
             List<Usuario> arrayUsuarios = new List<Usuario>();

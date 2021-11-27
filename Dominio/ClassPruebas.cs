@@ -24,6 +24,11 @@ namespace Protectora.Dominio
             usuAUX.LeerUsuario("root", "root");
 
             List<Usuario> arrayUsuarios = usuAUX.LeerTodosUsuarios();
+            //MODIFICAR HORA USUARIO A LA ACTUAL
+            arrayUsuarios[0].setfechaUltimaConex(DateTime.Now);
+            arrayUsuarios[0].ModificarUsuarioFecha();
+
+            
 
             //Obtener todos los animales
             Perro aniAUX = new Perro();
@@ -45,6 +50,9 @@ namespace Protectora.Dominio
             Aviso aviAUX = new Aviso();
             List<Aviso> arrayAvisos = aviAUX.LeerTodosAvisos();
 
+            //LEER UN PADRINO MEDIANTE PERRETE
+            Padrino pad = new Padrino();
+            pad = padAUX.LeerunPadrino(arrayAnimales[0].getapadrinado());
 
             /*
             //                                                          ANIMAL  

@@ -61,6 +61,11 @@ namespace Protectora.Dominio
             Console.Write(" ");
         }
 
+        public Padrino LeerunPadrino(int padrino)
+        {
+            return this.padDAO.LeerunPadrino(padrino);
+        }
+
         public List<Padrino> LeerTodosPadrino()
         {
             List<Padrino> arrayPadrino = new List<Padrino>();

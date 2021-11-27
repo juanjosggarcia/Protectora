@@ -63,5 +63,23 @@ namespace Protectora.Persistencia
             return arrayPadrino;
         }
 
+        public Padrino LeerunPadrino(int apadrinado)
+        {
+            
+            AgenteDB agente = AgenteDB.obtenerAgente();
+
+            List<List<String>> arrayCarPadrino = new List<List<String>>();
+            arrayCarPadrino = agente.leer("SELECT * FROM personas p, padrinos a WHERE p.Id=" + apadrinado + " AND p.id=a.idPersona;");
+            Padrino s = new Padrino();
+
+            foreach (List<String> user in arrayCarPadrino)
+            {
+                s = new Padrino(Int32.Parse(user[0]), user[1], user[2], user[3], Int32.Parse(user[4]), user[6], Int32.Parse(user[7]), user[8], DateTime.Parse(user[9]));
+                
+            }
+            Console.Write(" ");
+            return s;
+        }
+
     }
 }
