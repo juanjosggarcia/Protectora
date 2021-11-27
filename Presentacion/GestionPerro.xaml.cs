@@ -31,5 +31,13 @@ namespace Protectora.Presentacion
 
             this.Close();
         }
+
+        private void BtnPdrino_Click(object sender, RoutedEventArgs e)
+        {
+            Padrino Padrinito = new Padrino();
+            Padrinito.Show();
+        }
+
+       
     }
 }

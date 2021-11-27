@@ -85,6 +85,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Presentacion\OlvidadaContrasenia.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\Padrino.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Persistencia\AgenteDB.cs" />
@@ -92,6 +104,12 @@
     <Compile Include="Persistencia\PersonaDAO.cs" />
     <Compile Include="Presentacion\Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\OlvidadaContrasenia.xaml.cs">
+      <DependentUpon>OlvidadaContrasenia.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Padrino.xaml.cs">
+      <DependentUpon>Padrino.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -152,6 +170,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="recursos\fondo7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\fondo8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\fondoOlvidarContrasenia.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

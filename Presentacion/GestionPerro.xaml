@@ -10,10 +10,11 @@
         WindowStartupLocation="CenterScreen"
         >
     <Window.Background>
-        <ImageBrush ImageSource="/recursos/fondo7.jpg"/>
+        <ImageBrush ImageSource="/recursos/fondo8.jpg"/>
     </Window.Background>
 
     <Grid RenderTransformOrigin="0.517,0.515" Margin="0,0,4,0">
+
         <Button x:Name="BtnVolver"  BorderThickness="2" BorderBrush="Black" Background="#ffff" HorizontalAlignment="Left" Height="43" Margin="10,10,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="0.6,0.5" Click="BtnVolver_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -25,7 +26,7 @@
             </StackPanel>
         </Button>
         <Label Content="MENU" HorizontalAlignment="Left" Height="43" Margin="30,257,0,0" VerticalAlignment="Top" Width="100" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="30"/>
-        <Button x:Name="BtnListar_Copy" Content="MODIFICAR" BorderThickness="2" BorderBrush="Black" Background="#FFFF" HorizontalAlignment="Left" Height="53" Margin="20,457,0,0" VerticalAlignment="Top" Width="125" RenderTransformOrigin="0.6,0.5" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="15">
+        <Button x:Name="BtnModificar" Content="MODIFICAR" BorderThickness="2" BorderBrush="Black" Background="#FFFF" HorizontalAlignment="Left" Height="53" Margin="20,457,0,0" VerticalAlignment="Top" Width="125" RenderTransformOrigin="0.6,0.5" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="15">
 
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -33,7 +34,8 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="BtnListar_Copy1" Content="BORRAR" BorderThickness="2" BorderBrush="Black" Background="#FFFF" HorizontalAlignment="Left" Height="53" Margin="20,390,0,0" VerticalAlignment="Top" Width="125" RenderTransformOrigin="0.6,0.5" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="15">
+
+        <Button x:Name="BtnBorrar" Content="BORRAR" BorderThickness="2" BorderBrush="Black" Background="#FFFF" HorizontalAlignment="Left" Height="53" Margin="20,390,0,0" VerticalAlignment="Top" Width="125" RenderTransformOrigin="0.6,0.5" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="15">
 
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -41,7 +43,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="BtnListar_Copy2" Content="AÑADIR" BorderThickness="2" BorderBrush="Black" Background="#FFFF" HorizontalAlignment="Left" Height="53" Margin="20,322,0,0" VerticalAlignment="Top" Width="125" RenderTransformOrigin="0.5,0.5" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="15">
+        <Button x:Name="BtnAniadir" Content="AÑADIR" BorderThickness="2" BorderBrush="Black" Background="#FFFF" HorizontalAlignment="Left" Height="53" Margin="20,322,0,0" VerticalAlignment="Top" Width="125" RenderTransformOrigin="0.5,0.5" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="15">
 
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -49,7 +51,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="BtnListar_Copy3" Content="LISTAR" BorderThickness="2" BorderBrush="Black" Background="#FFFF" HorizontalAlignment="Left" Height="53" Margin="20,523,0,0" VerticalAlignment="Top" Width="125" RenderTransformOrigin="0.6,0.5" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="15">
+        <Button x:Name="BtnListar" Content="LISTAR" BorderThickness="2" BorderBrush="Black" Background="#FFFF" HorizontalAlignment="Left" Height="53" Margin="20,523,0,0" VerticalAlignment="Top" Width="125" RenderTransformOrigin="0.6,0.5" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="15">
 
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -57,6 +59,118 @@
                 </Style>
             </Button.Resources>
         </Button>
+
+        <ScrollViewer HorizontalAlignment="Center" Height="384" Margin="170,170,400,0" VerticalAlignment="Top" Width="320" RenderTransformOrigin="0.447,0.495">
+            <StackPanel Orientation="Vertical" Name="layerList" ScrollViewer.VerticalScrollBarVisibility="Visible" Width="250" >
+                <Button x:Name="BotonPerro1" Content="BORRAR" BorderThickness="2" BorderBrush="Black" Background="#FFFF" Height="126" VerticalAlignment="Top" RenderTransformOrigin="0.6,0.5" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="15" Margin="62,0,60,0">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="30"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="BotonPerro2" Content="BORRAR" BorderThickness="2" BorderBrush="Black" Background="#FFFF" Height="112" VerticalAlignment="Top" RenderTransformOrigin="0.6,0.5" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="15" Margin="62,10,60,0">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="30"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button x:Name="BotonPerro3" Content="BORRAR" BorderThickness="2" BorderBrush="Black" Background="#FFFF" Height="126" VerticalAlignment="Top" RenderTransformOrigin="0.6,0.5" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="15" Margin="62,10,60,0">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="30"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="BotonPerro4" Content="BORRAR" BorderThickness="2" BorderBrush="Black" Background="#FFFF" Height="126" VerticalAlignment="Top" RenderTransformOrigin="0.6,0.5" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="15" Margin="62,10,60,0">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="30"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="BotonPerro5" Content="BORRAR" BorderThickness="2" BorderBrush="Black" Background="#FFFF" Height="126" VerticalAlignment="Top" RenderTransformOrigin="0.6,0.5" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="15" Margin="62,10,60,0">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="30"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="BotonPerro6" Content="BORRAR" BorderThickness="2" BorderBrush="Black" Background="#FFFF" Height="126" VerticalAlignment="Top" RenderTransformOrigin="0.6,0.5" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="15" Margin="62,10,60,0">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="30"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button x:Name="BotonPerro7" Content="BORRAR" BorderThickness="2" BorderBrush="Black" Background="#FFFF" Height="126" VerticalAlignment="Top" RenderTransformOrigin="0.6,0.5" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="15" Margin="62,10,60,0">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="30"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="BotonPerro8" Content="BORRAR" BorderThickness="2" BorderBrush="Black" Background="#FFFF" Height="126" VerticalAlignment="Top" RenderTransformOrigin="0.6,0.5" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="15" Margin="62,10,60,0">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="30"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="BotonPerro9" Content="BORRAR" BorderThickness="2" BorderBrush="Black" Background="#FFFF" Height="126" VerticalAlignment="Top" RenderTransformOrigin="0.6,0.5" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="15" Margin="62,10,60,0">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="30"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="BotonPerro10" Content="BORRAR" BorderThickness="2" BorderBrush="Black" Background="#FFFF" Height="126" VerticalAlignment="Top" RenderTransformOrigin="0.6,0.5" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="15" Margin="62,10,60,0">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="30"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+
+            </StackPanel>
+        </ScrollViewer>
+
+        
+        <Label x:Name="lblId" Content="Id:" HorizontalAlignment="Left" Height="25" Margin="555,152,0,0" VerticalAlignment="Top" Width="80"/>
+        <Label x:Name="lblIdAnimal" Content="ID" HorizontalAlignment="Left" Height="25" Margin="670,152,0,0" VerticalAlignment="Top" Width="80"/>
+
+        <Label x:Name="lblNombre" Content="Nombre:" HorizontalAlignment="Left" Height="25" Margin="555,200,0,0" VerticalAlignment="Top" Width="80"/>
+        <Label x:Name="lblNombreAnimal" Content="NOMBRE" HorizontalAlignment="Left" Height="25" Margin="670,200,0,0" VerticalAlignment="Top" Width="80"/>
+
+        <Label x:Name="lblsexo" Content="Sexo:" HorizontalAlignment="Left" Height="25" Margin="555,246,0,0" VerticalAlignment="Top" Width="80"/>
+        <Label x:Name="lblsexoAnimal" Content="SEXO" HorizontalAlignment="Left" Height="25" Margin="670,246,0,0" VerticalAlignment="Top" Width="80"/>
+
+        <Label x:Name="lbltamanio" Content="Tamaño:" HorizontalAlignment="Left" Height="25" Margin="555,293,0,0" VerticalAlignment="Top" Width="80"/>
+        <Label x:Name="lbltamanioAnimal" Content="TAMAÑO" HorizontalAlignment="Left" Height="25" Margin="670,293,0,0" VerticalAlignment="Top" Width="80"/>
+
+        <Label x:Name="lblPeso" Content="Peso:" HorizontalAlignment="Left" Height="24" Margin="555,336,0,0" VerticalAlignment="Top" Width="80"/>
+        <Label x:Name="lblPesoAnimal" Content="PESO" HorizontalAlignment="Left" Height="25" Margin="670,336,0,0" VerticalAlignment="Top" Width="80"/>
+
+        <Label x:Name="lblEdad" Content="Edad:" HorizontalAlignment="Left" Height="24" Margin="555,365,0,0" VerticalAlignment="Top" Width="80"/>
+        <Label x:Name="lblEdadAnimal" Content="EDAAD" HorizontalAlignment="Left" Height="25" Margin="670,365,0,0" VerticalAlignment="Top" Width="80"/>
+
+        <Label x:Name="lblEntrada" Content="Entrada:" HorizontalAlignment="Left" Height="24" Margin="555,394,0,0" VerticalAlignment="Top" Width="80"/>
+        <Label x:Name="lblEntradaAnimal" Content="ENTRADA" HorizontalAlignment="Left" Height="25" Margin="670,400,0,0" VerticalAlignment="Top" Width="80"/>
+
+        <Label x:Name="lblEstado" Content="Estado:" HorizontalAlignment="Left" Height="24" Margin="555,425,0,0" VerticalAlignment="Top" Width="80"/>
+        <Label x:Name="lblEstadoAnimal" Content="ESTADO" HorizontalAlignment="Left" Height="25" Margin="670,430,0,0" VerticalAlignment="Top" Width="80"/>
+
+        <Label x:Name="lblPadrino" Content="Padrino:" HorizontalAlignment="Left" Height="24" Margin="555,457,0,0" VerticalAlignment="Top" Width="80"/>
+        <Button x:Name="BtnPdrino" Content="PADRRINO" BorderBrush="Transparent" Background="#FFFFFF" HorizontalAlignment="Left" Height="34" Margin="665,457,0,0" VerticalAlignment="Top" Width="95" RenderTransformOrigin="0.412,0.529" Click="BtnPdrino_Click"/>
+
+        <Label x:Name="lblDescrpcion" Content="Descripcion:" HorizontalAlignment="Left" Height="24" Margin="555,492,0,0" VerticalAlignment="Top" Width="80"/>
+        <Label x:Name="lblDescrpcionAnimal" Content="DESCRIPCION" HorizontalAlignment="Left" Height="25" Margin="670,491,0,0" VerticalAlignment="Top" Width="105"/>
+        
+
     </Grid>
 
 

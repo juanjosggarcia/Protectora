@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Protectora.Presentacion"
+        Title="Menu"
         mc:Ignorable="d"
         Icon="/recursos/pawprint.ico"
         Height="650" Width="900"
@@ -80,12 +81,12 @@
 
             <!-- FontFamily="Tahoma" FontFamily="PMingLiU-ExtB" -->
         </Grid>
-        <Label x:Name ="lblFinalSesion" Content="Ultimo inicio de sesión: 16 de noviembre 18:35" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="530,15,0,0" VerticalAlignment="Top" Width="260"/>
-        <Button x:Name="BtnCerrarSesion" Content="Cerrar Sesion" BorderThickness="2" BorderBrush="Black" Background="#a4c3a2" HorizontalAlignment="Left" Height="53" Margin="665.4,557,0,0" VerticalAlignment="Top" Width="125" RenderTransformOrigin="0.6,0.5" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="15" Grid.Column="1" Click="BtnCerrarSesion_Click">
+        <Label x:Name ="lblFinalSesion" Content="Ultimo inicio de sesión: 16 de noviembre 18:35" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="540,15,0,0" VerticalAlignment="Top" Width="260"/>
+        <Button x:Name="BtnCerrarSesion" Content="Cerrar Sesion" BorderThickness="2" BorderBrush="Black" Background="#e2d9d2" HorizontalAlignment="Left" Height="53" Margin="650,535,0,0" VerticalAlignment="Top" Width="125" RenderTransformOrigin="0.6,0.5" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="15" Grid.Column="1" Click="BtnCerrarSesion_Click">
 
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="30"/>
+                    <Setter Property="CornerRadius" Value="20"/>
                 </Style>
             </Button.Resources>
         </Button>

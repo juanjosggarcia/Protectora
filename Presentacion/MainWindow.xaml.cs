@@ -57,6 +57,14 @@ namespace Protectora
                 BtnIniciarSesion_Click(sender, e);
             }
         }
+
+        private void BtnOlvidarContraseña_Click(object sender, RoutedEventArgs e)
+        {
+            OlvidadaContrasenia Oc = new OlvidadaContrasenia();
+            Oc.Show();
+        }
+
+        
     }
 
 }

@@ -44,7 +44,7 @@
 
 
             <Label x:Name ="lblUsuario" Content="Usuario:" FontFamily="Lucida Sans Unicode"  FontWeight="Bold" Margin="113,152,0,34.2" HorizontalAlignment="Left" Width="79" FontSize="15" Grid.ColumnSpan="2" Grid.Row="1" />
-            <TextBox x:Name ="txtUsuario" Grid.Column="1" Margin="70.2,160,103.4,57.2" Grid.ColumnSpan="2" Grid.Row="1" KeyDown="OnKeyDownHandler"/>
+            <TextBox x:Name ="txtUsuario" Text="1234" Grid.Column="1" Margin="70.2,160,103.4,57.2" Grid.ColumnSpan="2" Grid.Row="1" KeyDown="OnKeyDownHandler"/>
             <Label x:Name ="lblPassword" Content="Contraseña:"  FontFamily="Lucida Sans Unicode"  FontWeight="Bold" Margin="113,187,70.6,20.2" RenderTransformOrigin="0.45,1.265" FontSize="15" Grid.ColumnSpan="2" Grid.Row="1"/>
             <PasswordBox x:Name ="txtContrasenia" Grid.Column="1" HorizontalAlignment="Left" Margin="70.2,199,0,20.2" Grid.Row="1" VerticalAlignment="Center" Width="124" Grid.ColumnSpan="2" Height="20" KeyDown="OnKeyDownHandler" RenderTransformOrigin="0.452,1.5"/>
 
@@ -56,8 +56,8 @@
                     </Style>
                 </Button.Resources>
             </Button>
+            <Button Name="BtnOlvidarContraseña" Content="Olvidaste tu contraseña?" BorderThickness="2" BorderBrush="Transparent" Background="#e2d9d2" HorizontalAlignment="Left" Height="34" Margin="132,26,0,0" VerticalAlignment="Top" Width="159" RenderTransformOrigin="0.591,1.088" Grid.Column="1" Grid.Row="2" FontFamily="Lucida Sans Unicode" Grid.ColumnSpan="2" Click="BtnOlvidarContraseña_Click"/>
 
-            <Label Content="Olvidaste tu contraseña?" Grid.Column="2" HorizontalAlignment="Left" Height="30" Margin="5.4,33.8,-2.6,0" VerticalAlignment="Top" Width="146" FontSize="12" Grid.Row="2"/>
             <ComboBox IsReadOnly="True" IsEditable="True" HorizontalAlignment="Left" Height="25" Margin="10,6,0,0" VerticalAlignment="Top" Width="114" Text="Idioma" Grid.Row="1" >
                 <ComboBoxItem>
                     <StackPanel Orientation="Horizontal">
