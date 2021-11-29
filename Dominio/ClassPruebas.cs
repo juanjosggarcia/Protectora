@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Protectora.Dominio
 {
-    class ClassPruebas
+    public class ClassPruebas
     {
         public static void Main(string[] args)
         {
@@ -21,14 +21,9 @@ namespace Protectora.Dominio
             //Obtener todos usuarios
             Usuario usuAUX = new Usuario();
 
-            usuAUX.LeerUsuario("root", "root");
+            //usuAUX.LeerUsuario("root", "root");
 
-            List<Usuario> arrayUsuarios = usuAUX.LeerTodosUsuarios();
-            //MODIFICAR HORA USUARIO A LA ACTUAL
-            arrayUsuarios[0].setfechaUltimaConex(DateTime.Now);
-            arrayUsuarios[0].ModificarUsuarioFecha();
-
-            
+            //List<Usuario> arrayUsuarios = usuAUX.LeerTodosUsuarios();
 
             //Obtener todos los animales
             Perro aniAUX = new Perro();
@@ -50,9 +45,6 @@ namespace Protectora.Dominio
             Aviso aviAUX = new Aviso();
             List<Aviso> arrayAvisos = aviAUX.LeerTodosAvisos();
 
-            //LEER UN PADRINO MEDIANTE PERRETE
-            Padrino pad = new Padrino();
-            pad = padAUX.LeerunPadrino(arrayAnimales[0].getapadrinado());
 
             /*
             //                                                          ANIMAL  

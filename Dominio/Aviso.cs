@@ -7,7 +7,7 @@ using Protectora.Persistencia;
 
 namespace Protectora.Dominio
 {
-    class Aviso
+    public class Aviso
     {
         private int id;
         private string nombre;

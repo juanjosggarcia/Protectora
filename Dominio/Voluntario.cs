@@ -7,7 +7,7 @@ using Protectora.Persistencia;
 
 namespace Protectora.Dominio
 {
-    class Voluntario : Persona
+    public class Voluntario : Persona
     {
         private string foto;
         private string horario;

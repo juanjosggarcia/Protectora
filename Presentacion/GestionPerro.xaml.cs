@@ -26,10 +26,23 @@ namespace Protectora.Presentacion
 
         private void BtnVolver_Click(object sender, RoutedEventArgs e)
         {
-            Presentacion.Menu nw = new Presentacion.Menu();
-            nw.Show();
+            // recorre todas las ventanas en ejecucion actualmente
+            /*
+            foreach (Window window in Application.Current.Windows)
+            {
+                Console.WriteLine(window.Title);
+            }
+            */
 
-            this.Close();
+            Application.Current.Windows.OfType<Menu>().FirstOrDefault().Show();
+
+            //menuWin.Show();
+            //App.Current.menuWin.Show();
+
+            //Presentacion.Menu nw = new Presentacion.Menu();
+            //nw.Show();
+            Hide();
+            //this.Close();
         }
     }
 }

@@ -7,7 +7,7 @@ using Protectora.Persistencia;
 
 namespace Protectora.Dominio
 {
-    class Socio : Persona
+    public class Socio : Persona
     {
 
         private string datosBancarios;
@@ -15,46 +15,51 @@ namespace Protectora.Dominio
         private string formaPago;
         private SocioDAO socDAO;
 
+        public string DatosBancarios { get => datosBancarios; set => datosBancarios = value; }
+        public int CuantiaAyuda { get => cuantiaAyuda; set => cuantiaAyuda = value; }
+        public string FormaPago { get => formaPago; set => formaPago = value; }
+        internal SocioDAO SocDAO { get => socDAO; set => socDAO = value; }
+
         public Socio() : base()
         {
-            this.socDAO = new SocioDAO();
+            this.SocDAO = new SocioDAO();
         }
 
         public Socio(string nombreCompleto, string correo, string dni, int telefono,
             string datosBancarios, int cuantiaAyuda, string formaPago) : base(nombreCompleto, correo, dni, telefono)
         {
-            this.socDAO = new SocioDAO();
-            this.datosBancarios = datosBancarios;
-            this.cuantiaAyuda = cuantiaAyuda;
-            this.formaPago = formaPago;
+            this.SocDAO = new SocioDAO();
+            this.DatosBancarios = datosBancarios;
+            this.CuantiaAyuda = cuantiaAyuda;
+            this.FormaPago = formaPago;
 
         }
 
         public Socio(int id, string nombreCompleto, string correo, string dni, int telefono,
             string datosBancarios, int cuantiaAyuda, string formaPago) : base(id, nombreCompleto, correo, dni, telefono)
         {
-            this.socDAO = new SocioDAO();
-            this.datosBancarios = datosBancarios;
-            this.cuantiaAyuda = cuantiaAyuda;
-            this.formaPago = formaPago;
+            this.SocDAO = new SocioDAO();
+            this.DatosBancarios = datosBancarios;
+            this.CuantiaAyuda = cuantiaAyuda;
+            this.FormaPago = formaPago;
 
         }
 
         public void InsertarSocio()
         {
-            this.socDAO.InsertarSocio((Socio)this.MemberwiseClone());
+            this.SocDAO.InsertarSocio((Socio)this.MemberwiseClone());
             Console.Write(" ");
         }
 
         public void EliminarSocio()
         {
-            this.socDAO.EliminarSocio((Socio)this.MemberwiseClone());
+            this.SocDAO.EliminarSocio((Socio)this.MemberwiseClone());
             Console.Write(" ");
         }
 
         public void ModificarSocio()
         {
-            this.socDAO.ModificarSocio((Socio)this.MemberwiseClone());
+            this.SocDAO.ModificarSocio((Socio)this.MemberwiseClone());
             Console.Write(" ");
         }
 
@@ -68,31 +73,6 @@ namespace Protectora.Dominio
             return arraySocios;
         }
 
-        public string getdatosBancarios()
-        {
-            return this.datosBancarios;
-        }
-        public void setdatosBancarios(string datosBancarios)
-        {
-            this.datosBancarios = datosBancarios;
-        }
-        public int getcuantiaAyuda()
-        {
-            return this.cuantiaAyuda;
-        }
-        public void setcuantiaAyuda(int cuantiaAyuda)
-        {
-            this.cuantiaAyuda = cuantiaAyuda;
-        }
-
-        public string getformaPago()
-        {
-            return this.formaPago;
-        }
-        public void setformaPago(string formaPago)
-        {
-            this.formaPago = formaPago;
-        }
 
     }
 }

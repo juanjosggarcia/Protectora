@@ -7,86 +7,50 @@ using System.Threading.Tasks;
 
 namespace Protectora.Dominio
 {
-    class Usuario
+    public class Usuario
     {
-        private int id;
-        private String nombre;
-        private String password;
-        private DateTime fechaUltimaConex;
+        private int? id; // ? hace que la variable acepte los valores propios del tipo de dato y tambien el valor null
+        private string nombre;
+        private string password;
+        private DateTime? fechaUltimaConex;
         private UsuarioDAO usuDAO;
 
 
         public Usuario()
         {
-            this.usuDAO = new UsuarioDAO();
+            this.UsuDAO = new UsuarioDAO();
         }
 
 
-        public Usuario(int id, String n, String password, DateTime fechaUltimaConex)
+        public Usuario(Nullable<int> id, string nombre, string password, DateTime? fechaUltimaConex)
         {
-            this.usuDAO = new UsuarioDAO();
+            this.UsuDAO = new UsuarioDAO();
             this.id = id;
-            this.nombre = n;
-            this.password = password;
-            this.fechaUltimaConex = fechaUltimaConex;
-        }
-        public void ModificarUsuarioFecha()
-        {
-            this.usuDAO.ModificarUsuarioFecha((Usuario)this.MemberwiseClone());
-            Console.Write(" ");
-        }
-
-        public List<Usuario> LeerTodosUsuarios()
-        {
-            List<Usuario> arrayUsuarios = usuDAO.LeerTodosUsuarios();
-            return arrayUsuarios;
-        }
-
-        public Usuario LeerUsuario(string usuario, string pass)
-        {
-            List<Usuario> arrayUsuarios = usuDAO.LeerUsuario(usuario, pass);
-
-            if (arrayUsuarios.Count == 1)
-            {
-                return arrayUsuarios[0];
-            }
-            return null;
-        }
-
-        public int getid()
-        {
-            return this.id;
-        }
-        public void setid(int id)
-        {
-            this.id = id;
-        }
-
-        public string getNombre()
-        {
-            return this.nombre;
-        }
-        public void setNombre(string nombre)
-        {
             this.nombre = nombre;
-        }
-
-        public DateTime getfechaUltimaConex()
-        {
-            return this.fechaUltimaConex;
-        }
-        public void setfechaUltimaConex(DateTime fechaUltimaConex)
-        {
+            this.password = password;
             this.fechaUltimaConex = fechaUltimaConex;
         }
 
-        public string getpassword()
+        public int? Id { get => id; set => id = value; }
+        public string Nombre { get => nombre; set => nombre = value; }
+        public string Password { get => password; set => password = value; }
+        public DateTime? FechaUltimaConex { get => fechaUltimaConex; set => fechaUltimaConex = value; }
+        internal UsuarioDAO UsuDAO { get => usuDAO; set => usuDAO = value; }
+
+        public void LeerTodosUsuarios()
         {
-            return this.password;
+            UsuDAO.leerTodas<Usuario>();
         }
-        public void setpassword(string password)
+
+        public void LeerUsuario()
         {
-            this.password = password;
+            UsuDAO.leer<Usuario>(this);
+        }
+
+        public int ModificarUsuarioFecha()
+        {
+            //usuDAO.ModificarUsuarioFecha_ALBERTO((Usuario)this.MemberwiseClone());
+            return UsuDAO.actualizar<Usuario>(this);
         }
     }
 }

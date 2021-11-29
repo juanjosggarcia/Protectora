@@ -78,6 +78,7 @@
     <Compile Include="Persistencia\AgenteDB.cs" />
     <Compile Include="Persistencia\AnimalDAO.cs" />
     <Compile Include="Persistencia\AvisoDAO.cs" />
+    <Compile Include="Persistencia\IDAO.cs" />
     <Compile Include="Persistencia\PadrinoDAO.cs" />
     <Compile Include="Persistencia\SocioDAO.cs" />
     <Compile Include="Persistencia\UsuarioDAO.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="Presentacion\GestionPerro.xaml.cs">
       <DependentUpon>GestionPerro.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\ICompartir.cs" />
     <Compile Include="Presentacion\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

@@ -22,8 +22,6 @@ namespace Protectora
     /// </summary>
     public partial class MainWindow : Window
     {
-        private string usuario = "1234";
-        private string password = "1234";
         public MainWindow()
         {
             InitializeComponent();
@@ -31,19 +29,36 @@ namespace Protectora
 
         private void BtnIniciarSesion_Click(object sender, RoutedEventArgs e)
         {
-                if (GestorUsuario.autentificar(txtUsuario.Text.ToString(), txtContrasenia.Password.ToString()))
-                {
-                Presentacion.Menu nw = new Presentacion.Menu();
-                nw.Show();
+            errorInicioSesion.Content = "";
+            Usuario usuario = new Usuario(null, txtUsuario.Text.ToString(), txtContrasenia.Password.ToString(), null);
+            usuario = GestorUsuario.obtenerUser(usuario);
+            //usuario.LeerUsuario();
 
-                this.Close();
-                }
+            if (usuario != null)
+            {
+                Presentacion.Menu menuWin = new Presentacion.Menu(usuario);
+                menuWin.Show();
+                //menuWin.pasarUltimaConexion(usuario.FechaUltimaConex.ToString());
 
-                else
-                {
+                //Hide();
+                Close();
+            }
+            else
+            {
                 // feedback al usuario
-                txtUsuario.Text = "Combinación usuario-contraseña incorrecta";
-                }
+                txtUsuario.Text = "";
+                txtContrasenia.Password = "";
+                errorInicioSesion.Content = "Usuario o contraseña incorrectos";
+            }
+            /*
+            else
+            {
+                // feedback al usuario con ventana emergente
+                string message = "Usuario o contraseña invalido";
+                string title = "Error autentificacion";
+                MessageBox.Show(message, title);
+            }
+            */
             
         }
 
