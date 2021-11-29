@@ -6,15 +6,20 @@ using System.Threading.Tasks;
 
 namespace Protectora.Persistencia
 {
-    interface IDAO
+    interface IDAO<T>
     {
-        //List<T> leerTodas<T>();
-        //T leer<T>(T obj);
-        void leerTodas<T>();
-        void leer<T>(ref T obj);
-        int insertar<T>(T obj);
-        int actualizar<T>(T obj);
-        int eliminar<T>(T obj);
+        /*
+        List<T> ts
+        {
+            get;
+            set;
+        }
+        */
+        List<T> leerTodas();
+        T leer(ref T obj);
+        int insertar(ref T obj);
+        int actualizar(ref T obj);
+        int eliminar(ref T  obj);
 
     }
 }

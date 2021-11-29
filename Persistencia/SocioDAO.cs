@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace Protectora.Persistencia
 {
-    class SocioDAO
+    class SocioDAO : IDAO<Socio>
     {
+
+
 
         public void leerTodos()
         {
@@ -61,5 +63,30 @@ namespace Protectora.Persistencia
             return arraySocios;
         }
 
+        public List<Socio> leerTodas()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Socio leer(ref Socio obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int insertar(ref Socio obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int actualizar(ref Socio obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int eliminar(ref Socio obj)
+        {
+            AgenteDB agente = AgenteDB.obtenerAgente();
+            return agente.modificar("DELETE FROM personas WHERE Id=" + s.getid().ToString() + ";");
+        }
     }
 }
