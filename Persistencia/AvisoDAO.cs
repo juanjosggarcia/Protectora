@@ -7,37 +7,10 @@ using System.Threading.Tasks;
 
 namespace Protectora.Persistencia
 {
-    class AvisoDAO
+    class AvisoDAO : IDAO<Aviso>
     {
 
-        public void leerTodos()
-        {
-            Aviso aviso = new Aviso();
-        }
-
-        public int InsertarAviso(Aviso a)
-        {
-            AgenteDB agente = AgenteDB.obtenerAgente();
-
-            return agente.modificar("INSERT INTO avisos (nombre,sexo,raza,tamanio,descripcionAnimal,descripcionLocalizacion,foto,fechaperdida,datosDueños) VALUES ('" + a.getNombre().ToString() + "', '" + a.getsexo().ToString() + "', '" + a.getraza().ToString() + "', " + a.gettamanio().ToString() + "" +
-                ", '" + a.getdescripcionAnimal().ToString() + "', '" + a.getdescripcionLocalizacion().ToString() + "', '" + a.getfoto().ToString() + "', '" + a.getfechaPerdida().ToString() + "', '" + a.getdatosDuenios().ToString() + "');");
-        }
-
-        public int EliminarAviso(Aviso a)
-        {
-            AgenteDB agente = AgenteDB.obtenerAgente();
-            return agente.modificar("DELETE FROM avisos WHERE Id=" + a.getid().ToString() + ";");
-        }
-
-        public int ModificarAviso(Aviso a)
-        {
-            AgenteDB agente = AgenteDB.obtenerAgente();
-            return agente.modificar("UPDATE avisos SET nombre= '" + a.getNombre().ToString() + "',sexo='" + a.getsexo().ToString() + "',raza='" + a.getraza().ToString() + "',tamanio= " + a.gettamanio().ToString() + "," +
-                "descripcionAnimal='" + a.getdescripcionAnimal().ToString() + "',descripcionLocalizacion= '" + a.getdescripcionLocalizacion().ToString() + "',foto='" + a.getfoto().ToString() + "',fechaperdida='" + a.getfechaPerdida().ToString() +
-                "',datosDueños='" + a.getdatosDuenios().ToString() + "' WHERE Id = " + a.getid().ToString() + "; ");
-        }
-
-        public List<Aviso> LeerTodosAvisos()
+        public List<Aviso> leerTodas()
         {
             List<Aviso> arrayAvisos = new List<Aviso>();
             AgenteDB agente = AgenteDB.obtenerAgente();
@@ -55,5 +28,31 @@ namespace Protectora.Persistencia
             return arrayAvisos;
         }
 
+        public Aviso leer(Aviso obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int insertar(Aviso obj)
+        {
+            AgenteDB agente = AgenteDB.obtenerAgente();
+
+            return agente.modificar("INSERT INTO avisos (nombre,sexo,raza,tamanio,descripcionAnimal,descripcionLocalizacion,foto,fechaperdida,datosDueños) VALUES ('" + obj.Nombre.ToString() + "', '" + obj.Sexo.ToString() + "', '" + obj.Raza.ToString() + "', " + obj.Tamanio.ToString() + "" +
+                ", '" + obj.DescripcionAnimal.ToString() + "', '" + obj.DescripcionLocalizacion.ToString() + "', '" + obj.Foto.ToString() + "', '" + obj.FechaPerdida.ToString() + "', '" + obj.DatosDuenios.ToString() + "');");
+        }
+
+        public int actualizar(Aviso obj)
+        {
+            AgenteDB agente = AgenteDB.obtenerAgente();
+            return agente.modificar("UPDATE avisos SET nombre= '" + obj.Nombre.ToString() + "',sexo='" + obj.Sexo.ToString() + "',raza='" + obj.Raza.ToString() + "',tamanio= " + obj.Tamanio.ToString() + "," +
+                "descripcionAnimal='" + obj.DescripcionAnimal.ToString() + "',descripcionLocalizacion= '" + obj.DescripcionLocalizacion.ToString() + "',foto='" + obj.Foto.ToString() + "',fechaperdida='" + obj.FechaPerdida.ToString() +
+                "',datosDueños='" + obj.DatosDuenios.ToString() + "' WHERE Id = " + obj.Id.ToString() + "; ");
+        }
+
+        public int eliminar(Aviso obj)
+        {
+            AgenteDB agente = AgenteDB.obtenerAgente();
+            return agente.modificar("DELETE FROM avisos WHERE Id=" + obj.Id.ToString() + ";");
+        }
     }
 }

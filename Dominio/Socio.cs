@@ -25,17 +25,8 @@ namespace Protectora.Dominio
             this.SocDAO = new SocioDAO();
         }
 
-        public Socio(string nombreCompleto, string correo, string dni, int telefono,
-            string datosBancarios, int cuantiaAyuda, string formaPago) : base(nombreCompleto, correo, dni, telefono)
-        {
-            this.SocDAO = new SocioDAO();
-            this.DatosBancarios = datosBancarios;
-            this.CuantiaAyuda = cuantiaAyuda;
-            this.FormaPago = formaPago;
 
-        }
-
-        public Socio(int id, string nombreCompleto, string correo, string dni, int telefono,
+        public Socio(Nullable<int> id, string nombreCompleto, string correo, string dni, int telefono,
             string datosBancarios, int cuantiaAyuda, string formaPago) : base(id, nombreCompleto, correo, dni, telefono)
         {
             this.SocDAO = new SocioDAO();
@@ -49,19 +40,19 @@ namespace Protectora.Dominio
 
         public void InsertarSocio()
         {
-            this.SocDAO.InsertarSocio((Socio)this.MemberwiseClone());
+            this.SocDAO.insertar((Socio)this.MemberwiseClone());
             Console.Write(" ");
         }
 
         public void EliminarSocio()
         {
-            this.SocDAO.EliminarSocio((Socio)this.MemberwiseClone());
+            this.SocDAO.eliminar((Socio)this.MemberwiseClone());
             Console.Write(" ");
         }
 
         public void ModificarSocio()
         {
-            this.SocDAO.ModificarSocio((Socio)this.MemberwiseClone());
+            this.SocDAO.actualizar((Socio)this.MemberwiseClone());
             Console.Write(" ");
         }
         

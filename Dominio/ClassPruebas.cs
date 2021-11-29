@@ -45,15 +45,19 @@ namespace Protectora.Dominio
             Aviso aviAUX = new Aviso();
             List<Aviso> arrayAvisos = aviAUX.LeerTodosAvisos();
 
+
             //LEER UN PADRINO MEDIANTE PERRETE
             Padrino pad = new Padrino();
-            pad = padAUX.LeerunPadrino(arrayAnimales[0].getapadrinado());
+            pad.Id = arrayAnimales[0].apadrinado;
+            pad = pad.LeerunPadrino();
+
+
 
             /*
             //                                                          ANIMAL  
                //Añadir animal
 
-           Perro p = new Perro("Kora", "Macho", 72, 19, 7, DateTime.Now, "pastorDos.jpg", "www.youtube.com", "Perro lindo", "Libre", 0, "Pastor Aleman");
+           Perro p = new Perro(null ,"Kora", "Macho", 72, 19, 7, DateTime.Now, "pastorDos.jpg", "www.youtube.com", "Perro lindo", "Libre", 0, "Pastor Aleman");
            p.InsertarPerro();
 
 
@@ -66,27 +70,25 @@ namespace Protectora.Dominio
                //Modificar animal
 
            Perro pMod = arrayAnimales[8];
-           pMod.setNombre("Mara");
-           pMod.setraza("Mestizo");
+           pMod.nombre=("Mara");
+           pMod.Raza=("Mestizo");
            pMod.ModificarPerro();
 
             //Obtener todos los animales
             arrayAnimales =  aniAUX.LeerTodosAnimales();
 
-            */
-
-            /*
+            
             //                                                          VOLUNTARIOS  
             //Añadir voluntario
 
-           Voluntario v = new Voluntario("Eva Luna", "evalun@gmail.com", "05239654L", 454368719,  "eva.jpg", "Por las noches", "d");
+           Voluntario v = new Voluntario(null, "Eva Luna", "evalun@gmail.com", "05239654L", 454368719,  "eva.jpg", "Por las noches", "d");
            v.InsertarVoluntario();
             
              //Modificar voluntario
 
            Voluntario vMod = arrayVoluntarios[2];
-           vMod.setNombre("Macos Manuel");
-           vMod.setzonaDisponibilidad("f");
+           vMod.NombreCompleto=("Macos Manuel");
+           vMod.ZonaDisponibilidad=("f");
            vMod.ModificarVoluntario();
 
 
@@ -98,20 +100,20 @@ namespace Protectora.Dominio
             //Obtener todos los voluntarios
             arrayVoluntarios =  volAUX.LeerTodosVoluntarios();
 
-            */
+            
 
 
             //                                                          SOCIOS  
             //Añadir socio
-            /*
-           Socio s = new Socio("Fernando Garcia", "fergb@gmail.com", "05259654N", 454536719,  "fer.jpg", 20 , "Cheque");
+            
+           Socio s = new Socio(null, "Fernando Garcia", "fergb@gmail.com", "05259654N", 454536719,  "fer.jpg", 20 , "Cheque");
            s.InsertarSocio();
             
              //Modificar socio
 
            Socio sMod = arraySocios[2];
-           sMod.setNombre("Marcos Heredia");
-           sMod.setformaPago("efectivo");
+           sMod.NombreCompleto=("Marcos Heredia");
+           sMod.FormaPago=("efectivo");
            sMod.ModificarSocio();
 
             
@@ -122,21 +124,18 @@ namespace Protectora.Dominio
             
             //Obtener todos los socio
             arraySocios =  socAUX.LeerTodosSocios();
-            */
-
-
-            /*
+            
             //                                                          PADRINOS  
             //Añadir padrino
 
-            Padrino pa = new Padrino("Eva Luna", "evalun@gmail.com", "05239654L", 454368719,  "eva.jpg",5 , "d",DateTime.Now);
+            Padrino pa = new Padrino(null, "Eva Luna", "evalun@gmail.com", "05239654L", 454368719,  "eva.jpg",5 , "d",DateTime.Now);
            pa.InsertarPadrino();
             
              //Modificar padrino
 
              Padrino paMod = arrayPadrino[2];
-           paMod.setNombre("El alfa");
-           paMod.setcuantiaAyuda(200);
+           paMod.NombreCompleto=("El alfa");
+           paMod.ImporteMensual=(200);
            paMod.ModificarPadrino();
             
 
@@ -149,13 +148,11 @@ namespace Protectora.Dominio
 
             arrayPadrino =  padAUX.LeerTodosPadrino();
            
-            */
-
-            /*
+            
             //                                                            AVISOS
                //Añadir aviso
 
-           Aviso a = new Aviso("Pluto", "Macho", "Desconocido", 62, "Perro marron que habla", "Se encuentra por el centro", "pastorDos.jpg", DateTime.Now, "Luis Enrique 854323405");
+           Aviso a = new Aviso(null, "Pluto", "Macho", "Desconocido", 62, "Perro marron que habla", "Se encuentra por el centro", "pastorDos.jpg", DateTime.Now, "Luis Enrique 854323405");
            a.InsertarAviso();
 
            
@@ -168,11 +165,12 @@ namespace Protectora.Dominio
             //Modificar aviso
             
            Aviso aMod = arrayAvisos[2];
-           aMod.setNombre("Makako");
+           aMod.Nombre=("Makako");
            aMod.ModificarAviso();
 
             //Obtener todos los avisos
            arrayAvisos = aviAUX.LeerTodosAvisos();
+             
              
             */
 

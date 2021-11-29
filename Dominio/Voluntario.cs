@@ -13,45 +13,42 @@ namespace Protectora.Dominio
         private string horario;
         private string zonaDisponibilidad;
         private VoluntarioDAO volDAO;
+
+        public string Foto { get => foto; set => foto = value; }
+        public string Horario { get => horario; set => horario = value; }
+        public string ZonaDisponibilidad { get => zonaDisponibilidad; set => zonaDisponibilidad = value; }
+        internal VoluntarioDAO VolDAO { get => volDAO; set => volDAO = value; }
+
         public Voluntario() : base()
         {
-            this.volDAO = new VoluntarioDAO();
+            this.VolDAO = new VoluntarioDAO();
         }
 
 
-        public Voluntario(int id, string nombreCompleto, string correo, string dni, int telefono,
+        public Voluntario(Nullable<int> id, string nombreCompleto, string correo, string dni, int telefono,
             string foto, string horario, string zonaDisponibilidad) : base(id, nombreCompleto, correo, dni, telefono)
         {
-            this.volDAO = new VoluntarioDAO();
-            this.foto = foto;
-            this.horario = horario;
-            this.zonaDisponibilidad = zonaDisponibilidad;
-        }
-
-        public Voluntario(string nombreCompleto, string correo, string dni, int telefono,
-            string foto, string horario, string zonaDisponibilidad) : base(nombreCompleto, correo, dni, telefono)
-        {
-            this.volDAO = new VoluntarioDAO();
-            this.foto = foto;
-            this.horario = horario;
-            this.zonaDisponibilidad = zonaDisponibilidad;
+            this.VolDAO = new VoluntarioDAO();
+            this.Foto = foto;
+            this.Horario = horario;
+            this.ZonaDisponibilidad = zonaDisponibilidad;
         }
 
         public void InsertarVoluntario()
         {
-            this.volDAO.InsertarVoluntario((Voluntario)this.MemberwiseClone());
+            this.VolDAO.insertar((Voluntario)this.MemberwiseClone());
             Console.Write(" ");
         }
 
         public void EliminarVoluntario()
         {
-            this.volDAO.EliminarVoluntario((Voluntario)this.MemberwiseClone());
+            this.VolDAO.eliminar((Voluntario)this.MemberwiseClone());
             Console.Write(" ");
         }
 
         public void ModificarVoluntario()
         {
-            this.volDAO.ModificarVoluntario((Voluntario)this.MemberwiseClone());
+            this.VolDAO.actualizar((Voluntario)this.MemberwiseClone());
             Console.Write(" ");
         }
 
@@ -60,36 +57,12 @@ namespace Protectora.Dominio
             List<Voluntario> arrayVoluntarios = new List<Voluntario>();
 
             VoluntarioDAO volDao = new VoluntarioDAO();
-            arrayVoluntarios = volDao.LeerTodosVoluntarios();
+            arrayVoluntarios = volDao.leerTodas();
 
             Console.Write(" ");
 
             return arrayVoluntarios;
         }
 
-        public string getfoto()
-        {
-            return this.foto;
-        }
-        public void setfoto(string foto)
-        {
-            this.foto = foto;
-        }
-        public string gethorario()
-        {
-            return this.horario;
-        }
-        public void sethorario(string horario)
-        {
-            this.horario = horario;
-        }
-        public string getzonaDisponibilidad()
-        {
-            return this.zonaDisponibilidad;
-        }
-        public void setzonaDisponibilidad(string zonaDisponibilidad)
-        {
-            this.zonaDisponibilidad = zonaDisponibilidad;
-        }
     }
 }

@@ -16,98 +16,62 @@ namespace Protectora.Dominio
         private DateTime fechaEntrada;
         private PadrinoDAO padDAO;
 
+        public string DatosBancarios { get => datosBancarios; set => datosBancarios = value; }
+        public int ImporteMensual { get => importeMensual; set => importeMensual = value; }
+        public string FormaPago { get => formaPago; set => formaPago = value; }
+        public DateTime FechaEntrada { get => fechaEntrada; set => fechaEntrada = value; }
+        internal PadrinoDAO PadDAO { get => padDAO; set => padDAO = value; }
+
         public Padrino() : base()
         {
-            this.padDAO = new PadrinoDAO();
+            this.PadDAO = new PadrinoDAO();
         }
 
-        public Padrino(string nombreCompleto, string correo, string dni, int telefono,
-            string datosBancarios, int importeMensual, string formaPago, DateTime fechaEntrada) : base(nombreCompleto, correo, dni, telefono)
-        {
-            this.padDAO = new PadrinoDAO();
-            this.datosBancarios = datosBancarios;
-            this.importeMensual = importeMensual;
-            this.formaPago = formaPago;
-            this.fechaEntrada = fechaEntrada;
 
-        }
-
-        public Padrino(int id, string nombreCompleto, string correo, string dni, int telefono,
+        public Padrino(Nullable<int> id, string nombreCompleto, string correo, string dni, int telefono,
             string datosBancarios, int importeMensual, string formaPago, DateTime fechaEntrada) : base(id, nombreCompleto, correo, dni, telefono)
         {
-            this.padDAO = new PadrinoDAO();
-            this.datosBancarios = datosBancarios;
-            this.importeMensual = importeMensual;
-            this.formaPago = formaPago;
-            this.fechaEntrada = fechaEntrada;
+            this.PadDAO = new PadrinoDAO();
+            this.DatosBancarios = datosBancarios;
+            this.ImporteMensual = importeMensual;
+            this.FormaPago = formaPago;
+            this.FechaEntrada = fechaEntrada;
 
         }
 
         public void InsertarPadrino()
         {
-            this.padDAO.InsertarPadrino((Padrino)this.MemberwiseClone());
+            this.PadDAO.insertar((Padrino)this.MemberwiseClone());
             Console.Write(" ");
         }
 
         public void EliminarPadrino()
         {
-            this.padDAO.EliminarPadrino((Padrino)this.MemberwiseClone());
+            this.PadDAO.eliminar((Padrino)this.MemberwiseClone());
             Console.Write(" ");
         }
 
         public void ModificarPadrino()
         {
-            this.padDAO.ModificarPadrino((Padrino)this.MemberwiseClone());
+            this.PadDAO.actualizar((Padrino)this.MemberwiseClone());
             Console.Write(" ");
         }
 
-        public Padrino LeerunPadrino(int padrino)
+        public Padrino LeerunPadrino()
         {
-            return this.padDAO.LeerunPadrino(padrino);
+            Console.Write(" ");
+            return this.PadDAO.leer((Padrino)this.MemberwiseClone());
         }
         
         public List<Padrino> LeerTodosPadrino()
         {
             List<Padrino> arrayPadrino = new List<Padrino>();
             PadrinoDAO padDAO = new PadrinoDAO();
-            arrayPadrino = padDAO.LeerTodosPadrino();
+            arrayPadrino = padDAO.leerTodas();
             Console.Write(" ");
 
             return arrayPadrino;
         }
 
-        public string getdatosBancarios()
-        {
-            return this.datosBancarios;
-        }
-        public void setdatosBancarios(string datosBancarios)
-        {
-            this.datosBancarios = datosBancarios;
-        }
-        public int getimporteMensual()
-        {
-            return this.importeMensual;
-        }
-        public void setcuantiaAyuda(int importeMensual)
-        {
-            this.importeMensual = importeMensual;
-        }
-
-        public string getformaPago()
-        {
-            return this.formaPago;
-        }
-        public void setformaPago(string formaPago)
-        {
-            this.formaPago = formaPago;
-        }
-        public DateTime getfechaEntrada()
-        {
-            return this.fechaEntrada;
-        }
-        public void setfechaEntrada(DateTime fechaEntrada)
-        {
-            this.fechaEntrada = fechaEntrada;
-        }
     }
 }

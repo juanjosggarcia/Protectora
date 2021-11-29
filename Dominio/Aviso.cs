@@ -9,7 +9,7 @@ namespace Protectora.Dominio
 {
     public class Aviso
     {
-        private int id;
+        private int? id;
         private string nombre;
         private string sexo;
         private string raza;
@@ -21,61 +21,56 @@ namespace Protectora.Dominio
         private string datosDuenios;
         private AvisoDAO aviDAO;
 
+        public int? Id { get => id; set => id = value; }
+        public string Nombre { get => nombre; set => nombre = value; }
+        public string Sexo { get => sexo; set => sexo = value; }
+        public string Raza { get => raza; set => raza = value; }
+        public int Tamanio { get => tamanio; set => tamanio = value; }
+        public string DescripcionAnimal { get => descripcionAnimal; set => descripcionAnimal = value; }
+        public string DescripcionLocalizacion { get => descripcionLocalizacion; set => descripcionLocalizacion = value; }
+        public string Foto { get => foto; set => foto = value; }
+        public DateTime FechaPerdida { get => fechaPerdida; set => fechaPerdida = value; }
+        public string DatosDuenios { get => datosDuenios; set => datosDuenios = value; }
+        internal AvisoDAO AviDAO { get => aviDAO; set => aviDAO = value; }
+
         public Aviso()
         {
-            this.aviDAO = new AvisoDAO();
+            this.AviDAO = new AvisoDAO();
         }
 
-        public Aviso(string nR, string sexoR, string razaR
+        public Aviso(Nullable<int> idR, string nR, string sexoR, string razaR
             , int tamanioR, string descripcionAnimalR, string descripcionLocalizacionR,
             string fotoR, DateTime fechaPerdidaR, string datosDueniosR)
         {
-            this.aviDAO = new AvisoDAO();
-            nombre = nR;
-            sexo = sexoR;
-            raza = razaR;
-            tamanio = tamanioR;
-            descripcionAnimal = descripcionAnimalR;
-            descripcionLocalizacion = descripcionLocalizacionR;
-            foto = fotoR;
-            fechaPerdida = fechaPerdidaR;
-            datosDuenios = datosDueniosR;
-
-        }
-
-        public Aviso(int idR, string nR, string sexoR, string razaR
-            , int tamanioR, string descripcionAnimalR, string descripcionLocalizacionR,
-            string fotoR, DateTime fechaPerdidaR, string datosDueniosR)
-        {
-            this.aviDAO = new AvisoDAO();
-            id = idR;
-            nombre = nR;
-            sexo = sexoR;
-            raza = razaR;
-            tamanio = tamanioR;
-            descripcionAnimal = descripcionAnimalR;
-            descripcionLocalizacion = descripcionLocalizacionR;
-            foto = fotoR;
-            fechaPerdida = fechaPerdidaR;
-            datosDuenios = datosDueniosR;
+            this.AviDAO = new AvisoDAO();
+            Id = idR;
+            Nombre = nR;
+            Sexo = sexoR;
+            Raza = razaR;
+            Tamanio = tamanioR;
+            DescripcionAnimal = descripcionAnimalR;
+            DescripcionLocalizacion = descripcionLocalizacionR;
+            Foto = fotoR;
+            FechaPerdida = fechaPerdidaR;
+            DatosDuenios = datosDueniosR;
 
         }
         public void InsertarAviso()
         {
 
-            this.aviDAO.InsertarAviso((Aviso)this.MemberwiseClone());
+            this.AviDAO.insertar((Aviso)this.MemberwiseClone());
             Console.Write(" ");
         }
 
         public void EliminarAviso()
         {
-            this.aviDAO.EliminarAviso((Aviso)this.MemberwiseClone());
+            this.AviDAO.eliminar((Aviso)this.MemberwiseClone());
             Console.Write(" ");
         }
 
         public void ModificarAviso()
         {
-            this.aviDAO.ModificarAviso((Aviso)this.MemberwiseClone());
+            this.AviDAO.actualizar((Aviso)this.MemberwiseClone());
             Console.Write(" ");
         }
 
@@ -85,99 +80,12 @@ namespace Protectora.Dominio
             List<Aviso> arrayAvisos = new List<Aviso>();
 
             AvisoDAO aviDao = new AvisoDAO();
-            arrayAvisos = aviDao.LeerTodosAvisos();
+            arrayAvisos = aviDao.leerTodas();
             Console.Write(" ");
 
             return arrayAvisos;
         }
 
-        public int getid()
-        {
-            return this.id;
-        }
-        public void setid(int id)
-        {
-            this.id = id;
-        }
 
-        public string getNombre()
-        {
-            return this.nombre;
-        }
-        public void setNombre(string nombre)
-        {
-            this.nombre = nombre;
-        }
-
-        public string getsexo()
-        {
-            return this.sexo;
-        }
-        public void setsexo(string sexo)
-        {
-            this.sexo = sexo;
-        }
-
-        public int gettamanio()
-        {
-            return this.tamanio;
-        }
-        public void settamanio(int tamanio)
-        {
-            this.tamanio = tamanio;
-        }
-        public string getraza()
-        {
-            return this.raza;
-        }
-        public void setraza(string raza)
-        {
-            this.raza = raza;
-        }
-
-        public string getdescripcionAnimal()
-        {
-            return this.descripcionAnimal;
-        }
-        public void setdescripcionAnimal(string descripcionAnimal)
-        {
-            this.descripcionAnimal = descripcionAnimal;
-        }
-
-        public string getdescripcionLocalizacion()
-        {
-            return this.descripcionLocalizacion;
-        }
-        public void setdescripcionLocalizacion(string descripcionLocalizacion)
-        {
-            this.descripcionLocalizacion = descripcionLocalizacion;
-        }
-
-        public string getfoto()
-        {
-            return this.foto;
-        }
-        public void setfoto(string foto)
-        {
-            this.foto = foto;
-        }
-
-        public DateTime getfechaPerdida()
-        {
-            return this.fechaPerdida;
-        }
-        public void setfechaPerdida(DateTime fechaPerdida)
-        {
-            this.fechaPerdida = fechaPerdida;
-        }
-
-        public string getdatosDuenios()
-        {
-            return this.datosDuenios;
-        }
-        public void setdatosDuenios(string datosDuenios)
-        {
-            this.datosDuenios = datosDuenios;
-        }
     }
 }
