@@ -16,10 +16,10 @@ namespace Protectora.Persistencia
         }
         */
         List<T> leerTodas();
-        T leer(ref T obj);
-        int insertar(ref T obj);
-        int actualizar(ref T obj);
-        int eliminar(ref T  obj);
+        T leer(T obj);
+        int insertar(T obj);
+        int actualizar(T obj);
+        int eliminar(T  obj);
 
     }
 }

@@ -10,23 +10,9 @@ namespace Protectora.Persistencia
     class SocioDAO : IDAO<Socio>
     {
 
-
-
         public void leerTodos()
         {
             Socio socios = new Socio();
-        }
-
-        public int InsertarSocio(Socio s)
-        {
-            AgenteDB agente = AgenteDB.obtenerAgente();
-
-            agente.modificar("INSERT INTO personas (nombreCompleto,correo,dni,telefono) VALUES ('" + s.getNombre().ToString() + "', '" + s.getcorreo().ToString() + "'," +
-                " '" + s.getdni().ToString() + "', " + s.gettelefono().ToString() + ");");
-            s.setid(Int32.Parse(agente.leer("SELECT MAX(Id) FROM personas")[0][0]));
-
-            return agente.modificar("INSERT INTO socios ( datosBancarios, cuantiaAyuda, formaPago, IdPersona ) VALUES ('" + s.getdatosBancarios().ToString() + "'," +
-                " " + s.getcuantiaAyuda().ToString() + ", '" + s.getformaPago().ToString() + "', " + s.getid().ToString() + ");");
         }
 
 
@@ -40,7 +26,7 @@ namespace Protectora.Persistencia
         {
             AgenteDB agente = AgenteDB.obtenerAgente();
 
-            agente.modificar("UPDATE socios SET datosBancarios='" + s.getdatosBancarios().ToString() + "' ,cuantiaAyuda=" + s.getcuantiaAyuda().ToString() + ",formaPago= '" + s.getformaPago().ToString() + "' WHERE IdPersona = " + s.getid().ToString() + "; ");
+            agente.modificar("UPDATE socios SET datosBancarios='" + s.DatosBancarios.ToString() + "' ,cuantiaAyuda=" + s.CuantiaAyuda.ToString() + ",formaPago= '" + s.FormaPago.ToString() + "' WHERE IdPersona = " + s.getid().ToString() + "; ");
 
             return agente.modificar("UPDATE personas SET nombreCompleto= '" + s.getNombre().ToString() + "',correo='" + s.getcorreo().ToString() + "'," +
                 "dni='" + s.getdni().ToString() + "',telefono=" + s.gettelefono().ToString() + " WHERE Id = " + s.getid().ToString() + "; ");
@@ -65,28 +51,48 @@ namespace Protectora.Persistencia
 
         public List<Socio> leerTodas()
         {
-            throw new NotImplementedException();
+            List<Socio> arraySocios = new List<Socio>();
+            AgenteDB agente = AgenteDB.obtenerAgente();
+
+            List<List<String>> arrayCarSocios = new List<List<String>>();
+            arrayCarSocios = agente.leer("SELECT * FROM personas p, socios s WHERE p.id=s.idPersona");
+
+            foreach (List<String> user in arrayCarSocios)
+            {
+                Socio s = new Socio(Int32.Parse(user[0]), user[1], user[2], user[3], Int32.Parse(user[4]), user[6], Int32.Parse(user[7]), user[8]);
+                arraySocios.Add(s);
+            }
+            Console.Write(" ");
+            return arraySocios;
         }
 
-        public Socio leer(ref Socio obj)
+        public Socio leer(Socio obj)
         {
             throw new NotImplementedException();
         }
 
-        public int insertar(ref Socio obj)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int actualizar(ref Socio obj)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int eliminar(ref Socio obj)
+        public int insertar(Socio obj)
         {
             AgenteDB agente = AgenteDB.obtenerAgente();
-            return agente.modificar("DELETE FROM personas WHERE Id=" + s.getid().ToString() + ";");
+
+            agente.modificar("INSERT INTO personas (nombreCompleto,correo,dni,telefono) VALUES ('" + obj.getNombre().ToString() + "', '" + obj.getcorreo().ToString() + "'," +
+                " '" + obj.getdni().ToString() + "', " + obj.gettelefono().ToString() + ");");
+            obj.setid(Int32.Parse(agente.leer("SELECT MAX(Id) FROM personas")[0][0]));
+
+            return agente.modificar("INSERT INTO socios ( datosBancarios, cuantiaAyuda, formaPago, IdPersona ) VALUES ('" + obj.DatosBancarios.ToString() + "'," +
+                " " + obj.CuantiaAyuda.ToString() + ", '" + obj.FormaPago.ToString() + "', " + obj.getid().ToString() + ");");
+
+        }
+
+        public int actualizar(Socio obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int eliminar(Socio obj)
+        {
+            AgenteDB agente = AgenteDB.obtenerAgente();
+            return agente.modificar("DELETE FROM personas WHERE Id=" + obj.getid().ToString() + ";");
         }
     }
 }

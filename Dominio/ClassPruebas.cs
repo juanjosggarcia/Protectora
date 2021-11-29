@@ -45,6 +45,9 @@ namespace Protectora.Dominio
             Aviso aviAUX = new Aviso();
             List<Aviso> arrayAvisos = aviAUX.LeerTodosAvisos();
 
+            //LEER UN PADRINO MEDIANTE PERRETE
+            Padrino pad = new Padrino();
+            pad = padAUX.LeerunPadrino(arrayAnimales[0].getapadrinado());
 
             /*
             //                                                          ANIMAL  

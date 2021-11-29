@@ -45,6 +45,8 @@ namespace Protectora.Dominio
 
         }
 
+
+
         public void InsertarSocio()
         {
             this.SocDAO.InsertarSocio((Socio)this.MemberwiseClone());
@@ -62,17 +64,17 @@ namespace Protectora.Dominio
             this.SocDAO.ModificarSocio((Socio)this.MemberwiseClone());
             Console.Write(" ");
         }
-
+        
         public List<Socio> LeerTodosSocios()
         {
             List<Socio> arraySocios = new List<Socio>();
             SocioDAO socDAO = new SocioDAO();
-            arraySocios = socDAO.LeerTodosSocios();
+            arraySocios = socDAO.leerTodas();
             Console.Write(" ");
 
             return arraySocios;
         }
-
+        
 
     }
 }

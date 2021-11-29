@@ -15,6 +15,12 @@ namespace Protectora.Dominio
         private DateTime? fechaUltimaConex;
         private UsuarioDAO usuDAO;
 
+        public int? Id { get => id; set => id = value; }
+        public string Nombre { get => nombre; set => nombre = value; }
+        public string Password { get => password; set => password = value; }
+        public DateTime? FechaUltimaConex { get => fechaUltimaConex; set => fechaUltimaConex = value; }
+        internal UsuarioDAO UsuDAO { get => usuDAO; set => usuDAO = value; }
+
 
         public Usuario()
         {
@@ -31,26 +37,21 @@ namespace Protectora.Dominio
             this.fechaUltimaConex = fechaUltimaConex;
         }
 
-        public int? Id { get => id; set => id = value; }
-        public string Nombre { get => nombre; set => nombre = value; }
-        public string Password { get => password; set => password = value; }
-        public DateTime? FechaUltimaConex { get => fechaUltimaConex; set => fechaUltimaConex = value; }
-        internal UsuarioDAO UsuDAO { get => usuDAO; set => usuDAO = value; }
 
-        public void LeerTodosUsuarios()
+
+        public List<Usuario> LeerTodosUsuarios()
         {
-            UsuDAO.leerTodas<Usuario>();
+            return UsuDAO.leerTodas();
         }
 
-        public void LeerUsuario()
+        public Usuario LeerUsuario()
         {
-            UsuDAO.leer<Usuario>(this);
+            return UsuDAO.leer(this);
         }
 
         public int ModificarUsuarioFecha()
         {
-            //usuDAO.ModificarUsuarioFecha_ALBERTO((Usuario)this.MemberwiseClone());
-            return UsuDAO.actualizar<Usuario>(this);
+            return UsuDAO.actualizar(this);
         }
     }
 }
