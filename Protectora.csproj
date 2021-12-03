@@ -58,6 +58,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Presentacion\ControlUsuarioPerro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Presentacion\GestionPerro.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -74,6 +78,9 @@
     <Compile Include="Dominio\ClassPruebas.cs" />
     <Compile Include="Dominio\Persona.cs" />
     <Compile Include="Dominio\Perro.cs" />
+    <Compile Include="Presentacion\ControlUsuarioPerro.xaml.cs">
+      <DependentUpon>ControlUsuarioPerro.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\GestionPerro.xaml.cs">
       <DependentUpon>GestionPerro.xaml</DependentUpon>
     </Compile>
@@ -176,6 +183,24 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="recursos\fondoOlvidarContrasenia.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\fondo20.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\fondo21.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\fondo22.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\bichon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\fondoOlvidarContrasenia2.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -58,13 +58,30 @@ namespace Protectora
             }
         }
 
+        private void LimpiarTexto(object sender, EventArgs e)
+        {
+            txtUsuario.Text = "";
+            txtUsuario.Foreground = new SolidColorBrush(Colors.Black);
+
+            if (txtUsuario.Text != "Nombre de Usuario")
+            {
+
+            }
+        }
+
+        private void LimpiarTextoContrasenia(object sender, EventArgs e)
+        {
+            txtContrasenia.Password = "";
+            txtContrasenia.Foreground = new SolidColorBrush(Colors.Black);
+        }
+
         private void BtnOlvidarContraseña_Click(object sender, RoutedEventArgs e)
         {
             OlvidadaContrasenia Oc = new OlvidadaContrasenia();
             Oc.Show();
         }
 
-        
+
     }
 
 }

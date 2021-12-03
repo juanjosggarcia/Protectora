@@ -6,32 +6,37 @@
         xmlns:local="clr-namespace:Protectora"
         mc:Ignorable="d"
 		Icon="/recursos/pawprint.ico"
-        Title="Inicio" Height="650" Width="900"
+        Title="Inicio" Height="844.2" Width="1719.4"
+        WindowState="Maximized"
         WindowStartupLocation="CenterScreen">
 
     <Window.Background>
-        <ImageBrush ImageSource="/recursos/fondo.jpg"/>
+        <ImageBrush ImageSource="/recursos/fondo20.jpg"/>
     </Window.Background>
 
-    <Border  BorderBrush="Black" Background="#e2d9d2" Margin="220,142,219.6,164" BorderThickness="3" CornerRadius="6" >
+    <Border  BorderBrush="white" Background="#FAF9F7" Margin="383,173,0,166.4" BorderThickness="3" CornerRadius="25" HorizontalAlignment="Left" Width="765" >
 
-        <Grid x:Name="pnlInicioSesion" Margin="1.8,-1.2,-3.6,-2.8" >
+
+        <Grid x:Name="pnlInicioSesion" Margin="-13.2,1.8,-3.4,-3">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="148" />
-                <ColumnDefinition Width="148" />
-                <ColumnDefinition Width="148"/>
+                <ColumnDefinition Width="240" />
+                <ColumnDefinition Width="315.2" />
+                <ColumnDefinition Width="195.2"/>
+                <ColumnDefinition Width="189.6"/>
 
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
 
                 <RowDefinition Height="4" />
-                <RowDefinition Height="239.2"/>
-                <RowDefinition/>
+                <RowDefinition Height="251.2"/>
+                <RowDefinition Height="215.2"/>
+                <RowDefinition Height="160"/>
+                <RowDefinition Height="380.8"/>
             </Grid.RowDefinitions>
 
             <Image x:Name="imgAvatar"
-               Margin="36.2,30,35.6,106.2" 
-               Source="/recursos/login.png" RenderTransformOrigin="0.724,0.5" Grid.Column="1" Grid.Row="1">
+               Margin="32,57,81.2,69.2" 
+               Source="/recursos/user.png" RenderTransformOrigin="0.724,0.5" Grid.Row="1" Grid.Column="1">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleX="-1"/>
@@ -41,14 +46,10 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
+            <TextBox x:Name ="txtUsuario" Text="Nombre de Usuario" Grid.Column="1" Margin="3,15.8,7.2,165.4" Grid.Row="2" KeyDown="OnKeyDownHandler" PreviewMouseDown="LimpiarTexto" FontSize="17" Foreground="Gray"/>
+            <PasswordBox x:Name ="txtContrasenia" Grid.Column="1" FontSize="16" HorizontalAlignment="Left" Margin="3,54.8,0,124.4" Grid.Row="2" VerticalAlignment="Center" Width="305" Height="36" KeyDown="OnKeyDownHandler" RenderTransformOrigin="0.452,1.5" TextBlock.Foreground="Gray" Password="Contraseña"  PreviewMouseDown="LimpiarTextoContrasenia"/>
 
-
-            <Label x:Name ="lblUsuario" Content="Usuario:" FontFamily="Lucida Sans Unicode"  FontWeight="Bold" Margin="113,152,0,34.2" HorizontalAlignment="Left" Width="79" FontSize="15" Grid.ColumnSpan="2" Grid.Row="1" />
-            <TextBox x:Name ="txtUsuario" Text="1234" Grid.Column="1" Margin="70.2,160,103.4,57.2" Grid.ColumnSpan="2" Grid.Row="1" KeyDown="OnKeyDownHandler"/>
-            <Label x:Name ="lblPassword" Content="Contraseña:"  FontFamily="Lucida Sans Unicode"  FontWeight="Bold" Margin="113,187,70.6,20.2" RenderTransformOrigin="0.45,1.265" FontSize="15" Grid.ColumnSpan="2" Grid.Row="1"/>
-            <PasswordBox x:Name ="txtContrasenia" Grid.Column="1" HorizontalAlignment="Left" Margin="70.2,199,0,20.2" Grid.Row="1" VerticalAlignment="Center" Width="124" Grid.ColumnSpan="2" Height="20" KeyDown="OnKeyDownHandler" RenderTransformOrigin="0.452,1.5"/>
-
-            <Button Name="BtnIniciarSesion" Content="Iniciar Sesión" BorderThickness="2" BorderBrush="Black" Background="#a4c3a2" HorizontalAlignment="Left" Height="42" Margin="21.2,9.8,0,0" VerticalAlignment="Top" Width="103" RenderTransformOrigin="0.6,0.5" Grid.Column="1" Grid.Row="2" Click="BtnIniciarSesion_Click" FontFamily="Lucida Sans Unicode" FontWeight="Bold">
+            <Button Name="BtnIniciarSesion" Content="Iniciar Sesión" BorderThickness="2" BorderBrush="#D3A688" Background="#E6CCBB" HorizontalAlignment="Left" Height="46" Margin="75,132.8,0,0" VerticalAlignment="Top" Width="142" RenderTransformOrigin="0.6,0.5" Grid.Column="1" Grid.Row="2" Click="BtnIniciarSesion_Click" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="16">
 
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -56,23 +57,23 @@
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button Name="BtnOlvidarContraseña" Content="Olvidaste tu contraseña?" BorderThickness="2" BorderBrush="Transparent" Background="#e2d9d2" HorizontalAlignment="Left" Height="34" Margin="132,26,0,0" VerticalAlignment="Top" Width="159" RenderTransformOrigin="0.591,1.088" Grid.Column="1" Grid.Row="2" FontFamily="Lucida Sans Unicode" Grid.ColumnSpan="2" Click="BtnOlvidarContraseña_Click"/>
+            <Button Name="BtnOlvidarContraseña" Content="Olvidaste tu contraseña?" BorderThickness="2" BorderBrush="Transparent" Background="#FAF9F7" HorizontalAlignment="Left" Height="34" Margin="291,161.8,0,0" VerticalAlignment="Top" Width="211" RenderTransformOrigin="0.591,1.088" Grid.Column="1" Grid.Row="2" FontFamily="Lucida Sans Unicode" Click="BtnOlvidarContraseña_Click" FontSize="16" Grid.ColumnSpan="2"/>
 
-            <ComboBox IsReadOnly="True" IsEditable="True" HorizontalAlignment="Left" Height="25" Margin="10,6,0,0" VerticalAlignment="Top" Width="114" Text="Idioma" Grid.Row="1" >
+            <ComboBox IsReadOnly="True" IsEditable="False" HorizontalAlignment="Left" Height="30" Margin="35,10,0,0" VerticalAlignment="Top" Width="155" Text="Idioma" Grid.Row="1" SelectedIndex="0" >
                 <ComboBoxItem>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/recursos/spain.png" Height="20" Width="33" />
-                        <TextBlock FontSize="13" Foreground="black">Español</TextBlock>
+                        <TextBlock FontSize="16" Foreground="black">Español</TextBlock>
                     </StackPanel>
                 </ComboBoxItem>
                 <ComboBoxItem>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/recursos/united-kingdom.png" Height="20" Width="33" />
-                        <TextBlock  FontSize="13" Foreground="black">English</TextBlock>
+                        <TextBlock  FontSize="16" Foreground="black">English</TextBlock>
                     </StackPanel>
                 </ComboBoxItem>
             </ComboBox>
-            <Label x:Name="errorInicioSesion" Content="" HorizontalAlignment="Left" Height="30" Margin="132,122,0,0" VerticalAlignment="Top" Width="185" FontSize="12" Grid.Row="1" Grid.ColumnSpan="3" FontFamily="{DynamicResource {x:Static SystemFonts.CaptionFontFamilyKey}}" Background="#00000000" Foreground="#FFE00D0D" FontWeight="Normal"/>
+            <Label x:Name="errorInicioSesion" Content="" HorizontalAlignment="Center" Height="30" Margin="75,211,70,10" VerticalAlignment="Center" Width="170" FontSize="12" Grid.Row="1" FontFamily="{DynamicResource {x:Static SystemFonts.CaptionFontFamilyKey}}" Background="#00000000" Foreground="#FFE00D0D" FontWeight="Normal" Grid.Column="1"/>
 
         </Grid>
     </Border>

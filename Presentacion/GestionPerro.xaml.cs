@@ -22,6 +22,10 @@ namespace Protectora.Presentacion
         public GestionPerro()
         {
             InitializeComponent();
+            for (int i = 0; i<10; i++)
+            {
+                spPanelDinamicoPerros.Children.Add(new ControlUsuarioPerro());
+            }
         }
 
         private void BtnVolver_Click(object sender, RoutedEventArgs e)
@@ -38,6 +42,20 @@ namespace Protectora.Presentacion
             Padrinito.Show();
         }
 
-       
+        private void BtnAniadir_Click(object sender, RoutedEventArgs e)
+        {
+            spPanelDinamicoPerros.Children.Add(new ControlUsuarioPerro());
+        }
+
+        private void BtnBorrar_Click(object sender, RoutedEventArgs e)
+        {
+            int numItems = spPanelDinamicoPerros.Children.Count;
+            if (numItems >= 1)
+            {
+                spPanelDinamicoPerros.Children.RemoveAt(numItems - 1);
+            }
+        }
+
+
     }
 }

@@ -10,12 +10,12 @@
         WindowStartupLocation="CenterScreen">
 
     <Window.Background>
-        <ImageBrush ImageSource="/recursos/fondo6.jpg"/>
+        <ImageBrush ImageSource="/recursos/fondoOlvidarContrasenia2.jpg"/>
     </Window.Background>
 
     <Grid>
         
-                <Label x:Name="lblNombre" Content="Nombre:" HorizontalAlignment="Left" Height="30" Margin="85,52,0,0" VerticalAlignment="Top" Width="125"/>
+        <Label x:Name="lblNombre" Content="Nombre:" HorizontalAlignment="Left" Height="30" Margin="85,52,0,0" VerticalAlignment="Top" Width="125"/>
         <Label x:Name="lblNombrePadrino" Content="NOMBRE" HorizontalAlignment="Left" Height="30" Margin="260,52,0,0" VerticalAlignment="Top" Width="125"/>
 
         <Label x:Name="lblCorreo" Content="Correo:" HorizontalAlignment="Left" Height="30" Margin="85,122,0,0" VerticalAlignment="Top" Width="125"/>

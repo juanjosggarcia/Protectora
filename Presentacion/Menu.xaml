@@ -7,31 +7,32 @@
         Title="Menu"
         mc:Ignorable="d"
         Icon="/recursos/pawprint.ico"
-        Height="650" Width="900"
+        Height="844.2" Width="1538.2"
+        WindowState="Maximized"
         WindowStartupLocation="CenterScreen">
 
     <Window.Background>
-        <ImageBrush ImageSource="/recursos/fondo4.jpg"/>
+        <ImageBrush ImageSource="/recursos/fondo21.jpg"/>
     </Window.Background>
 
-    <Grid RenderTransformOrigin="0.517,0.515" Margin="0,0,4,0">
+    <Grid RenderTransformOrigin="0.517,0.515" Margin="0,0,4,-19.6">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="9*"/>
-            <ColumnDefinition Width="80*"/>
+            <ColumnDefinition Width="75*"/>
+            <ColumnDefinition Width="689*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="590*"/>
         </Grid.RowDefinitions>
-        <Grid Background="#e2d9d2" HorizontalAlignment="Right" Height="40" VerticalAlignment="Top" Width="894" Margin="0,0,-4,0" Grid.ColumnSpan="2">
+        <Grid Background="#D4B8B0" HorizontalAlignment="Right" Height="45" VerticalAlignment="Top" Width="1532" Margin="0,0,-4,0" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="445*"/>
                 <ColumnDefinition Width="400*"/>
                 <ColumnDefinition Width="49*"/>
             </Grid.ColumnDefinitions>
-            <Label Content="MENU"  HorizontalAlignment="Left" Width="70" FontFamily="Lucida Sans Unicode" FontSize="20" FontWeight="Bold" Margin="10,0,0,0"/>
-            <Button x:Name="BtnPerro"  BorderThickness="2" BorderBrush="Black" Background="#a4c3a2" HorizontalAlignment="Left" Height="175" Margin="235,135,0,-270" VerticalAlignment="Top" Width="185" RenderTransformOrigin="0.6,0.5" Click="BtnPerro_Click">
+            <Label Content="MENU"  HorizontalAlignment="Left" Width="140" FontFamily="Lucida Sans Unicode" FontSize="30" FontWeight="Bold" Margin="10,0,0,-24"/>
+            <Button x:Name="BtnPerro"  BorderThickness="2" BorderBrush="Black" Background="#FAF9F7" HorizontalAlignment="Left" Height="217" Margin="470,201,0,-373" VerticalAlignment="Top" Width="250" RenderTransformOrigin="0.6,0.5" Click="BtnPerro_Click">
                 <StackPanel>
-                    <Image Source="/recursos/dogo.png" Width="112" Height="104"/>
+                    <Image Source="/recursos/dogo.png" Width="139" Height="121"/>
                     <TextBlock Text="PERROS" VerticalAlignment="Center" FontFamily="Lucida Sans Unicode" FontSize ="15"  FontWeight="Bold" Width="60"/>
                 </StackPanel>
                 <Button.Resources>
@@ -43,9 +44,9 @@
 
 
 
-            <Button BorderThickness="2" BorderBrush="Black" Background="#a4c3a2" HorizontalAlignment="Left" Height="175" Margin="54,135,0,-270" VerticalAlignment="Top" Width="185" RenderTransformOrigin="0.6,0.5" Grid.Column="1">
+            <Button BorderThickness="2" BorderBrush="Black" Background="#FAF9F7" HorizontalAlignment="Left" Height="217" Margin="41.6,201,0,-373" VerticalAlignment="Top" Width="250" RenderTransformOrigin="0.6,0.5" Grid.Column="1">
                 <StackPanel>
-                    <Image Source="/recursos/caridad.png" Width="97" Height="83"/>
+                    <Image Source="/recursos/caridad.png" Width="129" Height="103"/>
                     <TextBlock Text="VOLUNTARIOS" VerticalAlignment="Center" FontFamily="Lucida Sans Unicode" FontSize ="15"  FontWeight="Bold"/>
                 </StackPanel>
                 <Button.Resources>
@@ -55,9 +56,9 @@
                 </Button.Resources>
             </Button>
 
-            <Button BorderThickness="2" BorderBrush="Black" Background="#a4c3a2" HorizontalAlignment="Left" Height="175" Margin="235,330,0,-465" VerticalAlignment="Top" Width="185" RenderTransformOrigin="0.6,0.5">
+            <Button BorderThickness="2" BorderBrush="Black" Background="#FAF9F7" HorizontalAlignment="Left" Height="217" Margin="470,444,0,-616" VerticalAlignment="Top" Width="250" RenderTransformOrigin="0.6,0.5">
                 <StackPanel>
-                    <Image Source="/recursos/socios.png" Width="113" Height="95"/>
+                    <Image Source="/recursos/socios.png" Width="133" Height="112"/>
                     <TextBlock Text="SOCIOS" VerticalAlignment="Center" FontFamily="Lucida Sans Unicode" FontSize ="18"  FontWeight="Bold" Width="67"/>
                 </StackPanel>
                 <Button.Resources>
@@ -67,9 +68,9 @@
                 </Button.Resources>
             </Button>
 
-            <Button  BorderThickness="2" BorderBrush="Black" Background="#a4c3a2" HorizontalAlignment="Left" Height="175" Margin="54,330,0,-465" VerticalAlignment="Top" Width="185" RenderTransformOrigin="0.6,0.5" Grid.Column="1">
+            <Button  BorderThickness="2" BorderBrush="Black" Background="#FAF9F7" HorizontalAlignment="Left" Height="217" Margin="41.6,444,0,-616" VerticalAlignment="Top" Width="250" RenderTransformOrigin="0.6,0.5" Grid.Column="1">
                 <StackPanel Width="116">
-                    <Image Source="/recursos/alert.png" Width="86" Height="77" Margin="15,0"/>
+                    <Image Source="/recursos/alert.png" Height="96" Margin="-11,0,-13,0"/>
                     <TextBlock Text="AVISO PERDIDO" VerticalAlignment="Center" FontFamily="Lucida Sans Unicode" FontSize ="15"  FontWeight="Bold"/>
                 </StackPanel>
                 <Button.Resources>
@@ -81,8 +82,8 @@
 
             <!-- FontFamily="Tahoma" FontFamily="PMingLiU-ExtB" -->
         </Grid>
-        <Label x:Name ="lblFinalSesion" Content="Ultimo inicio de sesión: 16 de noviembre 18:35" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="540,15,0,0" VerticalAlignment="Top" Width="260"/>
-        <Button x:Name="BtnCerrarSesion" Content="Cerrar Sesion" BorderThickness="2" BorderBrush="Black" Background="#e2d9d2" HorizontalAlignment="Left" Height="53" Margin="650,535,0,0" VerticalAlignment="Top" Width="125" RenderTransformOrigin="0.6,0.5" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="15" Grid.Column="1" Click="BtnCerrarSesion_Click">
+        <Label x:Name ="lblFinalSesion" Content="Ultimo inicio de sesión: 16 de noviembre 18:35" Grid.Column="1" HorizontalAlignment="Left" Height="35" Margin="940.6,10,0,0" VerticalAlignment="Top" Width="400" FontSize="18" RenderTransformOrigin="0.324,0.103"/>
+        <Button x:Name="BtnCerrarSesion" Content="Cerrar Sesion" BorderThickness="2" BorderBrush="Black" Background="#FAF9F7" HorizontalAlignment="Left" Height="63" Margin="1130.6,717,0,0" VerticalAlignment="Top" Width="210" RenderTransformOrigin="0.6,0.5" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="18" Grid.Column="1" Click="BtnCerrarSesion_Click">
 
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
