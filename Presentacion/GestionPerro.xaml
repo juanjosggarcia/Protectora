@@ -29,67 +29,19 @@
 
         <Border Grid.ColumnSpan="1" BorderBrush="white" Background="#FAF9F7" BorderThickness="4" CornerRadius="20" Margin="0,220,0.4,0.4" Grid.RowSpan="3"/>
 
-        <Button x:Name="BtnVolver"  BorderThickness="2" BorderBrush="Black" Background="#ffff" HorizontalAlignment="Left" Height="43" Margin="10,10,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="0.6,0.5" Click="BtnVolver_Click">
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="80"/>
-                </Style>
-            </Button.Resources>
+        <Button x:Name="BtnVolver" Style="{StaticResource EstiloBotonVolver}" Click="BtnVolver_Click" Margin="15,20,0,0">
             <StackPanel>
                 <Image Source="/Protectora;component/recursos/return.png" Width="27" Height="33"/>
             </StackPanel>
         </Button>
+        
+        
         <Label Content="MENU" HorizontalAlignment="Center" Height="102" Width="172" Margin="48,257,66.4,0" VerticalAlignment="Top"  FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="50" Grid.RowSpan="2"/>
-        <Button x:Name="BtnModificar" Content="MODIFICAR" BorderThickness="4" BorderBrush="#D3A688" Background="#E6CCBB" HorizontalAlignment="Left"  Margin="50,119,0,0" VerticalAlignment="Top" Width="170" RenderTransformOrigin="0.6,0.5" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="18" Height="80" Grid.Row="2">
 
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="30"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-
-        <Button x:Name="BtnBorrar" Content="BORRAR" BorderThickness="4" BorderBrush="#D3A688" Background="#E6CCBB" HorizontalAlignment="Left" Height="80" Margin="50,34,0,0" VerticalAlignment="Top" Width="170" RenderTransformOrigin="0.6,0.5" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="18" Grid.Row="2" Click="BtnBorrar_Click">
-
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="30"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-        <Button x:Name="BtnAniadir" Content="AÑADIR" BorderThickness="4" BorderBrush="#D3A688" Background="#E6CCBB" HorizontalAlignment="Left" Height="80" Margin="50,109,0,0" VerticalAlignment="Top" Width="170" RenderTransformOrigin="0.5,0.5" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="18" Grid.Row="1" Grid.RowSpan="2" Click="BtnAniadir_Click">
-
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="30"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-        <Button x:Name="BtnListar" Content="LISTAR" BorderThickness="4" BorderBrush="#D3A688" Background="#E6CCBB" HorizontalAlignment="Left" Height="80" Width="170" Margin="50,204,0,0" VerticalAlignment="Top"  RenderTransformOrigin="0.6,0.5" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="18" Grid.Row="2">
-
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="30"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-
-        <!--<ScrollViewer HorizontalAlignment="Center" Height="620" Margin="119.6,144,81.8,0" VerticalAlignment="Top" Width="409" RenderTransformOrigin="0.447,0.495" Grid.RowSpan="3" Grid.Column="1">
-
-
-            <WrapPanel x:Name="listaDePerros">
-
-                <Button x:Name="BotonPerro1" Content="PERRO" BorderThickness="2" BorderBrush="Black" Background="#FFFF" Height="170" VerticalAlignment="Top" RenderTransformOrigin="0.6,0.5" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="18" Margin="62,0,60,0" Width="178">
-                    <Button.Resources>
-                        <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="30"/>
-                        </Style>
-                    </Button.Resources>
-                </Button>
-
-            </WrapPanel>
-        </ScrollViewer>-->
-
+        <Button x:Name="BtnAniadir" Content="AÑADIR" Style="{StaticResource EstiloBotonNormal}" Grid.Row="1" Click="BtnAniadir_Click" Margin="50,88,0,0" Grid.RowSpan="2"/>
+        <Button x:Name="BtnBorrar" Content="BORRAR" Style="{StaticResource EstiloBotonNormal}" Click="BtnBorrar_Click" Margin="48,24,0,0" Grid.Row="2"/>
+        <Button x:Name="BtnModificar" Content="MODIFICAR" Style="{StaticResource EstiloBotonNormal}" Margin="48,110,0,0" Grid.Row="2"/>
+        <Button x:Name="BtnListar" Content="LISTAR" Style="{StaticResource EstiloBotonNormal}" Margin="48,204,0,0" Grid.Row="2"/>
 
         <Label x:Name="lblId" Content="Id:" HorizontalAlignment="Left" Height="37" Margin="61.2,214,0,0" VerticalAlignment="Top" Width="100" FontSize="18" Grid.Column="2"/>
         <Label x:Name="lblIdAnimal" Content="ID" HorizontalAlignment="Left" Height="37" Margin="224.2,214,0,0" VerticalAlignment="Top" Width="171" FontSize="18" Grid.Column="2"/>
@@ -124,7 +76,7 @@
             <WrapPanel x:Name="spPanelDinamicoPerros" HorizontalAlignment="Left" Height="622" Grid.RowSpan="3" VerticalAlignment="Top" Width="375"/>
         </ScrollViewer>
 
-        
+
 
 
     </Grid>

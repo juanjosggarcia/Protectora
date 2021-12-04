@@ -6,30 +6,10 @@
              xmlns:local="clr-namespace:Protectora.Presentacion"
              mc:Ignorable="d" Height="145" Width="185">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="0*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="74*"/>
-            <ColumnDefinition Width="0*"/>
-        </Grid.ColumnDefinitions>
-
-        <Border Grid.ColumnSpan="2"
-            BorderBrush="#E2CFCA" 
-            Background="White"
-            BorderThickness="4"
-            CornerRadius="6" />
-
-        <Button x:Name="btnCargarImagenPelicula"
-            Grid.Row="0"
-            Width="Auto" Height="Auto"
-            BorderBrush="Transparent" Background="Transparent"
-            Grid.Column="1">
+        <Button x:Name="btnPerroLista" Style="{StaticResource EstiloBotonNormal}" Height="145" Width="185">
             <Image x:Name="imgPerro" 
                 Source="C:\Users\laura\source\repos\Protectora\recursos\bichon.jpg"
-                Stretch="Uniform" Height="135" Width="168" />
+                Stretch="Uniform" Height="135" Width="155" />
         </Button>
     </Grid>
 </UserControl>

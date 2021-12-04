@@ -30,54 +30,33 @@
                 <ColumnDefinition Width="49*"/>
             </Grid.ColumnDefinitions>
             <Label Content="MENU"  HorizontalAlignment="Left" Width="140" FontFamily="Lucida Sans Unicode" FontSize="30" FontWeight="Bold" Margin="10,0,0,-24"/>
-            <Button x:Name="BtnPerro"  BorderThickness="2" BorderBrush="Black" Background="#FAF9F7" HorizontalAlignment="Left" Height="217" Margin="470,201,0,-373" VerticalAlignment="Top" Width="250" RenderTransformOrigin="0.6,0.5" Click="BtnPerro_Click">
+
+            <Button x:Name="BtnPerro"  Style="{StaticResource EstiloBotonGrande}" Click="BtnPerro_Click" Margin="470,201,0,-373">
                 <StackPanel>
                     <Image Source="/recursos/dogo.png" Width="139" Height="121"/>
                     <TextBlock Text="PERROS" VerticalAlignment="Center" FontFamily="Lucida Sans Unicode" FontSize ="15"  FontWeight="Bold" Width="60"/>
                 </StackPanel>
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="80"/>
-                    </Style>
-                </Button.Resources>
             </Button>
 
-
-
-            <Button BorderThickness="2" BorderBrush="Black" Background="#FAF9F7" HorizontalAlignment="Left" Height="217" Margin="41.6,201,0,-373" VerticalAlignment="Top" Width="250" RenderTransformOrigin="0.6,0.5" Grid.Column="1">
+            <Button x:Name="BtnVoluntarios" Style="{StaticResource EstiloBotonGrande}" Grid.Column="1" Margin="41.6,201,0,-373"  >
                 <StackPanel>
                     <Image Source="/recursos/caridad.png" Width="129" Height="103"/>
                     <TextBlock Text="VOLUNTARIOS" VerticalAlignment="Center" FontFamily="Lucida Sans Unicode" FontSize ="15"  FontWeight="Bold"/>
                 </StackPanel>
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="80"/>
-                    </Style>
-                </Button.Resources>
             </Button>
 
-            <Button BorderThickness="2" BorderBrush="Black" Background="#FAF9F7" HorizontalAlignment="Left" Height="217" Margin="470,444,0,-616" VerticalAlignment="Top" Width="250" RenderTransformOrigin="0.6,0.5">
+            <Button x:Name="BtnSocios" Style="{StaticResource EstiloBotonGrande}" Margin="470,444,0,-616" >
                 <StackPanel>
                     <Image Source="/recursos/socios.png" Width="133" Height="112"/>
                     <TextBlock Text="SOCIOS" VerticalAlignment="Center" FontFamily="Lucida Sans Unicode" FontSize ="18"  FontWeight="Bold" Width="67"/>
                 </StackPanel>
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="80"/>
-                    </Style>
-                </Button.Resources>
             </Button>
 
-            <Button  BorderThickness="2" BorderBrush="Black" Background="#FAF9F7" HorizontalAlignment="Left" Height="217" Margin="41.6,444,0,-616" VerticalAlignment="Top" Width="250" RenderTransformOrigin="0.6,0.5" Grid.Column="1">
+            <Button x:Name="BtnAvisos" Style="{StaticResource EstiloBotonGrande}" Margin="42,444,0,-616" Grid.Column="1">
                 <StackPanel Width="116">
                     <Image Source="/recursos/alert.png" Height="96" Margin="-11,0,-13,0"/>
                     <TextBlock Text="AVISO PERDIDO" VerticalAlignment="Center" FontFamily="Lucida Sans Unicode" FontSize ="15"  FontWeight="Bold"/>
                 </StackPanel>
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="80"/>
-                    </Style>
-                </Button.Resources>
             </Button>
 
             <!-- FontFamily="Tahoma" FontFamily="PMingLiU-ExtB" -->
