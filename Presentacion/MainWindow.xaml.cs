@@ -34,7 +34,7 @@ namespace Protectora
                 if (txtUsuario.Text.Equals(usuario) && txtContrasenia.Password.Equals(password))
                 {
                         
-                    Presentacion.Menu nw = new Presentacion.Menu();
+                    Presentacion.GestionPerro nw = new Presentacion.GestionPerro();
                     nw.Show();
 
                     this.Close();
@@ -60,19 +60,39 @@ namespace Protectora
 
         private void LimpiarTexto(object sender, EventArgs e)
         {
-            txtUsuario.Text = "";
-            txtUsuario.Foreground = new SolidColorBrush(Colors.Black);
-
-            if (txtUsuario.Text != "Nombre de Usuario")
+            if (txtUsuario.Text == "Nombre de Usuario")
             {
-
+                txtUsuario.Text = "";
+                txtUsuario.Foreground = new SolidColorBrush(Colors.Black);
             }
         }
 
+        private void MostrarAyuda(object sender, EventArgs e)
+        {
+            if (txtUsuario.Text == "")
+            {
+                txtUsuario.Text = "Nombre de Usuario";
+                txtUsuario.Foreground = new SolidColorBrush(Colors.Gray);
+            }
+        }
+
+
         private void LimpiarTextoContrasenia(object sender, EventArgs e)
         {
-            txtContrasenia.Password = "";
-            txtContrasenia.Foreground = new SolidColorBrush(Colors.Black);
+            if (txtContrasenia.Password == "Contraseña")
+            {
+                txtContrasenia.Password = "";
+                txtContrasenia.Foreground = new SolidColorBrush(Colors.Black);
+            }
+        }
+
+        private void MostrarAyudaContrasenia(object sender, EventArgs e)
+        {
+            if (txtContrasenia.Password == "")
+            {
+                txtContrasenia.Password = "Contraseña";
+                txtContrasenia.Foreground = new SolidColorBrush(Colors.Gray);
+            }
         }
 
         private void BtnOlvidarContraseña_Click(object sender, RoutedEventArgs e)

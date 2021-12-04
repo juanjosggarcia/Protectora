@@ -28,14 +28,6 @@ namespace Protectora.Presentacion
             }
         }
 
-        private void BtnVolver_Click(object sender, RoutedEventArgs e)
-        {
-            Presentacion.Menu nw = new Presentacion.Menu();
-            nw.Show();
-
-            this.Close();
-        }
-
         private void BtnPdrino_Click(object sender, RoutedEventArgs e)
         {
             Padrino Padrinito = new Padrino();
@@ -56,6 +48,12 @@ namespace Protectora.Presentacion
             }
         }
 
+        private void BtnCerrarSesion_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mw = new MainWindow();
+            mw.Show();
 
+            this.Close();
+        }
     }
 }
