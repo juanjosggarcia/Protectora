@@ -58,6 +58,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Presentacion\Avisos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Presentacion\ControlUsuarioPerro.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -82,6 +86,9 @@
     <Compile Include="Dominio\ClassPruebas.cs" />
     <Compile Include="Dominio\Persona.cs" />
     <Compile Include="Dominio\Perro.cs" />
+    <Compile Include="Presentacion\Avisos.xaml.cs">
+      <DependentUpon>Avisos.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\ControlUsuarioPerro.xaml.cs">
       <DependentUpon>ControlUsuarioPerro.xaml</DependentUpon>
     </Compile>
@@ -100,6 +107,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Presentacion\Perros.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\Socios.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\Voluntarios.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -114,6 +133,15 @@
     </Compile>
     <Compile Include="Presentacion\Padrino.xaml.cs">
       <DependentUpon>Padrino.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Perros.xaml.cs">
+      <DependentUpon>Perros.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Socios.xaml.cs">
+      <DependentUpon>Socios.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Voluntarios.xaml.cs">
+      <DependentUpon>Voluntarios.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

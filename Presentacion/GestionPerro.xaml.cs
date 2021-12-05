@@ -22,30 +22,7 @@ namespace Protectora.Presentacion
         public GestionPerro()
         {
             InitializeComponent();
-            for (int i = 0; i<10; i++)
-            {
-                spPanelDinamicoPerros.Children.Add(new ControlUsuarioPerro());
-            }
-        }
 
-        private void BtnPdrino_Click(object sender, RoutedEventArgs e)
-        {
-            Padrino Padrinito = new Padrino();
-            Padrinito.Show();
-        }
-
-        private void BtnAniadir_Click(object sender, RoutedEventArgs e)
-        {
-            spPanelDinamicoPerros.Children.Add(new ControlUsuarioPerro());
-        }
-
-        private void BtnBorrar_Click(object sender, RoutedEventArgs e)
-        {
-            int numItems = spPanelDinamicoPerros.Children.Count;
-            if (numItems >= 1)
-            {
-                spPanelDinamicoPerros.Children.RemoveAt(numItems - 1);
-            }
         }
 
         private void BtnCerrarSesion_Click(object sender, RoutedEventArgs e)
@@ -71,6 +48,37 @@ namespace Protectora.Presentacion
             ButtonOpenMenu.Visibility = Visibility.Visible;
             BtnCerrarSesion.Visibility = Visibility.Collapsed;
 
+        }
+
+        private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UserControl usc = null;
+            GridMain.Children.Clear();
+
+            switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
+            {
+                case "ItemPerros":
+                    usc = new Perros();
+                    GridMain.Children.Add(usc);
+                    break;
+                case "ItemSocios":
+                    usc = new Socios();
+                    GridMain.Children.Add(usc);
+                    break;
+                case "ItemVoluntario":
+                    usc = new Voluntarios();
+                    GridMain.Children.Add(usc);
+                    break;
+                case "ItemAvisos":
+                    usc = new Avisos();
+                    GridMain.Children.Add(usc);
+                    break;
+
+                default:
+                    usc = new Perros();
+                    GridMain.Children.Add(usc);
+                    break;
+            }
         }
 
     }

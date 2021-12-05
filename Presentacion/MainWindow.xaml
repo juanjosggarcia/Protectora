@@ -41,8 +41,8 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <TextBox x:Name ="txtUsuario" Text="Nombre de Usuario" Grid.Column="1" Grid.Row="1" KeyDown="OnKeyDownHandler" PreviewMouseDown="LimpiarTexto" FontSize="17" Foreground="Gray" Margin="291,254,239,165" PreviewMouseUp="MostrarAyudaContrasenia"/>
-        <PasswordBox x:Name ="txtContrasenia" Grid.Column="1" FontSize="16" HorizontalAlignment="Left" Margin="291,300,0,120" Grid.Row="1" VerticalAlignment="Center" Width="304" Height="40" KeyDown="OnKeyDownHandler" RenderTransformOrigin="0.452,1.5" TextBlock.Foreground="Gray" Password="Contraseña"  PreviewMouseDown="LimpiarTextoContrasenia" PreviewMouseUp="MostrarAyuda"/>
+        <TextBox x:Name ="txtUsuario" Style="{StaticResource TextBox1}" Text="Nombre de Usuario" Grid.Column="1" Grid.Row="1" KeyDown="OnKeyDownHandler" PreviewMouseDown="LimpiarTexto" FontSize="17" Foreground="Gray" Margin="291,254,239,165" PreviewMouseUp="MostrarAyudaContrasenia"/>
+        <PasswordBox x:Name ="txtContrasenia" Grid.Column="1" FontSize="16" Style="{StaticResource PasswordBoxStyle}" HorizontalAlignment="Left" Margin="291,300,0,120" Grid.Row="1" VerticalAlignment="Center" Width="304" Height="40" KeyDown="OnKeyDownHandler" RenderTransformOrigin="0.452,1.5" TextBlock.Foreground="Gray" Password="Contraseña"  PreviewMouseDown="LimpiarTextoContrasenia" PreviewMouseUp="MostrarAyuda"/>
 
         <Button Name="BtnIniciarSesion" Style="{StaticResource EstiloBotonMediano}" Content="Iniciar Sesión" Click="BtnIniciarSesion_Click" Margin="362,370,0,0" Grid.Column="1" Grid.Row="1">
 
