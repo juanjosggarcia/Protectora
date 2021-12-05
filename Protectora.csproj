@@ -143,19 +143,12 @@
   <ItemGroup>
     <Resource Include="recursos\fondo.jpg" />
     <Resource Include="recursos\fondo2.jpg" />
-    <Resource Include="recursos\login.png" />
     <Resource Include="recursos\pawprint.ico" />
     <Resource Include="recursos\spain.png" />
     <Resource Include="recursos\united-kingdom.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="recursos\alert.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="recursos\caridad.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="recursos\dogo.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="recursos\fondo4.jpg" />
@@ -168,9 +161,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="recursos\fondo6.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="recursos\return.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="recursos\fondo7.jpg" />
@@ -198,6 +188,27 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="recursos\fondoOlvidarContrasenia2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\balloon-dog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\hot-dog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\left-chevron.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\alert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\dog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\log-out.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

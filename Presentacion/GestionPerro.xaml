@@ -8,72 +8,169 @@
         Title="GestionPerro"  Height="900" Width="1800"
         Icon="/recursos/pawprint.ico"
         WindowStartupLocation="CenterScreen"
-        >
+        ResizeMode="NoResize">
+
+    <Window.Resources>
+        <Storyboard x:Key="OpenMenu">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="70"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="300"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="CloseMenu">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="300"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="70"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenMenu">
+            <BeginStoryboard Storyboard="{StaticResource OpenMenu}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseMenu">
+            <BeginStoryboard Storyboard="{StaticResource CloseMenu}"/>
+        </EventTrigger>
+    </Window.Triggers>
+
     <Window.Background>
         <ImageBrush ImageSource="/recursos/fondo21.jpg"/>
     </Window.Background>
 
 
     <Grid RenderTransformOrigin="0.517,0.515" Margin="0,0,4,0">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="285.6" />
-            <ColumnDefinition Width="719" />
-            <ColumnDefinition Width="385"/>
-
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="12*"/>
-            <RowDefinition Height="17*"/>
-            <RowDefinition Height="113*"/>
-            <RowDefinition Height="105"/>
-        </Grid.RowDefinitions>
-
-        <Border Grid.ColumnSpan="1" BorderBrush="white" Background="#FAF9F7" BorderThickness="4" CornerRadius="20" Margin="93,0,-333,0" Grid.Column="2" Grid.RowSpan="1" Grid.Row="2"/>
-        <Border Grid.ColumnSpan="3" BorderBrush="#D4B8B0" Background="#D4B8B0" BorderThickness="4" Margin="0,0,-402,10" CornerRadius="0,0,10,10"/>
-        <Border Grid.ColumnSpan="1" BorderBrush="white" Background="#FAF9F7" BorderThickness="4" CornerRadius="20" Grid.RowSpan="2" Margin="0,131,0,0" Grid.Row="2"/>
-        <Button x:Name="BtnCerrarSesion" Content="Cerrar Sesion"  Style="{StaticResource EstiloBotonMediano2}" Click="BtnCerrarSesion_Click" Grid.Column="2" Margin="583,21,-372,0" ToolTip="Cerrar la sesión actual" Grid.Row="3"/>
 
 
-        <Label Content="MENU" HorizontalAlignment="Center" Height="102" Width="155" Margin="63,158,69,0" VerticalAlignment="Top"  FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="50" Grid.Row="2"/>
+        <Grid x:Name="GridMain" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="869" Width="1710" Margin="0,0,0,2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="621" />
+                <ColumnDefinition Width="639" />
+                <ColumnDefinition Width="418"/>
 
-        <Button x:Name="BtnAniadir" Content="AÑADIR" Style="{StaticResource EstiloBotonNormal}" Click="BtnAniadir_Click" Margin="48,271,0,0" Grid.Row="2"/>
-        <Button x:Name="BtnBorrar" Content="BORRAR" Style="{StaticResource EstiloBotonNormal}" Click="BtnBorrar_Click" Margin="48,374,0,0" Grid.Row="2"/>
-        <Button x:Name="BtnModificar" Content="MODIFICAR" Style="{StaticResource EstiloBotonNormal}" Margin="48,477,0,0" Grid.Row="2"/>
-        <Button x:Name="BtnListar" Content="LISTAR" Style="{StaticResource EstiloBotonNormal}" Margin="48,585,0,0" Grid.Row="2" Grid.RowSpan="2"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="65*"/>
+                <RowDefinition Height="91*"/>
+                <RowDefinition Height="9*"/>
+                <RowDefinition Height="599*"/>
+                <RowDefinition Height="105"/>
+            </Grid.RowDefinitions>
 
-        <Label x:Name="lblId" Content="Id:" HorizontalAlignment="Left" Height="37" Margin="197,43,0,0" VerticalAlignment="Top" Width="100" FontSize="18" Grid.Column="2" Grid.Row="2"/>
-        <Label x:Name="lblIdAnimal" Content="ID" HorizontalAlignment="Left" Height="37" Margin="377,43,-162,0" VerticalAlignment="Top" Width="171" FontSize="18" Grid.Column="2" Grid.Row="2"/>
+            <Border Grid.ColumnSpan="3" BorderBrush="#D4B8B0" Background="#D4B8B0" BorderThickness="4" Margin="0,0,-33,0" CornerRadius="0,0,20,20" >
+                <Label x:Name="Titulo" Content="Gestion de perros" HorizontalAlignment="Left" Width="370" Margin="686,-4,0,-9"   FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="35"/>
+            </Border>
 
-        <Label x:Name="lblNombre" Content="Nombre:" HorizontalAlignment="Left" Height="37" Margin="197,0,0,442" VerticalAlignment="Bottom" Width="121" FontSize="18" Grid.Column="2" Grid.Row="2"/>
-        <Label x:Name="lblNombreAnimal" Content="NOMBRE" HorizontalAlignment="Left" Height="37" Margin="377,76,-162,0" VerticalAlignment="Top" Width="171" FontSize="18" Grid.Column="2" Grid.Row="2"/>
+            <Border BorderBrush="white" Background="#FAF9F7" BorderThickness="4" CornerRadius="20" Margin="76,1,10,104" Grid.RowSpan="3" Grid.Row="2" Grid.Column="1"/>
+            <Border Grid.ColumnSpan="1" BorderBrush="white" Background="#FAF9F7" BorderThickness="4" CornerRadius="20" Margin="178,125,-34,0" Grid.Row="3" Grid.Column="2" Grid.RowSpan="2"/>
 
-        <Label x:Name="lblsexo" Content="Sexo:" HorizontalAlignment="Left" Height="37" Margin="197,118,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="2" Grid.Row="2"/>
-        <Label x:Name="lblsexoAnimal" Content="SEXO" HorizontalAlignment="Left" Height="37" Margin="377,118,-162,0" VerticalAlignment="Top" Width="171" FontSize="18" Grid.Column="2" Grid.Row="2"/>
 
-        <Label x:Name="lbltamanio" Content="Tamaño:" HorizontalAlignment="Left" Height="38" Margin="197,155,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="2" Grid.Row="2"/>
-        <Label x:Name="lbltamanioAnimal" Content="TAMAÑO" HorizontalAlignment="Left" Height="38" Margin="377,155,-162,0" VerticalAlignment="Top" Width="171" FontSize="18" Grid.Column="2" Grid.Row="2"/>
+            <Label Content="Opciones" HorizontalAlignment="Center" Height="65" Width="182" Margin="237,187,0,0" VerticalAlignment="Top"  FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="35" Grid.Row="3" Grid.Column="2" RenderTransformOrigin="0.161,0.657"/>
 
-        <Label x:Name="lblPeso" Content="Peso:" HorizontalAlignment="Left" Height="36" Margin="197,274,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="2" Grid.Row="2"/>
-        <Label x:Name="lblPesoAnimal" Content="PESO" HorizontalAlignment="Left" Height="37" Margin="391,280,-176,0" VerticalAlignment="Top" Width="171" FontSize="18" Grid.Column="2" Grid.Row="2"/>
+            <Button x:Name="BtnAniadir" Content="AÑADIR" Style="{StaticResource EstiloBotonNormal}" Click="BtnAniadir_Click" Margin="239,298,0,0" Grid.Row="3" Grid.Column="2"/>
+            <Button x:Name="BtnBorrar" Content="BORRAR" Style="{StaticResource EstiloBotonNormal}" Click="BtnBorrar_Click" Margin="239,400,0,0" Grid.Row="3" Grid.Column="2"/>
+            <Button x:Name="BtnModificar" Content="MODIFICAR" Style="{StaticResource EstiloBotonNormal}" Margin="239,498,0,0" Grid.Row="3" Grid.Column="2"/>
+            <Button x:Name="BtnListar" Content="LISTAR" Style="{StaticResource EstiloBotonNormal}" Margin="239,0,0,0" Grid.Row="4" Grid.Column="2"/>
 
-        <Label x:Name="lblEdad" Content="Edad:" HorizontalAlignment="Left" Height="36" Margin="197,233,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="2" Grid.Row="2"/>
-        <Label x:Name="lblEdadAnimal" Content="EDAD" HorizontalAlignment="Left" Height="37" Margin="391,238,-176,0" VerticalAlignment="Top" Width="171" FontSize="18" Grid.Column="2" Grid.Row="2"/>
+            <Label x:Name="lblId" Content="Id:" HorizontalAlignment="Left" Height="37" Margin="138,70,0,0" VerticalAlignment="Top" Width="100" FontSize="18" Grid.Column="1" Grid.Row="3"/>
+            <Label x:Name="lblIdAnimal" Content="5" HorizontalAlignment="Left" Height="37" Margin="328,70,0,0" VerticalAlignment="Top" Width="171" FontSize="18" Grid.Column="1" Grid.Row="3"/>
 
-        <Label x:Name="lblEntrada" Content="Entrada:" HorizontalAlignment="Left" Height="36" Margin="197,310,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="2" Grid.Row="2"/>
-        <Label x:Name="lblEntradaAnimal" Content="ENTRADA" HorizontalAlignment="Left" Height="37" Margin="391,317,-176,0" VerticalAlignment="Top" Width="171" FontSize="18" Grid.Column="2" Grid.Row="2"/>
+            <Label x:Name="lblNombre" Content="Nombre:" HorizontalAlignment="Left" Height="37" Margin="138,0,0,450" VerticalAlignment="Bottom" Width="121" FontSize="18" Grid.Column="1" Grid.Row="3"/>
+            <Label x:Name="lblNombreAnimal" Content="Chucho" HorizontalAlignment="Left" Height="37" Margin="328,112,0,0" VerticalAlignment="Top" Width="171" FontSize="18" Grid.Column="1" Grid.Row="3"/>
 
-        <Label x:Name="lblEstado" Content="Estado:" HorizontalAlignment="Left" Height="35" Margin="197,193,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="2" Grid.Row="2"/>
-        <Label x:Name="lblEstadoAnimal" Content="ESTADO" HorizontalAlignment="Left" Height="37" Margin="391,191,-176,0" VerticalAlignment="Top" Width="171" FontSize="18" Grid.Column="2" Grid.Row="2"/>
-        <Button x:Name="BtnPdrino" Content="PADRRINO" Style="{StaticResource EstiloBotonMediano}" Click="BtnPdrino_Click" Grid.Column="2" Margin="410,637,-176,0" Height="60" Width="152" Grid.Row="2"/>
+            <Label x:Name="lblsexo" Content="Sexo:" HorizontalAlignment="Left" Height="37" Margin="138,154,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="1" Grid.Row="3"/>
+            <Label x:Name="lblsexoAnimal" Content="Hembra" HorizontalAlignment="Left" Height="37" Margin="328,154,0,0" VerticalAlignment="Top" Width="171" FontSize="18" Grid.Column="1" Grid.Row="3"/>
 
-        <Label x:Name="lblDescrpcion" Content="Descripcion:" HorizontalAlignment="Left" Height="36" Margin="197,543,0,0" VerticalAlignment="Top" Width="117" FontSize="18" Grid.Column="2" Grid.Row="2"/>
-        <Label x:Name="lblDescrpcionAnimal" Content="AQUI VA LA DESCRIPCION &#xA;DEL PERRO chucho ba bla &#xA;BLA BLA BLA BAL BLA BAL" HorizontalAlignment="Left" Height="91" Margin="410,498,-281,0" VerticalAlignment="Top" Width="257" FontSize="18" Grid.Column="2" Grid.Row="2"/>
-        <ScrollViewer Grid.Column="1" Margin="138,0,92,0" Grid.Row="2"  >
-            <WrapPanel x:Name="spPanelDinamicoPerros" HorizontalAlignment="Left" Height="622" Grid.RowSpan="3" VerticalAlignment="Top" Width="375"/>
-        </ScrollViewer>
+            <Label x:Name="lbltamanio" Content="Tamaño:" HorizontalAlignment="Left" Height="38" Margin="138,196,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="1" Grid.Row="3"/>
+            <Label x:Name="lbltamanioAnimal" Content="55" HorizontalAlignment="Left" Height="38" Margin="328,196,0,0" VerticalAlignment="Top" Width="171" FontSize="18" Grid.Column="1" Grid.Row="3"/>
 
-        <Label x:Name ="lblFinalSesion" Content="Ultimo inicio de sesión: 16 de noviembre 18:35" Grid.Column="2" HorizontalAlignment="Left" Height="35" Margin="386,10,-387,0" VerticalAlignment="Top" Width="387" FontSize="18" RenderTransformOrigin="0.324,0.103"/>
+            <Label x:Name="lblPeso" Content="Peso:" HorizontalAlignment="Left" Height="36" Margin="138,320,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="1" Grid.Row="3"/>
+            <Label x:Name="lblPesoAnimal" Content="4 kg" HorizontalAlignment="Left" Height="37" Margin="328,318,0,0" VerticalAlignment="Top" Width="171" FontSize="18" Grid.Column="1" Grid.Row="3"/>
 
+            <Label x:Name="lblEdad" Content="Edad:" HorizontalAlignment="Left" Height="36" Margin="138,279,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="1" Grid.Row="3"/>
+            <Label x:Name="lblEdadAnimal" Content="3 años" HorizontalAlignment="Left" Height="37" Margin="328,281,0,0" VerticalAlignment="Top" Width="171" FontSize="18" Grid.Column="1" Grid.Row="3"/>
+
+            <Label x:Name="lblEntrada" Content="Entrada:" HorizontalAlignment="Left" Height="36" Margin="138,361,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="1" Grid.Row="3"/>
+            <Label x:Name="lblEntradaAnimal" Content="14/10/2021" HorizontalAlignment="Left" Height="37" Margin="328,361,0,0" VerticalAlignment="Top" Width="171" FontSize="18" Grid.Column="1" Grid.Row="3"/>
+
+            <Label x:Name="lblEstado" Content="Estado:" HorizontalAlignment="Left" Height="35" Margin="138,239,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="1" Grid.Row="3"/>
+            <Label x:Name="lblEstadoAnimal" Content="Sano" HorizontalAlignment="Left" Height="37" Margin="328,239,0,0" VerticalAlignment="Top" Width="171" FontSize="18" Grid.Column="1" Grid.Row="3"/>
+            <Button x:Name="BtnPdrino" Content="PADRRINO" Style="{StaticResource EstiloBotonMediano}" Click="BtnPdrino_Click" Grid.Column="1" Margin="276,518,0,0" Height="60" Width="152" Grid.Row="3"/>
+
+            <Label x:Name="lblDescrpcion" Content="Descripcion:" HorizontalAlignment="Left" Height="36" Margin="138,402,0,0" VerticalAlignment="Top" Width="117" FontSize="18" Grid.Column="1" Grid.Row="3" RenderTransformOrigin="0.444,0.417"/>
+            <Label x:Name="lblDescrpcionAnimal" Content="Una perrita pequeña, muy &#xD;&#xA;sociable y juguetona. Con &#xD;&#xA;ganas de dar paseos." HorizontalAlignment="Left" Height="91" Margin="328,402,0,0" VerticalAlignment="Top" Width="257" FontSize="18" Grid.Column="1" Grid.Row="3"/>
+            <ScrollViewer Margin="173,1,59,102" Grid.Row="2" Grid.RowSpan="3"  >
+                <WrapPanel x:Name="spPanelDinamicoPerros" HorizontalAlignment="Left" Height="622" Grid.RowSpan="3" VerticalAlignment="Top" Width="375"/>
+            </ScrollViewer>
+            <Label x:Name ="lblFinalSesion" Content="Ultimo inicio de sesión: 16 de noviembre 18:35" Grid.Column="2" HorizontalAlignment="Left" Height="35" Margin="61,19,-29,0" VerticalAlignment="Top" Width="387" FontSize="18" RenderTransformOrigin="0.324,0.103"/>
+
+        </Grid>
+        <Grid x:Name="GridMenu" Width="80" HorizontalAlignment="Left" Background="#E2CFCA">
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="2" ShadowDepth="1" Color="#FFAEAEAE"/>
+            </Grid.Effect>
+            <StackPanel>
+                <Grid Height="150" Background="White" RenderTransformOrigin="0.5,0.5">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    <Button x:Name="ButtonOpenMenu"  Style="{StaticResource EstiloBotonVolver}" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Top"   Click="ButtonOpenMenu_Click">
+                        <StackPanel>
+                            <Image Source="/Protectora;component/recursos/menu.png" Width="27" Height="33"/>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="ButtonCloseMenu" Visibility="Collapsed" Style="{StaticResource EstiloBotonVolver}" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top" Click="ButtonCloseMenu_Click">
+                        <StackPanel>
+                            <Image Source="/Protectora;component/recursos/left-chevron.png" Width="27" Height="33"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Image Height="85" VerticalAlignment="Bottom"/>
+                </Grid>
+
+
+                <ListView x:Name="ListViewMenu" Foreground="Black" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListViewItem x:Name="ItemHome" Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Protectora;component/recursos/hot-dog.png" Width="58" Height="34" />
+                            <TextBlock Text="Gestión de perros" FontSize="16" VerticalAlignment="Center" Margin="20 10" Width="150"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem x:Name="ItemCreate" Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Protectora;component/recursos/caridad.png" Width="58" Height="34" />
+                            <TextBlock Text="Voluntarios de la protectora" FontSize="16" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Protectora;component/recursos/socios.png" Width="58" Height="34" />
+                            <TextBlock Text="Gestión de los socios" FontSize="16" VerticalAlignment="Center"  Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Protectora;component/recursos/alert.png" Width="58" Height="34" />
+                            <TextBlock Text="Avisos de perros perdidos" FontSize="16" VerticalAlignment="Center"  Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+
+            </StackPanel>
+
+            <Button x:Name="BtnCerrarSesion" Visibility="Collapsed" HorizontalAlignment="Right" Style="{StaticResource EstiloBotonMediano2}" Click="BtnCerrarSesion_Click" Margin="0,803,0,0" ToolTip="Cerrar la sesión actual" Width="80">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Protectora;component/recursos/log-out.png" Width="58" Height="34" />
+                </StackPanel>
+            </Button>
+
+
+        </Grid>
 
     </Grid>
 

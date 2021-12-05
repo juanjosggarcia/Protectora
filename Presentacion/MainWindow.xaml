@@ -7,7 +7,8 @@
         mc:Ignorable="d"
 		Icon="/recursos/pawprint.ico"
         Title="Inicio" Height="900" Width="1800"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
 
     <Window.Background>
         <ImageBrush ImageSource="/recursos/fondo20.jpg"/>
@@ -48,7 +49,7 @@
         </Button>
         <Button Name="BtnOlvidarContraseña" Content="Olvidaste tu contraseña?" BorderThickness="2" BorderBrush="Transparent" Background="#FAF9F7" HorizontalAlignment="Left" Height="34" Margin="597,406,0,0" VerticalAlignment="Top" Width="211" RenderTransformOrigin="0.591,1.088" Grid.Column="1" Grid.Row="1" FontFamily="Lucida Sans Unicode" Click="BtnOlvidarContraseña_Click" FontSize="16"/>
 
-        <ComboBox IsReadOnly="True" IsEditable="False" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" VerticalAlignment="Top" Width="155" Text="Idioma" SelectedIndex="0" >
+        <ComboBox IsReadOnly="True" IsEditable="False" HorizontalAlignment="Left" Height="30" Margin="30,30,0,0" VerticalAlignment="Top" Width="155" Text="Idioma" SelectedIndex="0" >
             <ComboBoxItem>
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/recursos/spain.png" Height="20" Width="33" />
