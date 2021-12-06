@@ -24,5 +24,7 @@ namespace Protectora.Presentacion
         {
             InitializeComponent();
         }
+
+
     }
 }

@@ -28,7 +28,7 @@ namespace Protectora.Presentacion
                 PanelDinamicoBotones.Children.Add(new ControlUsuarioPerro());
             }
         }
-        private void BtnPdrino2_Click(object sender, RoutedEventArgs e)
+        private void BtnPdrino_Click(object sender, RoutedEventArgs e)
         {
             Padrino Padrinito = new Padrino();
             Padrinito.Show();
@@ -36,7 +36,9 @@ namespace Protectora.Presentacion
 
         private void BtnAniadir_Click(object sender, RoutedEventArgs e)
         {
-            PanelDinamicoBotones.Children.Add(new ControlUsuarioPerro());
+            //PanelDinamicoBotones.Children.Add(new ControlUsuarioPerro());
+            BotonAniadir nuevoPerro = new BotonAniadir();
+            nuevoPerro.Show();
         }
 
         private void BtnBorrar_Click(object sender, RoutedEventArgs e)

@@ -6,74 +6,74 @@
              xmlns:local="clr-namespace:Protectora.Presentacion"
              mc:Ignorable="d" 
              d:DesignHeight="869" d:DesignWidth="1710">
-    
-            <Grid>
-                <Grid x:Name="GridMain" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="869" Width="1710" Margin="0,0,0,2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="621" />
-                        <ColumnDefinition Width="639" />
-                        <ColumnDefinition Width="418"/>
 
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="65*"/>
-                        <RowDefinition Height="91*"/>
-                        <RowDefinition Height="9*"/>
-                        <RowDefinition Height="599*"/>
-                        <RowDefinition Height="105"/>
-                    </Grid.RowDefinitions>
+    <Grid>
+        <Grid x:Name="GridMain" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="869" Width="1710" Margin="0,0,0,2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="621" />
+                <ColumnDefinition Width="639" />
+                <ColumnDefinition Width="418"/>
 
-                    <Border Grid.ColumnSpan="3" BorderBrush="#D4B8B0" Background="#D4B8B0" BorderThickness="4" Margin="0,0,-33,0" CornerRadius="0,0,20,20" >
-                        <Label x:Name="Titulo" Content="Avisos" HorizontalAlignment="Left" Width="370" Margin="686,-4,0,-9"   FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="35"/>
-                    </Border>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="65*"/>
+                <RowDefinition Height="91*"/>
+                <RowDefinition Height="9*"/>
+                <RowDefinition Height="599*"/>
+                <RowDefinition Height="105"/>
+            </Grid.RowDefinitions>
 
-                    <Border BorderBrush="white" Background="#FAF9F7" BorderThickness="4" CornerRadius="20" Margin="76,1,10,104" Grid.RowSpan="3" Grid.Row="2" Grid.Column="1">
-                        <Grid>
-                            <TextBox x:Name="TextBoxId" HorizontalAlignment="Left" Height="30" Margin="253,79,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="145" FontSize="16" />
-                            <TextBox x:Name="TextBoxSexo" HorizontalAlignment="Left" Height="30" Margin="253,164,0,0" TextWrapping="Wrap" Text="Hembra" VerticalAlignment="Top" Width="145" FontSize="16"/>
-                            <TextBox x:Name="TextBoxNombre" HorizontalAlignment="Left" Height="30" Margin="253,119,0,0" TextWrapping="Wrap" Text="Loli" VerticalAlignment="Top" Width="145" FontSize="16"/>
-                            <TextBox x:Name="TextBoxTamanio" HorizontalAlignment="Left" Height="30" Margin="253,204,0,0" TextWrapping="Wrap" Text="55" VerticalAlignment="Top" Width="145" FontSize="16"/>
-                            <TextBox x:Name="TextBoxEstado" HorizontalAlignment="Left" Height="30" Margin="253,249,0,0" TextWrapping="Wrap" Text="Sana" VerticalAlignment="Top" Width="145" FontSize="16"/>
-                            <TextBox x:Name="TextBoxPeso" HorizontalAlignment="Left" Height="30" Margin="253,329,0,0" TextWrapping="Wrap" Text="3 kg" VerticalAlignment="Top" Width="145" FontSize="16"/>
-                            <TextBox x:Name="TextBoxEdad" HorizontalAlignment="Left" Height="30" Margin="253,284,0,0" TextWrapping="Wrap" Text="2 años" VerticalAlignment="Top" Width="145" FontSize="16"/>
-                            <TextBox x:Name="TextBoxEntrada" HorizontalAlignment="Left" Height="30" Margin="253,369,0,0" TextWrapping="Wrap" Text="14/10/2021" VerticalAlignment="Top" Width="145" FontSize="16"/>
-                            <TextBox x:Name="TextBoxDescripcion" HorizontalAlignment="Left" Height="90" Margin="253,414,0,0" TextWrapping="Wrap" Text="Perro pequeño y calmado, le gusta jugar y dar paseos" VerticalAlignment="Top" Width="245" FontSize="16"/>
-                        </Grid>
-                    </Border>
-                    <Border Grid.ColumnSpan="1" BorderBrush="white" Background="#FAF9F7" BorderThickness="4" CornerRadius="20" Margin="178,125,-34,0" Grid.Row="3" Grid.Column="2" Grid.RowSpan="2"/>
+            <Border Grid.ColumnSpan="3" BorderBrush="#D4B8B0" Background="#D4B8B0" BorderThickness="4" Margin="0,0,-33,0" CornerRadius="0,0,20,20" >
+                <Label x:Name="Titulo" Content="Avisos" HorizontalAlignment="Left" Width="370" Margin="686,-4,0,-9"   FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="35"/>
+            </Border>
 
-
-                    <Label Content="Opciones" HorizontalAlignment="Center" Height="65" Width="182" Margin="237,187,0,0" VerticalAlignment="Top"  FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="35" Grid.Row="3" Grid.Column="2" RenderTransformOrigin="0.161,0.657"/>
-
-                    <Button x:Name="BtnAniadir" Content="AÑADIR" Style="{StaticResource EstiloBotonNormal}"  Margin="239,298,0,0" Grid.Row="3" Grid.Column="2"/>
-                    <Button x:Name="BtnBorrar" Content="BORRAR" Style="{StaticResource EstiloBotonNormal}"  Margin="239,400,0,0" Grid.Row="3" Grid.Column="2"/>
-                    <Button x:Name="BtnModificar" Content="MODIFICAR" Style="{StaticResource EstiloBotonNormal}" Margin="239,498,0,0" Grid.Row="3" Grid.Column="2"/>
-                    <Button x:Name="BtnListar" Content="LISTAR" Style="{StaticResource EstiloBotonNormal}" Margin="239,0,0,0" Grid.Row="4" Grid.Column="2"/>
-
-                    <Label x:Name="lblId" Content="Id:" HorizontalAlignment="Left" Height="37" Margin="138,70,0,0" VerticalAlignment="Top" Width="100" FontSize="18" Grid.Column="1" Grid.Row="3"/>
-
-                    <Label x:Name="lblNombre" Content="Nombre:" HorizontalAlignment="Left" Height="37" Margin="138,0,0,450" VerticalAlignment="Bottom" Width="121" FontSize="18" Grid.Column="1" Grid.Row="3"/>
-
-                    <Label x:Name="lblsexo" Content="Sexo:" HorizontalAlignment="Left" Height="37" Margin="138,154,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="1" Grid.Row="3"/>
-
-                    <Label x:Name="lbltamanio" Content="Tamaño:" HorizontalAlignment="Left" Height="38" Margin="138,196,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="1" Grid.Row="3"/>
-
-                    <Label x:Name="lblPeso" Content="Peso:" HorizontalAlignment="Left" Height="36" Margin="138,320,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="1" Grid.Row="3"/>
-
-                    <Label x:Name="lblEdad" Content="Edad:" HorizontalAlignment="Left" Height="36" Margin="138,279,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="1" Grid.Row="3"/>
-
-                    <Label x:Name="lblEntrada" Content="Entrada:" HorizontalAlignment="Left" Height="36" Margin="138,361,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="1" Grid.Row="3"/>
-
-                    <Label x:Name="lblEstado" Content="Estado:" HorizontalAlignment="Left" Height="35" Margin="138,239,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="1" Grid.Row="3"/>
-                    <Button x:Name="BtnPdrino" Content="PADRRINO" Style="{StaticResource EstiloBotonMediano}" Grid.Column="1" Margin="276,518,0,0" Height="60" Width="152" Grid.Row="3"/>
-
-                    <Label x:Name="lblDescrpcion" Content="Descripcion:" HorizontalAlignment="Left" Height="36" Margin="138,402,0,0" VerticalAlignment="Top" Width="117" FontSize="18" Grid.Column="1" Grid.Row="3" RenderTransformOrigin="0.444,0.417"/>
-                    <ScrollViewer Margin="120,42,112,54" Grid.Row="3" Grid.RowSpan="2"  >
-                        <WrapPanel x:Name="spPanelDinamicoPerros" HorizontalAlignment="Left" Height="622" Grid.RowSpan="3" VerticalAlignment="Top" Width="375"/>
-                    </ScrollViewer>
-                    <Label x:Name ="lblFinalSesion" Content="Ultimo inicio de sesión: 16 de noviembre 18:35" Grid.Column="2" HorizontalAlignment="Left" Height="35" Margin="61,19,-29,0" VerticalAlignment="Top" Width="387" FontSize="18" RenderTransformOrigin="0.324,0.103"/>
-
+            <Border BorderBrush="white" Background="#FAF9F7" BorderThickness="4" CornerRadius="20" Margin="76,0,10,0" Grid.RowSpan="2" Grid.Row="2" Grid.Column="1">
+                <Grid>
+                    <TextBox x:Name="TextBoxId" HorizontalAlignment="Left" Height="30" Margin="253,57,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="145" FontSize="16" />
+                    <TextBox x:Name="TextBoxSexo" HorizontalAlignment="Left" Height="30" Margin="253,127,0,0" TextWrapping="Wrap" Text="Hembra" VerticalAlignment="Top" Width="145" FontSize="16"/>
+                    <TextBox x:Name="TextBoxNombre" HorizontalAlignment="Left" Height="30" Margin="253,92,0,0" TextWrapping="Wrap" Text="Loli" VerticalAlignment="Top" Width="145" FontSize="16"/>
+                    <TextBox x:Name="TextBoxTamanio" HorizontalAlignment="Left" Height="30" Margin="253,162,0,0" TextWrapping="Wrap" Text="55" VerticalAlignment="Top" Width="145" FontSize="16"/>
+                    <TextBox x:Name="TextBoxRaza" HorizontalAlignment="Left" Height="30" Margin="253,197,0,0" TextWrapping="Wrap" Text="Sana" VerticalAlignment="Top" Width="145" FontSize="16"/>
+                    <TextBox x:Name="TextBoxZona" HorizontalAlignment="Left" Height="30" Margin="253,267,0,0" TextWrapping="Wrap" Text="3 kg" VerticalAlignment="Top" Width="145" FontSize="16"/>
+                    <TextBox x:Name="TextBoxFecha" HorizontalAlignment="Left" Height="30" Margin="253,232,0,0" TextWrapping="Wrap" Text="2 años" VerticalAlignment="Top" Width="145" FontSize="16"/>
+                    <TextBox x:Name="TextBoxDescripcionAd" HorizontalAlignment="Left" Height="75" Margin="253,302,0,0" TextWrapping="Wrap" Text="14/10/2021" VerticalAlignment="Top" Width="245" FontSize="16"/>
+                    <TextBox x:Name="TextBoxDescripcion" HorizontalAlignment="Left" Height="90" Margin="253,382,0,0" TextWrapping="Wrap" Text="Perro pequeño y calmado, le gusta jugar y dar paseos" VerticalAlignment="Top" Width="245" FontSize="16"/>
                 </Grid>
-            </Grid>
+            </Border>
+            <Border Grid.ColumnSpan="1" BorderBrush="white" Background="#FAF9F7" BorderThickness="4" CornerRadius="20" Margin="178,125,-34,0" Grid.Row="3" Grid.Column="2" Grid.RowSpan="2"/>
+
+
+            <Label Content="Opciones" HorizontalAlignment="Center" Height="65" Width="182" Margin="237,187,0,0" VerticalAlignment="Top"  FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="35" Grid.Row="3" Grid.Column="2" RenderTransformOrigin="0.161,0.657"/>
+
+            <Button x:Name="BtnAniadirAviso" Content="AÑADIR" Style="{StaticResource EstiloBotonNormal}"  Margin="239,298,0,0" Grid.Row="3" Grid.Column="2"/>
+            <Button x:Name="BtnBorrarAviso" Content="BORRAR" Style="{StaticResource EstiloBotonNormal}"  Margin="239,400,0,0" Grid.Row="3" Grid.Column="2"/>
+            <Button x:Name="BtnEditar" Content="EDITAR" Style="{StaticResource EstiloBotonNormal}" Margin="239,498,0,0" Grid.Row="3" Grid.Column="2"/>
+            <Button x:Name="BtnListar" Content="LISTAR" Style="{StaticResource EstiloBotonNormal}" Margin="239,0,0,0" Grid.Row="4" Grid.Column="2"/>
+
+            <Label x:Name="lblId" Content="Id:" HorizontalAlignment="Left" Height="30" Margin="138,52,0,0" VerticalAlignment="Top" Width="100" FontSize="18" Grid.Column="1" Grid.Row="3"/>
+
+            <Label x:Name="lblNombre" Content="Nombre:" HorizontalAlignment="Left" Height="30" Margin="138,0,0,482" VerticalAlignment="Bottom" Width="121" FontSize="18" Grid.Column="1" Grid.Row="3"/>
+
+            <Label x:Name="lblsexo" Content="Sexo:" HorizontalAlignment="Left" Height="30" Margin="138,122,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="1" Grid.Row="3"/>
+
+            <Label x:Name="lbltamanio" Content="Tamaño:" HorizontalAlignment="Left" Height="30" Margin="138,157,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="1" Grid.Row="3"/>
+
+            <Label x:Name="lblFecha" Content="Fecha de perdida:" HorizontalAlignment="Left" Height="35" Margin="138,227,0,0" VerticalAlignment="Top" Width="185" FontSize="18" Grid.Column="1" Grid.Row="3"/>
+
+            <Label x:Name="lblDescripcionAd" Content="Descripcion adicional:" HorizontalAlignment="Left" Height="35" Margin="138,297,0,0" VerticalAlignment="Top" Width="185" FontSize="18" Grid.Column="1" Grid.Row="3"/>
+
+            <Label x:Name="lblZona" Content="Zona de perdida:" HorizontalAlignment="Left" Height="35" Margin="138,262,0,0" VerticalAlignment="Top" Width="185" FontSize="18" Grid.Column="1" Grid.Row="3"/>
+
+            <Label x:Name="lblRaza" Content="Raza:" HorizontalAlignment="Left" Height="30" Margin="138,192,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="1" Grid.Row="3"/>
+            <Button x:Name="BtnContacto" Content="CONTACTO" Style="{StaticResource EstiloBotonMediano}" Grid.Column="1" Margin="278,498,0,0" Height="60" Width="152" Grid.Row="3"/>
+
+            <Label x:Name="lblDescrpcion" Content="Descripcion:" HorizontalAlignment="Left" Height="36" Margin="138,376,0,0" VerticalAlignment="Top" Width="117" FontSize="18" Grid.Column="1" Grid.Row="3" RenderTransformOrigin="0.444,0.417"/>
+            <ScrollViewer Margin="120,42,112,54" Grid.Row="3" Grid.RowSpan="2"  >
+                <WrapPanel x:Name="spPanelDinamicoPerros" HorizontalAlignment="Left" Height="622" Grid.RowSpan="3" VerticalAlignment="Top" Width="375"/>
+            </ScrollViewer>
+            <Label x:Name ="lblFinalSesion" Content="Ultimo inicio de sesión: 16 de noviembre 18:35" Grid.Column="2" HorizontalAlignment="Left" Height="35" Margin="61,19,-29,0" VerticalAlignment="Top" Width="387" FontSize="18" RenderTransformOrigin="0.324,0.103"/>
+
+        </Grid>
+    </Grid>
 
 </UserControl>

@@ -24,7 +24,7 @@
             </Grid.RowDefinitions>
 
             <Border Grid.ColumnSpan="3" BorderBrush="#D4B8B0" Background="#D4B8B0" BorderThickness="4" Margin="0,0,-33,0" CornerRadius="0,0,20,20" >
-                <Label x:Name="Titulo" Content="Gestion de perros" HorizontalAlignment="Left" Width="370" Margin="686,-4,0,-9"   FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="35"/>
+                <Label x:Name="Titulo" Content="Gestion de perros" Margin="681,-4,695,-9"   FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="35"/>
             </Border>
 
             <Border BorderBrush="white" Background="#FAF9F7" BorderThickness="4" CornerRadius="20" Margin="76,1,10,104" Grid.RowSpan="3" Grid.Row="2" Grid.Column="1">
@@ -45,10 +45,10 @@
 
             <Label Content="Opciones" HorizontalAlignment="Center" Height="65" Width="182" Margin="237,187,0,0" VerticalAlignment="Top"  FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="35" Grid.Row="3" Grid.Column="2" RenderTransformOrigin="0.161,0.657"/>
 
-            <Button x:Name="BtnAniadir" Content="AÑADIR" Style="{StaticResource EstiloBotonNormal}" Click="BtnAniadir_Click" Margin="239,298,0,0" Grid.Row="3" Grid.Column="2"/>
-            <Button x:Name="BtnBorrar" Content="BORRAR" Style="{StaticResource EstiloBotonNormal}"  Margin="239,400,0,0" Click="BtnBorrar_Click" Grid.Row="3" Grid.Column="2"/>
-            <Button x:Name="BtnModificar" Content="MODIFICAR" Style="{StaticResource EstiloBotonNormal}" Margin="239,498,0,0" Grid.Row="3" Grid.Column="2"/>
-            <Button x:Name="BtnListar" Content="LISTAR" Style="{StaticResource EstiloBotonNormal}" Margin="239,0,0,0" Grid.Row="4" Grid.Column="2"/>
+            <Button x:Name="BtnAniadirPerro" Content="AÑADIR" Style="{StaticResource EstiloBotonNormal}" Click="BtnAniadir_Click" Margin="239,298,0,0" Grid.Row="3" Grid.Column="2"/>
+            <Button x:Name="BtnBorrarPerro" Content="BORRAR" Style="{StaticResource EstiloBotonNormal}"  Margin="239,400,0,0" Click="BtnBorrar_Click" Grid.Row="3" Grid.Column="2"/>
+            <Button x:Name="BtnModificarPerro" Content="MODIFICAR" Style="{StaticResource EstiloBotonNormal}" Margin="239,498,0,0" Grid.Row="3" Grid.Column="2"/>
+            <Button x:Name="BtnListarPerro" Content="LISTAR" Style="{StaticResource EstiloBotonNormal}" Margin="239,0,0,0" Grid.Row="4" Grid.Column="2"/>
 
             <Label x:Name="lblId" Content="Id:" HorizontalAlignment="Left" Height="37" Margin="138,70,0,0" VerticalAlignment="Top" Width="100" FontSize="18" Grid.Column="1" Grid.Row="3"/>
 
@@ -65,7 +65,7 @@
             <Label x:Name="lblEntrada" Content="Entrada:" HorizontalAlignment="Left" Height="36" Margin="138,361,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="1" Grid.Row="3"/>
 
             <Label x:Name="lblEstado" Content="Estado:" HorizontalAlignment="Left" Height="35" Margin="138,239,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="1" Grid.Row="3"/>
-            <Button x:Name="BtnPdrino" Content="PADRRINO" Style="{StaticResource EstiloBotonMediano}" Click="BtnPdrino2_Click" Grid.Column="1" Margin="276,518,0,0" Height="60" Width="152" Grid.Row="3"/>
+            <Button x:Name="BtnPdrino" Content="PADRRINO" Style="{StaticResource EstiloBotonMediano}" Click="BtnPdrino_Click" Grid.Column="1" Margin="276,518,0,0" Height="60" Width="152" Grid.Row="3"/>
 
             <Label x:Name="lblDescrpcion" Content="Descripcion:" HorizontalAlignment="Left" Height="36" Margin="138,402,0,0" VerticalAlignment="Top" Width="117" FontSize="18" Grid.Column="1" Grid.Row="3" RenderTransformOrigin="0.444,0.417"/>
             <ScrollViewer Margin="115,0,117,96" Grid.Row="3" Grid.RowSpan="2"  >
