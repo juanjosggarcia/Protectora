@@ -23,6 +23,19 @@ namespace Protectora.Presentacion
         public ControlUsuarioPerro()
         {
             InitializeComponent();
+
         }
+
+        public string id { get; set; }
+        public string nombre { get; set; }
+        public string sexo { get; set; }
+        public string tamanio { get; set; }
+        public string estado { get; set; }
+        public string edad { get; set; }
+        public string peso { get; set; }
+        public string entrada { get; set; }
+        public string descripcion { get; set; }
+
     }
+
 }

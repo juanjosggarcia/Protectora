@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Protectora.Presentacion"
         mc:Ignorable="d"
-        Title="GestionPerro"  Height="900" Width="1800"
+        Title="Pantalla Principal"  Height="900" Width="1800"
         Icon="/recursos/pawprint.ico"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
@@ -59,7 +59,7 @@
                             <TranslateTransform/>
                         </TransformGroup>
                     </Grid.RenderTransform>
-                    <Button x:Name="ButtonOpenMenu"  Style="{StaticResource EstiloBotonVolver}" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Top"   Click="ButtonOpenMenu_Click">
+                    <Button x:Name="ButtonOpenMenu"  Style="{StaticResource EstiloBotonVolver}" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Top"   Click="ButtonOpenMenu_Click" ToolTip="Menu">
                         <StackPanel>
                             <Image Source="/Protectora;component/recursos/menu.png" Width="27" Height="33"/>
                         </StackPanel>
@@ -71,11 +71,12 @@
                     </Button>
 
                     <Image Height="85" VerticalAlignment="Bottom"/>
+
                 </Grid>
 
 
-                <ListView x:Name="ListViewMenu" Foreground="Black" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListViewMenu_SelectionChanged">
-                    <ListViewItem x:Name="ItemPerros" Height="60" Style="{StaticResource Style2}">
+                <ListView x:Name="ListViewMenu" Foreground="Black" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListViewMenu_SelectionChanged" >
+                    <ListViewItem x:Name="ItemPerros" Height="60" Style="{StaticResource Style2}" >
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Protectora;component/recursos/hot-dog.png" Width="58" Height="34" />
                             <TextBlock Text="Gestión de perros" FontSize="16" VerticalAlignment="Center" Margin="20 10" Width="150"/>

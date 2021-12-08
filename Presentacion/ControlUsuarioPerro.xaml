@@ -11,5 +11,6 @@
                 Source="C:\Users\laura\source\repos\Protectora\recursos\bichon.jpg"
                 Stretch="Uniform" Height="135" Width="155" />
         </Button>
+
     </Grid>
 </UserControl>
