@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Protectora.Presentacion"
              mc:Ignorable="d" Height="145" Width="185">
     <Grid>
-        <Button x:Name="btnPerroLista" Style="{StaticResource EstiloBotonNormal}" Height="145" Width="185">
+        <Button x:Name="btnPerroLista" Style="{StaticResource EstiloBotonNormal}" Height="145" Width="185" Click="btnPerroLista_Click">
             <Image x:Name="imgPerro" 
                 Source="C:\Users\laura\source\repos\Protectora\recursos\bichon.jpg"
                 Stretch="Uniform" Height="135" Width="155" />

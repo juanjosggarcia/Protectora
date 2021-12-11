@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Pantalla Principal"  Height="900" Width="1800"
         Icon="/recursos/pawprint.ico"
-        WindowStartupLocation="CenterScreen"
+        WindowStartupLocation="CenterOwner"
         ResizeMode="NoResize">
 
     <Window.Resources>

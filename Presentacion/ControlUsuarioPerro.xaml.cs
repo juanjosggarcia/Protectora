@@ -36,6 +36,12 @@ namespace Protectora.Presentacion
         public string entrada { get; set; }
         public string descripcion { get; set; }
 
+        private void btnPerroLista_Click(object sender, RoutedEventArgs e)
+        {
+            // Perros.metodito();
+            MessageBox.Show("algo");
+        }
+
     }
 
 }

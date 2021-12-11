@@ -23,10 +23,7 @@ namespace Protectora.Presentacion
         public Perros()
         {
             InitializeComponent();
-            for (int i = 0; i<10; i++)
-            {
-                PanelDinamicoBotones.Children.Add(new ControlUsuarioPerro());
-            }
+            metodito();
         }
         private void BtnPdrino_Click(object sender, RoutedEventArgs e)
         {
@@ -49,6 +46,13 @@ namespace Protectora.Presentacion
             //{
             //    spPanelDinamicoPerros.Children.RemoveAt(numItems - 1);
             //}
+        }
+        private void metodito()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                PanelDinamicoBotones.Children.Add(new ControlUsuarioPerro());
+            }
         }
     }
 

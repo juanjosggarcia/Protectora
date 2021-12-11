@@ -7,7 +7,7 @@
         mc:Ignorable="d"
 		Icon="/recursos/pawprint.ico"
         Title="Inicio" Height="900" Width="1800"
-        WindowStartupLocation="CenterScreen"
+        WindowStartupLocation="CenterOwner"
         ResizeMode="NoResize">
 
     <Window.Background>

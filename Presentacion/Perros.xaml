@@ -31,7 +31,7 @@
                 <Grid Margin="0,0,0,-4">
                     <TextBox x:Name="TextBoxId" Style="{StaticResource TextBox2}" FontSize="14" Foreground="Black"  Width="Auto" Height="35" Margin="253,101,148,530" RenderTransformOrigin="0.5,0.5"/>
                     <TextBox x:Name="TextBoxSexo" Style="{StaticResource TextBox2}" HorizontalAlignment="Left" Height="35" Margin="253,191,0,0" TextWrapping="Wrap" Text="Hembra" VerticalAlignment="Top" Width="145" FontSize="14"/>
-                    <TextBox x:Name="TextBoxNombre" Style="{StaticResource TextBox2}" HorizontalAlignment="Left" Height="35" Margin="253,146,0,0" TextWrapping="Wrap" Text="Loli" VerticalAlignment="Top" Width="145" FontSize="14"/>
+                    <TextBox x:Name="TextBoxNombre" Style="{StaticResource TextBox2}" HorizontalAlignment="Left" Height="35" Margin="253,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" FontSize="14"/>
                     <TextBox x:Name="TextBoxTamanio" Style="{StaticResource TextBox2}" HorizontalAlignment="Left" Height="35" Margin="253,236,0,0" TextWrapping="Wrap" Text="55" VerticalAlignment="Top" Width="145" FontSize="14"/>
                     <TextBox x:Name="TextBoxEstado" Style="{StaticResource TextBox2}" HorizontalAlignment="Left" Height="35" Margin="253,281,0,0" TextWrapping="Wrap" Text="Sana" VerticalAlignment="Top" Width="145" FontSize="14"/>
                     <TextBox x:Name="TextBoxPeso" Style="{StaticResource TextBox2}" HorizontalAlignment="Left" Height="35" Margin="253,371,0,0" TextWrapping="Wrap" Text="3 kg" VerticalAlignment="Top" Width="145" FontSize="14"/>
@@ -68,8 +68,8 @@
             <Button x:Name="BtnPdrino" Content="PADRRINO" Style="{StaticResource EstiloBotonMediano}" Click="BtnPdrino_Click" Grid.Column="1" Margin="273,539,0,0" Height="60" Width="152" Grid.Row="3"/>
 
             <Label x:Name="lblDescrpcion" Content="Descripcion:" HorizontalAlignment="Left" Height="36" Margin="138,427,0,0" VerticalAlignment="Top" Width="117" FontSize="18" Grid.Column="1" Grid.Row="3" RenderTransformOrigin="0.444,0.417"/>
-            <ScrollViewer Margin="115,0,117,96" Grid.Row="3" Grid.RowSpan="2"  >
-                <WrapPanel x:Name="PanelDinamicoBotones" HorizontalAlignment="Left" Height="622" Grid.RowSpan="3" VerticalAlignment="Top" Width="375"/>
+            <ScrollViewer Margin="125,0.2,126.6,10" Grid.Row="3"  >
+                <StackPanel x:Name="PanelDinamicoBotones" HorizontalAlignment="Left" Height="1722" Grid.RowSpan="3" VerticalAlignment="Top" Width="370"/>
             </ScrollViewer>
             <Label x:Name ="lblFinalSesion" Content="Ultimo inicio de sesión: 16 de noviembre 18:35" Grid.Column="2" HorizontalAlignment="Left" Height="35" Margin="61,19,-29,0" VerticalAlignment="Top" Width="387" FontSize="18" RenderTransformOrigin="0.324,0.103"/>
 
