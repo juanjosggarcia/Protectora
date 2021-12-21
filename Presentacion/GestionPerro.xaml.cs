@@ -19,10 +19,17 @@ namespace Protectora.Presentacion
     /// </summary>
     public partial class GestionPerro : Window
     {
+        public Page[] paneles = new Page[] { new PaginaPerro(), new PaginaSocios(), new PaginaVoluntarios(), new PaginaAvisos() };
         public GestionPerro()
         {
             InitializeComponent();
 
+        }
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+
+            App.Current.Shutdown();
         }
 
         private void BtnCerrarSesion_Click(object sender, RoutedEventArgs e)
@@ -52,34 +59,28 @@ namespace Protectora.Presentacion
 
         private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            UserControl usc = null;
-            GridMain.Children.Clear();
+            MainFrame.Content = paneles[((ListView)sender).SelectedIndex];
 
-            switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
-            {
-                case "ItemPerros":
-                    usc = new Perros();
-                    GridMain.Children.Add(usc);
-                    break;
-                case "ItemSocios":
-                    usc = new Socios();
-                    GridMain.Children.Add(usc);
-                    break;
-                case "ItemVoluntario":
-                    usc = new Voluntarios();
-                    GridMain.Children.Add(usc);
-                    break;
-                case "ItemAvisos":
-                    usc = new Avisos();
-                    GridMain.Children.Add(usc);
-                    break;
-
-                default:
-                    usc = new Perros();
-                    GridMain.Children.Add(usc);
-                    break;
-            }
         }
 
+        private void BotonListPerro_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = paneles[0];
+        }
+
+        private void BotonListSocio_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = paneles[1];
+        }
+
+        private void BotonListVoluntario_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = paneles[2];
+        }
+
+        private void BotonListAvisos_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = paneles[3];
+        }
     }
 }

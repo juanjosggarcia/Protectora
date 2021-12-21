@@ -20,6 +20,8 @@ namespace Protectora.Presentacion
     /// </summary>
     public partial class BotonAniadir : Window
     {
+        Dominio.Perro perroActual;
+        List<Dominio.Perro> ListaPerros;
         public BotonAniadir()
         {
             InitializeComponent();
@@ -84,15 +86,6 @@ namespace Protectora.Presentacion
             }
         }
 
-        private void LimpiarTextoEntrada(object sender, EventArgs e)
-        {
-            if (txtEntradaPerro.Text == "Entrada")
-            {
-                txtEntradaPerro.Text = "";
-                txtEntradaPerro.Foreground = new SolidColorBrush(Colors.Black);
-            }
-        }
-
         private void LimpiarTextoDescripcion(object sender, EventArgs e)
         {
             if (txtDescripcionPerro.Text == "Descripción")
@@ -104,16 +97,18 @@ namespace Protectora.Presentacion
 
         private void btnImagen_Click(object sender, RoutedEventArgs e)
         {
-            var abrirDialog = new OpenFileDialog();
-            abrirDialog.Filter = "Images|*.jpg;*.gif;*.bmp;*.png";
-            if (abrirDialog.ShowDialog() == true)
+            OpenFileDialog op = new OpenFileDialog();
+            op.Title = "Select a picture";
+            op.Filter = "Images|*.jpg;*.gif;*.bmp;*.png";
+            if (op.ShowDialog() == true)
             {
                 try
                 {
                     ControlUsuarioPerro controlPerro = new ControlUsuarioPerro();
 
-                    var bitmap = new BitmapImage(new Uri(abrirDialog.FileName, UriKind.Absolute));
+                    var bitmap = new BitmapImage(new Uri(op.FileName, UriKind.Absolute));
                     controlPerro.imgPerro.Source = bitmap;
+                    txtImagenPerroNuevo.Text = op.FileName;
                 }
                 catch (Exception ex)
                 {
@@ -124,17 +119,29 @@ namespace Protectora.Presentacion
 
         private void nuevoPerro_Click(object sender, RoutedEventArgs e)
         {
-            ControlUsuarioPerro controlPerro = new ControlUsuarioPerro();
-            controlPerro.nombre = txtNombrePerro.Text;
-            controlPerro.sexo = txtNombrePerro.Text;
-            controlPerro.tamanio = txtNombrePerro.Text;
-            controlPerro.estado = txtNombrePerro.Text;
-            controlPerro.edad = txtNombrePerro.Text;
-            controlPerro.peso = txtNombrePerro.Text;
-            controlPerro.entrada = txtNombrePerro.Text;
-            controlPerro.descripcion = txtNombrePerro.Text;
+            GestionPerro ventana = Application.Current.Windows.OfType<GestionPerro>().FirstOrDefault();
 
-            //Perros.PanelDinamicoBotones.Children.Add(controlPerro()); NO SE COMO HACER ESTO
+            Dominio.Perro perro = new Dominio.Perro();
+            perro.Nombre = txtNombrePerro.Text;
+            perro.Sexo = txtSexoPerro.Text;
+            perro.Tamanio = Int32.Parse(txtTamanioPerro.Text);
+            perro.Estado = txtEstadoPerro.Text;
+            perro.Peso = Int32.Parse(txtPesoPerro.Text);
+            perro.Edad = Int32.Parse(txtEdadPerro.Text);
+            perro.Entrada = DateTime.Parse(dateEntradaPerro.Text);
+            perro.Descripcion = txtDescripcionPerro.Text;
+
+            //main.SetPerro(perro);
+            //main.Algoperro();
+
+            //ventana.paneles[0].listaPerro.Add(perro);
+            //PaginaPerro wnd = (PaginaPerro)Application.Current.MainWindow;
+            //wnd.();
+
+            this.Close();
+            }
         }
+
+      
     }
-}
+

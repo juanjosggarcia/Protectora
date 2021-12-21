@@ -27,6 +27,12 @@ namespace Protectora
         {
             InitializeComponent();
         }
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+
+            App.Current.Shutdown();
+        }
 
         private void BtnIniciarSesion_Click(object sender, RoutedEventArgs e)
         {
@@ -37,7 +43,7 @@ namespace Protectora
                     Presentacion.GestionPerro nw = new Presentacion.GestionPerro();
                     nw.Show();
 
-                    this.Close();
+                    this.Hide();
 
             }
                 else

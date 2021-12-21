@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Protectora.Presentacion
 {
     /// <summary>
-    /// Lógica de interacción para Avisos.xaml
+    /// Lógica de interacción para PaginaAvisos.xaml
     /// </summary>
-    public partial class Avisos : UserControl
+    public partial class PaginaAvisos : Page
     {
-        public Avisos()
+        public PaginaAvisos()
         {
             InitializeComponent();
         }

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
 		Icon="/recursos/pawprint.ico"
         Title="Inicio" Height="900" Width="1800"
-        WindowStartupLocation="CenterOwner"
+        WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
 
     <Window.Background>
@@ -41,7 +41,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <TextBox x:Name ="txtUsuario" Style="{StaticResource TextBox1}" Text="Nombre de Usuario" Grid.Column="1" Grid.Row="1" KeyDown="OnKeyDownHandler" PreviewMouseDown="LimpiarTexto" FontSize="17" Foreground="Gray" Margin="265,224,265,176" PreviewMouseUp="MostrarAyudaContrasenia"/>
+        <TextBox x:Name ="txtUsuario" Style="{StaticResource TextBox1}" Text="Nombre de Usuario" Grid.Column="1" Grid.Row="1" KeyDown="OnKeyDownHandler" PreviewMouseDown="LimpiarTexto" FontSize="17" Foreground="Gray" Margin="264.8,224.4,263.6,175.6" PreviewMouseUp="MostrarAyudaContrasenia" Width="Auto" Height="Auto"/>
         <PasswordBox x:Name ="txtContrasenia" Grid.Column="1" FontSize="16" Style="{StaticResource PasswordBoxStyle}" Margin="265,275,265,125" Grid.Row="1" VerticalAlignment="Center" Height="40" KeyDown="OnKeyDownHandler" RenderTransformOrigin="0.452,1.5" TextBlock.Foreground="Gray" Password="Contraseña"  PreviewMouseDown="LimpiarTextoContrasenia" PreviewMouseUp="MostrarAyuda"/>
 
         <Button Name="BtnIniciarSesion" Style="{StaticResource EstiloBotonMediano}" Content="Iniciar Sesión" Click="BtnIniciarSesion_Click" Margin="330,348,330,0" Grid.Column="1" Grid.Row="1" ToolTip="Iniciar sesion en la aplicacion" HorizontalAlignment="Stretch" Width="Auto" >

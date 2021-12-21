@@ -225,8 +225,8 @@
         <Setter Property="Padding" Value="7"/>
         <Setter Property="Margin" Value="5"/>
         <Setter Property="FontSize" Value="17"/>
-        <Setter Property="MinHeight" Value="20"/>
-        <Setter Property="MinWidth" Value="250"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Width" Value="250"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TextBox}">
@@ -294,10 +294,74 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+        <Style x:Key="Title" TargetType="{x:Type Rectangle}"/>
+        <Style x:Key="GridViewColumnHeaderStyle" TargetType="{x:Type GridViewColumnHeader}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type GridViewColumnHeader}">
+                        <Border BorderThickness="0,0,0,0" BorderBrush="Black" Background="#999">
+                            <TextBlock x:Name="ContentHeader" Text="{TemplateBinding Content}" Padding="5,6" Width="{TemplateBinding Width}" TextAlignment="Center" Foreground="#FAFBFD" FontFamily="Corbel" FontSize="10" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontSize" Value="14" />
+        </Style>
     
     
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Height="{TemplateBinding Height}"  Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
 
+    <Style TargetType="{x:Type ListViewItem}">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="5,5" />
+            <Setter Property="Margin" Value="3,0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListViewItem}">
+                        <Grid Background="{TemplateBinding Background}">
+                            <Border Name="Selection" Visibility="Collapsed" />
+                            <!-- This is used when GridView is put inside the ListView -->
+                            <GridViewRowPresenter Grid.RowSpan="2"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#ECECEC" />
+                </Trigger>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsSelected" Value="true" />
+                    </MultiTrigger.Conditions>
+                    <Setter Property="Background" Value="#DDD" />
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
+
+        
 
 
 </ResourceDictionary>

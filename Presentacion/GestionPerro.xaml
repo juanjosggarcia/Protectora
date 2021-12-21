@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Pantalla Principal"  Height="900" Width="1800"
         Icon="/recursos/pawprint.ico"
-        WindowStartupLocation="CenterOwner"
+        WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
 
     <Window.Resources>
@@ -43,6 +43,7 @@
 
 
         <Grid x:Name="GridMain" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="869" Width="1710" Margin="0,0,-5,0">
+            <Frame x:Name="MainFrame"/>
 
         </Grid>
         <Grid x:Name="GridMenu" Width="80" HorizontalAlignment="Left" Background="#E2CFCA">
@@ -77,28 +78,36 @@
 
                 <ListView x:Name="ListViewMenu" Foreground="Black" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListViewMenu_SelectionChanged" >
                     <ListViewItem x:Name="ItemPerros" Height="60" Style="{StaticResource Style2}" >
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/Protectora;component/recursos/hot-dog.png" Width="58" Height="34" />
-                            <TextBlock Text="Gestión de perros" FontSize="16" VerticalAlignment="Center" Margin="20 10" Width="150"/>
-                        </StackPanel>
+                        <Button x:Name="BotonListPerro" BorderBrush="white" Background="White" Click="BotonListPerro_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Protectora;component/recursos/hot-dog.png" Width="58" Height="34" />
+                                <TextBlock Text="Avisos de perros perdidos" FontSize="16" VerticalAlignment="Center"  Margin="20 10"/>
+                            </StackPanel>
+                        </Button>
                     </ListViewItem>
                     <ListViewItem x:Name="ItemSocios" Height="60" Style="{StaticResource Style2}">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/Protectora;component/recursos/socios.png" Width="58" Height="34" />
-                            <TextBlock Text="Voluntarios de la protectora" FontSize="16" VerticalAlignment="Center" Margin="20 10"/>
-                        </StackPanel>
+                        <Button x:Name="BotonListSocios" BorderBrush="white" Background="White"  Click="BotonListSocio_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Protectora;component/recursos/socios.png" Width="58" Height="34" />
+                                <TextBlock Text="Voluntarios de la protectora" FontSize="16" VerticalAlignment="Center" Margin="20 10"/>
+                            </StackPanel>
+                        </Button>
                     </ListViewItem>
-                    <ListViewItem  x:Name="ItemVoluntario" Height="60" Style="{StaticResource Style2}">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/Protectora;component/recursos/caridad.png" Width="58" Height="34" />
-                            <TextBlock Text="Gestión de los socios" FontSize="16" VerticalAlignment="Center"  Margin="20 10"/>
-                        </StackPanel>
+                    <ListViewItem x:Name="ItemVoluntario" Height="60" Style="{StaticResource Style2}">
+                        <Button x:Name="BotonListVoluntarios" BorderBrush="white" Background="White"  Click="BotonListVoluntario_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Protectora;component/recursos/caridad.png" Width="58" Height="34" />
+                                <TextBlock Text="Gestión de los socios" FontSize="16" VerticalAlignment="Center"  Margin="20 10"/>
+                            </StackPanel>
+                        </Button>
                     </ListViewItem>
-                    <ListViewItem x:Name="ItemAvisos" Height="60" Style="{StaticResource Style2}">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/Protectora;component/recursos/alert.png" Width="58" Height="34" />
-                            <TextBlock Text="Avisos de perros perdidos" FontSize="16" VerticalAlignment="Center"  Margin="20 10"/>
-                        </StackPanel>
+                    <ListViewItem x:Name="ItemAvisos" Height="60" Style="{StaticResource Style2}" >
+                        <Button x:Name="BotonListAvisos" BorderBrush="white" Background="White" Click="BotonListAvisos_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Protectora;component/recursos/alert.png" Width="58" Height="34" />
+                                <TextBlock Text="Avisos de perros perdidos" FontSize="16" VerticalAlignment="Center"  Margin="20 10"/>
+                            </StackPanel>
+                        </Button>
                     </ListViewItem>
                 </ListView>
 
@@ -112,6 +121,7 @@
 
 
         </Grid>
+        <StackPanel HorizontalAlignment="Left" Height="100" Margin="1170,515,0,0" VerticalAlignment="Top" Width="100"/>
 
     </Grid>
 

@@ -16,15 +16,13 @@ using System.Windows.Shapes;
 namespace Protectora.Presentacion
 {
     /// <summary>
-    /// Lógica de interacción para Socios.xaml
+    /// Lógica de interacción para PaginaVoluntarios.xaml
     /// </summary>
-    public partial class Socios : UserControl
+    public partial class PaginaVoluntarios : Page
     {
-        public Socios()
+        public PaginaVoluntarios()
         {
             InitializeComponent();
         }
-
-
     }
 }
