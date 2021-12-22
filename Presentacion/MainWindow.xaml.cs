@@ -40,7 +40,7 @@ namespace Protectora
                 if (txtUsuario.Text.Equals(usuario) && txtContrasenia.Password.Equals(password))
                 {
                         
-                    Presentacion.GestionPerro nw = new Presentacion.GestionPerro();
+                    ClaseVentanaPrincipal nw = new ClaseVentanaPrincipal();
                     nw.Show();
 
                     this.Hide();
@@ -103,7 +103,7 @@ namespace Protectora
 
         private void BtnOlvidarContraseña_Click(object sender, RoutedEventArgs e)
         {
-            OlvidadaContrasenia Oc = new OlvidadaContrasenia();
+            ClaseContraseniaOlvidada Oc = new ClaseContraseniaOlvidada();
             Oc.Show();
         }
 

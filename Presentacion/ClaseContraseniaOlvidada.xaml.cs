@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Protectora.Presentacion
 {
     /// <summary>
-    /// Lógica de interacción para OlvidadaContrasenia.xaml
+    /// Lógica de interacción para ClaseContraseniaOlvidada.xaml
     /// </summary>
-    public partial class OlvidadaContrasenia : Window
+    public partial class ClaseContraseniaOlvidada : Window
     {
-        public OlvidadaContrasenia()
+        public ClaseContraseniaOlvidada()
         {
             InitializeComponent();
         }

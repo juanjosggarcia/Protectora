@@ -43,10 +43,6 @@
                     <TextBox x:Name="TextBoxEdad" Style="{StaticResource TextBox2}" HorizontalAlignment="Left" Height="35" Margin="510,278,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" FontSize="14" Text="{Binding Path=Edad}"/>
                     <TextBox x:Name="TextBoxEntrada" Style="{StaticResource TextBox2}" HorizontalAlignment="Left" Height="35" Margin="510,358,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" FontSize="14" Text="{Binding Path=Entrada}"/>
                     <TextBox x:Name="TextBoxDescripcion" Style="{StaticResource TextBox2}" HorizontalAlignment="Left" Height="90" Margin="311,412,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="441" FontSize="14" Text="{Binding Path=Descripcion}"/>
-                    <Button x:Name="PreviousProfileButton" Content="◀" HorizontalAlignment="Left" Margin="51,0,0,8.8" VerticalAlignment="Bottom" Width="40"    Padding="1" FontFamily="Corbel" FontSize="10" Height="25" Foreground="#FF474747" BorderBrush="#FFAEAEAE"/>
-                    <Button x:Name="NextProfileButton" Content="▶" HorizontalAlignment="Left" Margin="716,0,0,8.8" VerticalAlignment="Bottom" Width="36" FontFamily="Corbel" FontSize="10" Height="25" Foreground="#FF474747" BorderBrush="#FFAEAEAE"    />
-                    <Button x:Name="EditProfileButton" Content="Edit" HorizontalAlignment="Left" Margin="116,0,0,9.8" VerticalAlignment="Bottom" Width="60"     Padding="1,2,1,1" Height="25" Foreground="#FF474747" BorderBrush="#FFAEAEAE"/>
-                    <Button x:Name="btonBorrar" Content="Borrar" HorizontalAlignment="Left" Margin="201,0,0,9.8" VerticalAlignment="Bottom" Width="60"     Padding="1,2,1,1" Height="25" Foreground="#FF474747" BorderBrush="#FFAEAEAE"/>
                 </Grid>
             </Border>
             <Button x:Name="NuevoPerro" Style="{StaticResource EstiloBotonMediano}" Content="Nuevo" HorizontalAlignment="Left" Margin="523,0,0,523" VerticalAlignment="Bottom" Width="102" Click="ClickNuevoPerro" RenderTransformOrigin="0.526,1.458" Height="39" Grid.Row="3"/>
@@ -62,20 +58,25 @@
             <Button x:Name="BtnPdrino" Content="PADRRINO" Style="{StaticResource EstiloBotonMediano}" Click="BtnPdrino_Click" Grid.Column="1" Margin="161,287.2,0,0" Height="60" Width="152" Grid.Row="3" RenderTransformOrigin="0.182,-1.743"/>
 
             <Label x:Name="lblDescrpcion" Content="Descripcion:" HorizontalAlignment="Left" Height="36" Margin="263,431.2,0,0" VerticalAlignment="Top" Width="117" FontSize="18" Grid.Column="1" Grid.Row="3" RenderTransformOrigin="0.444,0.417"/>
-            <ListView x:Name="ListViewPerros" Grid.Row="3" Foreground="#333" Background="#FAFBFD" FontFamily="Corbel" Margin="228,94,0,64" Padding="-3,-1" HorizontalAlignment="Left" Width="397" SelectionChanged="ListaPerros_SelectionChanged" IsSynchronizedWithCurrentItem="True">
+            <ListView Style="{StaticResource EstiloListView}" x:Name="ListViewPerros" Grid.Row="3" Foreground="#333" Background="#FAFBFD" FontFamily="Corbel" Margin="228,94,0,64" Padding="-3,-1" HorizontalAlignment="Left" Width="397" SelectionChanged="ListaPerros_SelectionChanged" IsSynchronizedWithCurrentItem="True">
                 <ListView.View>
 
                     <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle}">
-                        <GridViewColumn Header="ID" Width="120" DisplayMemberBinding="{Binding Id}" />
+                        <GridViewColumn Header="ID" Width="120" DisplayMemberBinding="{Binding Id}"  />
                         <GridViewColumn Header="NOMBRE" Width="120" DisplayMemberBinding="{Binding Nombre}" />
 
                     </GridView>
                 </ListView.View>
-                <ListViewItem>
-
-                </ListViewItem>
             </ListView>
             <Label x:Name ="lblFinalSesion" Content="Ultimo inicio de sesión: 16 de noviembre 18:35" Grid.Column="1" HorizontalAlignment="Left" Height="35" Margin="583,19,-300.4,0" VerticalAlignment="Top" Width="387" FontSize="18" RenderTransformOrigin="0.324,0.103"/>
+
+            <Border BorderBrush="white" Background="#ffffff" BorderThickness="4" CornerRadius="20" Margin="78,547,-193,0" Grid.Row="3" Grid.Column="1">
+                <Grid Margin="0,0,0,-4">
+                    <Button x:Name="btnEditPerro"  Style="{StaticResource EstiloBotonMediano}" Content="Edit" HorizontalAlignment="Left" Margin="61,0,0,10" VerticalAlignment="Bottom" Width="95"     Padding="1,2,1,1" Height="32" Foreground="#FF474747" BorderBrush="#FFAEAEAE" Click="btnEditPerro_Click"/>
+                    <Button x:Name="btnAnteriorPerro"  Style="{StaticResource EstiloBotonPequeño}" Content="◀ " HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="40"    Padding="1" FontFamily="Corbel" FontSize="10" Height="33" Foreground="#FF474747" BorderBrush="#FFAEAEAE" Click="btnAnteriorPerro_Click"/>
+                    <Button x:Name="btnNextPerro"  Style="{StaticResource EstiloBotonPequeño}" Content="▶" HorizontalAlignment="Left" Margin="721,0,0,10" VerticalAlignment="Bottom" Width="36" FontFamily="Corbel" FontSize="10" Height="34" Foreground="#FF474747" BorderBrush="#FFAEAEAE" Click="btnNextPerro_Click"    />
+                </Grid>
+            </Border>
 
         </Grid>
     </Grid>

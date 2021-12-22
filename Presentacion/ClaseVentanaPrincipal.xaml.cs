@@ -15,14 +15,15 @@ using System.Windows.Shapes;
 namespace Protectora.Presentacion
 {
     /// <summary>
-    /// Lógica de interacción para GestionPerro.xaml
+    /// Lógica de interacción para ClaseVentanaPrincipal.xaml
     /// </summary>
-    public partial class GestionPerro : Window
+    public partial class ClaseVentanaPrincipal : Window
     {
         public Page[] paneles = new Page[] { new PaginaPerro(), new PaginaSocios(), new PaginaVoluntarios(), new PaginaAvisos() };
-        public GestionPerro()
+        public ClaseVentanaPrincipal()
         {
             InitializeComponent();
+            MainFrame.Content = paneles[0];
 
         }
         protected override void OnClosed(EventArgs e)
@@ -47,7 +48,7 @@ namespace Protectora.Presentacion
             BtnCerrarSesion.Visibility = Visibility.Visible;
 
         }
-   
+
 
         private void ButtonCloseMenu_Click(object sender, RoutedEventArgs e)
         {

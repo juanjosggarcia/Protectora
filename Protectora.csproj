@@ -58,19 +58,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Presentacion\BotonAniadir.xaml">
+    <Page Include="Presentacion\ClaseAniadirPerro.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Presentacion\ControlUsuarioPerro.xaml">
+    <Page Include="Presentacion\ClaseContraseniaOlvidada.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\ClaseEditarPerro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\ClasePadrinoPerro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\ClaseVentanaPrincipal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Presentacion\Estilos.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Presentacion\GestionPerro.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -86,27 +94,25 @@
     <Compile Include="Dominio\ClassPruebas.cs" />
     <Compile Include="Dominio\Persona.cs" />
     <Compile Include="Dominio\Perro.cs" />
-    <Compile Include="Presentacion\BotonAniadir.xaml.cs">
-      <DependentUpon>BotonAniadir.xaml</DependentUpon>
+    <Compile Include="Presentacion\ClaseAniadirPerro.xaml.cs">
+      <DependentUpon>ClaseAniadirPerro.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentacion\ControlUsuarioPerro.xaml.cs">
-      <DependentUpon>ControlUsuarioPerro.xaml</DependentUpon>
+    <Compile Include="Presentacion\ClaseContraseniaOlvidada.xaml.cs">
+      <DependentUpon>ClaseContraseniaOlvidada.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentacion\GestionPerro.xaml.cs">
-      <DependentUpon>GestionPerro.xaml</DependentUpon>
+    <Compile Include="Presentacion\ClaseEditarPerro.xaml.cs">
+      <DependentUpon>ClaseEditarPerro.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\ClasePadrinoPerro.xaml.cs">
+      <DependentUpon>ClasePadrinoPerro.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\ClaseVentanaPrincipal.xaml.cs">
+      <DependentUpon>ClaseVentanaPrincipal.xaml</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Presentacion\OlvidadaContrasenia.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Presentacion\Padrino.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Presentacion\PaginaAvisos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -132,12 +138,6 @@
     <Compile Include="Persistencia\AgenteDB.cs" />
     <Compile Include="Persistencia\AnimalDAO.cs" />
     <Compile Include="Persistencia\PersonaDAO.cs" />
-    <Compile Include="Presentacion\OlvidadaContrasenia.xaml.cs">
-      <DependentUpon>OlvidadaContrasenia.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Presentacion\Padrino.xaml.cs">
-      <DependentUpon>Padrino.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Presentacion\PaginaAvisos.xaml.cs">
       <DependentUpon>PaginaAvisos.xaml</DependentUpon>
     </Compile>

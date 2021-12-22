@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,20 +12,21 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Microsoft.Win32;
 
 namespace Protectora.Presentacion
 {
     /// <summary>
     /// Lógica de interacción para BotonAniadir.xaml
     /// </summary>
-    public partial class BotonAniadir : Window
+    public partial class ClaseAniadirPerro: Window
     {
         Dominio.Perro perroActual;
         List<Dominio.Perro> ListaPerros;
-        public BotonAniadir()
+        PaginaPerro desde;
+        public ClaseAniadirPerro(PaginaPerro p)
         {
             InitializeComponent();
+            desde = p;
         }
 
         //no se si esto se puede hacer mejor pero por ahora se queda asi
@@ -104,10 +106,10 @@ namespace Protectora.Presentacion
             {
                 try
                 {
-                    ControlUsuarioPerro controlPerro = new ControlUsuarioPerro();
+                    //ControlUsuarioPerro controlPerro = new ControlUsuarioPerro();
 
-                    var bitmap = new BitmapImage(new Uri(op.FileName, UriKind.Absolute));
-                    controlPerro.imgPerro.Source = bitmap;
+                    //var bitmap = new BitmapImage(new Uri(op.FileName, UriKind.Absolute));
+                    //controlPerro.imgPerro.Source = bitmap;
                     txtImagenPerroNuevo.Text = op.FileName;
                 }
                 catch (Exception ex)
@@ -119,7 +121,8 @@ namespace Protectora.Presentacion
 
         private void nuevoPerro_Click(object sender, RoutedEventArgs e)
         {
-            GestionPerro ventana = Application.Current.Windows.OfType<GestionPerro>().FirstOrDefault();
+            //GestionPerro ventana = Application.Current.Windows.OfType<GestionPerro>().FirstOrDefault();
+            //PaginaPerro main = new PaginaPerro();
 
             Dominio.Perro perro = new Dominio.Perro();
             perro.Nombre = txtNombrePerro.Text;
@@ -134,14 +137,11 @@ namespace Protectora.Presentacion
             //main.SetPerro(perro);
             //main.Algoperro();
 
-            //ventana.paneles[0].listaPerro.Add(perro);
-            //PaginaPerro wnd = (PaginaPerro)Application.Current.MainWindow;
-            //wnd.();
+            //ventana.paneles[0].CrearPerro(perro);
+            desde.CrearPerro(perro);
 
             this.Close();
-            }
         }
-
-      
     }
 
+}

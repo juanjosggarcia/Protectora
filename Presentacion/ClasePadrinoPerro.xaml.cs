@@ -10,28 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Protectora.Presentacion
 {
     /// <summary>
-    /// Lógica de interacción para ControlUsuarioPerro.xaml
+    /// Lógica de interacción para ClasePadrinoPerro.xaml
     /// </summary>
-    public partial class ControlUsuarioPerro : UserControl
+    public partial class ClasePadrinoPerro : Window
     {
-        public ControlUsuarioPerro()
+        public ClasePadrinoPerro()
         {
             InitializeComponent();
-
         }
-
-        private void btnPerroLista_Click(object sender, RoutedEventArgs e)
-        {
-            // Perros.metodito();
-            MessageBox.Show("algo");
-        }
-
     }
-
 }
