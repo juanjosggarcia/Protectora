@@ -22,11 +22,11 @@ namespace Protectora.Presentacion
     {
         Perro perroActual;
         List<Perro> ListaPerros;
-        PaginaPerro desde;
+        PaginaPerro pagPerro;
         public ClaseAniadirPerro(PaginaPerro p)
         {
             InitializeComponent();
-            desde = p;
+            pagPerro = p;
         }
 
         //no se si esto se puede hacer mejor pero por ahora se queda asi
@@ -121,9 +121,6 @@ namespace Protectora.Presentacion
 
         private void nuevoPerro_Click(object sender, RoutedEventArgs e)
         {
-            //GestionPerro ventana = Application.Current.Windows.OfType<GestionPerro>().FirstOrDefault();
-            //PaginaPerro main = new PaginaPerro();
-
             Perro perro = new Perro();
             perro.Nombre = txtNombrePerro.Text;
             perro.Sexo = txtSexoPerro.Text;
@@ -133,12 +130,9 @@ namespace Protectora.Presentacion
             perro.Edad = Int32.Parse(txtEdadPerro.Text);
             perro.FechaEntrada = DateTime.Parse(dateEntradaPerro.Text);
             perro.Descripcion = txtDescripcionPerro.Text;
+            perro.Raza = txtRazaPerro.Text;
 
-            //main.SetPerro(perro);
-            //main.Algoperro();
-
-            //ventana.paneles[0].CrearPerro(perro);
-            desde.CrearPerro(perro);
+            pagPerro.CrearPerro(perro);
 
             this.Close();
         }

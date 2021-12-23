@@ -67,21 +67,25 @@ namespace Protectora.Presentacion
         private void BotonListPerro_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Content = paneles[0];
+            Titulo.Content = "Gestion de perros";
         }
 
         private void BotonListSocio_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Content = paneles[1];
+            Titulo.Content = "Gestion de socios";
         }
 
         private void BotonListVoluntario_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Content = paneles[2];
+            Titulo.Content = "Gestion de voluntarios";
         }
 
         private void BotonListAvisos_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Content = paneles[3];
+            Titulo.Content = "Gestion de avisos";
         }
     }
 }
