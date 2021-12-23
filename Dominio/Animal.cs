@@ -8,31 +8,31 @@ namespace Protectora.Dominio
 {
     public class Animal
     {
-        public int? id;
-        public string nombre;
-        public string sexo;
-        public int tamanio;
-        public int peso;
-        public int edad;
-        public DateTime fechaEntrada;
-        public string foto;
-        public string enlace;
-        public string descripcion;
-        public string estado;
-        public int apadrinado;
+        private int? id;
+        private string nombre;
+        private string sexo;
+        private int tamanio;
+        private int peso;
+        private int edad;
+        private DateTime fechaEntrada;
+        private string foto;
+        private string enlace;
+        private string descripcion;
+        private string estado;
+        private int apadrinado;
 
-        protected int? Id { get => id; set => id = value; }
-        protected string Nombre { get => nombre; set => nombre = value; }
-        protected string Sexo { get => sexo; set => sexo = value; }
-        protected int Tamanio { get => tamanio; set => tamanio = value; }
-        protected int Peso { get => peso; set => peso = value; }
-        protected int Edad { get => edad; set => edad = value; }
-        protected DateTime FechaEntrada { get => fechaEntrada; set => fechaEntrada = value; }
-        protected string Foto { get => foto; set => foto = value; }
-        protected string Enlace { get => enlace; set => enlace = value; }
-        protected string Descripcion { get => descripcion; set => descripcion = value; }
-        protected string Estado { get => estado; set => estado = value; }
-        protected int Apadrinado { get => apadrinado; set => apadrinado = value; }
+        public int? Id { get => id; set => id = value; }
+        public string Nombre { get => nombre; set => nombre = value; }
+        public string Sexo { get => sexo; set => sexo = value; }
+        public int Tamanio { get => tamanio; set => tamanio = value; }
+        public int Peso { get => peso; set => peso = value; }
+        public int Edad { get => edad; set => edad = value; }
+        public DateTime FechaEntrada { get => fechaEntrada; set => fechaEntrada = value; }
+        public string Foto { get => foto; set => foto = value; }
+        public string Enlace { get => enlace; set => enlace = value; }
+        public string Descripcion { get => descripcion; set => descripcion = value; }
+        public string Estado { get => estado; set => estado = value; }
+        public int Apadrinado { get => apadrinado; set => apadrinado = value; }
 
         public Animal()
         {
