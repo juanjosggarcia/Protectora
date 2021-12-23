@@ -20,5 +20,11 @@ namespace Protectora.Dominio
             return null;
 
         }
+
+        public static void crearPerro(Perro perro)
+        {
+            perro.InsertarPerro();
+
+        }
     }
 }

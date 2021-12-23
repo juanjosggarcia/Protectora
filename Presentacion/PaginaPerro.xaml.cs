@@ -125,62 +125,6 @@ namespace Protectora.Presentacion
 
         }
 
-        /*
-        public void Algoperro()
-        {
-            Perro perrito = new Perro();
-            perrito.Id = 1;
-            perrito.Nombre = "mari";
-            perrito.Sexo = "fem";
-            perrito.Tamanio = 10;
-            perrito.Estado = "sana";
-            perrito.Peso = 55;
-            perrito.Edad = 2;
-            perrito.FechaEntrada = new DateTime(1998, 04, 30);
-            perrito.Descripcion = "perro calmado";
-            perrito.Imagen = "C:\\Users\\laura\\source\\repos\\Protectora\\recursos\\Fotosbd\\husky.jpg";
-            if (string.IsNullOrEmpty(perrito.Imagen))
-            {
-                perrito.Imagen = "C:\\Users\\laura\\source\\repos\\Protectora\\recursos\\default.png";
-            }
-            listaPerro.Add(perrito);
-
-            Dominio.Perro perrito2 = new Dominio.Perro();
-            perrito2.Id = 2;
-            perrito2.Nombre = "pili";
-            perrito2.Sexo = "fem";
-            perrito2.Tamanio = 10;
-            perrito2.Estado = "sana";
-            perrito2.Peso = 55;
-            perrito2.Edad = 2;
-            perrito2.Entrada = new DateTime(1998, 04, 30);
-            perrito2.Descripcion = "perro calmado";
-            perrito2.Imagen = "C:\\Users\\laura\\source\\repos\\Protectora\\recursos\\bichon.jpg";
-
-            if (string.IsNullOrEmpty(perrito2.Imagen))
-            {
-                perrito2.Imagen = "C:\\Users\\laura\\source\\repos\\Protectora\\recursos\\default.png";
-            }
-            listaPerro.Add(perrito2);
-
-            Dominio.Perro perrito3 = new Dominio.Perro();
-            perrito3.Id = 3;
-            perrito3.Nombre = "mili";
-            perrito3.Sexo = "masc";
-            perrito3.Tamanio = 10;
-            perrito3.Estado = "sana";
-            perrito3.Peso = 55;
-            perrito3.Edad = 2;
-            perrito3.Entrada = new DateTime(1998, 04, 30);
-            perrito3.Descripcion = "perro calmado";
-            perrito3.Imagen = "C:\\Users\\laura\\source\\repos\\Protectora\\recursos\\Fotosbd\\shiba.jpg";
-            if (string.IsNullOrEmpty(perrito3.Imagen))
-            {
-                perrito3.Imagen = "C:\\Users\\laura\\source\\repos\\Protectora\\recursos\\default.png";
-            }
-            listaPerro.Add(perrito3);
-        }*/
-
         private void Refresh()
         {
             ListViewPerros.Items.Clear();
@@ -206,7 +150,9 @@ namespace Protectora.Presentacion
             //perrito.Edad = 2;
             //perrito.Entrada = new DateTime(1998, 04, 30);
             //perrito.Descripcion = "perro calmado";
+            GestorAnimal.crearPerro(perro);
             listaPerro.Add(perro);
+
             Refresh();
         }
 

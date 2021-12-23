@@ -22,11 +22,11 @@ namespace Protectora.Presentacion
     {
         Perro perroActual;
         List<Perro> ListaPerros;
-        PaginaPerro desde;
+        PaginaPerro pagPerro;
         public ClaseAniadirPerro(PaginaPerro p)
         {
             InitializeComponent();
-            desde = p;
+            pagPerro = p;
         }
 
         //no se si esto se puede hacer mejor pero por ahora se queda asi
@@ -138,7 +138,7 @@ namespace Protectora.Presentacion
             //main.Algoperro();
 
             //ventana.paneles[0].CrearPerro(perro);
-            desde.CrearPerro(perro);
+            pagPerro.CrearPerro(perro);
 
             this.Close();
         }

@@ -24,11 +24,6 @@ namespace Protectora.Persistencia
             conexionBD.Open();
         }
 
-        internal int modificar(string v1, string v2, object p)
-        {
-            throw new NotImplementedException();
-        }
-
         public static AgenteDB obtenerAgente()
         {
             if (AgenteBD == null)
