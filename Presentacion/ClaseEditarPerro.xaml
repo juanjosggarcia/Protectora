@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Protectora.Presentacion"
         mc:Ignorable="d"
-        Title="Editar perro" Height="921" Width="1041"
+        Title="Editar perro" Height="956" Width="1041"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
 
@@ -21,14 +21,14 @@
                     <ColumnDefinition Width="428*"/>
                 </Grid.ColumnDefinitions>
                 <RadioButton x:Name="btnPadrinoRedondo" Content="Padrino" HorizontalAlignment="Left" Height="30" Margin="162,467,0,0" VerticalAlignment="Top" Width="240" FontSize="15"/>
-                <TextBox x:Name ="txtSexoPerro" Style="{StaticResource TextBox1}" Text="Sexo" FontSize="14" Foreground="Gray" Margin="262,89,262,667" Height="Auto" Width="Auto" Grid.ColumnSpan="2" VerticalAlignment="Center" />
-                <TextBox x:Name ="txtTamanioPerro" Style="{StaticResource TextBox1}" Text="Tamaño" FontSize="14" Foreground="Gray" Margin="262,137,262,622" Height="Auto" Width="Auto" Grid.ColumnSpan="2" VerticalAlignment="Center" />
-                <TextBox x:Name ="txtEstadoPerro" Style="{StaticResource TextBox1}" Text="Estado" FontSize="14"  Foreground="Gray" Margin="262,182,262,574" Height="Auto" Width="Auto" Grid.ColumnSpan="2" VerticalAlignment="Center" />
-                <TextBox x:Name ="txtEdadPerro" Style="{StaticResource TextBox1}" Text="Edad" FontSize="14"  Foreground="Gray" Margin="262,230,262,529" Height="Auto" Width="Auto" Grid.ColumnSpan="2" VerticalAlignment="Center" />
-                <TextBox x:Name ="txtPesoPerro" Style="{StaticResource TextBox1}" Text="Peso" FontSize="14" Foreground="Gray" Margin="262,275,262,484" Height="Auto" Width="Auto" Grid.ColumnSpan="2" VerticalAlignment="Center" />
-                <DatePicker x:Name="dateEntradaPerro" HorizontalAlignment="Left" Margin="262,320,0,0" VerticalAlignment="Top" Height="36" Width="330" Padding="2,4,2,2" FontSize="14" Grid.ColumnSpan="2"/>
+                <TextBox x:Name ="txtSexoPerro" Style="{StaticResource TextBox1}" Text="Sexo" FontSize="14" Foreground="Gray" Margin="262,86,262,679" Height="Auto" Width="Auto" Grid.ColumnSpan="2" VerticalAlignment="Center" />
+                <TextBox x:Name ="txtTamanioPerro" Style="{StaticResource TextBox1}" Text="Tamaño" FontSize="14" Foreground="Gray" Margin="262,126,262,639" Height="Auto" Width="Auto" Grid.ColumnSpan="2" VerticalAlignment="Center" />
+                <TextBox x:Name ="txtEstadoPerro" Style="{StaticResource TextBox1}" Text="Estado" FontSize="14"  Foreground="Gray" Margin="262,165,262,599" Height="Auto" Width="Auto" Grid.ColumnSpan="2" VerticalAlignment="Center" />
+                <TextBox x:Name ="txtEdadPerro" Style="{StaticResource TextBox1}" Text="Edad" FontSize="14"  Foreground="Gray" Margin="261,204,263,559" Height="Auto" Width="Auto" Grid.ColumnSpan="2" VerticalAlignment="Center" />
+                <TextBox x:Name ="txtPesoPerro" Style="{StaticResource TextBox1}" Text="Peso" FontSize="14" Foreground="Gray" Margin="262,245,262,519" Height="Auto" Width="Auto" Grid.ColumnSpan="2" VerticalAlignment="Center" />
+                <DatePicker x:Name="dateEntradaPerro" HorizontalAlignment="Left" Margin="262,325,0,0" VerticalAlignment="Top" Height="36" Width="330" Padding="2,4,2,2" FontSize="14" Grid.ColumnSpan="2"/>
 
-                <TextBox x:Name ="txtDescripcionPerro" Style="{StaticResource TextBox1}" Text="Descripción"  FontSize="14" Foreground="Gray" Margin="262,361,262,398" Height="Auto" Width="Auto" Grid.ColumnSpan="2" VerticalAlignment="Center" />
+                <TextBox x:Name ="txtDescripcionPerro" Style="{StaticResource TextBox1}" Text="Descripción"  FontSize="14" Foreground="Gray" Margin="262,366,262,398" Height="Auto" Width="Auto" Grid.ColumnSpan="2" VerticalAlignment="Center" />
                 <TextBox x:Name ="txtNombrePerro" Style="{StaticResource TextBox1}" Text="Nombre"   FontSize="14" Foreground="Gray" Margin="262,42,262,715" Height="Auto" Width="Auto" Grid.ColumnSpan="2" VerticalAlignment="Center" />
 
                 <TextBox x:Name ="txtNombrePadrino" Style="{StaticResource TextBox1}" Text="Nombre del padrino"  FontSize="14" Foreground="Gray" Margin="127,514,25,251" Grid.Column="0" IsEnabled="{Binding IsChecked, ElementName=btnPadrinoRedondo}" Height="Auto" Width="Auto" VerticalAlignment="Center"/>
@@ -37,12 +37,9 @@
                 <TextBox x:Name ="txtTelefonoPadrino" Style="{StaticResource TextBox1}" Text="Telefono"  FontSize="14" Foreground="Gray" Margin="127,646,25,113" IsEnabled="{Binding IsChecked, ElementName=btnPadrinoRedondo}" Height="Auto" Width="Auto" VerticalAlignment="Center"/>
                 <TextBox x:Name ="txtDatosPadrino" Style="{StaticResource TextBox1}" Text="Datos bancarios"  FontSize="14" Foreground="Gray" Margin="25,513,128,251" IsEnabled="{Binding IsChecked, ElementName=btnPadrinoRedondo}" Height="Auto" Grid.Column="1" Width="Auto" VerticalAlignment="Center"/>
                 <TextBox x:Name ="txtImportePadrino" Style="{StaticResource TextBox1}" Text="Importe mensual"  FontSize="14" Foreground="Gray" Margin="25,558,128,205" IsEnabled="{Binding IsChecked, ElementName=btnPadrinoRedondo}" Height="Auto" Grid.Column="1" Width="Auto" VerticalAlignment="Center"/>
-                <TextBox x:Name ="txtFormaPagoPadrino" Style="{StaticResource TextBox1}" Text="Forma de pago"  FontSize="14" Foreground="Gray" Margin="25,604,128,161" IsEnabled="{Binding IsChecked, ElementName=btnPadrinoRedondo}" Height="Auto" Grid.Column="1" Width="Auto" VerticalAlignment="Center"/>
+                <TextBox x:Name ="txtFormaPagoPadrino" Style="{StaticResource TextBox1}" Text="Forma de pago"  FontSize="14" Foreground="Gray" Margin="25,610,128,155" IsEnabled="{Binding IsChecked, ElementName=btnPadrinoRedondo}" Height="Auto" Grid.Column="1" Width="Auto" VerticalAlignment="Center"/>
                 <TextBox x:Name ="txtComienzoPadrino" Style="{StaticResource TextBox1}" Text="Comienzo de apadrinamiento"  FontSize="14" Foreground="Gray" Margin="25,648,128,115" IsEnabled="{Binding IsChecked, ElementName=btnPadrinoRedondo}" Height="Auto" Grid.Column="1" Width="Auto" VerticalAlignment="Center"/>
-
-                <Button x:Name ="nuevoPerro" Style ="{StaticResource EstiloBotonMediano}" Content="Editar Perro" Margin="312,714,0,0" Width="250" Grid.ColumnSpan="2" />
-                <Button x:Name ="btnImagen" Style ="{StaticResource EstiloBotonLargo}" FontSize="14" Content="Modificar" Margin="64,406,0,0" Width="102" Height="40"  Grid.Column="1" />
-                <TextBox x:Name ="txtImagenPerroNuevo" Style="{StaticResource TextBox1}" Text="Imagen"  FontSize="14" Foreground="Gray" Margin="262,407,383,352" RenderTransformOrigin="0.5,0.5" Width="Auto" Height="Auto" Grid.ColumnSpan="2" VerticalAlignment="Center" >
+                <TextBox x:Name ="txtImagenPerro" Style="{StaticResource TextBox1}" Text="Imagen"  FontSize="14" Foreground="Gray" Margin="262,407,383,357" RenderTransformOrigin="0.5,0.5" Width="Auto" Height="Auto" Grid.ColumnSpan="2" VerticalAlignment="Center" >
                     <TextBox.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -52,6 +49,11 @@
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
+
+                <Button x:Name ="nuevoPerro" Style ="{StaticResource EstiloBotonMediano}" Content="Editar Perro" Margin="312,714,0,0" Width="250" Grid.ColumnSpan="2" />
+                <Button x:Name ="btnImagen" Style ="{StaticResource EstiloBotonLargo}" FontSize="14" Content="Modificar" Margin="63,406,0,0" Width="102" Height="40"  Grid.Column="1" />
+                <TextBox x:Name ="txtRazaPerro" Style="{StaticResource TextBox1}" Text="Raza" FontSize="14" Foreground="Gray" Margin="262,285,262,479" Height="Auto" Width="Auto" Grid.ColumnSpan="2" VerticalAlignment="Center" />
+
 
             </Grid>
         </Border>

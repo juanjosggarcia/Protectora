@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Protectora.Presentacion"
         mc:Ignorable="d"
-        Title="Contraseña olvidada" Height="246" Width="358"
+        Title="Contraseña olvidada" Height="296" Width="498"
         Icon="/recursos/pawprint.ico"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
 
@@ -13,11 +13,11 @@
         <ImageBrush ImageSource="/recursos/fondoOlvidarContrasenia2.jpg"/>
     </Window.Background>
 
-    <Grid Margin="0,0,-6,1">
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="140,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" RenderTransformOrigin="0.531,1.179"/>
-        <Label Content="Usuario:" HorizontalAlignment="Left" Height="28" Margin="60,57,0,0" VerticalAlignment="Top" Width="80" RenderTransformOrigin="0.7,0.565" FontSize="17"/>
-        <Label x:Name="lblContrasenia" Content="AQUI VA LA CONTRASEÑA" HorizontalAlignment="Center" Height="30" Margin="111,98,93,0" VerticalAlignment="Top" Width="154"/>
-        <Button x:Name="BtnRecordarContrasenia" Content="Recordar contraseña" BorderThickness="2" BorderBrush="#D4B8B0" Background="#E2CFCA" Height="38" Margin="72,145,72,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontFamily="Lucida Sans Unicode" FontSize="15">
+    <Grid Margin="0,0,-6.8,0.4" VerticalAlignment="Center" HorizontalAlignment="Center" Width="498">
+        <TextBox x:Name="TexBoxUsuario" Style="{StaticResource TextBox1}" FontSize ="15"  HorizontalAlignment="Center" Height="38" TextWrapping="Wrap" VerticalAlignment="Top" Width="204" RenderTransformOrigin="0.531,1.179" Margin="194,80,100,0"/>
+        <Label Content="Usuario:" HorizontalAlignment="Center" Height="40" Margin="99,80,314,146" VerticalAlignment="Center" Width="85" RenderTransformOrigin="0.7,0.565" FontSize="19"/>
+        <Label x:Name="lblContrasenia" Style="{StaticResource EstiloLabel}" Content="" HorizontalAlignment="Center" Height="35" Margin="165,135,163,0" VerticalAlignment="Top" Width="170" FontSize="15"/>
+        <Button x:Name="BtnRecordarContrasenia" Content="Recordar contraseña" BorderThickness="2" BorderBrush="#D4B8B0" Background="#E2CFCA" Height="38" Margin="99,185,99,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontFamily="Lucida Sans Unicode" FontSize="15" Click="BtnRecordarContrasenia_Click">
 
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">

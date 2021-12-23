@@ -47,9 +47,9 @@
         <Button Name="BtnIniciarSesion" Style="{StaticResource EstiloBotonMediano}" Content="Iniciar Sesión" Click="BtnIniciarSesion_Click" Margin="330,348,330,0" Grid.Column="1" Grid.Row="1" ToolTip="Iniciar sesion en la aplicacion" HorizontalAlignment="Stretch" Width="Auto" >
 
         </Button>
-        <Button Name="BtnOlvidarContraseña" Content="Olvidaste tu contraseña?" BorderThickness="2" BorderBrush="Transparent" Background="#FAF9F7" HorizontalAlignment="Left" Height="34" Margin="596,382,0,0" VerticalAlignment="Top" Width="211" RenderTransformOrigin="0.591,1.088" Grid.Column="1" Grid.Row="1" FontFamily="Lucida Sans Unicode" Click="BtnOlvidarContraseña_Click" FontSize="16"/>
+        <Button Name="BtnOlvidarContraseña" Content="Olvidaste tu contraseña?" BorderThickness="2" Style="{StaticResource EstiloBotonOlvidarContrasenia}" HorizontalAlignment="Left" Height="34" Margin="596,382,0,0" VerticalAlignment="Top" Width="211" RenderTransformOrigin="0.591,1.088" Grid.Column="1" Grid.Row="1" FontFamily="Lucida Sans Unicode" Click="BtnOlvidarContraseña_Click" FontSize="16"/>
 
-        <ComboBox IsReadOnly="True" IsEditable="False" HorizontalAlignment="Left" Height="30" Margin="30,30,0,0" VerticalAlignment="Top" Width="155" Text="Idioma" SelectedIndex="0"  ToolTip="Cambiar el idioma de la aplicacion">
+        <ComboBox IsReadOnly="True" Style="{StaticResource EstiloComboBox}"  IsEditable="False" HorizontalAlignment="Left" Height="30" Margin="30,30,0,0" VerticalAlignment="Top" Width="155" Text="Idioma" SelectedIndex="0"  ToolTip="Cambiar el idioma de la aplicacion">
             <ComboBoxItem>
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/recursos/spain.png" Height="20" Width="33" />
@@ -63,7 +63,7 @@
                 </StackPanel>
             </ComboBoxItem>
         </ComboBox>
-        <Label x:Name="errorInicioSesion" Content="" HorizontalAlignment="Center" Height="30" Margin="291,194,239,216" VerticalAlignment="Center" Width="304" FontSize="12" Grid.Row="1" FontFamily="{DynamicResource {x:Static SystemFonts.CaptionFontFamilyKey}}" Background="#00000000" Foreground="#FFE00D0D" FontWeight="Normal" Grid.Column="1"/>
+        <Label x:Name="errorInicioSesion" Content="" HorizontalAlignment="Center" Height="30" Margin="302,189,302,221" VerticalAlignment="Center" Width="230" Grid.Row="1" FontFamily="{DynamicResource {x:Static SystemFonts.CaptionFontFamilyKey}}" Background="#00000000" FontSize="15" Foreground="#FFE00D0D" FontWeight="Normal" Grid.Column="1"/>
 
     </Grid>
 

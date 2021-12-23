@@ -9,11 +9,13 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MessageBox = System.Windows.MessageBox;
 
 namespace Protectora.Presentacion
 {
@@ -25,7 +27,6 @@ namespace Protectora.Presentacion
         //Dominio.Perro perro;
 
         public List<Perro> listaPerro = new List<Perro>();
-        public int numero = 2;
         public PaginaPerro()
         {
             InitializeComponent();
@@ -59,7 +60,14 @@ namespace Protectora.Presentacion
             foreach (Perro perro in selectedItems)
             {
                 SetPerro(perro);
+                DesactivarTextBoxs();
+
             }
+
+            btnAnteriorPerro.IsEnabled = true;
+            btnNextPerro.IsEnabled = true;
+            btnEditPerro.IsEnabled = true;
+            btnDeletePerro.IsEnabled = true;
         }
 
         public void SetPerro(Perro perro)
@@ -76,9 +84,10 @@ namespace Protectora.Presentacion
                 TextBoxEntrada.Text = perro.FechaEntrada.ToString("dd-MM-yyyy");
                 TextBoxDescripcion.Text = perro.Descripcion;
                 TextBoxRaza.Text = perro.Raza;
+                string str = @"C:\Users\laura\source\repos\Protectora\recursos\Fotosbd\" + perro.Foto;
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
-                bitmap.UriSource = new Uri(perro.Foto);
+                bitmap.UriSource = new Uri(str);
                 bitmap.EndInit();
                 ProfileImage.Source = bitmap;
             }
@@ -106,8 +115,11 @@ namespace Protectora.Presentacion
 
             foreach (Perro perro in perros)
             {
+                if (string.IsNullOrEmpty(perro.Foto))
+                {
+                    perro.Foto = "C:\\Users\\laura\\source\\repos\\Protectora\\recursos\\default.png";
+                }
 
-                perro.Foto = "";
                 listaPerro.Add(perro);
 
                 //PanelDinamicoBotones.Children.Add(new ControlUsuarioPerro(perro));
@@ -144,27 +156,142 @@ namespace Protectora.Presentacion
             Refresh();
         }
 
-        private void btnNextPerro_Click(object sender, RoutedEventArgs e)
+        private void BtnNextPerro_Click(object sender, RoutedEventArgs e)
         {
             if (ListViewPerros.SelectedIndex != ListViewPerros.Items.Count - 1)
             {
-                ListViewPerros.SelectedIndex = ListViewPerros.SelectedIndex + 1;
+                ListViewPerros.SelectedIndex++;
             }
         }
 
-        private void btnAnteriorPerro_Click(object sender, RoutedEventArgs e)
+        private void BtnAnteriorPerro_Click(object sender, RoutedEventArgs e)
         {
             if (ListViewPerros.SelectedIndex != 0)
             {
-                ListViewPerros.SelectedIndex = ListViewPerros.SelectedIndex - 1;
+                ListViewPerros.SelectedIndex--;
             }
         }
 
-        private void btnEditPerro_Click(object sender, RoutedEventArgs e)
+        private void BtnEditPerro_Click(object sender, RoutedEventArgs e)
         {
-            ClaseEditarPerro editarPerro = new ClaseEditarPerro();
-            editarPerro.Show();
+            TextBoxId.IsEnabled = true;
+            TextBoxNombre.IsEnabled = true;
+            TextBoxSexo.IsEnabled = true;
+            TextBoxPeso.IsEnabled = true;
+            TextBoxEdad.IsEnabled = true;
+            TextBoxTamanio.IsEnabled = true;
+            TextBoxEntrada.IsEnabled = true;
+            TextBoxRaza.IsEnabled = true;
+            TextBoxDescripcion.IsEnabled = true;
+            TextBoxEstado.IsEnabled = true;
+            btnImagenPerro.IsEnabled = true;
+            btnEditCancelar.Visibility = Visibility.Visible;
+            btnEditConfirmar.Visibility = Visibility.Visible;
+            btnEditPerro.Visibility = Visibility.Hidden;
+            btnDeletePerro.Visibility = Visibility.Hidden;
+            btnAnteriorPerro.Visibility = Visibility.Hidden;
+            btnNextPerro.Visibility = Visibility.Hidden;
 
+        }
+
+        private void BtnDeletePerro_Click(object sender, RoutedEventArgs e)
+        {
+            int index = ListViewPerros.SelectedIndex;
+            string message = "¿Estas seguro que quieres eliminar el perro seleccionado?";
+            string caption = "Eliminación de perro";
+            MessageBoxButton buttons = MessageBoxButton.YesNo;
+            DialogResult result;
+
+            // Displays the MessageBox.
+            result = (DialogResult)MessageBox.Show(message, caption, buttons);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                // Closes the parent form.
+                ListViewPerros.Items.RemoveAt(index);
+            }
+            //SetPerro(ListViewPerros.Items.IndexOf;
+            TextBoxId.Text = "";
+            TextBoxSexo.Text = "";
+            TextBoxNombre.Text = "";
+            TextBoxTamanio.Text = "";
+            TextBoxEstado.Text = "";
+            TextBoxPeso.Text = "";
+            TextBoxEdad.Text = "";
+            TextBoxEntrada.Text = "";
+            TextBoxDescripcion.Text = "";
+            TextBoxRaza.Text = "";
+            string str = @"C:\Users\laura\source\repos\Protectora\recursos\default.png";
+            BitmapImage bitmap = new BitmapImage();
+            bitmap.BeginInit();
+            bitmap.UriSource = new Uri(str);
+            bitmap.EndInit();
+            ProfileImage.Source = bitmap;
+
+
+        }
+
+        private void BtnImagenPerro_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog op = new OpenFileDialog
+            {
+                Title = "Select a picture",
+                Filter = "Images|*.jpg;*.gif;*.bmp;*.png"
+            };
+            BitmapImage bitmap = new BitmapImage();
+            op.ShowDialog();
+
+            try
+            {
+                string str = op.FileName;
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(str);
+                bitmap.EndInit();
+                ProfileImage.Source = bitmap;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar la imagen " + ex.Message);
+            }
+
+            
+        }
+
+        private void btnEditCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            btnEditPerro.Visibility = Visibility.Visible;
+            btnDeletePerro.Visibility = Visibility.Visible;
+            btnAnteriorPerro.Visibility = Visibility.Visible;
+            btnNextPerro.Visibility = Visibility.Visible;
+            btnEditCancelar.Visibility = Visibility.Hidden;
+            btnEditConfirmar.Visibility = Visibility.Hidden;
+            DesactivarTextBoxs();
+        }
+
+        private void btnEditConfirmar_Click(object sender, RoutedEventArgs e)
+        {
+            btnEditPerro.Visibility = Visibility.Visible;
+            btnDeletePerro.Visibility = Visibility.Visible;
+            btnAnteriorPerro.Visibility = Visibility.Visible;
+            btnNextPerro.Visibility = Visibility.Visible;
+            btnEditCancelar.Visibility = Visibility.Hidden;
+            btnEditConfirmar.Visibility = Visibility.Hidden;
+            DesactivarTextBoxs();
+        }
+
+        private void DesactivarTextBoxs()
+        {
+            TextBoxId.IsEnabled = false;
+            TextBoxNombre.IsEnabled = false;
+            TextBoxSexo.IsEnabled = false;
+            TextBoxPeso.IsEnabled = false;
+            TextBoxEdad.IsEnabled = false;
+            TextBoxTamanio.IsEnabled = false;
+            TextBoxEntrada.IsEnabled = false;
+            TextBoxRaza.IsEnabled = false;
+            TextBoxDescripcion.IsEnabled = false;
+            TextBoxEstado.IsEnabled = false;
+            btnImagenPerro.IsEnabled = false;
         }
     }
 

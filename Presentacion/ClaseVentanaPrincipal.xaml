@@ -20,7 +20,7 @@
         <Storyboard x:Key="CloseMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
                 <EasingDoubleKeyFrame KeyTime="0" Value="300"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="70"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="80"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </Window.Resources>
@@ -86,7 +86,7 @@
                 </Grid>
 
 
-                <ListView x:Name="ListViewMenu" Foreground="Black" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListViewMenu_SelectionChanged" >
+                <ListView x:Name="ListViewMenu" Foreground="Black" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListViewMenu_SelectionChanged" HorizontalAlignment="Left" VerticalAlignment="Center" >
                     <ListViewItem x:Name="ItemPerros" Height="60" Style="{StaticResource Style2}" >
                         <Button x:Name="BotonListPerro" BorderBrush="white" Background="White" Click="BotonListPerro_Click">
                             <StackPanel Orientation="Horizontal">
@@ -103,14 +103,16 @@
                             </StackPanel>
                         </Button>
                     </ListViewItem>
-                    <ListViewItem x:Name="ItemVoluntario" Height="60" Style="{StaticResource Style2}">
-                        <Button x:Name="BotonListVoluntarios" BorderBrush="white" Background="White"  Click="BotonListVoluntario_Click">
+
+                    <ListViewItem x:Name="ItemVoluntario" Height="60" Style="{StaticResource Style2}" >
+                        <Button x:Name="BotonListVoluntarios" BorderBrush="white" Background="White" Click="BotonListVoluntario_Click" HorizontalAlignment="Left">
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="/Protectora;component/recursos/caridad.png" Width="58" Height="34" />
+                                <Image Source="/Protectora;component/recursos/caridad.png" Width="58" Height="34" HorizontalAlignment="Center" />
                                 <TextBlock Text="Gestión de los socios" FontSize="16" VerticalAlignment="Center"  Margin="20 10"/>
                             </StackPanel>
                         </Button>
                     </ListViewItem>
+
                     <ListViewItem x:Name="ItemAvisos" Height="60" Style="{StaticResource Style2}" >
                         <Button x:Name="BotonListAvisos" BorderBrush="white" Background="White" Click="BotonListAvisos_Click">
                             <StackPanel Orientation="Horizontal">
@@ -123,7 +125,7 @@
 
             </StackPanel>
 
-            <Button x:Name="BtnCerrarSesion" Visibility="Collapsed" HorizontalAlignment="Right" Style="{StaticResource EstiloBotonMediano2}" Click="BtnCerrarSesion_Click" Margin="0,803,0,0" ToolTip="Cerrar la sesión actual" Width="80">
+            <Button x:Name="BtnCerrarSesion" HorizontalAlignment="Right" Style="{StaticResource EstiloBotonMediano2}" Click="BtnCerrarSesion_Click" Margin="0,803,0,0" ToolTip="Cerrar la sesión actual" Width="80">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Protectora;component/recursos/log-out.png" Width="58" Height="34" />
                 </StackPanel>

@@ -19,9 +19,44 @@ namespace Protectora.Presentacion
     /// </summary>
     public partial class ClaseEditarPerro : Window
     {
-        public ClaseEditarPerro()
+        PaginaPerro pagPerro;
+        Perro perro;
+        public ClaseEditarPerro(PaginaPerro p, Perro pe)
         {
             InitializeComponent();
+            pagPerro = p;
+            perro = pe;
+            CargarDatos();
         }
+        private void CargarDatos()
+        {
+           
+                SetPerroEditar(perro);
+            
+            
+        }
+
+        private void SetPerroEditar(Perro perro)
+        {
+            try
+            {
+                txtSexoPerro.Text = perro.Sexo;
+                txtNombrePerro.Text = perro.Nombre;
+                txtTamanioPerro.Text = perro.Tamanio.ToString();
+                txtEstadoPerro.Text = perro.Estado;
+                txtPesoPerro.Text = perro.Peso.ToString();
+                txtEdadPerro.Text = perro.Edad.ToString();
+                dateEntradaPerro.Text = perro.FechaEntrada.ToString("dd-MM-yyyy");
+                txtDescripcionPerro.Text = perro.Descripcion;
+                txtRazaPerro.Text = perro.Raza;
+                txtImagenPerro.Text = perro.Foto;
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex);
+                //List<String> fila;
+            }
+        }
+       
     }
 }

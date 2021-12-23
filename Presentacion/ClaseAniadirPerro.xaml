@@ -20,7 +20,7 @@
                     <ColumnDefinition Width="427*"/>
                     <ColumnDefinition Width="428*"/>
                 </Grid.ColumnDefinitions>
-                <RadioButton x:Name="btnPadrinoRedondo" Content="Padrino" HorizontalAlignment="Left" Height="30" Margin="162,467,0,0" VerticalAlignment="Top" Width="240" FontSize="15"/>
+                <RadioButton x:Name="btnPadrinoRedondo" Content="Padrino" HorizontalAlignment="Left" Height="30" Margin="162,487,0,0" VerticalAlignment="Top" Width="240" FontSize="15"/>
                 <TextBox x:Name ="txtSexoPerro" Style="{StaticResource TextBox1}" Text="Sexo" PreviewMouseDown="LimpiarTextoSexo" FontSize="14" Foreground="Gray" Margin="261,98,263,708" Height="Auto" Width="Auto" Grid.ColumnSpan="2" VerticalAlignment="Center" />
                 <TextBox x:Name ="txtTamanioPerro" Style="{StaticResource TextBox1}" Text="Tamaño" FontSize="14" PreviewMouseDown="LimpiarTextoTamanio" Foreground="Gray" Margin="261,137,263,668" Height="Auto" Width="Auto" Grid.ColumnSpan="2" VerticalAlignment="Center" />
                 <TextBox x:Name ="txtEstadoPerro" Style="{StaticResource TextBox1}" Text="Estado" FontSize="14" PreviewMouseDown="LimpiarTextoEstado" Foreground="Gray" Margin="262,176,262,628" Height="Auto" Width="Auto" Grid.ColumnSpan="2" VerticalAlignment="Center" />
@@ -38,10 +38,10 @@
                 <TextBox x:Name ="txtDatosPadrino" Style="{StaticResource TextBox1}" Text="Datos bancarios"  FontSize="14" Foreground="Gray" Margin="25,513,128,251" IsEnabled="{Binding IsChecked, ElementName=btnPadrinoRedondo}" Height="Auto" Grid.Column="1" Width="Auto" VerticalAlignment="Center"/>
                 <TextBox x:Name ="txtImportePadrino" Style="{StaticResource TextBox1}" Text="Importe mensual"  FontSize="14" Foreground="Gray" Margin="25,558,128,205" IsEnabled="{Binding IsChecked, ElementName=btnPadrinoRedondo}" Height="Auto" Grid.Column="1" Width="Auto" VerticalAlignment="Center"/>
                 <TextBox x:Name ="txtFormaPagoPadrino" Style="{StaticResource TextBox1}" Text="Forma de pago"  FontSize="14" Foreground="Gray" Margin="25,604,128,161" IsEnabled="{Binding IsChecked, ElementName=btnPadrinoRedondo}" Height="Auto" Grid.Column="1" Width="Auto" VerticalAlignment="Center"/>
-                <TextBox x:Name ="txtComienzoPadrino" Style="{StaticResource TextBox1}" Text="Comienzo de apadrinamiento"  FontSize="14" Foreground="Gray" Margin="25,648,128,115" IsEnabled="{Binding IsChecked, ElementName=btnPadrinoRedondo}" Height="Auto" Grid.Column="1" Width="Auto" VerticalAlignment="Center"/>
+                <TextBox x:Name ="txtComienzoPadrino" Style="{StaticResource TextBox1}" Text="Comienzo de apadrinamiento"  FontSize="14" Foreground="Gray" Margin="25,669,128,136" IsEnabled="{Binding IsChecked, ElementName=btnPadrinoRedondo}" Height="Auto" Grid.Column="1" Width="Auto" VerticalAlignment="Center"/>
 
-                <Button x:Name ="nuevoPerro" Style ="{StaticResource EstiloBotonMediano}" Content="Añadir nuevo perro" Margin="312,714,0,0" Width="250" Click="nuevoPerro_Click" Grid.ColumnSpan="2" />
-                <Button x:Name ="btnImagen" Style ="{StaticResource EstiloBotonLargo}" FontSize="14" Content="Buscar" Margin="64,417,0,0" Width="102" Height="40" Click="btnImagen_Click" Grid.Column="1" />
+                <Button x:Name ="nuevoPerro" Style ="{StaticResource EstiloBotonMediano}" Content="Añadir nuevo perro" Margin="307,752,0,0" Width="250" Click="NuevoPerro_Click" Grid.ColumnSpan="2" />
+                <Button x:Name ="btnImagen" Style ="{StaticResource EstiloBotonLargo}" FontSize="14" Content="Buscar" Margin="64,417,0,0" Width="102" Height="40" Click="BtnImagen_Click" Grid.Column="1" />
                 <TextBox x:Name ="txtImagenPerroNuevo" Style="{StaticResource TextBox1}" Text="Imagen" PreviewMouseDown="LimpiarTextoDescripcion" FontSize="14" Foreground="Gray" Margin="262,417,383,388" RenderTransformOrigin="0.5,0.5" Width="Auto" Height="Auto" Grid.ColumnSpan="2" VerticalAlignment="Center" >
                     <TextBox.RenderTransform>
                         <TransformGroup>
