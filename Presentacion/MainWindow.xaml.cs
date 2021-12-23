@@ -22,8 +22,8 @@ namespace Protectora
     /// </summary>
     public partial class MainWindow : Window
     {
-        private string usuario = "1234";
-        private string password = "1234";
+        //private string usuario = "1234";
+        //private string password = "1234";
         public MainWindow()
         {
             InitializeComponent();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Protectora.Dominio;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -28,6 +29,8 @@ namespace Protectora.Presentacion
         public PaginaPerro()
         {
             InitializeComponent();
+            CargarPerros();
+            Refresh();
         }
         public List<Perro> idAccess
         {
@@ -61,20 +64,64 @@ namespace Protectora.Presentacion
 
         public void SetPerro(Perro perro)
         {
-            TextBoxId.Text = perro.Id.ToString();
-            TextBoxSexo.Text = perro.Sexo;
-            TextBoxNombre.Text = perro.Nombre;
-            TextBoxTamanio.Text = perro.Tamanio.ToString();
-            TextBoxEstado.Text = perro.Estado;
-            TextBoxPeso.Text = perro.Peso.ToString();
-            TextBoxEdad.Text = perro.Edad.ToString();
-            TextBoxEntrada.Text = perro.FechaEntrada.ToString("dd-MM-yyyy");
-            TextBoxDescripcion.Text = perro.Descripcion;
-            BitmapImage bitmap = new BitmapImage();
-            bitmap.BeginInit();
-            bitmap.UriSource = new Uri(perro.Foto);
-            bitmap.EndInit();
-            ProfileImage.Source = bitmap;
+            try
+            {
+                TextBoxId.Text = perro.Id.ToString();
+                TextBoxSexo.Text = perro.Sexo;
+                TextBoxNombre.Text = perro.Nombre;
+                TextBoxTamanio.Text = perro.Tamanio.ToString();
+                TextBoxEstado.Text = perro.Estado;
+                TextBoxPeso.Text = perro.Peso.ToString();
+                TextBoxEdad.Text = perro.Edad.ToString();
+                TextBoxEntrada.Text = perro.FechaEntrada.ToString("dd-MM-yyyy");
+                TextBoxDescripcion.Text = perro.Descripcion;
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(perro.Foto);
+                bitmap.EndInit();
+                ProfileImage.Source = bitmap;
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex);
+                //List<String> fila;
+            }
+
+
+        }
+
+        public void CargarPerros()
+        {
+            List<Perro> perros = new List<Perro>();
+            perros = GestorAnimal.obtenerTodosPerros();
+
+            //Window per = new GestionPerro();
+            //GestionPerro pero = (GestionPerro)per;
+            //Window pae = pero.ventanas[0];
+
+            //Page2 jdf = (Page2)pero.paneles[0];
+
+            //string st = jdf.putamierda;
+
+            foreach (Perro perro in perros)
+            {
+
+                perro.Foto = "";
+                listaPerro.Add(perro);
+
+                //PanelDinamicoBotones.Children.Add(new ControlUsuarioPerro(perro));
+                //TextBoxId.Text = perro.id.ToString();
+                /*
+                lblNombreAnimal.Content = perro.nombre;
+                lblsexoAnimal.Content = perro.sexo;
+                lbltamanioAnimal.Content = perro.tamanio;
+                lblEstadoAnimal.Content = perro.estado;
+                lblEdadAnimal.Content = perro.edad;
+                lblPesoAnimal.Content = perro.peso;
+                lblEntradaAnimal.Content = perro.fechaEntrada.ToString();
+                lblDescrpcionAnimal.Content = perro.descripcion;
+                */
+            }
 
         }
 
