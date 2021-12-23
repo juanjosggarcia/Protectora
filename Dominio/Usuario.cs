@@ -46,7 +46,14 @@ namespace Protectora.Dominio
 
         public Usuario LeerUsuario()
         {
+
             return UsuDAO.leer(this);
+        }
+
+        public string LeerContraseniaUsuario(string user)
+        {
+            Nombre = user;
+            return UsuDAO.contrasenaUsuario(this);
         }
 
         public int ModificarUsuarioFecha()

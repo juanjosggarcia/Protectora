@@ -16,23 +16,6 @@ namespace Protectora.Persistencia
             this.usuarios = new List<Usuario>();
         }
 
-        public void LeerTodosUsuarios()
-        {
-            //List<Usuario> arrayUsuarios = new List<Usuario>();
-            AgenteDB agente = AgenteDB.obtenerAgente();
-
-            List<List<String>> arrayCarUsuarios = new List<List<String>>();
-            arrayCarUsuarios = agente.leer("SELECT * FROM usuarios");
-
-            foreach (List<String> user in arrayCarUsuarios)
-            {
-                Usuario p = new Usuario(Int32.Parse(user[0]), user[1], user[2], DateTime.Parse(user[3]));
-                //arrayUsuarios.Add(p);
-                usuarios.Add(p);
-            }
-
-        }
-
 
         // ESTA PARTE ES LA QUE VALE
         public List<Usuario> leerTodas()
@@ -57,6 +40,19 @@ namespace Protectora.Persistencia
                 usuarios.Add(p);
             }
             return usuarios[0];
+        }
+
+        public string contrasenaUsuario(Usuario obj)
+        {
+            List<List<String>> arrayCarUsuarios = AgenteDB.obtenerAgente().leer("SELECT usuarios.password FROM usuarios WHERE user='" + obj.Nombre + "';");
+            string contrasenia="";
+
+            foreach (List<String> user in arrayCarUsuarios)
+            {
+                contrasenia = user[0];
+            }
+
+            return contrasenia;
         }
 
         public int insertar(Usuario obj)

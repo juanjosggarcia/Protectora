@@ -52,6 +52,11 @@ namespace Protectora.Persistencia
             }
         }
 
+        internal void modificar(object p)
+        {
+            throw new NotImplementedException();
+        }
+
         public void desconectar()
         {
             if (conexionBD.State == ConnectionState.Open)

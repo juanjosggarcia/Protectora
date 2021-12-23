@@ -9,10 +9,15 @@ namespace Protectora.Persistencia
 {
     class AnimalDAO : IDAO<Perro>
     {
+        public readonly List<Perro> animales;
+
+        public AnimalDAO()
+        {
+            this.animales = new List<Perro>();
+        }
 
         public List<Perro> leerTodas()
         {
-            List<Perro> arrayAnimales = new List<Perro>();
             AgenteDB agente = AgenteDB.obtenerAgente();
             List<List<String>> arrayCarAnimales = new List<List<String>>();
             arrayCarAnimales = agente.leer("SELECT * FROM animales a, perros p WHERE a.id=p.idAnimal");
@@ -24,46 +29,62 @@ namespace Protectora.Persistencia
                     Int32.Parse(user[3]), Int32.Parse(user[4]), Int32.Parse(user[5]),
                     DateTime.Parse(user[6]), user[7], user[8], user[9], user[10]
                     , Int32.Parse(user[11]), user[13]);
-                arrayAnimales.Add(a);
+                animales.Add(a);
             }
             Console.Write(" ");
-            return arrayAnimales;
+            return animales;
         }
 
         public Perro leer(Perro obj)
         {
-            throw new NotImplementedException();
+            List<Perro> arrayAnimales = new List<Perro>();
+            AgenteDB agente = AgenteDB.obtenerAgente();
+            List<List<String>> arrayCarAnimales = new List<List<String>>();
+            arrayCarAnimales = agente.leer("SELECT * FROM animales a, perros p WHERE a.id=p.idAnimal AND a.nombre = '" + obj.Nombre.ToString() + "'; ");
+
+            foreach (List<String> user in arrayCarAnimales)
+            {
+                Console.Write(" ");
+                Perro a = new Perro(Int32.Parse(user[0]), user[1], user[2],
+                    Int32.Parse(user[3]), Int32.Parse(user[4]), Int32.Parse(user[5]),
+                    DateTime.Parse(user[6]), user[7], user[8], user[9], user[10]
+                    , Int32.Parse(user[11]), user[13]);
+                arrayAnimales.Add(a);
+            }
+
+            Console.Write(" ");
+            return arrayAnimales[0];
         }
 
         public int insertar(Perro obj)
         {
             AgenteDB agente = AgenteDB.obtenerAgente();
 
-            agente.modificar("INSERT INTO animales (nombre,sexo,tamanio,peso,edad,entradaProtectora,foto,enlace,descripcion,estado,padrinos) VALUES ('" + obj.nombre.ToString() + "', '" + obj.sexo.ToString() + "', " + obj.tamanio.ToString() + "" +
-                ", " + obj.peso.ToString() + ", " + obj.edad.ToString() + ", '" + obj.fechaEntrada.ToString() + "', '" + obj.foto.ToString() + "', '" + obj.enlace.ToString() + "'" +
-                ", '" + obj.descripcion.ToString() + "', '" + obj.estado.ToString() + "', " + obj.apadrinado.ToString() + ");");
+            agente.modificar("INSERT INTO animales (nombre,sexo,tamanio,peso,edad,entradaProtectora,foto,enlace,descripcion,estado,padrinos) VALUES ('" + obj.Nombre.ToString() + "', '" + obj.Sexo.ToString() + "', " + obj.Tamanio.ToString() + "" +
+                ", " + obj.Peso.ToString() + ", " + obj.Edad.ToString() + ", '" + obj.FechaEntrada.ToString() + "', '" + obj.Foto.ToString() + "', '" + obj.Enlace.ToString() + "'" +
+                ", '" + obj.Descripcion.ToString() + "', '" + obj.Estado.ToString() + "', " + obj.Apadrinado.ToString() + ");");
 
-            obj.id = (Int32.Parse(agente.leer("SELECT MAX(id) FROM animales")[0][0]));
+            obj.Id = (Int32.Parse(agente.leer("SELECT MAX(id) FROM animales")[0][0]));
 
-            return agente.modificar("INSERT INTO perros ( raza, IdAnimal ) VALUES ('" + obj.Raza.ToString() + "', " + obj.id.ToString() + ");");
+            return agente.modificar("INSERT INTO perros ( raza, IdAnimal ) VALUES ('" + obj.Raza.ToString() + "', " + obj.Id.ToString() + ");");
         }
 
         public int actualizar(Perro obj)
         {
             AgenteDB agente = AgenteDB.obtenerAgente();
 
-            agente.modificar("UPDATE perros SET raza='" + obj.Raza.ToString() + "' WHERE IdAnimal = " + obj.id.ToString() + "; ");
+            agente.modificar("UPDATE perros SET raza='" + obj.Raza.ToString() + "' WHERE IdAnimal = " + obj.Id.ToString() + "; ");
 
-            return agente.modificar("UPDATE animales SET nombre= '" + obj.nombre.ToString() + "',sexo='" + obj.sexo.ToString() + "',tamanio= " + obj.tamanio.ToString() + ",peso=" + obj.peso.ToString() + "," +
-                "edad=" + obj.edad.ToString() + ",entradaProtectora= '" + obj.fechaEntrada.ToString() + "',foto='" + obj.foto.ToString() + "',enlace='" + obj.enlace.ToString() + "',descripcion='" + obj.descripcion.ToString() + "'," +
-                "estado='" + obj.estado.ToString() + "',padrinos=" + obj.apadrinado.ToString() + " WHERE Id = " + obj.id.ToString() + "; ");
+            return agente.modificar("UPDATE animales SET nombre= '" + obj.Nombre.ToString() + "',sexo='" + obj.Sexo.ToString() + "',tamanio= " + obj.Tamanio.ToString() + ",peso=" + obj.Peso.ToString() + "," +
+                "edad=" + obj.Edad.ToString() + ",entradaProtectora= '" + obj.FechaEntrada.ToString() + "',foto='" + obj.Foto.ToString() + "',enlace='" + obj.Enlace.ToString() + "',descripcion='" + obj.Descripcion.ToString() + "'," +
+                "estado='" + obj.Estado.ToString() + "',padrinos=" + obj.Apadrinado.ToString() + " WHERE Id = " + obj.Id.ToString() + "; ");
 
         }
 
         public int eliminar(Perro obj)
         {
             AgenteDB agente = AgenteDB.obtenerAgente();
-            return agente.modificar("DELETE FROM animales WHERE Id=" + obj.id.ToString() + ";");
+            return agente.modificar("DELETE FROM animales WHERE Id=" + obj.Id.ToString() + ";");
         }
     }
 }

@@ -23,7 +23,15 @@ namespace Protectora.Dominio
 
             //usuAUX.LeerUsuario("root", "root");
 
-            //List<Usuario> arrayUsuarios = usuAUX.LeerTodosUsuarios();
+            List<Usuario> arrayUsuarios = usuAUX.LeerTodosUsuarios();
+
+            //Obtener una contraseña
+            string user = "juanjo", contrasenia;
+            contrasenia = usuAUX.LeerContraseniaUsuario(user);
+
+            //obtener un perro
+            Perro perriAUX = new Perro();
+            perriAUX = perriAUX.Leer("Albondiga");
 
             //Obtener todos los animales
             Perro aniAUX = new Perro();
@@ -48,7 +56,7 @@ namespace Protectora.Dominio
 
             //LEER UN PADRINO MEDIANTE PERRETE
             Padrino pad = new Padrino();
-            pad.Id = arrayAnimales[0].apadrinado;
+            pad.Id = arrayAnimales[0].Apadrinado;
             pad = pad.LeerunPadrino();
 
 

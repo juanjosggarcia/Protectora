@@ -9,10 +9,13 @@ namespace Protectora.Persistencia
 {
     class PadrinoDAO : IDAO<Padrino>
     {
-
+        public readonly List<Padrino> padrinos;
+        public PadrinoDAO()
+        {
+            this.padrinos = new List<Padrino>();
+        }
         public List<Padrino> leerTodas()
         {
-            List<Padrino> arrayPadrino = new List<Padrino>();
             AgenteDB agente = AgenteDB.obtenerAgente();
 
             List<List<String>> arrayCarPadrino = new List<List<String>>();
@@ -21,10 +24,10 @@ namespace Protectora.Persistencia
             foreach (List<String> user in arrayCarPadrino)
             {
                 Padrino s = new Padrino(Int32.Parse(user[0]), user[1], user[2], user[3], Int32.Parse(user[4]), user[6], Int32.Parse(user[7]), user[8], DateTime.Parse(user[9]));
-                arrayPadrino.Add(s);
+                padrinos.Add(s);
             }
             Console.Write(" ");
-            return arrayPadrino;
+            return padrinos;
         }
     
 
@@ -32,16 +35,16 @@ namespace Protectora.Persistencia
         {
             AgenteDB agente = AgenteDB.obtenerAgente();
             Console.Write(" ");
-            List<List<String>> arrayCarPadrino =  agente.leer("SELECT * FROM personas p, padrinos s WHERE p.id=s.idPersona  AND p.id = " + obj.Id.ToString() + "; ");
-            Padrino s = new Padrino();
+            List<List<String>> arrayCarPadrino =  agente.leer("SELECT * FROM personas p, padrinos s WHERE p.id=s.idPersona  AND s.id = " + obj.Id.ToString() + "; ");
+            Padrino padrino = new Padrino();
 
             foreach (List<String> user in arrayCarPadrino)
             {
-                s = new Padrino(Int32.Parse(user[0]), user[1], user[2], user[3], Int32.Parse(user[4]), user[6], Int32.Parse(user[7]), user[8], DateTime.Parse(user[9]));
+                padrino = new Padrino(Int32.Parse(user[0]), user[1], user[2], user[3], Int32.Parse(user[4]), user[6], Int32.Parse(user[7]), user[8], DateTime.Parse(user[9]));
 
             }
             Console.Write(" ");
-            return s;
+            return padrino;
         }
 
         public int insertar(Padrino obj)

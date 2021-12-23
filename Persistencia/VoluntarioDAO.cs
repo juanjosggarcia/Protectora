@@ -9,10 +9,13 @@ namespace Protectora.Persistencia
 {
     class VoluntarioDAO : IDAO<Voluntario>
     {
-
+        public readonly List<Voluntario> voluntarios;
+        public VoluntarioDAO()
+        {
+            this.voluntarios = new List<Voluntario>();
+        }
         public List<Voluntario> leerTodas()
         {
-            List<Voluntario> arrayVoluntarios = new List<Voluntario>();
             AgenteDB agente = AgenteDB.obtenerAgente();
 
             List<List<String>> arrayCarVoluntarios = new List<List<String>>();
@@ -22,10 +25,10 @@ namespace Protectora.Persistencia
             {
                 Voluntario v = new Voluntario(Int32.Parse(user[0]), user[1], user[2], user[3],
                      Int32.Parse(user[4]), user[6], user[7], user[8]);
-                arrayVoluntarios.Add(v);
+                voluntarios.Add(v);
             }
             Console.Write(" ");
-            return arrayVoluntarios;
+            return voluntarios;
         }
 
         public Voluntario leer(Voluntario obj)

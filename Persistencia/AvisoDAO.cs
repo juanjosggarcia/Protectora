@@ -9,10 +9,14 @@ namespace Protectora.Persistencia
 {
     class AvisoDAO : IDAO<Aviso>
     {
+        public readonly List<Aviso> avisos;
+        public AvisoDAO()
+        {
+            this.avisos = new List<Aviso>();
+        }
 
         public List<Aviso> leerTodas()
         {
-            List<Aviso> arrayAvisos = new List<Aviso>();
             AgenteDB agente = AgenteDB.obtenerAgente();
 
             List<List<String>> arrayCarAvisos = new List<List<String>>();
@@ -22,10 +26,10 @@ namespace Protectora.Persistencia
             {
                 Aviso a = new Aviso(Int32.Parse(user[0]), user[1], user[2], user[3], Int32.Parse(user[4]),
                     user[5], user[6], user[7], DateTime.Parse(user[8]), user[9]);
-                arrayAvisos.Add(a);
+                avisos.Add(a);
             }
             Console.Write(" ");
-            return arrayAvisos;
+            return avisos;
         }
 
         public Aviso leer(Aviso obj)

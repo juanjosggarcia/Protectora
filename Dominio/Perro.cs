@@ -29,33 +29,34 @@ namespace Protectora
             this.Raza = raza;
         }
 
+        // PARTE DTO
         public void InsertarPerro()
         {
             this.AniDAO.insertar((Perro)this.MemberwiseClone());
-            Console.Write(" ");
+            //Console.Write(" ");
         }
 
         public void EliminarPerro()
         {
             this.AniDAO.eliminar((Perro)this.MemberwiseClone());
-            Console.Write(" ");
+            //Console.Write(" ");
         }
 
         public void ModificarPerro()
         {
             this.AniDAO.actualizar((Perro)this.MemberwiseClone());
-            Console.Write(" ");
+            //Console.Write(" ");
         }
 
+        public Perro Leer(String nombre)
+        {
+            Nombre = nombre;
+            return AniDAO.leer((Perro)this.MemberwiseClone());
+        }
 
         public List<Perro> LeerTodosAnimales()
         {
-            List<Perro> arrayAnimales = new List<Perro>();
-
-            arrayAnimales = this.AniDAO.leerTodas();
-            Console.Write(" ");
-
-            return arrayAnimales;
+            return AniDAO.leerTodas();
         }
 
     }
