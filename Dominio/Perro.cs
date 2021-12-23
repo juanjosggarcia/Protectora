@@ -1,55 +1,58 @@
 ﻿using System;
+using Protectora.Persistencia;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Protectora.Dominio;
 
-namespace Protectora.Dominio
+namespace Protectora
 {
-    public class Perro
+    public class Perro : Animal
     {
-        public int id;
-        public string nombre;
-        public string sexo;
-        public int tamanio;
-        public int peso;
-        public int edad;
-        public DateTime entrada;
-        public string foto;
-        public string descripcion;
-        public string estado;
-        public int Id { get; set; }
-        public string Nombre { get; set; }
-        public string Sexo { get; set; }
-        public int Tamanio { get; set; }
-        public string Estado { get; set; }
-        public int Edad { get; set; }
-        public int Peso { get; set; }
-        public DateTime Entrada { get; set; }
-        public string Imagen { get; set; }
-        public string Foto { get; set; }
+        private string raza;
+        private AnimalDAO aniDAO;
 
-        public string Descripcion { get; set; }
+        public string Raza { get => raza; set => raza = value; }
+        internal AnimalDAO AniDAO { get => aniDAO; set => aniDAO = value; }
 
-        public Perro(int id, string nombre, string sexo, int tamanio, int peso, int edad, DateTime entrada, string foto, string descripcion, string estado)
+        public Perro() : base()
         {
-            this.Id = id;
-            this.Nombre = nombre;
-            this.Sexo = sexo;
-            this.Tamanio = tamanio;
-            this.Peso = peso;
-            this.Edad = edad;
-            this.Entrada = entrada;
-            this.Foto = foto;
-            this.Descripcion = descripcion;
-            this.Estado = estado;
-            
+            this.AniDAO = new AnimalDAO();
         }
 
-        public Perro()
+        public Perro(Nullable<int> id, string nombre, string sexo, int tamanio, int peso, int edad, DateTime fechaEntrada
+            , string foto, string enlace, string descripcion, string estado, int apadrinado, string raza) :
+            base(id, nombre, sexo, tamanio, peso, edad, fechaEntrada, foto, enlace, descripcion, estado, apadrinado)
         {
+            this.AniDAO = new AnimalDAO();
+            this.Raza = raza;
         }
+
+        // PARTE DTO
+        public void InsertarPerro()
+        {
+            this.AniDAO.insertar((Perro)this.MemberwiseClone());
+            Console.Write(" ");
+        }
+
+        public void EliminarPerro()
+        {
+            this.AniDAO.eliminar((Perro)this.MemberwiseClone());
+            Console.Write(" ");
+        }
+
+        public void ModificarPerro()
+        {
+            this.AniDAO.actualizar((Perro)this.MemberwiseClone());
+            Console.Write(" ");
+        }
+
+
+        public List<Perro> LeerTodosAnimales()
+        {
+            return AniDAO.leerTodas();
+        }
+
     }
-
 }
-

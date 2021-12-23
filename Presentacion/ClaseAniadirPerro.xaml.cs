@@ -20,8 +20,8 @@ namespace Protectora.Presentacion
     /// </summary>
     public partial class ClaseAniadirPerro: Window
     {
-        Dominio.Perro perroActual;
-        List<Dominio.Perro> ListaPerros;
+        Perro perroActual;
+        List<Perro> ListaPerros;
         PaginaPerro desde;
         public ClaseAniadirPerro(PaginaPerro p)
         {
@@ -124,14 +124,14 @@ namespace Protectora.Presentacion
             //GestionPerro ventana = Application.Current.Windows.OfType<GestionPerro>().FirstOrDefault();
             //PaginaPerro main = new PaginaPerro();
 
-            Dominio.Perro perro = new Dominio.Perro();
+            Perro perro = new Perro();
             perro.Nombre = txtNombrePerro.Text;
             perro.Sexo = txtSexoPerro.Text;
             perro.Tamanio = Int32.Parse(txtTamanioPerro.Text);
             perro.Estado = txtEstadoPerro.Text;
             perro.Peso = Int32.Parse(txtPesoPerro.Text);
             perro.Edad = Int32.Parse(txtEdadPerro.Text);
-            perro.Entrada = DateTime.Parse(dateEntradaPerro.Text);
+            perro.FechaEntrada = DateTime.Parse(dateEntradaPerro.Text);
             perro.Descripcion = txtDescripcionPerro.Text;
 
             //main.SetPerro(perro);

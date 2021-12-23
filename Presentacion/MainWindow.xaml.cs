@@ -1,4 +1,5 @@
-﻿using Protectora.Presentacion;
+﻿using Protectora.Dominio;
+using Protectora.Presentacion;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,24 +37,40 @@ namespace Protectora
 
         private void BtnIniciarSesion_Click(object sender, RoutedEventArgs e)
         {
-            
-                if (txtUsuario.Text.Equals(usuario) && txtContrasenia.Password.Equals(password))
-                {
-                        
-                    ClaseVentanaPrincipal nw = new ClaseVentanaPrincipal();
-                    nw.Show();
 
-                    this.Hide();
+            errorInicioSesion.Content = "";
+            Usuario usuario = new Usuario(null, txtUsuario.Text.ToString(), txtContrasenia.Password.ToString(), null);
+            usuario = GestorUsuario.obtenerUser(usuario);
 
+            if (usuario != null)
+            {
+
+                ClaseVentanaPrincipal nw = new ClaseVentanaPrincipal();
+                //string cosa = nw.paneles[0].putamierda;
+                nw.Show();
+
+                //this.Close();
+
+                Hide();
+                //Close();
             }
-                else
-                {
+            else
+            {
                 // feedback al usuario
                 txtUsuario.Text = "";
                 txtContrasenia.Password = "";
                 errorInicioSesion.Content = "Usuario o contraseña incorrectos";
             }
-            
+            /*
+            else
+            {
+                // feedback al usuario con ventana emergente
+                string message = "Usuario o contraseña invalido";
+                string title = "Error autentificacion";
+                MessageBox.Show(message, title);
+            }
+            */
+
         }
 
         private void OnKeyDownHandler(object sender, KeyEventArgs e)

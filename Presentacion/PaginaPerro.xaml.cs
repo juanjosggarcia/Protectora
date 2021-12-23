@@ -23,13 +23,13 @@ namespace Protectora.Presentacion
     {
         //Dominio.Perro perro;
 
-        public List<Dominio.Perro> listaPerro = new List<Dominio.Perro>();
+        public List<Perro> listaPerro = new List<Perro>();
         public int numero = 2;
         public PaginaPerro()
         {
             InitializeComponent();
         }
-        public List<Dominio.Perro> idAccess
+        public List<Perro> idAccess
         {
             get { return listaPerro; }
             
@@ -46,20 +46,20 @@ namespace Protectora.Presentacion
             ClaseAniadirPerro nuevoPerro = new ClaseAniadirPerro(this);
             nuevoPerro.Show();
 
-            Algoperro();
+            //Algoperro();
             Refresh();
         }
 
         private void ListaPerros_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var selectedItems = ListViewPerros.SelectedItems;
-            foreach (Dominio.Perro perro in selectedItems)
+            foreach (Perro perro in selectedItems)
             {
                 SetPerro(perro);
             }
         }
 
-        public void SetPerro(Dominio.Perro perro)
+        public void SetPerro(Perro perro)
         {
             TextBoxId.Text = perro.Id.ToString();
             TextBoxSexo.Text = perro.Sexo;
@@ -68,19 +68,20 @@ namespace Protectora.Presentacion
             TextBoxEstado.Text = perro.Estado;
             TextBoxPeso.Text = perro.Peso.ToString();
             TextBoxEdad.Text = perro.Edad.ToString();
-            TextBoxEntrada.Text = perro.Entrada.ToString("dd-MM-yyyy");
+            TextBoxEntrada.Text = perro.FechaEntrada.ToString("dd-MM-yyyy");
             TextBoxDescripcion.Text = perro.Descripcion;
             BitmapImage bitmap = new BitmapImage();
             bitmap.BeginInit();
-            bitmap.UriSource = new Uri(perro.Imagen);
+            bitmap.UriSource = new Uri(perro.Foto);
             bitmap.EndInit();
             ProfileImage.Source = bitmap;
 
         }
 
+        /*
         public void Algoperro()
         {
-            Dominio.Perro perrito = new Dominio.Perro();
+            Perro perrito = new Perro();
             perrito.Id = 1;
             perrito.Nombre = "mari";
             perrito.Sexo = "fem";
@@ -88,7 +89,7 @@ namespace Protectora.Presentacion
             perrito.Estado = "sana";
             perrito.Peso = 55;
             perrito.Edad = 2;
-            perrito.Entrada = new DateTime(1998, 04, 30);
+            perrito.FechaEntrada = new DateTime(1998, 04, 30);
             perrito.Descripcion = "perro calmado";
             perrito.Imagen = "C:\\Users\\laura\\source\\repos\\Protectora\\recursos\\Fotosbd\\husky.jpg";
             if (string.IsNullOrEmpty(perrito.Imagen))
@@ -131,21 +132,21 @@ namespace Protectora.Presentacion
                 perrito3.Imagen = "C:\\Users\\laura\\source\\repos\\Protectora\\recursos\\default.png";
             }
             listaPerro.Add(perrito3);
-        }
+        }*/
 
         private void Refresh()
         {
             ListViewPerros.Items.Clear();
             if (listaPerro != null)
             {
-                foreach (Dominio.Perro perro in listaPerro)
+                foreach (Perro perro in listaPerro)
                 {
                     ListViewPerros.Items.Add(perro);
                 }
             }
         }
 
-        public void CrearPerro(Dominio.Perro perro)
+        public void CrearPerro(Perro perro)
         {
             //listaPerro.Add(perro);
             //Dominio.Perro perrito = new Dominio.Perro();
