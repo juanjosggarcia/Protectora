@@ -121,9 +121,6 @@ namespace Protectora.Presentacion
 
         private void nuevoPerro_Click(object sender, RoutedEventArgs e)
         {
-            //GestionPerro ventana = Application.Current.Windows.OfType<GestionPerro>().FirstOrDefault();
-            //PaginaPerro main = new PaginaPerro();
-
             Perro perro = new Perro();
             perro.Nombre = txtNombrePerro.Text;
             perro.Sexo = txtSexoPerro.Text;
@@ -133,12 +130,10 @@ namespace Protectora.Presentacion
             perro.Edad = Int32.Parse(txtEdadPerro.Text);
             perro.FechaEntrada = DateTime.Parse(dateEntradaPerro.Text);
             perro.Descripcion = txtDescripcionPerro.Text;
-
-            //main.SetPerro(perro);
-            //main.Algoperro();
+            perro.Raza = txtRazaPerro.Text;
 
             //ventana.paneles[0].CrearPerro(perro);
-            pagPerro.CrearPerro(perro);
+            desde.CrearPerro(perro);
 
             this.Close();
         }

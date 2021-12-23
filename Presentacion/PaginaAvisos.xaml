@@ -16,17 +16,12 @@
 
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="65*"/>
-                <RowDefinition Height="97*"/>
-                <RowDefinition Height="602*"/>
+                <RowDefinition Height="81*"/>
+                <RowDefinition Height="301*"/>
                 <RowDefinition Height="105"/>
             </Grid.RowDefinitions>
 
-            <Border Grid.ColumnSpan="2" BorderBrush="#D4B8B0" Background="#D4B8B0" BorderThickness="4" Margin="0,0,-328,0" CornerRadius="0,0,20,20" >
-                <Label x:Name="Titulo" Content="Gestión de avisos" Margin="626,-4,656,-9"   FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="35"/>
-            </Border>
-
-            <Border BorderBrush="white" Background="#FAF9F7" BorderThickness="4" CornerRadius="20" Margin="83,10,-198,10" Grid.Row="2" Grid.Column="1">
+            <Border BorderBrush="white" Background="#FAF9F7" BorderThickness="4" CornerRadius="20" Margin="83,10,-198,10" Grid.Row="1" Grid.Column="1">
                 <Grid Margin="0,0,0,-4">
                     <Image x:Name="ImagenPerfil" HorizontalAlignment="Left" Height="200" VerticalAlignment="Top" Width="200" Stretch="UniformToFill" Source="C:\Users\laura\source\repos\Protectora\recursos\default.png" Margin="61,73,0,0">
                         <Image.Clip>
@@ -47,16 +42,16 @@
                     <TextBox x:Name="TextBoxTelefonoVol_Copy" Style="{StaticResource TextBox2}" HorizontalAlignment="Left" Height="35" Margin="510,278,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" FontSize="14" Text="{Binding Estado}"/>
                 </Grid>
             </Border>
-            <Button x:Name="NuevoVoluntario" Style="{StaticResource EstiloBotonMediano}" Content="Nuevo" HorizontalAlignment="Left" Margin="523,0,0,520" VerticalAlignment="Bottom" Width="102" RenderTransformOrigin="0.526,1.458" Height="39" Grid.Row="2"/>
+            <Button x:Name="NuevoVoluntario" Style="{StaticResource EstiloBotonMediano}" Content="Nuevo" HorizontalAlignment="Left" Margin="523,0,0,520" VerticalAlignment="Bottom" Width="102" RenderTransformOrigin="0.526,1.458" Height="39" Grid.Row="1"/>
 
-            <Label x:Name="lblIdVol" Content="Id:" HorizontalAlignment="Left" Height="37" Margin="418,86,0,0" VerticalAlignment="Top" Width="100" FontSize="18" Grid.Column="1" Grid.Row="2"/>
-            <Label x:Name="lblNombreVol" Content="Nombre:" HorizontalAlignment="Left" Height="37" Margin="418,0,0,437" VerticalAlignment="Bottom" Width="121" FontSize="18" Grid.Column="1" Grid.Row="2"/>
-            <Label x:Name="lblCorreoVol" Content="Sexo:" HorizontalAlignment="Left" Height="37" Margin="418,170,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="1" Grid.Row="2"/>
-            <Label x:Name="lblDNIVol" Content="Raza:" HorizontalAlignment="Left" Height="38" Margin="418,212,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="1" Grid.Row="2"/>
-            <Label x:Name="lblZonaVol" Content="Descripcion de la localización:" HorizontalAlignment="Left" Height="36" Margin="178,424,0,0" VerticalAlignment="Top" Width="250" FontSize="18" Grid.Column="1" Grid.Row="2"/>
-            <Label x:Name="lblHorarioVol" Content="Descripción del animal:" HorizontalAlignment="Left" Height="36" Margin="178,355,0,0" VerticalAlignment="Top" Width="200" FontSize="18" Grid.Column="1" Grid.Row="2"/>
-            <Label x:Name="lblTelefonoVol" Content="Tamanio:" HorizontalAlignment="Left" Height="35" Margin="418,255,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="1" Grid.Row="2"/>
-            <ListView x:Name="ListViewAvisos" Grid.Row="2" Foreground="#333" Background="#FAFBFD" FontFamily="Corbel" Margin="228,94,0,64" Padding="-3,-1" HorizontalAlignment="Left" Width="397" >
+            <Label x:Name="lblIdVol" Content="Id:" HorizontalAlignment="Left" Height="37" Margin="418,86,0,0" VerticalAlignment="Top" Width="100" FontSize="18" Grid.Column="1" Grid.Row="1"/>
+            <Label x:Name="lblNombreVol" Content="Nombre:" HorizontalAlignment="Left" Height="37" Margin="418,0,0,437" VerticalAlignment="Bottom" Width="121" FontSize="18" Grid.Column="1" Grid.Row="1"/>
+            <Label x:Name="lblCorreoVol" Content="Sexo:" HorizontalAlignment="Left" Height="37" Margin="418,170,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="1" Grid.Row="1"/>
+            <Label x:Name="lblDNIVol" Content="Raza:" HorizontalAlignment="Left" Height="38" Margin="418,212,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="1" Grid.Row="1"/>
+            <Label x:Name="lblZonaVol" Content="Descripcion de la localización:" HorizontalAlignment="Left" Height="36" Margin="178,424,0,0" VerticalAlignment="Top" Width="250" FontSize="18" Grid.Column="1" Grid.Row="1"/>
+            <Label x:Name="lblHorarioVol" Content="Descripción del animal:" HorizontalAlignment="Left" Height="36" Margin="178,355,0,0" VerticalAlignment="Top" Width="200" FontSize="18" Grid.Column="1" Grid.Row="1"/>
+            <Label x:Name="lblTelefonoVol" Content="Tamanio:" HorizontalAlignment="Left" Height="35" Margin="418,255,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="1" Grid.Row="1"/>
+            <ListView x:Name="ListViewAvisos" Grid.Row="1" Foreground="#333" Background="#FAFBFD" FontFamily="Corbel" Margin="228,94,0,64" Padding="-3,-1" HorizontalAlignment="Left" Width="397" >
                 <ListView.View>
 
                     <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle}">
@@ -69,8 +64,7 @@
 
                 </ListViewItem>
             </ListView>
-            <Label x:Name ="lblFinalSesion" Content="Ultimo inicio de sesión: 16 de noviembre 18:35" Grid.Column="1" HorizontalAlignment="Left" Height="35" Margin="583,19,-300,0" VerticalAlignment="Top" Width="387" FontSize="18" RenderTransformOrigin="0.324,0.103"/>
-            <Label x:Name="lblTelefonoVol_Copy" Content="Fecha de perdida:" HorizontalAlignment="Left" Height="35" Margin="418,290,0,0" VerticalAlignment="Top" Width="156" FontSize="18" Grid.Column="1" Grid.Row="2"/>
+            <Label x:Name="lblTelefonoVol_Copy" Content="Fecha de perdida:" HorizontalAlignment="Left" Height="35" Margin="418,290,0,0" VerticalAlignment="Top" Width="156" FontSize="18" Grid.Column="1" Grid.Row="1"/>
 
         </Grid>
     </Grid>
