@@ -191,6 +191,7 @@ namespace Protectora.Presentacion
             btnDeletePerro.Visibility = Visibility.Hidden;
             btnAnteriorPerro.Visibility = Visibility.Hidden;
             btnNextPerro.Visibility = Visibility.Hidden;
+            btnImagenPerro.Visibility = Visibility.Visible;
 
         }
 

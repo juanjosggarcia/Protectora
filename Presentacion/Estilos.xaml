@@ -97,6 +97,30 @@
         </Setter>
     </Style>
 
+    <Style x:Key="EstiloBotonGrande2" TargetType="Button">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}"
+                    BorderBrush="Transparent" BorderThickness="2" CornerRadius="100" x:Name="bd">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                    Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" RecognizesAccessKey="True" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="bd" Property="Background" Value="gray"/>
+                            <Setter Property="Foreground" Value="Transparent" />
+                            <Setter Property="Cursor" Value="Hand" />
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <Style x:Key="EstiloBotonVolver" TargetType="Button">
         <Setter Property="Background" Value="#ffffff"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
@@ -604,6 +628,29 @@
                             <Setter Property="Cursor" Value="Hand" />
                         </Trigger>
 
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style  x:Key="EstiloBotonCambioImagen" TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border" Background="Transparent" BorderBrush="Transparent" BorderThickness="3" CornerRadius="100" TextBlock.Foreground="White">
+                        <Grid>
+                            <Image x:Name="buttonImage"  Width="55" Height="60"/>
+                            <ContentPresenter Margin="{TemplateBinding Padding}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Cursor" Value="Hand" />
+                            <Setter TargetName="border" Property="Background" Value="black" />
+                            <Setter TargetName="buttonImage" Property="Source" Value="/Protectora;component/recursos/edit.png" />
+
+                        </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>

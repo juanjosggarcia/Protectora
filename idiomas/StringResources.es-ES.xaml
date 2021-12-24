@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <sys:String x:Key="lblId">Id:</sys:String>
+    <sys:String x:Key="lblNombre">Nombre:</sys:String>
+    <sys:String x:Key="lblsexo">Sexo</sys:String>
+    <sys:String x:Key="lbltamanio">Tamaño</sys:String>
+    <sys:String x:Key="lblPeso">Peso</sys:String>
+    <sys:String x:Key="lblEdad">Edad</sys:String>
+    <sys:String x:Key="lblEntrada">Fecha de entrada</sys:String>
+    <sys:String x:Key="lblEstado">Estado</sys:String>
+    <sys:String x:Key="BtnPdrino">Padrino</sys:String>
+
+</ResourceDictionary>

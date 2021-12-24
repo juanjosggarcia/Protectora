@@ -59,15 +59,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="idiomas\StringResources.en-UK.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="idiomas\StringResources.es-ES.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\ClaseAcercaDe.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Presentacion\ClaseAniadirPerro.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Presentacion\ClaseContraseniaOlvidada.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Presentacion\ClaseEditarPerro.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -108,14 +116,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Dominio\ClassPruebas.cs" />
+    <Compile Include="Presentacion\ClaseAcercaDe.xaml.cs">
+      <DependentUpon>ClaseAcercaDe.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\ClaseAniadirPerro.xaml.cs">
       <DependentUpon>ClaseAniadirPerro.xaml</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\ClaseContraseniaOlvidada.xaml.cs">
       <DependentUpon>ClaseContraseniaOlvidada.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Presentacion\ClaseEditarPerro.xaml.cs">
-      <DependentUpon>ClaseEditarPerro.xaml</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\ClasePadrinoPerro.xaml.cs">
       <DependentUpon>ClasePadrinoPerro.xaml</DependentUpon>
@@ -261,6 +269,26 @@
   <ItemGroup>
     <Resource Include="recursos\default.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="recursos\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\fondo22.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\woman.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\boy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\man.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\editar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\edit.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
