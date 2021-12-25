@@ -31,7 +31,7 @@ namespace Protectora.Presentacion
         {
             InitializeComponent();
             CargarPerros();
-            Refresh();
+            //Refresh();
         }
         public List<Perro> idAccess
         {
@@ -41,7 +41,8 @@ namespace Protectora.Presentacion
 
         private void BtnPdrino_Click(object sender, RoutedEventArgs e)
         {
-            ClasePadrinoPerro Padrinito = new ClasePadrinoPerro();
+            Perro perro = (Perro)ListViewPerros.Items[ListViewPerros.SelectedIndex];
+            ClasePadrinoPerro Padrinito = new ClasePadrinoPerro(perro);
             Padrinito.Show();
         }
 
@@ -51,7 +52,7 @@ namespace Protectora.Presentacion
             nuevoPerro.Show();
 
             //Algoperro();
-            Refresh();
+            //Refresh();
         }
 
         private void ListaPerros_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -108,7 +109,7 @@ namespace Protectora.Presentacion
         {
             List<Perro> perros = new List<Perro>();
             perros = GestorAnimal.obtenerTodosPerros();
-
+            ListViewPerros.Items.Clear();
             foreach (Perro perro in perros)
             {
                 if (string.IsNullOrEmpty(perro.Foto))
@@ -118,6 +119,7 @@ namespace Protectora.Presentacion
                 }
 
                 listaPerro.Add(perro);
+                ListViewPerros.Items.Add(perro);
 
                 //PanelDinamicoBotones.Children.Add(new ControlUsuarioPerro(perro));
                 //TextBoxId.Text = perro.id.ToString();
@@ -134,7 +136,7 @@ namespace Protectora.Presentacion
             }
 
         }
-
+        /*
         private void Refresh()
         {
             ListViewPerros.Items.Clear();
@@ -145,14 +147,15 @@ namespace Protectora.Presentacion
                     ListViewPerros.Items.Add(perro);
                 }
             }
-        }
+        }*/
 
+        /*
         public void CrearPerro(Perro perro)
         {
             listaPerro.Add(perro);
 
             Refresh();
-        }
+        }*/
 
         private void BtnNextPerro_Click(object sender, RoutedEventArgs e)
         {
@@ -231,10 +234,11 @@ namespace Protectora.Presentacion
             TextBoxEntrada.Text = "";
             TextBoxDescripcion.Text = "";
             TextBoxRaza.Text = "";
-            string str = @"..\fotosPerros\default.png";
+            //@"../fotosPerros/default.jpg"
+            string str = @"../fotosPerros/default.jpg";
             BitmapImage bitmap = new BitmapImage();
             bitmap.BeginInit();
-            bitmap.UriSource = new Uri(str);
+            bitmap.UriSource = new Uri(str, UriKind.Relative);
             bitmap.EndInit();
             ProfileImage.Source = bitmap;
 
@@ -306,7 +310,7 @@ namespace Protectora.Presentacion
             btnEditCancelar.Visibility = Visibility.Hidden;
             btnEditConfirmar.Visibility = Visibility.Hidden;
             DesactivarTextBoxs();
-            Refresh();
+            //Refresh();
         }
 
         private void DesactivarTextBoxs()
@@ -341,7 +345,7 @@ namespace Protectora.Presentacion
             }
             else
             {
-                Refresh();
+                //Refresh();
             }
 
         }

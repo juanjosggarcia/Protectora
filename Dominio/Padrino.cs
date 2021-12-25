@@ -42,24 +42,24 @@ namespace Protectora.Dominio
         public void InsertarPadrino()
         {
             this.PadDAO.insertar((Padrino)this.MemberwiseClone());
-            Console.Write(" ");
+            //Console.Write(" ");
         }
 
         public void EliminarPadrino()
         {
             this.PadDAO.eliminar((Padrino)this.MemberwiseClone());
-            Console.Write(" ");
+            //Console.Write(" ");
         }
 
         public void ModificarPadrino()
         {
             this.PadDAO.actualizar((Padrino)this.MemberwiseClone());
-            Console.Write(" ");
+            //Console.Write(" ");
         }
 
         public Padrino LeerunPadrino()
         {
-            Console.Write(" ");
+            //Console.Write(" ");
             return this.PadDAO.leer((Padrino)this.MemberwiseClone());
         }
 
@@ -68,7 +68,7 @@ namespace Protectora.Dominio
             List<Padrino> arrayPadrino = new List<Padrino>();
             PadrinoDAO padDAO = new PadrinoDAO();
             arrayPadrino = padDAO.leerTodas();
-            Console.Write(" ");
+            //Console.Write(" ");
 
             return arrayPadrino;
         }
