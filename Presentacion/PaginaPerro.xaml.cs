@@ -76,9 +76,13 @@ namespace Protectora.Presentacion
                 TextBoxEntrada.Text = perro.FechaEntrada.ToString("dd-MM-yyyy");
                 TextBoxDescripcion.Text = perro.Descripcion;
                 TextBoxRaza.Text = perro.Raza;
+                string fotoPerr = @"..\..\recursos\Fotosbd\";
+                string fot = perro.Foto;
+                string fotoPerro = fotoPerr + fot;
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
-                bitmap.UriSource = new Uri(perro.Foto);
+                bitmap.UriSource = new Uri(@"C:\Users\juanj\vs2019-workspace\Protectora\recursos\Fotosbd\" + perro.Foto);
+                //bitmap.UriSource = new Uri(fotoPerro);
                 bitmap.EndInit();
                 ProfileImage.Source = bitmap;
             }
@@ -107,7 +111,7 @@ namespace Protectora.Presentacion
             foreach (Perro perro in perros)
             {
 
-                perro.Foto = "";
+                //perro.Foto = "";
                 listaPerro.Add(perro);
 
                 //PanelDinamicoBotones.Children.Add(new ControlUsuarioPerro(perro));
@@ -207,6 +211,7 @@ namespace Protectora.Presentacion
             //perrito.Edad = 2;
             //perrito.Entrada = new DateTime(1998, 04, 30);
             //perrito.Descripcion = "perro calmado";
+            GestorAnimal.crearPerro(perro);
             listaPerro.Add(perro);
 
             Refresh();

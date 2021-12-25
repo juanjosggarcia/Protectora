@@ -131,9 +131,10 @@ namespace Protectora.Presentacion
             perro.FechaEntrada = DateTime.Parse(dateEntradaPerro.Text);
             perro.Descripcion = txtDescripcionPerro.Text;
             perro.Raza = txtRazaPerro.Text;
+            perro.Foto = txtImagenPerroNuevo.Text;
 
             //ventana.paneles[0].CrearPerro(perro);
-            desde.CrearPerro(perro);
+            pagPerro.CrearPerro(perro);
 
             this.Close();
         }

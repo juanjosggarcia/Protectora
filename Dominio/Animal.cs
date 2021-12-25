@@ -16,7 +16,7 @@ namespace Protectora.Dominio
         protected int edad;
         protected DateTime fechaEntrada;
         protected string foto;
-        protected string enlace;
+        protected string enlace="";
         protected string descripcion;
         protected string estado;
         protected int apadrinado;

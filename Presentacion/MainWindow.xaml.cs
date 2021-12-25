@@ -45,7 +45,7 @@ namespace Protectora
             if (usuario != null)
             {
 
-                ClaseVentanaPrincipal nw = new ClaseVentanaPrincipal();
+                ClaseVentanaPrincipal nw = new ClaseVentanaPrincipal(usuario);
                 //string cosa = nw.paneles[0].putamierda;
                 nw.Show();
 

@@ -33,19 +33,19 @@ namespace Protectora
         public void InsertarPerro()
         {
             this.AniDAO.insertar((Perro)this.MemberwiseClone());
-            Console.Write(" ");
+            //Console.Write(" ");
         }
 
         public void EliminarPerro()
         {
             this.AniDAO.eliminar((Perro)this.MemberwiseClone());
-            Console.Write(" ");
+            //Console.Write(" ");
         }
 
         public void ModificarPerro()
         {
             this.AniDAO.actualizar((Perro)this.MemberwiseClone());
-            Console.Write(" ");
+            //Console.Write(" ");
         }
 
 

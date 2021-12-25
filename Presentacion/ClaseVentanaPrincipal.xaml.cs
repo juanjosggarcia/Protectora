@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Protectora.Dominio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,11 +20,17 @@ namespace Protectora.Presentacion
     /// </summary>
     public partial class ClaseVentanaPrincipal : Window
     {
+        private Usuario user;
         public Page[] paneles = new Page[] { new PaginaPerro(), new PaginaSocios(), new PaginaVoluntarios(), new PaginaAvisos() };
-        public ClaseVentanaPrincipal()
+        public ClaseVentanaPrincipal(Usuario user)
         {
+            this.user = user;
             InitializeComponent();
             MainFrame.Content = paneles[0];
+            //lblFinalFechaSesion.Content = user.FechaUltimaConex;
+
+            DateTime userSesion = (DateTime)user.FechaUltimaConex;
+            lblFinalFechaSesion.Content = userSesion.ToString("dd-MM-yyyy HH:mm");
 
         }
         protected override void OnClosed(EventArgs e)
@@ -35,10 +42,20 @@ namespace Protectora.Presentacion
 
         private void BtnCerrarSesion_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mw = new MainWindow();
-            mw.Show();
+            //MainWindow loginWin = new MainWindow();
 
-            this.Close();
+            DateTime localDate = DateTime.Now;
+
+            lblFinalFechaSesion.Content = localDate.ToString();
+
+            user.FechaUltimaConex = localDate;
+            GestorUsuario.addUltimaConexion(user);
+
+            Application.Current.MainWindow.Show();
+
+            //loginWin.Show();
+
+            this.Hide();
         }
 
         private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
