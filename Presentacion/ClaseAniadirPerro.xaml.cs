@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using Protectora.Dominio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -164,7 +165,11 @@ namespace Protectora.Presentacion
             };
 
             //ventana.paneles[0].CrearPerro(perro);
-            pagPerro.CrearPerro(perro);
+
+            GestorAnimal.crearPerro(perro);
+            pagPerro.CargarPerros();
+            //pagPerro.CrearPerro(perro);
+
 
             this.Close();
         }

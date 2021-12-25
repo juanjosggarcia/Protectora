@@ -50,8 +50,8 @@
             <Border BorderBrush="#D4B8B0" Background="#D4B8B0" BorderThickness="4" CornerRadius="0,0,20,20" Margin="0,-3,0,0" >
                 <Label x:Name="Titulo" Content="Gestion de perros" Margin="626,-4,651,-9" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="35" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Border>
-            <Label x:Name ="lblFinalSesion" Content="Ultimo inicio de sesión:" HorizontalAlignment="Left" Height="35" Margin="1275,18,0,0" VerticalAlignment="Top" Width="200" FontSize="18" RenderTransformOrigin="0.324,0.103"/>
-            <Label x:Name ="lblFinalFechaSesion" Content="16 de noviembre 18:35" HorizontalAlignment="Left" Height="35" Margin="1475,18,0,0" VerticalAlignment="Top" Width="230" FontSize="18" RenderTransformOrigin="0.324,0.103"/>
+            <Label x:Name ="lblFinalSesion" Content="Ultimo inicio de sesión:" HorizontalAlignment="Left" Height="35" Margin="1295,20,0,0" VerticalAlignment="Top" Width="195" FontSize="18" RenderTransformOrigin="0.324,0.103"/>
+            <Label x:Name ="lblFinalFechaSesion" Content="16 de noviembre 18:35" HorizontalAlignment="Left" Height="35" Margin="1485,20,0,0" VerticalAlignment="Top" Width="195" FontSize="18" RenderTransformOrigin="0.324,0.103"/>
 
             <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Grid.Row="1"/>
 

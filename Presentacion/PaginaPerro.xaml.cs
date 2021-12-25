@@ -147,13 +147,6 @@ namespace Protectora.Presentacion
             }
         }
 
-        public void CrearPerro(Perro perro)
-        {
-            listaPerro.Add(perro);
-
-            Refresh();
-        }
-
         private void BtnNextPerro_Click(object sender, RoutedEventArgs e)
         {
             if (ListViewPerros.SelectedIndex != ListViewPerros.Items.Count - 1)
@@ -190,6 +183,8 @@ namespace Protectora.Presentacion
             btnAnteriorPerro.Visibility = Visibility.Hidden;
             btnNextPerro.Visibility = Visibility.Hidden;
             btnImagenPerro.Visibility = Visibility.Visible;
+            NuevoPerro.Visibility = Visibility.Hidden;
+            ListViewPerros.IsEnabled = false;
 
         }
 
@@ -231,10 +226,10 @@ namespace Protectora.Presentacion
             TextBoxEntrada.Text = "";
             TextBoxDescripcion.Text = "";
             TextBoxRaza.Text = "";
-            string str = @"..\fotosPerros\default.png";
+            string str = @"../fotosPerros/default.png";
             BitmapImage bitmap = new BitmapImage();
             bitmap.BeginInit();
-            bitmap.UriSource = new Uri(str);
+            bitmap.UriSource = new Uri(str, UriKind.Relative);
             bitmap.EndInit();
             ProfileImage.Source = bitmap;
 
@@ -271,13 +266,7 @@ namespace Protectora.Presentacion
         }
 
         private void btnEditCancelar_Click(object sender, RoutedEventArgs e)
-        {
-            btnEditPerro.Visibility = Visibility.Visible;
-            btnDeletePerro.Visibility = Visibility.Visible;
-            btnAnteriorPerro.Visibility = Visibility.Visible;
-            btnNextPerro.Visibility = Visibility.Visible;
-            btnEditCancelar.Visibility = Visibility.Hidden;
-            btnEditConfirmar.Visibility = Visibility.Hidden;
+        { 
             DesactivarTextBoxs();
         }
 
@@ -298,13 +287,6 @@ namespace Protectora.Presentacion
 
             GestorAnimal.modificarPerro(perro);
 
-
-            btnEditPerro.Visibility = Visibility.Visible;
-            btnDeletePerro.Visibility = Visibility.Visible;
-            btnAnteriorPerro.Visibility = Visibility.Visible;
-            btnNextPerro.Visibility = Visibility.Visible;
-            btnEditCancelar.Visibility = Visibility.Hidden;
-            btnEditConfirmar.Visibility = Visibility.Hidden;
             DesactivarTextBoxs();
             Refresh();
         }
@@ -322,6 +304,14 @@ namespace Protectora.Presentacion
             TextBoxDescripcion.IsEnabled = false;
             TextBoxEstado.IsEnabled = false;
             btnImagenPerro.IsEnabled = false;
+            btnEditPerro.Visibility = Visibility.Visible;
+            btnDeletePerro.Visibility = Visibility.Visible;
+            btnAnteriorPerro.Visibility = Visibility.Visible;
+            btnNextPerro.Visibility = Visibility.Visible;
+            NuevoPerro.Visibility = Visibility.Visible;
+            btnEditCancelar.Visibility = Visibility.Hidden;
+            btnEditConfirmar.Visibility = Visibility.Hidden;
+            ListViewPerros.IsEnabled = true;
         }
 
         //ESTO ESTA PUESTO PROVISIONALMENTE
