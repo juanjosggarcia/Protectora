@@ -62,7 +62,6 @@ namespace Protectora.Presentacion
         {
             ButtonCloseMenu.Visibility = Visibility.Visible;
             ButtonOpenMenu.Visibility = Visibility.Collapsed;
-            BtnCerrarSesion.Visibility = Visibility.Visible;
 
         }
 
@@ -71,7 +70,6 @@ namespace Protectora.Presentacion
         {
             ButtonCloseMenu.Visibility = Visibility.Collapsed;
             ButtonOpenMenu.Visibility = Visibility.Visible;
-            BtnCerrarSesion.Visibility = Visibility.Collapsed;
 
         }
 

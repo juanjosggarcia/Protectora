@@ -23,5 +23,10 @@ namespace Protectora.Presentacion
         {
             InitializeComponent();
         }
+
+        private void BtnRecordarContrasenia_Click(object sender, RoutedEventArgs e)
+        {
+            lblContrasenia.Content = "234234";
+        }
     }
 }

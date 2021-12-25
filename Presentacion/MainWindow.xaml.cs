@@ -27,6 +27,7 @@ namespace Protectora
         public MainWindow()
         {
             InitializeComponent();
+            App.DefineIdioma("es-ES");
         }
         protected override void OnClosed(EventArgs e)
         {
@@ -124,7 +125,27 @@ namespace Protectora
             Oc.Show();
         }
 
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string idioma = "";
+            int eleccion = ComboBoxIdioma.SelectedIndex;
+            switch (eleccion)
+            {
+                case 0:
+                    idioma = "es-ES";
+                    break;
+                case 1:
+                    idioma = "en-UK";
+                    break;
+            }
+            Resources.MergedDictionaries.Add(App.DefineIdioma(idioma));
+        }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ClaseAcercaDe Ad = new ClaseAcercaDe();
+            Ad.Show();
+        }
     }
 
 }

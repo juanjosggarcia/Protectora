@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Protectora.Presentacion
 {
     /// <summary>
-    /// Lógica de interacción para ClaseEditarPerro.xaml
+    /// Lógica de interacción para ClaseAcercaDe.xaml
     /// </summary>
-    public partial class ClaseEditarPerro : Window
+    public partial class ClaseAcercaDe : Window
     {
-        public ClaseEditarPerro()
+        public ClaseAcercaDe()
         {
             InitializeComponent();
         }

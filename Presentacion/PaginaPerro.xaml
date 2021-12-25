@@ -21,44 +21,71 @@
                 <RowDefinition Height="105"/>
             </Grid.RowDefinitions>
 
-            <Border BorderBrush="white" Background="#FAF9F7" BorderThickness="4" CornerRadius="20" Margin="78,10,-193,0" Grid.Row="1" Grid.Column="1">
-                <Grid Margin="0,0,0,-4">
-                    <Image x:Name="ProfileImage" HorizontalAlignment="Left" Height="200" VerticalAlignment="Top" Width="200" Stretch="UniformToFill" Source="C:\Users\laura\source\repos\Protectora\recursos\default.png" Margin="51,52,0,0">
+            <Border BorderBrush="white" Background="#FAF9F7" BorderThickness="4" CornerRadius="20" Margin="78,0,-193,0" Grid.Row="1" Grid.Column="1">
+                <Grid Margin="4,-4,-4,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="93*"/>
+                        <RowDefinition Height="40*"/>
+                        <RowDefinition Height="40*"/>
+                        <RowDefinition Height="40*"/>
+                        <RowDefinition Height="40*"/>
+                        <RowDefinition Height="40*"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40*"/>
+                        <RowDefinition Height="50*"/>
+                        <RowDefinition Height="105*"/>
+                        <RowDefinition Height="67*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="56*"/>
+                        <ColumnDefinition Width="201*"/>
+                        <ColumnDefinition Width="79*"/>
+                        <ColumnDefinition Width="170*"/>
+                        <ColumnDefinition Width="150*"/>
+                        <ColumnDefinition Width="121*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image x:Name="ProfileImage" HorizontalAlignment="Left" Height="200" VerticalAlignment="Top" Width="200" Stretch="UniformToFill" Source="C:\Users\laura\source\repos\Protectora\recursos\default.png" Grid.Column="1" Margin="0,52,0,0" Grid.RowSpan="5">
                         <Image.Clip>
                             <EllipseGeometry Center="100,100" RadiusX="100" RadiusY="100" />
                         </Image.Clip>
                     </Image>
-                    <TextBox x:Name="TextBoxId" Style="{StaticResource TextBox2}" FontSize="14" Foreground="Black"  Width="Auto" Height="35" Margin="509,58,122,492" RenderTransformOrigin="0.5,0.5" Text="{Binding Path=Id}"/>
-                    <TextBox x:Name="TextBoxSexo" Style="{StaticResource TextBox2}" HorizontalAlignment="Left" Height="35" Margin="510,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" FontSize="14" Text="{Binding Path=Sexo}"/>
-                    <TextBox x:Name="TextBoxNombre" Style="{StaticResource TextBox2}" HorizontalAlignment="Left" Height="35" Margin="510,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" FontSize="14" Text="{Binding Path=Nombre}"/>
-                    <TextBox x:Name="TextBoxTamanio" Style="{StaticResource TextBox2}" HorizontalAlignment="Left" Height="35" Margin="509,178,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="145" FontSize="14" Text="{Binding Path=Tamanio}"/>
-                    <TextBox x:Name="TextBoxEstado" Style="{StaticResource TextBox2}" HorizontalAlignment="Left" Height="35" Margin="510,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" FontSize="14" Text="{Binding Path=Estado}"/>
-                    <TextBox x:Name="TextBoxPeso" Style="{StaticResource TextBox2}" HorizontalAlignment="Left" Height="35" Margin="509,298,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" FontSize="14" Text="{Binding Path=Peso}"/>
-                    <TextBox x:Name="TextBoxEdad" Style="{StaticResource TextBox2}" HorizontalAlignment="Left" Height="35" Margin="510,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" FontSize="14" Text="{Binding Path=Edad}"/>
-                    <TextBox x:Name="TextBoxEntrada" Style="{StaticResource TextBox2}" HorizontalAlignment="Left" Height="35" Margin="510,378,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" FontSize="14" Text="{Binding Path=Entrada}"/>
-                    <TextBox x:Name="TextBoxDescripcion" Style="{StaticResource TextBox2}" HorizontalAlignment="Left" Height="90" Margin="305,428,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="441" FontSize="14" Text="{Binding Path=Descripcion}"/>
-                    <TextBox x:Name="TextBoxRaza" Style="{StaticResource TextBox2}" HorizontalAlignment="Left" Height="35" Margin="510,338,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" FontSize="14" Text="{Binding Entrada}"/>
+                    <TextBox x:Name="TextBoxId" Style="{StaticResource TextBox1}" FontSize="14" Foreground="Black"  Width="Auto" Height="Auto" Margin="0,58,0,0" RenderTransformOrigin="0.5,0.5" Text="{Binding Path=Id}" IsEnabled="False" Grid.Column="4"/>
+                    <TextBox x:Name="TextBoxSexo" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14" Text="{Binding Path=Sexo}" IsEnabled="False" Grid.Column="4" Grid.Row="2"/>
+                    <TextBox x:Name="TextBoxNombre" Style="{StaticResource TextBox1}" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="Auto" FontSize="14" Text="{Binding Path=Nombre}" IsEnabled="False" Grid.Column="4" Grid.Row="1"/>
+                    <TextBox x:Name="TextBoxTamanio" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="150" FontSize="14" Text="{Binding Path=Tamanio}" IsEnabled="False" Grid.Column="4" Grid.Row="3"/>
+                    <TextBox x:Name="TextBoxEstado" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14" Text="{Binding Path=Estado}" IsEnabled="False" Grid.Column="4" Grid.Row="4"/>
+                    <TextBox x:Name="TextBoxPeso" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14" Text="{Binding Path=Peso}" IsEnabled="False" Grid.Column="4" Grid.Row="6"/>
+                    <TextBox x:Name="TextBoxEdad" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14" Text="{Binding Path=Edad}" IsEnabled="False" Grid.Column="4" Grid.Row="5"/>
+                    <TextBox x:Name="TextBoxEntrada" Style="{StaticResource TextBox1}" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="Auto" FontSize="14" Text="{Binding Path=Entrada}" IsEnabled="False" Grid.Column="4" Grid.Row="8"/>
+                    <TextBox x:Name="TextBoxDescripcion" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="90" Margin="39,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="441" FontSize="14" Text="{Binding Path=Descripcion}" IsEnabled="False" Grid.ColumnSpan="4" Grid.Row="9" Grid.Column="2"/>
+                    <TextBox x:Name="TextBoxRaza" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14" Text="{Binding Raza}" IsEnabled="False" Grid.Column="4" Grid.Row="7"/>
+
+                    <Label x:Name="lblId" Content="{DynamicResource lblId}"  HorizontalAlignment="Right" Height="37" Margin="0,58,70,0" VerticalAlignment="Top" Width="100" FontSize="18" Grid.Column="3" Grid.RowSpan="2"/>
+                    <Label x:Name="lblNombre" Content="{DynamicResource lblNombre}"  HorizontalAlignment="Left" Height="37" Margin="0,0,0,38" VerticalAlignment="Bottom" Width="100" FontSize="18" Grid.Column="3" Grid.Row="1" Grid.RowSpan="2"/>
+                    <Label x:Name="lblsexo" Content="Sexo:" Height="38" VerticalAlignment="Center" FontSize="18" Grid.Column="3" Grid.Row="2" Margin="0,0,118,2" HorizontalAlignment="Center" Width="52"/>
+                    <Label x:Name="lbltamanio" Content="Tamaño:" Height="38" Margin="0,1,90,1" VerticalAlignment="Center" Width="80" FontSize="18" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center"/>
+                    <Label x:Name="lblPeso" Content="Peso:" HorizontalAlignment="Left" Height="36" Margin="0,4,0,0" VerticalAlignment="Top" Width="100" FontSize="18" Grid.Column="3" Grid.Row="6"/>
+                    <Label x:Name="lblEdad" Content="Edad:" HorizontalAlignment="Left" Height="36" Margin="0,3,0,0" VerticalAlignment="Top" Width="100" FontSize="18" Grid.Column="3" Grid.Row="5"/>
+                    <Label x:Name="lblRaza" Content="Raza:" HorizontalAlignment="Left" Height="36" Margin="0,10,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="3" Grid.Row="7" Grid.RowSpan="2"/>
+                    <Label x:Name="lblEntrada" Content="Fecha de Entrada:" HorizontalAlignment="Left" Height="36" Margin="0,4,0,0" VerticalAlignment="Top" Width="156" FontSize="18" Grid.Column="3" Grid.Row="8"/>
+                    <Label x:Name="lblEstado" Content="Estado:" HorizontalAlignment="Left" Height="35" Margin="0,4,0,0" VerticalAlignment="Top" Width="100" FontSize="18" Grid.Column="3" Grid.Row="4"/>
+                    <Label x:Name="lblDescrpcion" Content="Descripcion:" HorizontalAlignment="Left" Height="36" Margin="56,16,0,0" VerticalAlignment="Top" Width="117" FontSize="18" Grid.Column="2" Grid.Row="10" RenderTransformOrigin="0.444,0.417" Grid.ColumnSpan="2"/>
+
+                    <Button x:Name="BtnPdrino" Content="PADRINO" Style="{StaticResource EstiloBotonMediano}" Click="BtnPdrino_Click" Grid.Column="1" Margin="28,15,0,0" Height="60" Width="152" Grid.Row="5" RenderTransformOrigin="0.182,-1.743" Grid.RowSpan="2"/>
+                    <Button x:Name="btnImagenPerro" Style="{StaticResource EstiloBotonCambioImagen}" Background="Transparent" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="200" Width="200" Opacity="0.5" Margin="0,52,0,0" Grid.RowSpan="5" Visibility="Hidden" Click="BtnImagenPerro_Click" IsEnabled="false">
+                        <!--<Image Source="/recursos/editar.png" Width="55" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
+                    </Button>
+                    
+
                 </Grid>
             </Border>
             <Button x:Name="NuevoPerro" Style="{StaticResource EstiloBotonMediano}" Content="Nuevo" HorizontalAlignment="Left" Margin="523,0,0,523" VerticalAlignment="Bottom" Width="102" Click="ClickNuevoPerro" RenderTransformOrigin="0.526,1.458" Height="39" Grid.Row="1"/>
 
-            <Label x:Name="lblId" Content="Id:" HorizontalAlignment="Right" Height="37" Margin="0,70,158,0" VerticalAlignment="Top" Width="100" FontSize="18" Grid.Column="1" Grid.Row="1"/>
-            <Label x:Name="lblNombre" Content="Nombre:" HorizontalAlignment="Left" Height="37" Margin="412,0,0,450" VerticalAlignment="Bottom" Width="100" FontSize="18" Grid.Column="1" Grid.Row="1"/>
-            <Label x:Name="lblsexo" Content="Sexo:" HorizontalAlignment="Left" Height="37" Margin="412,149,0,0" VerticalAlignment="Top" Width="100" FontSize="18" Grid.Column="1" Grid.Row="1"/>
-            <Label x:Name="lbltamanio" Content="Tamaño:" HorizontalAlignment="Left" Height="38" Margin="412,191,0,0" VerticalAlignment="Top" Width="100" FontSize="18" Grid.Column="1" Grid.Row="1"/>
-            <Label x:Name="lblPeso" Content="Peso:" HorizontalAlignment="Left" Height="36" Margin="412,311,0,0" VerticalAlignment="Top" Width="100" FontSize="18" Grid.Column="1" Grid.Row="1"/>
-            <Label x:Name="lblEdad" Content="Edad:" HorizontalAlignment="Left" Height="36" Margin="412,269,0,0" VerticalAlignment="Top" Width="100" FontSize="18" Grid.Column="1" Grid.Row="1"/>
-            <Label x:Name="lblEntrada" Content="Fecha de Entrada:" HorizontalAlignment="Left" Height="36" Margin="412,393,0,0" VerticalAlignment="Top" Width="156" FontSize="18" Grid.Column="1" Grid.Row="1"/>
-            <Label x:Name="lblEstado" Content="Estado:" HorizontalAlignment="Left" Height="35" Margin="412,229,0,0" VerticalAlignment="Top" Width="100" FontSize="18" Grid.Column="1" Grid.Row="1"/>
-            <Label x:Name="lblDescrpcion" Content="Descripcion:" HorizontalAlignment="Left" Height="36" Margin="261,451.2,0,0" VerticalAlignment="Top" Width="117" FontSize="18" Grid.Column="1" Grid.Row="1" RenderTransformOrigin="0.444,0.417"/>
-                        <Button x:Name="BtnPdrino" Content="PADRINO" Style="{StaticResource EstiloBotonMediano}" Click="BtnPdrino_Click" Grid.Column="1" Margin="161,287,0,0" Height="60" Width="152" Grid.Row="1" RenderTransformOrigin="0.182,-1.743"/>
-
-            <ListView Style="{StaticResource EstiloListView}" x:Name="ListViewPerros" Grid.Row="1" Foreground="#333" Background="#FAFBFD" FontFamily="Corbel" Margin="228,94,0,64" Padding="-3,-1" HorizontalAlignment="Left" Width="397" SelectionChanged="ListaPerros_SelectionChanged" IsSynchronizedWithCurrentItem="True">
+            <ListView Style="{StaticResource EstiloListView}" Width="400" x:Name="ListViewPerros" Grid.Row="1" Foreground="#333" Background="#FAFBFD" FontFamily="Corbel" Margin="228,94,0,64" Padding="-3,-1" HorizontalAlignment="Left"  SelectionChanged="ListaPerros_SelectionChanged" IsSynchronizedWithCurrentItem="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
                 <ListView.View>
-
                     <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle}">
-                        <GridViewColumn Header="ID" Width="120" DisplayMemberBinding="{Binding Id}"  />
-                        <GridViewColumn Header="NOMBRE" Width="120" DisplayMemberBinding="{Binding Nombre}" />
+                        <GridViewColumn Header="ID" Width="195" DisplayMemberBinding="{Binding Id}"  />
+                        <GridViewColumn Header="NOMBRE" Width="195" DisplayMemberBinding="{Binding Nombre}" />
 
                     </GridView>
                 </ListView.View>
@@ -66,12 +93,18 @@
 
             <Border BorderBrush="white" Background="#ffffff" BorderThickness="4" CornerRadius="20" Margin="78,547,-193,0" Grid.Row="1" Grid.Column="1">
                 <Grid Margin="0,0,0,-4">
-                    <Button x:Name="btnEditPerro"  Style="{StaticResource EstiloBotonMediano}" Content="Editar" HorizontalAlignment="Left" Margin="66,0,0,10" VerticalAlignment="Bottom" Width="95"     Padding="1,2,1,1" Height="34"  Click="btnEditPerro_Click"/>
-                    <Button x:Name="btnAnteriorPerro"  Style="{StaticResource EstiloBotonPequeño}" Content="◀ " HorizontalAlignment="Left" Margin="12,0,0,10" VerticalAlignment="Bottom" Width="34"    Padding="1" FontFamily="Corbel" FontSize="10" Height="34"  Click="btnAnteriorPerro_Click"/>
-                    <Button x:Name="btnNextPerro"  Style="{StaticResource EstiloBotonPequeño}" Content=" ▶" HorizontalAlignment="Left" Margin="727,0,0,10" VerticalAlignment="Bottom" Width="34" FontFamily="Corbel" FontSize="10" Height="34"  Click="btnNextPerro_Click"    />
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="389*"/>
+                        <ColumnDefinition Width="388*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="btnEditPerro"  Style="{StaticResource EstiloBotonMediano}" Content="Editar" HorizontalAlignment="Left" Margin="66,0,0,10" VerticalAlignment="Bottom" Width="95"     Padding="1,2,1,1" Height="34"  Click="BtnEditPerro_Click" IsEnabled="false" />
+                    <Button x:Name="btnAnteriorPerro"  Style="{StaticResource EstiloBotonPequeño}" Content="◀ " HorizontalAlignment="Left" Margin="12,0,0,10" VerticalAlignment="Bottom" Width="34"    Padding="1" FontFamily="Corbel" FontSize="10" Height="34"  Click="BtnAnteriorPerro_Click" IsEnabled="false"/>
+                    <Button x:Name="btnNextPerro"  Style="{StaticResource EstiloBotonPequeño}" Content=" ▶" HorizontalAlignment="Left" Margin="336,0,0,10" VerticalAlignment="Bottom" Width="34" FontFamily="Corbel" FontSize="10" Height="34"  Click="BtnNextPerro_Click"   IsEnabled="false" Grid.Column="1"  />
+                    <Button x:Name="btnDeletePerro"  Style="{StaticResource EstiloBotonMediano}" Content="Borrar" HorizontalAlignment="Left" Margin="166,0,0,10" VerticalAlignment="Bottom" Width="95"     Padding="1,2,1,1" Height="34" Click="BtnDeletePerro_Click" IsEnabled="false"  />
+                    <Button x:Name="btnEditCancelar"  Style="{StaticResource EstiloBotonComprobacion}" Content="Cancelar" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom"     Padding="1,2,1,1" Height="34" IsEnabled="true" Click="btnEditCancelar_Click" Width="95" Grid.Column="1" Visibility="Hidden" />
+                    <Button x:Name="btnEditConfirmar"  Style="{StaticResource EstiloBotonComprobacion}" Content="Confirmar" HorizontalAlignment="Left" Margin="284,0,0,10" VerticalAlignment="Bottom" Width="95"     Padding="1,2,1,1" Height="34" IsEnabled="true" Click="btnEditConfirmar_Click" Visibility="Hidden"  />
                 </Grid>
             </Border>
-            <Label x:Name="lblRaza" Content="Raza:" HorizontalAlignment="Left" Height="36" Margin="412,352,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="1" Grid.Row="1"/>
 
         </Grid>
     </Grid>

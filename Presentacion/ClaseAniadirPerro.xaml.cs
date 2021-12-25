@@ -20,8 +20,6 @@ namespace Protectora.Presentacion
     /// </summary>
     public partial class ClaseAniadirPerro: Window
     {
-        Perro perroActual;
-        List<Perro> ListaPerros;
         PaginaPerro pagPerro;
         public ClaseAniadirPerro(PaginaPerro p)
         {
@@ -97,19 +95,17 @@ namespace Protectora.Presentacion
             }
         }
 
-        private void btnImagen_Click(object sender, RoutedEventArgs e)
+        private void BtnImagen_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog op = new OpenFileDialog();
-            op.Title = "Select a picture";
-            op.Filter = "Images|*.jpg;*.gif;*.bmp;*.png";
+            OpenFileDialog op = new OpenFileDialog
+            {
+                Title = "Select a picture",
+                Filter = "Images|*.jpg;*.gif;*.bmp;*.png"
+            };
             if (op.ShowDialog() == true)
             {
                 try
                 {
-                    //ControlUsuarioPerro controlPerro = new ControlUsuarioPerro();
-
-                    //var bitmap = new BitmapImage(new Uri(op.FileName, UriKind.Absolute));
-                    //controlPerro.imgPerro.Source = bitmap;
                     txtImagenPerroNuevo.Text = op.FileName;
                 }
                 catch (Exception ex)
@@ -119,19 +115,21 @@ namespace Protectora.Presentacion
             }
         }
 
-        private void nuevoPerro_Click(object sender, RoutedEventArgs e)
+        private void NuevoPerro_Click(object sender, RoutedEventArgs e)
         {
-            Perro perro = new Perro();
-            perro.Nombre = txtNombrePerro.Text;
-            perro.Sexo = txtSexoPerro.Text;
-            perro.Tamanio = Int32.Parse(txtTamanioPerro.Text);
-            perro.Estado = txtEstadoPerro.Text;
-            perro.Peso = Int32.Parse(txtPesoPerro.Text);
-            perro.Edad = Int32.Parse(txtEdadPerro.Text);
-            perro.FechaEntrada = DateTime.Parse(dateEntradaPerro.Text);
-            perro.Descripcion = txtDescripcionPerro.Text;
-            perro.Raza = txtRazaPerro.Text;
-            perro.Foto = txtImagenPerroNuevo.Text;
+            Perro perro = new Perro
+            {
+                Nombre = txtNombrePerro.Text,
+                Sexo = txtSexoPerro.Text,
+                Tamanio = Int32.Parse(txtTamanioPerro.Text),
+                Estado = txtEstadoPerro.Text,
+                Peso = Int32.Parse(txtPesoPerro.Text),
+                Edad = Int32.Parse(txtEdadPerro.Text),
+                FechaEntrada = DateTime.Parse(dateEntradaPerro.Text),
+                Descripcion = txtDescripcionPerro.Text,
+                Foto = txtImagenPerroNuevo.Text,
+                Raza = txtRazaPerro.Text
+            };
 
             //ventana.paneles[0].CrearPerro(perro);
             pagPerro.CrearPerro(perro);
