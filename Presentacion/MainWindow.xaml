@@ -53,7 +53,7 @@
         </Button>
         <Button Name="BtnOlvidarContraseña" Content="Olvidaste tu contraseña?" BorderThickness="2" Style="{StaticResource EstiloBotonOlvidarContrasenia}" HorizontalAlignment="Left" Height="34" Margin="24,425,0,0" VerticalAlignment="Top" Width="211" RenderTransformOrigin="0.591,1.088" Grid.Column="3" Grid.Row="1" FontFamily="Lucida Sans Unicode" Click="BtnOlvidarContraseña_Click" FontSize="16"/>
 
-        <ComboBox x:Name="ComboBoxIdioma" IsReadOnly="True" Style="{StaticResource EstiloComboBox}"  IsEditable="False" HorizontalAlignment="Left" Height="30" Margin="30,30,0,0" VerticalAlignment="Top" Width="155" Text="Idioma" SelectedIndex="1"  ToolTip="Cambiar el idioma de la aplicacion" SelectionChanged="ComboBox_SelectionChanged">
+        <ComboBox x:Name="ComboBoxIdioma" IsReadOnly="True" Style="{StaticResource EstiloComboBox}"  IsEditable="False" HorizontalAlignment="Left" Height="30" Margin="30,30,0,0" VerticalAlignment="Top" Width="155" Text="Idioma" SelectedIndex="0"  ToolTip="Cambiar el idioma de la aplicacion" SelectionChanged="ComboBox_SelectionChanged">
             <ComboBoxItem>
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/recursos/spain.png" Height="20" Width="33" />
