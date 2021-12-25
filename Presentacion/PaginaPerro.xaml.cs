@@ -84,12 +84,16 @@ namespace Protectora.Presentacion
                 TextBoxEntrada.Text = perro.FechaEntrada.ToString("dd-MM-yyyy");
                 TextBoxDescripcion.Text = perro.Descripcion;
                 TextBoxRaza.Text = perro.Raza;
-                string str = @"C:\Users\laura\source\repos\Protectora\recursos\Fotosbd\" + perro.Foto;
+                //string str = @"C:\Users\juanj\vs2019-workspace\Protectora\recursos\Fotosbd\" + perro.Foto;
+                string str = @"../fotosPerros/" + perro.Foto;
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
-                bitmap.UriSource = new Uri(str);
+                bitmap.UriSource = new Uri(str, UriKind.Relative);
+                //bitmap.UriSource = new Uri(@"../fotosPerros/bichon.jpg", UriKind.Relative);
                 bitmap.EndInit();
                 ProfileImage.Source = bitmap;
+
+
             }
             catch (Exception ex)
             {
@@ -105,22 +109,14 @@ namespace Protectora.Presentacion
             List<Perro> perros = new List<Perro>();
             perros = GestorAnimal.obtenerTodosPerros();
 
-            //Window per = new GestionPerro();
-            //GestionPerro pero = (GestionPerro)per;
-            //Window pae = pero.ventanas[0];
-
-            //Page2 jdf = (Page2)pero.paneles[0];
-
-            //string st = jdf.putamierda;
-
             foreach (Perro perro in perros)
             {
                 if (string.IsNullOrEmpty(perro.Foto))
                 {
-                    perro.Foto = "C:\\Users\\laura\\source\\repos\\Protectora\\recursos\\default.png";
+                    //perro.Foto = "C:\\Users\\laura\\source\\repos\\Protectora\\recursos\\default.png";
+                    perro.Foto = "default.png";
                 }
 
-                perro.Foto = "";
                 listaPerro.Add(perro);
 
                 //PanelDinamicoBotones.Children.Add(new ControlUsuarioPerro(perro));
@@ -210,6 +206,18 @@ namespace Protectora.Presentacion
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
                 // Closes the parent form.
+                //System.Windows.Forms.ListViewItem item = (System.Windows.Forms.ListViewItem)ListViewPerros.Items[ListViewPerros.SelectedIndex];
+                Perro perro = (Perro)ListViewPerros.Items[ListViewPerros.SelectedIndex];
+
+                //int idperro = item.SubItems[0].Text;
+                //int cosa= ListViewPerros.ListViewSubItem();
+
+                //Perro perro = new Perro();
+                //string idper = TextBoxId.Text;
+                //int idperro = Int32.Parse(TextBoxId.Text);
+
+                //perro.Id = idperro;
+                GestorAnimal.eliminarPerro(perro);
                 ListViewPerros.Items.RemoveAt(index);
             }
             //SetPerro(ListViewPerros.Items.IndexOf;
@@ -223,7 +231,7 @@ namespace Protectora.Presentacion
             TextBoxEntrada.Text = "";
             TextBoxDescripcion.Text = "";
             TextBoxRaza.Text = "";
-            string str = @"C:\Users\laura\source\repos\Protectora\recursos\default.png";
+            string str = @"..\fotosPerros\default.png";
             BitmapImage bitmap = new BitmapImage();
             bitmap.BeginInit();
             bitmap.UriSource = new Uri(str);
@@ -273,6 +281,22 @@ namespace Protectora.Presentacion
 
         private void btnEditConfirmar_Click(object sender, RoutedEventArgs e)
         {
+            Perro perro = (Perro)ListViewPerros.Items[ListViewPerros.SelectedIndex];
+
+            perro.Id = Int32.Parse(TextBoxId.Text);
+            perro.Sexo = TextBoxSexo.Text;
+            perro.Nombre = TextBoxNombre.Text;
+            perro.Tamanio = Int32.Parse(TextBoxTamanio.Text);
+            perro.Estado = TextBoxEstado.Text;
+            perro.Peso = Int32.Parse(TextBoxPeso.Text);
+            perro.Edad = Int32.Parse(TextBoxEdad.Text);
+            perro.FechaEntrada = DateTime.Parse(TextBoxEntrada.Text);
+            perro.Descripcion = TextBoxDescripcion.Text;
+            perro.Raza = TextBoxRaza.Text;
+
+            GestorAnimal.modificarPerro(perro);
+
+
             btnEditPerro.Visibility = Visibility.Visible;
             btnDeletePerro.Visibility = Visibility.Visible;
             btnAnteriorPerro.Visibility = Visibility.Visible;
@@ -280,6 +304,7 @@ namespace Protectora.Presentacion
             btnEditCancelar.Visibility = Visibility.Hidden;
             btnEditConfirmar.Visibility = Visibility.Hidden;
             DesactivarTextBoxs();
+            Refresh();
         }
 
         private void DesactivarTextBoxs()

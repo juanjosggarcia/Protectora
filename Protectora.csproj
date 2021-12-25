@@ -290,5 +290,23 @@
   <ItemGroup>
     <Resource Include="recursos\edit.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="fotosPerros\bulldog.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="fotosPerros\bichon.jpg" />
+    <Resource Include="fotosPerros\chihuahua.jpg" />
+    <Resource Include="fotosPerros\default.png" />
+    <Resource Include="fotosPerros\dobermann.jpg" />
+    <Resource Include="fotosPerros\husky.jpg" />
+    <Resource Include="fotosPerros\mini.jpg" />
+    <Resource Include="fotosPerros\samoyedo.jpg" />
+    <Resource Include="fotosPerros\shiba.jpg" />
+    <Resource Include="fotosPerros\shih.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="fotosPerros\pastorDos.jpg" />
+    <Resource Include="fotosPerros\podenco.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

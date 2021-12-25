@@ -26,5 +26,15 @@ namespace Protectora.Dominio
             perro.InsertarPerro();
 
         }
+
+        public static void modificarPerro(Perro perro)
+        {
+            perro.ModificarPerro();
+        }
+
+        public static void eliminarPerro(Perro perro)
+        {
+            perro.EliminarPerro();
+        }
     }
 }

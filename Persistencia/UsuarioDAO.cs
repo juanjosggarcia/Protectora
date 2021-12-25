@@ -16,6 +16,7 @@ namespace Protectora.Persistencia
             this.usuarios = new List<Usuario>();
         }
 
+        /*
         public void LeerTodosUsuarios()
         {
             //List<Usuario> arrayUsuarios = new List<Usuario>();
@@ -31,7 +32,7 @@ namespace Protectora.Persistencia
                 usuarios.Add(p);
             }
 
-        }
+        }*/
 
 
         // ESTA PARTE ES LA QUE VALE

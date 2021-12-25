@@ -19,10 +19,12 @@ namespace Protectora
             switch (idioma)
             {
                 case "en-UK":
-                    resourceDictionary.Source = new Uri(@"C:\Users\laura\source\repos\Protectora\idiomas\StringResources.en-UK.xaml", UriKind.Absolute);
+                    resourceDictionary.Source = new Uri(@"..\idiomas\StringResources.en-UK.xaml", UriKind.Relative);
+                    //resourceDictionary.Source = new Uri(@"C:\Users\juanj\vs2019-workspace\Protectora\idiomas\StringResources.en-UK.xaml", UriKind.Absolute);
                     break;
                 case "es-ES":
-                    resourceDictionary.Source = new Uri(@"C:\Users\laura\source\repos\Protectora\idiomas\StringResources.es-ES.xaml", UriKind.Absolute);
+                    resourceDictionary.Source = new Uri(@"..\idiomas\StringResources.es-ES.xaml", UriKind.Relative);
+                    //resourceDictionary.Source = new Uri(@"C:\Users\juanj\vs2019-workspace\Protectora\idiomas\StringResources.es-ES.xaml", UriKind.Absolute);
                     break;
             }
             return resourceDictionary;
