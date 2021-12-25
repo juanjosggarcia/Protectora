@@ -35,16 +35,20 @@
                     <ColumnDefinition Width="140*"/>
                     <ColumnDefinition Width="128*"/>
                 </Grid.ColumnDefinitions>
+                
                 <RadioButton x:Name="btnPadrinoRedondo" Content="Padrino" HorizontalAlignment="Left" Height="30" Margin="35,35,0,0" VerticalAlignment="Top" Width="240" FontSize="15" Grid.ColumnSpan="3" Grid.Column="1" Grid.Row="2"/>
-                <TextBox x:Name ="txtSexoPerro" Style="{StaticResource TextBox1}" Text="Sexo" PreviewMouseDown="LimpiarTextoSexo" FontSize="14" Foreground="Gray" Margin="0,41,0,320" Height="34" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
-                <TextBox x:Name ="txtTamanioPerro" Style="{StaticResource TextBox1}" Text="Tamaño" FontSize="14" PreviewMouseDown="LimpiarTextoTamanio" Foreground="Gray" Margin="0,80,0,280" Height="35" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
-                <TextBox x:Name ="txtEstadoPerro" Style="{StaticResource TextBox1}" Text="Estado" FontSize="14" PreviewMouseDown="LimpiarTextoEstado" Foreground="Gray" Margin="0,119,0,240" Height="36" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
-                <TextBox x:Name ="txtEdadPerro" Style="{StaticResource TextBox1}" Text="Edad" FontSize="14" PreviewMouseDown="LimpiarTextoEdad" Foreground="Gray" Margin="0,159,0,200" Height="36" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
-                <TextBox x:Name ="txtPesoPerro" Style="{StaticResource TextBox1}" Text="Peso" FontSize="14" PreviewMouseDown="LimpiarTextoPeso" Foreground="Gray" Margin="0,199,0,160" Height="36" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
-                <DatePicker x:Name="dateEntradaPerro" HorizontalAlignment="Left" Margin="0,279,0,0" VerticalAlignment="Top" Height="36" Width="326" Padding="2,4,2,2" FontSize="14" Grid.ColumnSpan="5" Grid.Column="2" Grid.Row="1"/>
 
-                <TextBox x:Name ="txtDescripcionPerro" Style="{StaticResource TextBox1}" Text="Descripción" PreviewMouseDown="LimpiarTextoDescripcion" FontSize="14" Foreground="Gray" Margin="0,320,0,40" Height="35" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
-                <TextBox x:Name ="txtNombrePerro" Style="{StaticResource TextBox1}" Text="Nombre"  PreviewMouseDown="LimpiarTextoNombre" FontSize="14" Foreground="Gray" Margin="0,0,0,360" Height="35" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
+                <TextBox x:Name ="txtNombrePerro" Style="{StaticResource TextBox1}" Text="Nombre"  GotFocus="LimpiarTextoNombre" LostFocus="RellenarTextoNombre" FontSize="14" Foreground="Gray" Margin="0,0,0,360" Height="35" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
+                <TextBox x:Name ="txtSexoPerro" Style="{StaticResource TextBox1}" Text="Sexo" GotFocus="LimpiarTextoSexo" LostFocus="RellenarTextoSexo" FontSize="14" Foreground="Gray" Margin="0,41,0,320" Height="34" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
+                <TextBox x:Name ="txtTamanioPerro" Style="{StaticResource TextBox1}" Text="Tamaño" FontSize="14" GotFocus="LimpiarTextoTamanio" LostFocus="RellenarTextoTamanio" Foreground="Gray" Margin="0,80,0,280" Height="35" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
+                <TextBox x:Name ="txtEstadoPerro" Style="{StaticResource TextBox1}" Text="Estado" FontSize="14" GotFocus="LimpiarTextoEstado" LostFocus="RellenarTextoEstado" Foreground="Gray" Margin="0,119,0,240" Height="36" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
+                <TextBox x:Name ="txtEdadPerro" Style="{StaticResource TextBox1}" Text="Edad" FontSize="14" GotFocus="LimpiarTextoEdad" LostFocus="RellenarTextoEdad" Foreground="Gray" Margin="0,159,0,200" Height="36" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
+                <TextBox x:Name ="txtPesoPerro" Style="{StaticResource TextBox1}" Text="Peso" FontSize="14" GotFocus="LimpiarTextoPeso" LostFocus="RellenarTextoPeso" Foreground="Gray" Margin="0,199,0,160" Height="36" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
+                <TextBox x:Name ="txtRazaPerro" Style="{StaticResource TextBox1}" Text="Raza" FontSize="14" GotFocus="LimpiarTextoRaza" LostFocus="RellenarTextoRaza" Foreground="Gray" Margin="0,239,0,120" Height="36" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
+                <DatePicker x:Name="dateEntradaPerro" HorizontalAlignment="Left" Margin="0,279,0,0" VerticalAlignment="Top" Height="36" Width="326" Padding="2,4,2,2" FontSize="14" Grid.ColumnSpan="5" Grid.Column="2" Grid.Row="1" Style="{DynamicResource DatePickerStyle1}"/>
+                <TextBox x:Name ="txtDescripcionPerro" Style="{StaticResource TextBox1}" Text="Descripción" GotFocus="LimpiarTextoDescripcion" LostFocus="RellenarTextoDescripcion" FontSize="14" Foreground="Gray" Margin="0,320,0,40" Height="35" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
+                <TextBox x:Name ="txtImagenPerroNuevo" Style="{StaticResource TextBox1}" Text="Imagen" GotFocus="LimpiarTextoImagen" LostFocus="RellenarTextoImagen" FontSize="14" Foreground="Gray" Margin="0,360,0,0" RenderTransformOrigin="0.5,0.5" Width="Auto" Height="35" Grid.ColumnSpan="3" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
+
 
                 <TextBox x:Name ="txtNombrePadrino" Style="{StaticResource TextBox1}" Text="Nombre del padrino"  FontSize="14" Foreground="Gray" Margin="0,2,0,138" Grid.Column="1" IsEnabled="{Binding IsChecked, ElementName=btnPadrinoRedondo}" Height="35" Width="Auto" VerticalAlignment="Center" Grid.ColumnSpan="2" Grid.Row="3"/>
                 <TextBox x:Name ="txtDniPadrino" Style="{StaticResource TextBox1}" Text="DNI"  FontSize="14" Foreground="Gray" Margin="0,47,0,93" IsEnabled="{Binding IsChecked, ElementName=btnPadrinoRedondo}" Height="35" Width="Auto" VerticalAlignment="Center" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="3"/>
@@ -56,19 +60,8 @@
                 <TextBox x:Name ="txtComienzoPadrino" Style="{StaticResource TextBox1}" Text="Comienzo de apadrinamiento"  FontSize="14" Foreground="Gray" Margin="0,137,0,3" IsEnabled="{Binding IsChecked, ElementName=btnPadrinoRedondo}" Height="35" Grid.Column="5" Width="Auto" VerticalAlignment="Center" Grid.ColumnSpan="2" Grid.Row="3"/>
 
                 <Button x:Name ="nuevoPerro" Style ="{StaticResource EstiloBotonMediano}" Content="Añadir nuevo perro" Margin="40,0,0,0" Width="250" Click="NuevoPerro_Click" Grid.ColumnSpan="4" Grid.Column="2" Grid.Row="5" />
-                <Button x:Name ="btnImagen" Style ="{StaticResource EstiloBotonLargo}" FontSize="14" Content="Buscar" Margin="20,360,0,0" Width="110" Height="35" Click="BtnImagen_Click" Grid.Column="5" Grid.Row="1" />
-                <TextBox x:Name ="txtImagenPerroNuevo" Style="{StaticResource TextBox1}" Text="Imagen" PreviewMouseDown="LimpiarTextoDescripcion" FontSize="14" Foreground="Gray" Margin="0,360,0,0" RenderTransformOrigin="0.5,0.5" Width="Auto" Height="35" Grid.ColumnSpan="3" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" >
-                    <TextBox.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform AngleY="0.092"/>
-                            <RotateTransform/>
-                            <TranslateTransform Y="-0.265"/>
-                        </TransformGroup>
-                    </TextBox.RenderTransform>
-                </TextBox>
-                <TextBox x:Name ="txtRazaPerro" Style="{StaticResource TextBox1}" Text="Raza" FontSize="14" PreviewMouseDown="LimpiarTextoPeso" Foreground="Gray" Margin="0,239,0,120" Height="36" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
-
+                <Button x:Name ="btnImagen" Style ="{StaticResource EstiloBotonLargo}" FontSize="14" Content="Buscar" Margin="20,360,0,0" Width="105" Height="35" Click="BtnImagen_Click" Grid.Column="5" Grid.Row="1" />
+                
             </Grid>
         </Border>
     </Grid>

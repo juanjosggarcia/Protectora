@@ -252,7 +252,9 @@ namespace Protectora.Presentacion
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar la imagen " + ex.Message);
+                if (ex.Message != "URI no válido: URI está vacío.") {
+                    MessageBox.Show("Error al cargar la imagen " + ex.Message);
+                }
             }
 
             
@@ -294,6 +296,29 @@ namespace Protectora.Presentacion
             TextBoxEstado.IsEnabled = false;
             btnImagenPerro.IsEnabled = false;
         }
+
+        //ESTO ESTA PUESTO PROVISIONALMENTE
+        private void btnBuscarPerro_Click(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(TextBoxBuscar.Text))
+            {
+                ListViewPerros.Items.Clear();
+                foreach (Perro perro in listaPerro)
+                {
+                    if (perro.Nombre.ToLower().Contains(TextBoxBuscar.Text.ToLower()))
+                    {
+                        ListViewPerros.Items.Add(perro);
+                    }
+
+                }
+            }
+            else
+            {
+                Refresh();
+            }
+
+        }
+
     }
 
 

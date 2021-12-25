@@ -7,8 +7,8 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary x:Name="RecursosEstilos" Source="Estilos.xaml" />
-                <ResourceDictionary x:Name="RecursoIdiomaEspaniol" Source="C:\Users\laura\source\repos\Protectora\idiomas\StringResources.es-ES.xaml" />
-                <ResourceDictionary x:Name="RecursoIdiomaIngles" Source="C:\Users\laura\source\repos\Protectora\idiomas\StringResources.en-UK.xaml" />
+                <ResourceDictionary x:Name="RecursoIdiomaEspaniol" Source="/Protectora;component/idiomas/StringResources.es-ES.xaml" />
+                <ResourceDictionary x:Name="RecursoIdiomaIngles" Source="/Protectora;component/idiomas/StringResources.en-UK.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
