@@ -75,11 +75,14 @@
                     <Button x:Name="btnImagenPerro" Style="{StaticResource EstiloBotonCambioImagen}" Background="Transparent" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="200" Width="200" Opacity="0.5" Margin="0,52,0,0" Grid.RowSpan="5" Visibility="Hidden" Click="BtnImagenPerro_Click" IsEnabled="false">
                         <!--<Image Source="/recursos/editar.png" Width="55" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
                     </Button>
-                    
+
 
                 </Grid>
             </Border>
             <Button x:Name="NuevoPerro" Style="{StaticResource EstiloBotonMediano}" Content="Nuevo" HorizontalAlignment="Left" Margin="523,0,0,523" VerticalAlignment="Bottom" Width="102" Click="ClickNuevoPerro" RenderTransformOrigin="0.526,1.458" Height="39" Grid.Row="1"/>
+            <TextBox x:Name="TextBoxBuscar" Style="{StaticResource EstiloTextBoxBuscar}" FontSize="14" Foreground="Black"  Width="132" Height="Auto" Margin="228,42,0,522" RenderTransformOrigin="0.5,0.5" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=Nombre}"/>
+            <Button x:Name="btnBuscarPerro" Style="{StaticResource EstiloBotonBuscar}" Content="Buscar" HorizontalAlignment="Left" Margin="360,0,0,522" VerticalAlignment="Bottom" Width="102" RenderTransformOrigin="0.526,1.458" Height="35" Grid.Row="1" Click="btnBuscarPerro_Click"/>
+
 
             <ListView Style="{StaticResource EstiloListView}" Width="400" x:Name="ListViewPerros" Grid.Row="1" Foreground="#333" Background="#FAFBFD" FontFamily="Corbel" Margin="228,94,0,64" Padding="-3,-1" HorizontalAlignment="Left"  SelectionChanged="ListaPerros_SelectionChanged" IsSynchronizedWithCurrentItem="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
                 <ListView.View>
