@@ -98,6 +98,7 @@
     <Compile Include="Dominio\Animal.cs" />
     <Compile Include="Dominio\Aviso.cs" />
     <Compile Include="Dominio\GestorAnimal.cs" />
+    <Compile Include="Dominio\GestorPersona.cs" />
     <Compile Include="Dominio\GestorUsuario.cs" />
     <Compile Include="Dominio\Padrino.cs" />
     <Compile Include="Dominio\Perro.cs" />
@@ -296,7 +297,6 @@
   <ItemGroup>
     <Resource Include="fotosPerros\bichon.jpg" />
     <Resource Include="fotosPerros\chihuahua.jpg" />
-    <Resource Include="fotosPerros\default.png" />
     <Resource Include="fotosPerros\dobermann.jpg" />
     <Resource Include="fotosPerros\husky.jpg" />
     <Resource Include="fotosPerros\mini.jpg" />
@@ -307,6 +307,9 @@
   <ItemGroup>
     <Resource Include="fotosPerros\pastorDos.jpg" />
     <Resource Include="fotosPerros\podenco.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="fotosPerros\default.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

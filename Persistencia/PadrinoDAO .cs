@@ -9,7 +9,11 @@ namespace Protectora.Persistencia
 {
     class PadrinoDAO : IDAO<Padrino>
     {
-
+        public readonly List<Padrino> padrinos;
+        public PadrinoDAO()
+        {
+            this.padrinos = new List<Padrino>();
+        }
         public List<Padrino> leerTodas()
         {
             List<Padrino> arrayPadrino = new List<Padrino>();
@@ -27,18 +31,37 @@ namespace Protectora.Persistencia
             return arrayPadrino;
         }
 
-
         public Padrino leer(Padrino obj)
         {
             AgenteDB agente = AgenteDB.obtenerAgente();
-            Console.Write(" ");
+            //Console.Write(" ");
+            List<List<String>> arrayCarPadrino = agente.leer("SELECT * FROM personas p, padrinos s WHERE p.id=s.idPersona  AND s.id = " + obj.Id.ToString() + "; ");
+            //Padrino s = new Padrino();
+
+            foreach (List<String> user in arrayCarPadrino)
+            {
+                Padrino s = new Padrino(Int32.Parse(user[0]), user[1], user[2], user[3], Int32.Parse(user[4]), user[6], Int32.Parse(user[7]), user[8], DateTime.Parse(user[9]));
+                padrinos.Add(s);
+            }
+            if (padrinos.Count != 0)
+            {
+                return padrinos[0];
+            }
+            else return null;
+
+        }
+
+        public Padrino leerOLD(Padrino obj)
+        {
+            AgenteDB agente = AgenteDB.obtenerAgente();
+            //Console.Write(" ");
             List<List<String>> arrayCarPadrino = agente.leer("SELECT * FROM personas p, padrinos s WHERE p.id=s.idPersona  AND p.id = " + obj.Id.ToString() + "; ");
             Padrino s = new Padrino();
 
             foreach (List<String> user in arrayCarPadrino)
             {
                 s = new Padrino(Int32.Parse(user[0]), user[1], user[2], user[3], Int32.Parse(user[4]), user[6], Int32.Parse(user[7]), user[8], DateTime.Parse(user[9]));
-
+                padrinos.Add(s);
             }
             Console.Write(" ");
             return s;

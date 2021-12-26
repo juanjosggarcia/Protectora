@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Protectora.Dominio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,26 @@ namespace Protectora.Presentacion
     /// </summary>
     public partial class ClasePadrinoPerro : Window
     {
-        public ClasePadrinoPerro()
+        public ClasePadrinoPerro(Perro perro)
         {
             InitializeComponent();
+            mostrarPadrino(perro);
+        }
+
+        public void mostrarPadrino(Perro perro)
+        {
+            Padrino padrino = new Padrino();
+            padrino.Id = perro.Apadrinado;
+            padrino = GestorPersona.obtenerPadrino(padrino);
+            lblNombrePadrino.Content = padrino.NombreCompleto;
+            lblDniPadrino.Content = padrino.Dni;
+            lblCorreoPadrino.Content = padrino.Correo;
+            lblTelefonoPadrino.Content = padrino.Telefono;
+            lblDatosBanPadrino.Content = padrino.DatosBancarios;
+            lblImportePadrino.Content = padrino.ImporteMensual;
+            lblPagoPadrino.Content = padrino.FormaPago;
+            lblComienzoPadrino.Content = padrino.FechaEntrada;
+
         }
     }
 }

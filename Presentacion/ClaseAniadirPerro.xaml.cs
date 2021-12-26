@@ -160,16 +160,19 @@ namespace Protectora.Presentacion
                 Edad = Int32.Parse(txtEdadPerro.Text),
                 FechaEntrada = DateTime.Parse(dateEntradaPerro.Text),
                 Descripcion = txtDescripcionPerro.Text,
-                Foto = txtImagenPerroNuevo.Text,
+                //Foto = txtImagenPerroNuevo.Text,
                 Raza = txtRazaPerro.Text
             };
+            string s = txtImagenPerroNuevo.Text;
+            string[] subs = s.Split('\\');
+            perro.Foto = subs[subs.Length-1];
+            //perro.Foto = string.Join("", subs);
+
 
             //ventana.paneles[0].CrearPerro(perro);
-
+            //pagPerro.CrearPerro(perro);
             GestorAnimal.crearPerro(perro);
             pagPerro.CargarPerros();
-            //pagPerro.CrearPerro(perro);
-
 
             this.Close();
         }
