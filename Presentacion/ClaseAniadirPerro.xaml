@@ -35,7 +35,7 @@
                     <ColumnDefinition Width="140*"/>
                     <ColumnDefinition Width="128*"/>
                 </Grid.ColumnDefinitions>
-                
+
                 <RadioButton x:Name="btnPadrinoRedondo" Content="Padrino" HorizontalAlignment="Left" Height="30" Margin="35,35,0,0" VerticalAlignment="Top" Width="240" FontSize="15" Grid.ColumnSpan="3" Grid.Column="1" Grid.Row="2"/>
 
                 <TextBox x:Name ="txtNombrePerro" Style="{StaticResource TextBox1}" Text="Nombre"  GotFocus="LimpiarTextoNombre" LostFocus="RellenarTextoNombre" FontSize="14" Foreground="Gray" Margin="0,0,0,360" Height="35" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
@@ -60,8 +60,8 @@
                 <TextBox x:Name ="txtComienzoPadrino" Style="{StaticResource TextBox1}" Text="Comienzo de apadrinamiento"  FontSize="14" Foreground="Gray" Margin="0,137,0,3" IsEnabled="{Binding IsChecked, ElementName=btnPadrinoRedondo}" Height="35" Grid.Column="5" Width="Auto" VerticalAlignment="Center" Grid.ColumnSpan="2" Grid.Row="3"/>
 
                 <Button x:Name ="nuevoPerro" Style ="{StaticResource EstiloBotonMediano}" Content="Añadir nuevo perro" Margin="40,0,0,0" Width="250" Click="NuevoPerro_Click" Grid.ColumnSpan="4" Grid.Column="2" Grid.Row="5" />
-                <Button x:Name ="btnImagen" Style ="{StaticResource EstiloBotonLargo}" FontSize="14" Content="Buscar" Margin="20,360,0,0" Width="105" Height="35" Click="BtnImagen_Click" Grid.Column="5" Grid.Row="1" />
-                
+                <Button x:Name ="btnImagen" Style ="{StaticResource EstiloBotonLargo}" FontSize="14" Content="Buscar" Margin="20,360,0,0" Width="105" Height="Auto" Click="BtnImagen_Click" Grid.Column="5" Grid.Row="1" VerticalAlignment="Stretch" />
+
             </Grid>
         </Border>
     </Grid>

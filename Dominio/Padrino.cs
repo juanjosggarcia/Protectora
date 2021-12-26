@@ -39,10 +39,13 @@ namespace Protectora.Dominio
 
         }
 
-        public void InsertarPadrino()
+        public Padrino InsertarPadrino()
         {
-            this.PadDAO.insertar((Padrino)this.MemberwiseClone());
+            this.PadDAO.insertar(this);
+            //this.PadDAO.insertar((Padrino)this.MemberwiseClone());
             //Console.Write(" ");
+            //this.padDAO.leerName(this);
+            return padDAO.leerName(this);
         }
 
         public void EliminarPadrino()
