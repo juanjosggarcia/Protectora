@@ -58,12 +58,13 @@ namespace Protectora.Dominio
 
         public List<Socio> LeerTodosSocios()
         {
-            List<Socio> arraySocios = new List<Socio>();
-            SocioDAO socDAO = new SocioDAO();
-            arraySocios = socDAO.leerTodas();
-            Console.Write(" ");
+            //List<Socio> arraySocios = new List<Socio>();
+            //SocioDAO socDAO = new SocioDAO();
+            //arraySocios = socDAO.leerTodas();
+            //Console.Write(" ");
 
-            return arraySocios;
+            //return arraySocios;
+            return SocDAO.leerTodas();
         }
 
 

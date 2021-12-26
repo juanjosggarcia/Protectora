@@ -25,6 +25,7 @@ namespace Protectora.Presentacion
         public PaginaSocios()
         {
             InitializeComponent();
+            CargarSocios();
         }
 
         private void BtnNextSocio_Click(object sender, RoutedEventArgs e)
@@ -56,6 +57,19 @@ namespace Protectora.Presentacion
             btnNextSocio.IsEnabled = true;
             btnEditSocio.IsEnabled = true;
             btnDeleteSocio.IsEnabled = true;
+        }
+
+        public void CargarSocios()
+        {
+            List<Socio> socios = GestorPersona.obtenerTodosSocios();
+            //socios = GestorPersona.obtenerTodosSocios();
+            ListViewSocios.Items.Clear();
+            foreach (Socio socio in socios)
+            {
+                listaSocio.Add(socio);
+                ListViewSocios.Items.Add(socio);
+            }
+
         }
 
     }

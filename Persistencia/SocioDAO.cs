@@ -10,22 +10,30 @@ namespace Protectora.Persistencia
     class SocioDAO : IDAO<Socio>
     {
 
+        public readonly List<Socio> socios;
 
+        public SocioDAO()
+        {
+            this.socios = new List<Socio>();
+        }
         public List<Socio> leerTodas()
         {
-            List<Socio> arraySocios = new List<Socio>();
-            AgenteDB agente = AgenteDB.obtenerAgente();
+            //List<Socio> arraySocios = new List<Socio>();
+            //AgenteDB agente = AgenteDB.obtenerAgente();
 
-            List<List<String>> arrayCarSocios = new List<List<String>>();
-            arrayCarSocios = agente.leer("SELECT * FROM personas p, socios s WHERE p.id=s.idPersona");
+            //List<List<String>> arrayCarSocios = new List<List<String>>();
+            //arrayCarSocios = agente.leer("SELECT * FROM personas p, socios s WHERE p.id=s.idPersona");
+
+            List<List<String>> arrayCarSocios = AgenteDB.obtenerAgente().leer("SELECT * FROM personas p, socios s WHERE p.id=s.idPersona");
 
             foreach (List<String> user in arrayCarSocios)
             {
                 Socio s = new Socio(Int32.Parse(user[0]), user[1], user[2], user[3], Int32.Parse(user[4]), user[6], Int32.Parse(user[7]), user[8]);
-                arraySocios.Add(s);
+                //arraySocios.Add(s);
+                socios.Add(s);
             }
-            Console.Write(" ");
-            return arraySocios;
+            //Console.Write(" ");
+            return socios;
         }
 
         public Socio leer(Socio obj)

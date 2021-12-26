@@ -29,5 +29,17 @@ namespace Protectora.Dominio
         {
             padrino.ModificarPadrino();
         }
+
+        public static List<Socio> obtenerTodosSocios()
+        {
+            Socio socio = new Socio();
+            socio.LeerTodosSocios();
+            if (socio.SocDAO.socios.Count != 0)
+            {
+                return socio.SocDAO.socios;
+            }
+            return null;
+
+        }
     }
 }
