@@ -128,6 +128,89 @@ namespace Protectora.Presentacion
             txtImagenPerroNuevo.Foreground = new SolidColorBrush(Colors.Gray);
         }
 
+        private void LimpiarNombrePadrino(object sender, EventArgs e)
+        {
+            txtNombrePadrino.Text = txtNombrePadrino.Text == "Nombre del padrino" ? string.Empty : txtNombrePadrino.Text;
+            txtNombrePadrino.Foreground = new SolidColorBrush(Colors.Black);
+        }
+        private void RellenarNombrePadrino(object sender, EventArgs e)
+        {
+            txtNombrePadrino.Text = txtNombrePadrino.Text == string.Empty ? "Nombre del padrino" : txtNombrePadrino.Text;
+            txtNombrePadrino.Foreground = new SolidColorBrush(Colors.Gray);
+        }
+        private void LimpiarDniPadrino(object sender, EventArgs e)
+        {
+            txtDniPadrino.Text = txtDniPadrino.Text == "DNI" ? string.Empty : txtDniPadrino.Text;
+            txtDniPadrino.Foreground = new SolidColorBrush(Colors.Black);
+        }
+        private void RellenarDniPadrino(object sender, EventArgs e)
+        {
+            txtDniPadrino.Text = txtDniPadrino.Text == string.Empty ? "DNI" : txtDniPadrino.Text;
+            txtDniPadrino.Foreground = new SolidColorBrush(Colors.Gray);
+        }
+        private void LimpiarCorreoPadrino(object sender, EventArgs e)
+        {
+            txtCorreoPadrino.Text = txtCorreoPadrino.Text == "Correo" ? string.Empty : txtCorreoPadrino.Text;
+            txtCorreoPadrino.Foreground = new SolidColorBrush(Colors.Black);
+        }
+        private void RellenarCorreoPadrino(object sender, EventArgs e)
+        {
+            txtCorreoPadrino.Text = txtCorreoPadrino.Text == string.Empty ? "Correo" : txtCorreoPadrino.Text;
+            txtCorreoPadrino.Foreground = new SolidColorBrush(Colors.Gray);
+        }
+        private void LimpiarTelefonoPadrino(object sender, EventArgs e)
+        {
+            txtTelefonoPadrino.Text = txtTelefonoPadrino.Text == "Telefono" ? string.Empty : txtTelefonoPadrino.Text;
+            txtTelefonoPadrino.Foreground = new SolidColorBrush(Colors.Black);
+        }
+        private void RellenarTelefonoPadrino(object sender, EventArgs e)
+        {
+            txtTelefonoPadrino.Text = txtTelefonoPadrino.Text == string.Empty ? "Telefono" : txtTelefonoPadrino.Text;
+            txtTelefonoPadrino.Foreground = new SolidColorBrush(Colors.Gray);
+        }
+        private void LimpiarDatosPadrino(object sender, EventArgs e)
+        {
+            txtDatosPadrino.Text = txtDatosPadrino.Text == "Datos bancarios" ? string.Empty : txtDatosPadrino.Text;
+            txtDatosPadrino.Foreground = new SolidColorBrush(Colors.Black);
+        }
+        private void RellenarDatosPadrino(object sender, EventArgs e)
+        {
+            txtDatosPadrino.Text = txtDatosPadrino.Text == string.Empty ? "Datos bancarios" : txtDatosPadrino.Text;
+            txtDatosPadrino.Foreground = new SolidColorBrush(Colors.Gray);
+        }
+        private void LimpiarImportePadrino(object sender, EventArgs e)
+        {
+            txtImportePadrino.Text = txtImportePadrino.Text == "Importe mensual" ? string.Empty : txtImportePadrino.Text;
+            txtImportePadrino.Foreground = new SolidColorBrush(Colors.Black);
+        }
+        private void RellenarImportePadrino(object sender, EventArgs e)
+        {
+            txtImportePadrino.Text = txtImportePadrino.Text == string.Empty ? "Importe mensual" : txtImportePadrino.Text;
+            txtImportePadrino.Foreground = new SolidColorBrush(Colors.Gray);
+        }
+        private void LimpiarFormaPagoPadrino(object sender, EventArgs e)
+        {
+            txtFormaPagoPadrino.Text = txtFormaPagoPadrino.Text == "Forma de pago" ? string.Empty : txtFormaPagoPadrino.Text;
+            txtFormaPagoPadrino.Foreground = new SolidColorBrush(Colors.Black);
+        }
+        private void RellenarFormaPagoPadrino(object sender, EventArgs e)
+        {
+            txtFormaPagoPadrino.Text = txtFormaPagoPadrino.Text == string.Empty ? "Forma de pago" : txtFormaPagoPadrino.Text;
+            txtFormaPagoPadrino.Foreground = new SolidColorBrush(Colors.Gray);
+        }
+        private void LimpiarComienzoPadrino(object sender, EventArgs e)
+        {
+            txtComienzoPadrino.Text = txtComienzoPadrino.Text == "Comienzo de apadrinamiento" ? string.Empty : txtComienzoPadrino.Text;
+            txtComienzoPadrino.Foreground = new SolidColorBrush(Colors.Black);
+        }
+        private void RellenarComienzoPadrino(object sender, EventArgs e)
+        {
+            txtComienzoPadrino.Text = txtComienzoPadrino.Text == string.Empty ? "Comienzo de apadrinamiento" : txtComienzoPadrino.Text;
+            txtComienzoPadrino.Foreground = new SolidColorBrush(Colors.Gray);
+        }
+
+
+
         private void BtnImagen_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog op = new OpenFileDialog
