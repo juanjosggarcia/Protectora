@@ -66,7 +66,7 @@ namespace Protectora.Persistencia
         {
             AgenteDB agente = AgenteDB.obtenerAgente();
 
-            agente.modificar("UPDATE socios SET datosBancarios='" + obj.DatosBancarios.ToString() + "' ,cuantiaAyuda=" + obj.CuantiaAyuda.ToString() + ",formaPago= '" + obj.FormaPago.ToString() + ",foto = '" + obj.Foto.ToString() + "' + WHERE IdPersona = " + obj.Id.ToString() + "; ");
+            agente.modificar("UPDATE socios SET datosBancarios='" + obj.DatosBancarios.ToString() + "' ,cuantiaAyuda=" + obj.CuantiaAyuda.ToString() + ",formaPago= '" + obj.FormaPago.ToString() + "',foto = '" + obj.Foto.ToString() + "' WHERE IdPersona = " + obj.Id.ToString() + "; ");
 
             return agente.modificar("UPDATE personas SET nombreCompleto= '" + obj.NombreCompleto.ToString() + "',correo='" + obj.Correo.ToString() + "'," +
                 "dni='" + obj.Dni.ToString() + "',telefono=" + obj.Telefono.ToString() + " WHERE Id = " + obj.Id.ToString() + "; ");
