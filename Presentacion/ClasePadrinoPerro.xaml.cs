@@ -23,9 +23,13 @@ namespace Protectora.Presentacion
         PaginaPerro pagPerro;
         Perro perro;
         Padrino padrino;
-        public ClasePadrinoPerro(PaginaPerro p, Perro perro)
+        public ClasePadrinoPerro(PaginaPerro p, Perro perro, bool visible)
         {
             InitializeComponent();
+            if (visible)
+            {
+                mostrar();
+            }
             pagPerro = p;
             this.perro = perro;
             mostrarPadrino();
@@ -39,14 +43,14 @@ namespace Protectora.Presentacion
             padrino = GestorPersona.obtenerPadrino(padrino);
             if (padrino != null)
             {
-            txtNombrePadrino.Text = padrino.NombreCompleto;
-            txtDniPadrino.Text = padrino.Dni;
-            txtCorreoPadrino.Text = padrino.Correo;
-            txtTelefonoPadrino.Text = padrino.Telefono.ToString();
-            txtDatosBanPadrino.Text = padrino.DatosBancarios.ToString();
-            txtImportePadrino.Text = padrino.ImporteMensual.ToString();
-            txtPagoPadrino.Text = padrino.FormaPago;
-            txtComienzoPadrino.Text = padrino.FechaEntrada.ToString();
+                txtNombrePadrino.Text = padrino.NombreCompleto;
+                txtDniPadrino.Text = padrino.Dni;
+                txtCorreoPadrino.Text = padrino.Correo;
+                txtTelefonoPadrino.Text = padrino.Telefono.ToString();
+                txtDatosBanPadrino.Text = padrino.DatosBancarios.ToString();
+                txtImportePadrino.Text = padrino.ImporteMensual.ToString();
+                txtPagoPadrino.Text = padrino.FormaPago;
+                txtComienzoPadrino.Text = padrino.FechaEntrada.ToString();
             }
         }
 
@@ -80,6 +84,20 @@ namespace Protectora.Presentacion
             }
             Close();
 
+        }
+
+        private void mostrar()
+        {
+            BtnAceptarCambios.Visibility = Visibility.Visible;
+            BtnAceptarCambios.IsEnabled = true;
+            txtNombrePadrino.IsEnabled = true;
+            txtDniPadrino.IsEnabled = true;
+            txtCorreoPadrino.IsEnabled = true;
+            txtTelefonoPadrino.IsEnabled = true;
+            txtDatosBanPadrino.IsEnabled = true;
+            txtImportePadrino.IsEnabled = true;
+            txtPagoPadrino.IsEnabled = true;
+            txtComienzoPadrino.IsEnabled = true;
         }
     }
 }

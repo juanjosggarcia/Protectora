@@ -42,19 +42,38 @@ namespace Protectora.Presentacion
 
         private void BtnPdrino_Click(object sender, RoutedEventArgs e)
         {
-           // Perro perro = (Perro)ListViewPerros.Items[ListViewPerros.SelectedIndex];
+            Perro perro = (Perro)ListViewPerros.Items[ListViewPerros.SelectedIndex];
+
+            /*
             ClasePadrinoPerro winPadrino = System.Windows.Application.Current.Windows.OfType<ClasePadrinoPerro>().FirstOrDefault();
 
             if (winPadrino == null)
             {
                 Perro perro = (Perro)ListViewPerros.Items[ListViewPerros.SelectedIndex];
-                winPadrino = new ClasePadrinoPerro(this, perro);
-            }
-            winPadrino.Show();
+                if ((bool)ListViewPerros.IsEnabled==false)
+                {
+                    winPadrino = new ClasePadrinoPerro(this, perro, true);
+                }
+                else
+                {
+                    winPadrino = new ClasePadrinoPerro(this, perro, false);
+                }
 
+            }
+            winPadrino.Show();*/
+
+            ClasePadrinoPerro winPadrino;
+            if ((bool)ListViewPerros.IsEnabled == false)
+            {
+                winPadrino = new ClasePadrinoPerro(this, perro, true);
+            }
+            else
+            {
+                winPadrino = new ClasePadrinoPerro(this, perro, false);
+            }
 
             //ClasePadrinoPerro Padrinito = new ClasePadrinoPerro(perro);
-            //Padrinito.Show();
+            winPadrino.Show();
         }
 
         private void ClickNuevoPerro(object sender, RoutedEventArgs e)
@@ -216,8 +235,10 @@ namespace Protectora.Presentacion
             NuevoPerro.Visibility = Visibility.Hidden;
             ListViewPerros.IsEnabled = false;
 
-            Perro perro = (Perro)ListViewPerros.Items[ListViewPerros.SelectedIndex];
-            ClasePadrinoPerro winPadrino = new ClasePadrinoPerro(this, perro);
+            //Perro perro = (Perro)ListViewPerros.Items[ListViewPerros.SelectedIndex];
+            //ClasePadrinoPerro winPadrino = new ClasePadrinoPerro(this, perro, true);
+
+            /*
             winPadrino.BtnAceptarCambios.Visibility = Visibility.Visible;
             winPadrino.BtnAceptarCambios.IsEnabled = true;
             winPadrino.txtNombrePadrino.IsEnabled = true;
@@ -227,7 +248,7 @@ namespace Protectora.Presentacion
             winPadrino.txtDatosBanPadrino.IsEnabled = true;
             winPadrino.txtImportePadrino.IsEnabled = true;
             winPadrino.txtPagoPadrino.IsEnabled = true;
-            winPadrino.txtComienzoPadrino.IsEnabled = true;
+            winPadrino.txtComienzoPadrino.IsEnabled = true;*/
         }
 
         private void BtnDeletePerro_Click(object sender, RoutedEventArgs e)
