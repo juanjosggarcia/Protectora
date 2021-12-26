@@ -241,9 +241,9 @@ namespace Protectora.Presentacion
             result = (DialogResult)MessageBox.Show(message, caption, buttons);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
-                Perro perro = (Perro)ListViewSocios.Items[ListViewSocios.SelectedIndex];
+                Socio socio = (Socio)ListViewSocios.Items[ListViewSocios.SelectedIndex];
 
-                //GestorAnimal.eliminarPerro(perro);
+                GestorPersona.eliminarSocio(socio);
                 ListViewSocios.Items.RemoveAt(index);
                 TextBoxIdSocio.Text = "";
                 TextBoxIdSocio.Text = "";
