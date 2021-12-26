@@ -78,6 +78,11 @@ namespace Protectora.Presentacion
             ListViewSocios.Items.Clear();
             foreach (Socio socio in socios)
             {
+                if (string.IsNullOrEmpty(socio.Foto))
+                {
+                    //perro.Foto = "C:\\Users\\laura\\source\\repos\\Protectora\\recursos\\default.png";
+                    socio.Foto = "default.jpg";
+                }
                 listaSocio.Add(socio);
                 ListViewSocios.Items.Add(socio);
             }
@@ -98,13 +103,13 @@ namespace Protectora.Presentacion
                 TextBoxPagoSocio.Text = socio.FormaPago;
 
                 ////string str = @"C:\Users\juanj\vs2019-workspace\Protectora\recursos\Fotosbd\" + perro.Foto;
-                //string str = @"../fotosPerros/" + socio.Foto;
-                //BitmapImage bitmap = new BitmapImage();
-                //bitmap.BeginInit();
-                //bitmap.UriSource = new Uri(str, UriKind.Relative);
-                ////bitmap.UriSource = new Uri(@"../fotosPerros/bichon.jpg", UriKind.Relative);
-                //bitmap.EndInit();
-                //ProfileImage.Source = bitmap;
+                string str = @"../fotosPersonas/" + socio.Foto;
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(str, UriKind.Relative);
+                //bitmap.UriSource = new Uri(@"../fotosPerros/bichon.jpg", UriKind.Relative);
+                bitmap.EndInit();
+                ProfileImage.Source = bitmap;
 
 
             }
@@ -184,7 +189,7 @@ namespace Protectora.Presentacion
                 socio.Dni = TextBoxDNISocio.Text;
                 socio.FormaPago = TextBoxPagoSocio.Text;
 
-                //GestorAnimal.modificarPerro(socio);
+                GestorPersona.modificarSocio(socio);
                 DesactivarTextBoxsSocios();
             }
             catch (Exception ex)
