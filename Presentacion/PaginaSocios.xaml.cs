@@ -33,8 +33,8 @@ namespace Protectora.Presentacion
 
         private void ClickNuevoSocio(object sender, RoutedEventArgs e)
         {
-            //ClaseAniadirPerro nuevoPerro = new ClaseAniadirPerro(this);
-            //nuevoPerro.Show();
+            ClaseAniadirSocio nuevoSocio = new ClaseAniadirSocio(this);
+            nuevoSocio.Show();
 
             //Algoperro();
             //Refresh();
@@ -153,7 +153,7 @@ namespace Protectora.Presentacion
             btnDeleteSocio.Visibility = Visibility.Hidden;
             btnAnteriorSocio.Visibility = Visibility.Hidden;
             btnNextSocio.Visibility = Visibility.Hidden;
-            //btnImagenPerro.Visibility = Visibility.Visible;
+            btnImagenSocio.Visibility = Visibility.Visible;
             NuevoSocio.Visibility = Visibility.Hidden;
             ListViewSocios.IsEnabled = false;
 
