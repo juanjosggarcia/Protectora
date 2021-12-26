@@ -35,7 +35,7 @@ namespace Protectora.Persistencia
         {
             AgenteDB agente = AgenteDB.obtenerAgente();
             //Console.Write(" ");
-            List<List<String>> arrayCarPadrino = agente.leer("SELECT * FROM personas p, padrinos s WHERE p.id=s.idPersona  AND s.id = " + obj.Id.ToString() + "; ");
+            List<List<String>> arrayCarPadrino = agente.leer("SELECT * FROM personas p, padrinos s WHERE p.id=s.idPersona  AND p.id = " + obj.Id.ToString() + "; ");
             //Padrino s = new Padrino();
 
             foreach (List<String> user in arrayCarPadrino)
@@ -49,6 +49,25 @@ namespace Protectora.Persistencia
             }
             else return null;
 
+        }
+
+        public Padrino leerName(Padrino obj)
+        {
+            AgenteDB agente = AgenteDB.obtenerAgente();
+            //Console.Write(" ");
+            List<List<String>> arrayCarPadrino = agente.leer("SELECT * FROM personas p, padrinos s WHERE p.id=s.idPersona  AND p.nombreCompleto = '" + obj.NombreCompleto + "'; ");
+            //Padrino s = new Padrino();
+
+            foreach (List<String> user in arrayCarPadrino)
+            {
+                Padrino s = new Padrino(Int32.Parse(user[0]), user[1], user[2], user[3], Int32.Parse(user[4]), user[6], Int32.Parse(user[7]), user[8], DateTime.Parse(user[9]));
+                padrinos.Add(s);
+            }
+            if (padrinos.Count != 0)
+            {
+                return padrinos[0];
+            }
+            else return null;
         }
 
         public Padrino leerOLD(Padrino obj)

@@ -171,11 +171,28 @@ namespace Protectora.Presentacion
 
             //ventana.paneles[0].CrearPerro(perro);
             //pagPerro.CrearPerro(perro);
+            //GestorAnimal.crearPerro(perro);
+            if ((bool)btnPadrinoRedondo.IsChecked)
+            {
+                Padrino padrino = new Padrino();
+                padrino.NombreCompleto = txtNombrePadrino.Text;
+                padrino.Dni = txtDniPadrino.Text;
+                padrino.Correo = txtCorreoPadrino.Text;
+                padrino.Telefono = Int32.Parse(txtTelefonoPadrino.Text);
+                padrino.DatosBancarios = txtDatosPadrino.Text;
+                padrino.ImporteMensual = Int32.Parse(txtImportePadrino.Text);
+                padrino.FormaPago = txtFormaPagoPadrino.Text;
+                padrino.FechaEntrada = DateTime.Parse(txtComienzoPadrino.Text);
+                int idPadrino = GestorPersona.addPadrino(padrino, perro);
+                perro.Apadrinado = idPadrino;
+            }
             GestorAnimal.crearPerro(perro);
             pagPerro.CargarPerros();
 
             this.Close();
         }
+
+
     }
 
 }

@@ -62,6 +62,14 @@ namespace Protectora.Presentacion
             {
                 SetPerro(perro);
                 DesactivarTextBoxs();
+                if (perro.Apadrinado == 0)
+                {
+                    BtnPdrino.IsEnabled = false;
+                }
+                else
+                {
+                    BtnPdrino.IsEnabled = true;
+                }
 
             }
 
@@ -115,7 +123,7 @@ namespace Protectora.Presentacion
                 if (string.IsNullOrEmpty(perro.Foto))
                 {
                     //perro.Foto = "C:\\Users\\laura\\source\\repos\\Protectora\\recursos\\default.png";
-                    perro.Foto = "default.png";
+                    perro.Foto = "default.jpg";
                 }
 
                 listaPerro.Add(perro);
