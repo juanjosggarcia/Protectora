@@ -13,11 +13,13 @@ namespace Protectora.Dominio
         private string datosBancarios;
         private int cuantiaAyuda;
         private string formaPago;
+        private string foto;
         private SocioDAO socDAO;
 
         public string DatosBancarios { get => datosBancarios; set => datosBancarios = value; }
         public int CuantiaAyuda { get => cuantiaAyuda; set => cuantiaAyuda = value; }
         public string FormaPago { get => formaPago; set => formaPago = value; }
+        public string Foto { get => foto; set => foto = value; }
         internal SocioDAO SocDAO { get => socDAO; set => socDAO = value; }
 
         public Socio() : base()
@@ -25,15 +27,14 @@ namespace Protectora.Dominio
             this.SocDAO = new SocioDAO();
         }
 
-
         public Socio(Nullable<int> id, string nombreCompleto, string correo, string dni, int telefono,
-            string datosBancarios, int cuantiaAyuda, string formaPago) : base(id, nombreCompleto, correo, dni, telefono)
+            string datosBancarios, int cuantiaAyuda, string formaPago, string foto) : base(id, nombreCompleto, correo, dni, telefono)
         {
             this.SocDAO = new SocioDAO();
             this.DatosBancarios = datosBancarios;
             this.CuantiaAyuda = cuantiaAyuda;
             this.FormaPago = formaPago;
-
+            this.foto = foto;
         }
 
 
@@ -41,19 +42,19 @@ namespace Protectora.Dominio
         public void InsertarSocio()
         {
             this.SocDAO.insertar((Socio)this.MemberwiseClone());
-            Console.Write(" ");
+            //Console.Write(" ");
         }
 
         public void EliminarSocio()
         {
             this.SocDAO.eliminar((Socio)this.MemberwiseClone());
-            Console.Write(" ");
+            //Console.Write(" ");
         }
 
         public void ModificarSocio()
         {
             this.SocDAO.actualizar((Socio)this.MemberwiseClone());
-            Console.Write(" ");
+            //Console.Write(" ");
         }
 
         public List<Socio> LeerTodosSocios()

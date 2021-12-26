@@ -318,5 +318,15 @@
   <ItemGroup>
     <Resource Include="fotosPerros\default.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="fotosPersonas\carlos.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="fotosPersonas\chotu.jpg" />
+    <Resource Include="fotosPersonas\ibai.jpg" />
+    <Resource Include="fotosPersonas\manolo.jpg" />
+    <Resource Include="fotosPersonas\marina.jpg" />
+    <Resource Include="fotosPersonas\rosario.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

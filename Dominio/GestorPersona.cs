@@ -41,5 +41,9 @@ namespace Protectora.Dominio
             return null;
 
         }
+        public static void modificarSocio(Socio socio)
+        {
+            socio.ModificarSocio();
+        }
     }
 }

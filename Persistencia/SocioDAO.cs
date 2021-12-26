@@ -28,7 +28,7 @@ namespace Protectora.Persistencia
 
             foreach (List<String> user in arrayCarSocios)
             {
-                Socio s = new Socio(Int32.Parse(user[0]), user[1], user[2], user[3], Int32.Parse(user[4]), user[6], Int32.Parse(user[7]), user[8]);
+                Socio s = new Socio(Int32.Parse(user[0]), user[1], user[2], user[3], Int32.Parse(user[4]), user[6], Int32.Parse(user[7]), user[8], user[10]);
                 //arraySocios.Add(s);
                 socios.Add(s);
             }
@@ -43,7 +43,7 @@ namespace Protectora.Persistencia
 
             foreach (List<String> user in arrayCarSocios)
             {
-                Socio s = new Socio(Int32.Parse(user[0]), user[1], user[2], user[3], Int32.Parse(user[4]), user[6], Int32.Parse(user[7]), user[8]);
+                Socio s = new Socio(Int32.Parse(user[0]), user[1], user[2], user[3], Int32.Parse(user[4]), user[6], Int32.Parse(user[7]), user[8], user[10]);
                 arraySocios.Add(s);
             }
             return arraySocios[0];
@@ -57,8 +57,8 @@ namespace Protectora.Persistencia
                 " '" + obj.Dni.ToString() + "', " + obj.Telefono.ToString() + ");");
             obj.Id = (Int32.Parse(agente.leer("SELECT MAX(Id) FROM personas")[0][0]));
 
-            return agente.modificar("INSERT INTO socios ( datosBancarios, cuantiaAyuda, formaPago, IdPersona ) VALUES ('" + obj.DatosBancarios.ToString() + "'," +
-                " " + obj.CuantiaAyuda.ToString() + ", '" + obj.FormaPago.ToString() + "', " + obj.Id.ToString() + ");");
+            return agente.modificar("INSERT INTO socios ( datosBancarios, cuantiaAyuda, formaPago, IdPersona , foto) VALUES ('" + obj.DatosBancarios.ToString() + "'," +
+                " " + obj.CuantiaAyuda.ToString() + ", '" + obj.FormaPago.ToString() + "', " + obj.Id.ToString() + "', " + obj.Foto.ToString() + ");");
 
         }
 
@@ -66,7 +66,7 @@ namespace Protectora.Persistencia
         {
             AgenteDB agente = AgenteDB.obtenerAgente();
 
-            agente.modificar("UPDATE socios SET datosBancarios='" + obj.DatosBancarios.ToString() + "' ,cuantiaAyuda=" + obj.CuantiaAyuda.ToString() + ",formaPago= '" + obj.FormaPago.ToString() + "' WHERE IdPersona = " + obj.Id.ToString() + "; ");
+            agente.modificar("UPDATE socios SET datosBancarios='" + obj.DatosBancarios.ToString() + "' ,cuantiaAyuda=" + obj.CuantiaAyuda.ToString() + ",formaPago= '" + obj.FormaPago.ToString() + ",foto = '" + obj.Foto.ToString() + "' + WHERE IdPersona = " + obj.Id.ToString() + "; ");
 
             return agente.modificar("UPDATE personas SET nombreCompleto= '" + obj.NombreCompleto.ToString() + "',correo='" + obj.Correo.ToString() + "'," +
                 "dni='" + obj.Dni.ToString() + "',telefono=" + obj.Telefono.ToString() + " WHERE Id = " + obj.Id.ToString() + "; ");
