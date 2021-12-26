@@ -7,11 +7,14 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Protectora.Dominio;
+using Microsoft.Win32;
+
 
 namespace Protectora.Presentacion
 {
@@ -99,6 +102,16 @@ namespace Protectora.Presentacion
             txtPagoSocio.Text = txtPagoSocio.Text == string.Empty ? "Forma de pago" : txtPagoSocio.Text;
             txtPagoSocio.Foreground = new SolidColorBrush(Colors.Gray);
         }
+        private void LimpiarTextoImagen(object sender, EventArgs e)
+        {
+            txtPagoSocio.Text = txtPagoSocio.Text == "Forma de pago" ? string.Empty : txtPagoSocio.Text;
+            txtPagoSocio.Foreground = new SolidColorBrush(Colors.Black);
+        }
+        private void RellenarTextoImagen(object sender, EventArgs e)
+        {
+            txtPagoSocio.Text = txtPagoSocio.Text == string.Empty ? "Forma de pago" : txtPagoSocio.Text;
+            txtPagoSocio.Foreground = new SolidColorBrush(Colors.Gray);
+        }
 
         private void NuevoPerro_Click(object sender, RoutedEventArgs e)
         {
@@ -122,6 +135,26 @@ namespace Protectora.Presentacion
             pagSocios.CargarSocios();
 
             this.Close();
+        }
+
+        private void BtnImagen_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog fd = new Microsoft.Win32.OpenFileDialog
+            {
+                Title = "Select a picture",
+                Filter = "Images|*.jpg;*.gif;*.bmp;*.png"
+            };
+            if (fd.ShowDialog() == true)
+            {
+                try
+                {
+                    txtImagenPerroNuevo.Text = fd.FileName;
+                }
+                catch (Exception ex)
+                {
+                    System.Windows.MessageBox.Show("Error al cargar la imagen " + ex.Message);
+                }
+            }
         }
     }
 }
