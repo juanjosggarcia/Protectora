@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MessageBox = System.Windows.MessageBox;
+using TextBox = System.Windows.Controls.TextBox;
 
 namespace Protectora.Presentacion
 {
@@ -309,7 +310,12 @@ namespace Protectora.Presentacion
         }
 
         private void btnEditCancelar_Click(object sender, RoutedEventArgs e)
-        { 
+        {
+            Perro perro = (Perro)ListViewPerros.Items[ListViewPerros.SelectedIndex];
+            SetPerro(perro);
+            TextBoxEdad.Foreground = Brushes.Black;
+            TextBoxPeso.Foreground = Brushes.Black;
+            TextBoxTamanio.Foreground = Brushes.Black;
             DesactivarTextBoxs();
         }
 
@@ -317,20 +323,30 @@ namespace Protectora.Presentacion
         {
             Perro perro = (Perro)ListViewPerros.Items[ListViewPerros.SelectedIndex];
 
-            perro.Id = Int32.Parse(TextBoxId.Text);
-            perro.Sexo = TextBoxSexo.Text;
-            perro.Nombre = TextBoxNombre.Text;
-            perro.Tamanio = Int32.Parse(TextBoxTamanio.Text);
-            perro.Estado = TextBoxEstado.Text;
-            perro.Peso = Int32.Parse(TextBoxPeso.Text);
-            perro.Edad = Int32.Parse(TextBoxEdad.Text);
-            perro.FechaEntrada = DateTime.Parse(TextBoxEntrada.Text);
-            perro.Descripcion = TextBoxDescripcion.Text;
-            perro.Raza = TextBoxRaza.Text;
+            try
+            {
+                perro.Sexo = TextBoxSexo.Text;
+                perro.Nombre = TextBoxNombre.Text;
+                perro.Tamanio = Int32.Parse(TextBoxTamanio.Text);
+                perro.Estado = TextBoxEstado.Text;
+                perro.Peso = Int32.Parse(TextBoxPeso.Text);
+                perro.Edad = Int32.Parse(TextBoxEdad.Text);
+                perro.FechaEntrada = DateTime.Parse(TextBoxEntrada.Text);
+                perro.Descripcion = TextBoxDescripcion.Text;
+                perro.Raza = TextBoxRaza.Text;
+                GestorAnimal.modificarPerro(perro);
+                DesactivarTextBoxs();
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex);
+                ComprobarEntradaInt(TextBoxEdad.Text, TextBoxEdad);
+                ComprobarEntradaInt(TextBoxPeso.Text, TextBoxPeso);
+                ComprobarEntradaInt(TextBoxTamanio.Text, TextBoxTamanio);
 
-            GestorAnimal.modificarPerro(perro);
-
-            DesactivarTextBoxs();
+                //List<String> fila;
+            }
+            
             //Refresh();
         }
 
@@ -377,6 +393,32 @@ namespace Protectora.Presentacion
                 //Refresh();
             }
 
+        }
+        private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada)
+        {
+            int num;
+            bool cosa = int.TryParse(valorIntroducido, out num);
+            if (cosa == false)
+            {
+                componenteEntrada.Foreground = Brushes.Red;
+
+            }
+
+        }
+
+        private void PulsarEdad(object sender, RoutedEventArgs e)
+        {
+            TextBoxEdad.Foreground = Brushes.Black;
+        }
+
+        private void PulsarTamanio(object sender, RoutedEventArgs e)
+        {
+            TextBoxTamanio.Foreground = Brushes.Black;
+        }
+
+        private void PulsarPeso(object sender, RoutedEventArgs e)
+        {
+            TextBoxPeso.Foreground = Brushes.Black;
         }
 
     }
