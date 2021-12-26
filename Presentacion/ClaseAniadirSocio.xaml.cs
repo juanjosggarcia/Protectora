@@ -100,7 +100,7 @@ namespace Protectora.Presentacion
             txtPagoSocio.Foreground = new SolidColorBrush(Colors.Gray);
         }
 
-        private void NuevoPerro_Click(object sender, RoutedEventArgs e)
+        private void NuevoSocio_Click(object sender, RoutedEventArgs e)
         {
             Socio socio = new Socio
             {
@@ -113,12 +113,13 @@ namespace Protectora.Presentacion
                 FormaPago = txtPagoSocio.Text
 
             };
+            socio.Foto = "";
             //string s = txtImagenPerroNuevo.Text;
             //string[] subs = s.Split('\\');
             //perro.Foto = subs[subs.Length - 1];
             
 
-            //GestorAnimal.crearPerro(perro);
+            GestorPersona.crearSocio(socio);
             pagSocios.CargarSocios();
 
             this.Close();

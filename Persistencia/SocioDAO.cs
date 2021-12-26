@@ -58,7 +58,7 @@ namespace Protectora.Persistencia
             obj.Id = (Int32.Parse(agente.leer("SELECT MAX(Id) FROM personas")[0][0]));
 
             return agente.modificar("INSERT INTO socios ( datosBancarios, cuantiaAyuda, formaPago, IdPersona , foto) VALUES ('" + obj.DatosBancarios.ToString() + "'," +
-                " " + obj.CuantiaAyuda.ToString() + ", '" + obj.FormaPago.ToString() + "', " + obj.Id.ToString() + "', " + obj.Foto.ToString() + ");");
+                " " + obj.CuantiaAyuda.ToString() + ", '" + obj.FormaPago.ToString() + "', " + obj.Id.ToString() + ", '" + obj.Foto.ToString() + "');");
 
         }
 
