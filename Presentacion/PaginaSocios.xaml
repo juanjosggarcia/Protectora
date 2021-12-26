@@ -41,22 +41,22 @@
                         <ColumnDefinition Width="201*"/>
                         <ColumnDefinition Width="79*"/>
                         <ColumnDefinition Width="170*"/>
-                        <ColumnDefinition Width="150*"/>
-                        <ColumnDefinition Width="121*"/>
+                        <ColumnDefinition Width="181*"/>
+                        <ColumnDefinition Width="90*"/>
                     </Grid.ColumnDefinitions>
-                    <Image x:Name="ProfileImage" HorizontalAlignment="Left" Height="200" VerticalAlignment="Top" Width="200" Stretch="UniformToFill" Source="/Protectora;component/recursos/default.png" Grid.Column="1" Grid.RowSpan="5" Grid.Row="1">
+                    <Image x:Name="ProfileImageSocio" HorizontalAlignment="Left" Height="200" VerticalAlignment="Top" Width="200" Stretch="UniformToFill" Source="/Protectora;component/recursos/default.png" Grid.Column="1" Grid.RowSpan="5" Grid.Row="1">
                         <Image.Clip>
                             <EllipseGeometry Center="100,100" RadiusX="100" RadiusY="100" />
                         </Image.Clip>
                     </Image>
-                    <TextBox x:Name="TextBoxIdSocio" Style="{StaticResource TextBox1}" FontSize="14" Foreground="Black"  Width="Auto" Height="Auto" Margin="0,6,0,0" RenderTransformOrigin="0.5,0.5" Text="{Binding Path=Id}" Grid.Column="4" Grid.Row="1"/>
-                    <TextBox x:Name="TextBoxCorreoSocio" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14" Text="{Binding Path=Sexo}" Grid.Column="4" Grid.Row="3" Margin="0,5,0,0"/>
-                    <TextBox x:Name="TextBoxNombreSocio" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14" Text="{Binding Path=Nombre}" Grid.Column="4" Grid.Row="2"/>
-                    <TextBox x:Name="TextBoxDNISocio" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="150" FontSize="14" Text="{Binding Path=Tamanio}" Grid.Column="4" Grid.Row="4"/>
-                    <TextBox x:Name="TextBoxTelefonoSocio" GotFocus="PulsarTelefono" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14" Text="{Binding Path=Estado}" Grid.Column="4" Grid.Row="5"/>
-                    <TextBox x:Name="TextBoxCuantiaSocio" GotFocus="PulsarCuantia" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14" Text="{Binding Path=Peso}" Grid.Column="4" Grid.Row="7"/>
-                    <TextBox x:Name="TextBoxDatosBanSocio" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14" Text="{Binding Path=Edad}" Grid.Column="4" Grid.Row="6"/>
-                    <TextBox x:Name="TextBoxPagoSocio" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14" Text="{Binding Path=Entrada}" Grid.Column="4" Grid.Row="8" Grid.RowSpan="2"/>
+                    <TextBox x:Name="TextBoxIdSocio" Style="{StaticResource TextBox1}" FontSize="14" Foreground="Black"  Width="Auto" Height="Auto" Margin="0,6,1,0" RenderTransformOrigin="0.5,0.5" Text="{Binding Path=Id}" Grid.Column="4" Grid.Row="1"/>
+                    <TextBox x:Name="TextBoxCorreoSocio"  Style="{StaticResource TextBox1}" Height="35" TextWrapping="Wrap" VerticalAlignment="Top" Width="Auto" FontSize="14" Text="{Binding Path=Sexo}" Grid.Column="4" Grid.Row="3" Margin="0,5,1,0"/>
+                    <TextBox x:Name="TextBoxNombreSocio" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontSize="14" Text="{Binding Path=Nombre}" Grid.Column="4" Grid.Row="2"/>
+                    <TextBox x:Name="TextBoxDNISocio" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="180" FontSize="14" Text="{Binding Path=Tamanio}" Grid.Column="4" Grid.Row="4"/>
+                    <TextBox x:Name="TextBoxTelefonoSocio" GotFocus="PulsarTelefono" Style="{StaticResource TextBox1}" Height="35" Margin="0,5,1,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="Auto" FontSize="14" Text="{Binding Path=Estado}" Grid.Column="4" Grid.Row="5"/>
+                    <TextBox x:Name="TextBoxCuantiaSocio" GotFocus="PulsarCuantia" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontSize="14" Text="{Binding Path=Peso}" Grid.Column="4" Grid.Row="7"/>
+                    <TextBox x:Name="TextBoxDatosBanSocio" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontSize="14" Text="{Binding Path=Edad}" Grid.Column="4" Grid.Row="6"/>
+                    <TextBox x:Name="TextBoxPagoSocio" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontSize="14" Text="{Binding Path=Entrada}" Grid.Column="4" Grid.Row="8" Grid.RowSpan="2"/>
 
 
                     <Label x:Name="lblIdSocio" Content="Id:" HorizontalAlignment="Left" Height="37" Margin="0,3,0,0" VerticalAlignment="Top" Width="100" FontSize="18" Grid.Column="3" Grid.Row="1"/>
@@ -67,9 +67,7 @@
                     <Label x:Name="lblDatosBanSocio" Content="Datos bancarios:" HorizontalAlignment="Left" Height="36" Margin="0,4,0,0" VerticalAlignment="Top" Width="151" FontSize="18" Grid.Column="3" Grid.Row="6"/>
                     <Label x:Name="lblPagoSocio" Content="Forma de pago:" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" VerticalAlignment="Top" Width="151" FontSize="18" Grid.Column="3" Grid.Row="8" Grid.RowSpan="2"/>
                     <Label x:Name="lblTelefonoSocio" Content="Telefono:" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="3" Grid.Row="5"/>
-
-
-                    <Button x:Name="btnImagenSocio" Style="{StaticResource EstiloBotonCambioImagen}" Background="Transparent" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="200" Width="200" Opacity="0.5" Margin="0,2,0,0" Grid.RowSpan="6" Visibility="Hidden" IsEnabled="false" Grid.Row="1">
+                    <Button x:Name="btnImagenSocio" Click="BtnImagenSocio_Click" Style="{StaticResource EstiloBotonCambioImagen}" Background="Transparent" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="200" Width="200" Opacity="0.5" Margin="1,0,0,0" Grid.RowSpan="5" Visibility="Hidden" IsEnabled="false" Grid.Row="1">
                         <!--<Image Source="/recursos/editar.png" Width="55" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
                     </Button>
 
@@ -111,65 +109,4 @@
         </Grid>
     </Grid>
 
-    <!--<Grid>
-        <Grid x:Name="GridMain" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="869" Width="1710" Margin="0,0,0,2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="711.2" />
-                <ColumnDefinition Width="668.8" />
-
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="165*"/>
-                <RowDefinition Height="599*"/>
-                <RowDefinition Height="105"/>
-            </Grid.RowDefinitions>
-
-
-            <Border BorderBrush="white" Background="#FAF9F7" BorderThickness="4" CornerRadius="20" Margin="83,65,-198,52" Grid.Row="1" Grid.Column="1">
-                <Grid Margin="0,0,0,-4">
-                    <Image x:Name="ImagenPerfil" HorizontalAlignment="Left" Height="200" VerticalAlignment="Top" Width="200" Stretch="UniformToFill" Source="C:\Users\laura\source\repos\Protectora\recursos\default.png" Margin="61,133,0,0">
-                        <Image.Clip>
-                            <EllipseGeometry Center="100,100" RadiusX="100" RadiusY="100" />
-                        </Image.Clip>
-                    </Image>
-                    <TextBox x:Name="TextBoxIdSocio" Style="{StaticResource TextBox1}" FontSize="14" Foreground="Black"  Width="Auto" Height="35" Margin="510,78,121,365" RenderTransformOrigin="0.5,0.5" Text="{Binding Path=Id}"/>
-                    <TextBox x:Name="TextBoxCorreoSocio" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="510,158,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" FontSize="14" Text="{Binding Path=Sexo}"/>
-                    <TextBox x:Name="TextBoxNombreSocio" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="510,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" FontSize="14" Text="{Binding Path=Nombre}"/>
-                    <TextBox x:Name="TextBoxDNISocio" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="510,198,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="145" FontSize="14" Text="{Binding Path=Tamanio}"/>
-                    <TextBox x:Name="TextBoxTelefonoSocio" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="510,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" FontSize="14" Text="{Binding Path=Estado}"/>
-                    <TextBox x:Name="TextBoxCuantiaSocio" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="510,318,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" FontSize="14" Text="{Binding Path=Peso}"/>
-                    <TextBox x:Name="TextBoxDatosBanSocio" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="510,278,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" FontSize="14" Text="{Binding Path=Edad}"/>
-                    <TextBox x:Name="TextBoxPagoSocio" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="510,358,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" FontSize="14" Text="{Binding Path=Entrada}"/>
-                    <Button x:Name="PreviousProfileButton" Content="◀" HorizontalAlignment="Left" Margin="51,0,0,8.8" VerticalAlignment="Bottom" Width="40" Padding="1" FontFamily="Corbel" FontSize="10" Height="25" Foreground="#FF474747" BorderBrush="#FFAEAEAE"/>
-                    <Button x:Name="NextProfileButton" Content="▶" HorizontalAlignment="Left" Margin="716,0,0,8.8" VerticalAlignment="Bottom" Width="36" FontFamily="Corbel" FontSize="10" Height="25" Foreground="#FF474747" BorderBrush="#FFAEAEAE"    />
-                    <Button x:Name="EditProfileButton" Content="Edit" HorizontalAlignment="Left" Margin="116,0,0,9.8" VerticalAlignment="Bottom" Width="60" Padding="1,2,1,1" Height="25" Foreground="#FF474747" BorderBrush="#FFAEAEAE"/>
-                    <Button x:Name="btonBorrar" Content="Borrar" HorizontalAlignment="Left" Margin="201,0,0,9.8" VerticalAlignment="Bottom" Width="60"     Padding="1,2,1,1"  Height="25" Foreground="#FF474747" BorderBrush="#FFAEAEAE"/>
-                </Grid>
-            </Border>
-            <Button x:Name="NuevoSocio" Style="{StaticResource EstiloBotonMediano}" Content="Nuevo" HorizontalAlignment="Left" Margin="523,0,0,520" VerticalAlignment="Bottom" Width="102" RenderTransformOrigin="0.526,1.458" Height="39" Grid.Row="1"/>
-
-            <Label x:Name="lblIdSocio" Content="Id:" HorizontalAlignment="Left" Height="37" Margin="412,140,0,0" VerticalAlignment="Top" Width="100" FontSize="18" Grid.Column="1" Grid.Row="1"/>
-            <Label x:Name="lblNombreSocio" Content="Nombre:" HorizontalAlignment="Left" Height="37" Margin="412,0,0,380" VerticalAlignment="Bottom" Width="121" FontSize="18" Grid.Column="1" Grid.Row="1"/>
-            <Label x:Name="lblCorreoSocio" Content="Correo:" HorizontalAlignment="Left" Height="37" Margin="412,224,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="1" Grid.Row="1"/>
-            <Label x:Name="lblDNISocio" Content="DNI:" HorizontalAlignment="Left" Height="38" Margin="412,266,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="1" Grid.Row="1"/>
-            <Label x:Name="lblCuantiaSocio" Content="Cuantia:" HorizontalAlignment="Left" Height="36" Margin="412,390,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="1" Grid.Row="1"/>
-            <Label x:Name="lblDatosBanSocio" Content="Datos bancarios:" HorizontalAlignment="Left" Height="36" Margin="412,349,0,0" VerticalAlignment="Top" Width="151" FontSize="18" Grid.Column="1" Grid.Row="1"/>
-            <Label x:Name="lblPagoSocio" Content="Forma de pago:" HorizontalAlignment="Left" Height="36" Margin="412,431,0,0" VerticalAlignment="Top" Width="151" FontSize="18" Grid.Column="1" Grid.Row="1"/>
-            <Label x:Name="lblTelefonoSocio" Content="Telefono:" HorizontalAlignment="Left" Height="35" Margin="412,309,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="1" Grid.Row="1"/>
-            <ListView x:Name="ListViewSocios" Grid.Row="1" Foreground="#333" Background="#FAFBFD" FontFamily="Corbel" Margin="228,94,0,64" Padding="-3,-1" HorizontalAlignment="Left" Width="397" >
-                <ListView.View>
-
-                    <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle}">
-                        <GridViewColumn Header="ID" Width="120" DisplayMemberBinding="{Binding Id}" />
-                        <GridViewColumn Header="NOMBRE" Width="120" DisplayMemberBinding="{Binding Nombre}" />
-
-                    </GridView>
-                </ListView.View>
-                <ListViewItem>
-
-                </ListViewItem>
-            </ListView>
-
-        </Grid>
-    </Grid>-->
 </Page>
