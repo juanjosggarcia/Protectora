@@ -34,11 +34,6 @@ namespace Protectora.Presentacion
             CargarPerros();
             //Refresh();
         }
-        public List<Perro> idAccess
-        {
-            get { return listaPerro; }
-            
-        }
 
         private void BtnPdrino_Click(object sender, RoutedEventArgs e)
         {
