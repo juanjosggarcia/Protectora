@@ -71,7 +71,7 @@
                     <Label x:Name="lblEstado" Content="Estado:" HorizontalAlignment="Left" Height="35" Margin="0,4,0,0" VerticalAlignment="Top" Width="100" FontSize="18" Grid.Column="3" Grid.Row="4"/>
                     <Label x:Name="lblDescrpcion" Content="Descripcion:" HorizontalAlignment="Left" Height="36" Margin="74,10,0,0" VerticalAlignment="Top" Width="117" FontSize="18" Grid.Column="1" Grid.Row="9" RenderTransformOrigin="0.444,0.417"/>
 
-                    <Button x:Name="BtnPdrino" ToolTip="Padrino del perro" Content="PADRINO" Style="{StaticResource EstiloBotonMediano}" Click="BtnPdrino_Click" Grid.Column="1" Margin="28,15,0,0" Height="60" Width="152" Grid.Row="5" RenderTransformOrigin="0.182,-1.743" Grid.RowSpan="2"/>
+                    <Button x:Name="BtnPdrino" ToolTip="Padrino del perro" Content="PADRINO" Style="{StaticResource EstiloBotonMediano}" Click="BtnPdrino_Click" Grid.Column="1" Margin="28,15,0,0" Height="60" Width="152" Grid.Row="5" RenderTransformOrigin="0.182,-1.743" Grid.RowSpan="2" IsEnabled="False"/>
                     <Button x:Name="btnImagenPerro" Style="{StaticResource EstiloBotonCambioImagen}" Background="Transparent" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="200" Width="200" Opacity="0.5" Margin="0,52,0,0" Grid.RowSpan="5" Visibility="Hidden" Click="BtnImagenPerro_Click" IsEnabled="false">
                         <!--<Image Source="/recursos/editar.png" Width="55" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
                     </Button>

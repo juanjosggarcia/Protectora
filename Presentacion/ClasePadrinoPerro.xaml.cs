@@ -31,14 +31,19 @@ namespace Protectora.Presentacion
             Padrino padrino = new Padrino();
             padrino.Id = perro.Apadrinado;
             padrino = GestorPersona.obtenerPadrino(padrino);
-            lblNombrePadrino.Content = padrino.NombreCompleto;
-            lblDniPadrino.Content = padrino.Dni;
-            lblCorreoPadrino.Content = padrino.Correo;
-            lblTelefonoPadrino.Content = padrino.Telefono;
-            lblDatosBanPadrino.Content = padrino.DatosBancarios;
-            lblImportePadrino.Content = padrino.ImporteMensual;
-            lblPagoPadrino.Content = padrino.FormaPago;
-            lblComienzoPadrino.Content = padrino.FechaEntrada;
+            txtNombrePadrino.Text = padrino.NombreCompleto;
+            txtDniPadrino.Text = padrino.Dni;
+            txtCorreoPadrino.Text = padrino.Correo;
+            txtTelefonoPadrino.Text = padrino.Telefono.ToString();
+            txtDatosBanPadrino.Text = padrino.DatosBancarios.ToString();
+            txtImportePadrino.Text = padrino.ImporteMensual.ToString();
+            txtPagoPadrino.Text = padrino.FormaPago;
+            txtComienzoPadrino.Text = padrino.FechaEntrada.ToString();
+
+        }
+
+        private void BtnPdrino_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }

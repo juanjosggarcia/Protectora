@@ -62,11 +62,7 @@ namespace Protectora.Presentacion
             {
                 SetPerro(perro);
                 DesactivarTextBoxs();
-                if (perro.Apadrinado == 0)
-                {
-                    BtnPdrino.IsEnabled = false;
-                }
-                else
+                if (perro.Apadrinado != 0)
                 {
                     BtnPdrino.IsEnabled = true;
                 }
@@ -232,25 +228,26 @@ namespace Protectora.Presentacion
                 //perro.Id = idperro;
                 GestorAnimal.eliminarPerro(perro);
                 ListViewPerros.Items.RemoveAt(index);
+                TextBoxId.Text = "";
+                TextBoxSexo.Text = "";
+                TextBoxNombre.Text = "";
+                TextBoxTamanio.Text = "";
+                TextBoxEstado.Text = "";
+                TextBoxPeso.Text = "";
+                TextBoxEdad.Text = "";
+                TextBoxEntrada.Text = "";
+                TextBoxDescripcion.Text = "";
+                TextBoxRaza.Text = "";
+                //@"../fotosPerros/default.jpg"
+                string str = @"../fotosPerros/default.jpg";
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(str, UriKind.Relative);
+                bitmap.EndInit();
+                ProfileImage.Source = bitmap;
             }
             //SetPerro(ListViewPerros.Items.IndexOf;
-            TextBoxId.Text = "";
-            TextBoxSexo.Text = "";
-            TextBoxNombre.Text = "";
-            TextBoxTamanio.Text = "";
-            TextBoxEstado.Text = "";
-            TextBoxPeso.Text = "";
-            TextBoxEdad.Text = "";
-            TextBoxEntrada.Text = "";
-            TextBoxDescripcion.Text = "";
-            TextBoxRaza.Text = "";
-            //@"../fotosPerros/default.jpg"
-            string str = @"../fotosPerros/default.jpg";
-            BitmapImage bitmap = new BitmapImage();
-            bitmap.BeginInit();
-            bitmap.UriSource = new Uri(str, UriKind.Relative);
-            bitmap.EndInit();
-            ProfileImage.Source = bitmap;
+
 
 
         }
