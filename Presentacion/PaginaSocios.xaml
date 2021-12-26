@@ -53,8 +53,8 @@
                     <TextBox x:Name="TextBoxCorreoSocio" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14" Text="{Binding Path=Sexo}" Grid.Column="4" Grid.Row="3" Margin="0,5,0,0"/>
                     <TextBox x:Name="TextBoxNombreSocio" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14" Text="{Binding Path=Nombre}" Grid.Column="4" Grid.Row="2"/>
                     <TextBox x:Name="TextBoxDNISocio" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="150" FontSize="14" Text="{Binding Path=Tamanio}" Grid.Column="4" Grid.Row="4"/>
-                    <TextBox x:Name="TextBoxTelefonoSocio" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14" Text="{Binding Path=Estado}" Grid.Column="4" Grid.Row="5"/>
-                    <TextBox x:Name="TextBoxCuantiaSocio" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14" Text="{Binding Path=Peso}" Grid.Column="4" Grid.Row="7"/>
+                    <TextBox x:Name="TextBoxTelefonoSocio" GotFocus="PulsarTelefono" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14" Text="{Binding Path=Estado}" Grid.Column="4" Grid.Row="5"/>
+                    <TextBox x:Name="TextBoxCuantiaSocio" GotFocus="PulsarCuantia" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14" Text="{Binding Path=Peso}" Grid.Column="4" Grid.Row="7"/>
                     <TextBox x:Name="TextBoxDatosBanSocio" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14" Text="{Binding Path=Edad}" Grid.Column="4" Grid.Row="6"/>
                     <TextBox x:Name="TextBoxPagoSocio" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14" Text="{Binding Path=Entrada}" Grid.Column="4" Grid.Row="8" Grid.RowSpan="2"/>
 
@@ -80,11 +80,11 @@
             <Button x:Name="btnBuscarSocio" ToolTip="Buscar por nombre un perro" Style="{StaticResource EstiloBotonBuscar}" Content="Buscar" HorizontalAlignment="Left" Margin="526,0,0,522" VerticalAlignment="Bottom" Width="102" RenderTransformOrigin="0.526,1.458" Height="35" Grid.Row="1" />
 
 
-            <ListView Style="{StaticResource EstiloListView}" ToolTip="Listado de los socios en la perrera" Width="400" x:Name="ListViewSocios" Grid.Row="1" Foreground="#333" Background="#FAFBFD" FontFamily="Corbel" Margin="228,91,84,67" Padding="-3,-1"  IsSynchronizedWithCurrentItem="True" ScrollViewer.VerticalScrollBarVisibility="Auto" >
+            <ListView Style="{StaticResource EstiloListView}" ToolTip="Listado de los socios en la perrera" Width="400" x:Name="ListViewSocios" Grid.Row="1" Foreground="#333" Background="#FAFBFD" FontFamily="Corbel" Margin="228,91,84,67" Padding="-3,-1"  IsSynchronizedWithCurrentItem="True" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="ListaSocios_SelectionChanged" >
                 <ListView.View>
                     <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle}">
                         <GridViewColumn Header="ID" Width="195" DisplayMemberBinding="{Binding Id}"  />
-                        <GridViewColumn Header="NOMBRE" Width="195" DisplayMemberBinding="{Binding Nombre}" />
+                        <GridViewColumn Header="NOMBRE" Width="195" DisplayMemberBinding="{Binding NombreCompleto}" />
 
                     </GridView>
                 </ListView.View>
@@ -97,13 +97,13 @@
                         <ColumnDefinition Width="157*"/>
                         <ColumnDefinition Width="231*"/>
                     </Grid.ColumnDefinitions>
-                    <Button x:Name="btnEditSocio" ToolTip="Editar datos de un perro" Style="{StaticResource EstiloBotonMediano}" Content="Editar" HorizontalAlignment="Left" Margin="184,0,0,7" VerticalAlignment="Bottom" Width="95"     Padding="1,2,1,1" Height="34" IsEnabled="false" />
+                    <Button x:Name="btnEditSocio" ToolTip="Editar datos de un perro" Style="{StaticResource EstiloBotonMediano}" Content="Editar" HorizontalAlignment="Left" Margin="184,0,0,7" VerticalAlignment="Bottom" Width="95"     Padding="1,2,1,1" Height="34" IsEnabled="false" Click="BtnEditSocio_Click"/>
                     <Button x:Name="btnAnteriorSocio" ToolTip="Perro anterior" Style="{StaticResource EstiloBotonPequeño}" Content="◀ " HorizontalAlignment="Left" Margin="12,0,0,10" VerticalAlignment="Bottom" Width="34"    Padding="1" FontFamily="Corbel" FontSize="10" Height="34"  Click="BtnAnteriorSocio_Click" IsEnabled="false"/>
                     <Button x:Name="btnNextSocio" ToolTip="Perro siguiente" Style="{StaticResource EstiloBotonPequeño}" Content=" ▶" HorizontalAlignment="Left" Margin="179,0,0,10" VerticalAlignment="Bottom" Width="34" FontFamily="Corbel" FontSize="10" Height="34"  Click="BtnNextSocio_Click"   IsEnabled="false" Grid.Column="2"  />
-                    <Button x:Name="btnDeleteSocio" ToolTip="Eliminación de un perro" Style="{StaticResource EstiloBotonMediano}" Content="Borrar" HorizontalAlignment="Left" Margin="294,0,0,7" VerticalAlignment="Bottom" Width="95"     Padding="1,2,1,1" Height="34"  IsEnabled="false"  />
-                    <Button x:Name="btnEditCancelarSocio"  Style="{StaticResource EstiloBotonComprobacion}" Content="Cancelar" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom"     Padding="1,2,1,1" Height="34" IsEnabled="true"  Width="95" Grid.Column="1" Visibility="Hidden" />
-                    <Button x:Name="btnEditConfirmarSocio"  Style="{StaticResource EstiloBotonComprobacion}" Content="Confirmar" HorizontalAlignment="Left" Margin="284,0,0,10" VerticalAlignment="Bottom" Width="95"     Padding="1,2,1,1" Height="34" IsEnabled="true"  Visibility="Hidden"  />
-                    <Button x:Name="NuevoSocio" ToolTip="Añadir nuevo perro" Style="{StaticResource EstiloBotonMediano}" Content="Nuevo" HorizontalAlignment="Left" Margin="69,0,0,7" VerticalAlignment="Bottom" Width="102"  RenderTransformOrigin="0.526,1.458" Height="34"/>
+                    <Button x:Name="btnDeleteSocio" Click="BtnDeletePerro_Click" ToolTip="Eliminación de un perro" Style="{StaticResource EstiloBotonMediano}" Content="Borrar" HorizontalAlignment="Left" Margin="294,0,0,7" VerticalAlignment="Bottom" Width="95"     Padding="1,2,1,1" Height="34"  IsEnabled="false"  />
+                    <Button x:Name="btnEditCancelarSocio" Click="btnEditCancelarSocio_Click"  Style="{StaticResource EstiloBotonComprobacion}" Content="Cancelar" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom"     Padding="1,2,1,1" Height="34" IsEnabled="true"  Width="95" Grid.Column="1" Visibility="Hidden" />
+                    <Button x:Name="btnEditConfirmarSocio" Click="btnEditConfirmarSocio_Click" Style="{StaticResource EstiloBotonComprobacion}" Content="Confirmar" HorizontalAlignment="Left" Margin="284,0,0,10" VerticalAlignment="Bottom" Width="95"     Padding="1,2,1,1" Height="34" IsEnabled="true"  Visibility="Hidden"  />
+                    <Button x:Name="NuevoSocio" Click="ClickNuevoSocio" ToolTip="Añadir nuevo perro" Style="{StaticResource EstiloBotonMediano}" Content="Nuevo" HorizontalAlignment="Left" Margin="69,0,0,7" VerticalAlignment="Bottom" Width="102"  RenderTransformOrigin="0.526,1.458" Height="34"/>
 
                 </Grid>
             </Border>
