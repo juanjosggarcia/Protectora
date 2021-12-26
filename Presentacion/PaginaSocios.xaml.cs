@@ -109,7 +109,7 @@ namespace Protectora.Presentacion
                 bitmap.UriSource = new Uri(str, UriKind.Relative);
                 //bitmap.UriSource = new Uri(@"../fotosPerros/bichon.jpg", UriKind.Relative);
                 bitmap.EndInit();
-                ProfileImage.Source = bitmap;
+                ProfileImageSocio.Source = bitmap;
 
 
             }
@@ -144,6 +144,7 @@ namespace Protectora.Presentacion
 
         private void BtnEditSocio_Click(object sender, RoutedEventArgs e)
         {
+            ListViewSocios.IsEnabled = false;
             TextBoxIdSocio.IsEnabled = true;
             TextBoxCorreoSocio.IsEnabled = true;
             TextBoxNombreSocio.IsEnabled = true;
@@ -152,15 +153,17 @@ namespace Protectora.Presentacion
             TextBoxCuantiaSocio.IsEnabled = true;
             TextBoxDatosBanSocio.IsEnabled = true;
             TextBoxPagoSocio.IsEnabled = true;
+            btnImagenSocio.IsEnabled = true;
+
             btnEditCancelarSocio.Visibility = Visibility.Visible;
             btnEditConfirmarSocio.Visibility = Visibility.Visible;
+            btnImagenSocio.Visibility = Visibility.Visible;
             btnEditSocio.Visibility = Visibility.Hidden;
             btnDeleteSocio.Visibility = Visibility.Hidden;
             btnAnteriorSocio.Visibility = Visibility.Hidden;
             btnNextSocio.Visibility = Visibility.Hidden;
-            btnImagenSocio.Visibility = Visibility.Visible;
             NuevoSocio.Visibility = Visibility.Hidden;
-            ListViewSocios.IsEnabled = false;
+
 
         }
 
@@ -261,6 +264,35 @@ namespace Protectora.Presentacion
             }
             //SetPerro(ListViewPerros.Items.IndexOf;
 
+
+
+        }
+        private void BtnImagenSocio_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog op = new OpenFileDialog
+            {
+                Title = "Select a picture",
+                Filter = "Images|*.jpg;*.gif;*.bmp;*.png"
+            };
+            BitmapImage bitmap = new BitmapImage();
+            op.ShowDialog();
+
+            try
+            {
+                string str = op.FileName;
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(str);
+                bitmap.EndInit();
+                ProfileImageSocio.Source = bitmap;
+
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message != "URI no válido: URI está vacío.")
+                {
+                    MessageBox.Show("Error al cargar la imagen " + ex.Message);
+                }
+            }
 
 
         }
