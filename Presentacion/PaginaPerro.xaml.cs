@@ -41,9 +41,19 @@ namespace Protectora.Presentacion
 
         private void BtnPdrino_Click(object sender, RoutedEventArgs e)
         {
-            Perro perro = (Perro)ListViewPerros.Items[ListViewPerros.SelectedIndex];
-            ClasePadrinoPerro Padrinito = new ClasePadrinoPerro(perro);
-            Padrinito.Show();
+           // Perro perro = (Perro)ListViewPerros.Items[ListViewPerros.SelectedIndex];
+            ClasePadrinoPerro winPadrino = System.Windows.Application.Current.Windows.OfType<ClasePadrinoPerro>().FirstOrDefault();
+
+            if (winPadrino == null)
+            {
+                Perro perro = (Perro)ListViewPerros.Items[ListViewPerros.SelectedIndex];
+                winPadrino = new ClasePadrinoPerro(this, perro);
+            }
+            winPadrino.Show();
+
+
+            //ClasePadrinoPerro Padrinito = new ClasePadrinoPerro(perro);
+            //Padrinito.Show();
         }
 
         private void ClickNuevoPerro(object sender, RoutedEventArgs e)
@@ -65,6 +75,10 @@ namespace Protectora.Presentacion
                 if (perro.Apadrinado != 0)
                 {
                     BtnPdrino.IsEnabled = true;
+                }
+                else
+                {
+                    BtnPdrino.IsEnabled = false;
                 }
 
             }
@@ -190,6 +204,7 @@ namespace Protectora.Presentacion
             TextBoxDescripcion.IsEnabled = true;
             TextBoxEstado.IsEnabled = true;
             btnImagenPerro.IsEnabled = true;
+            BtnPdrino.IsEnabled = true;
             btnEditCancelar.Visibility = Visibility.Visible;
             btnEditConfirmar.Visibility = Visibility.Visible;
             btnEditPerro.Visibility = Visibility.Hidden;
@@ -200,6 +215,18 @@ namespace Protectora.Presentacion
             NuevoPerro.Visibility = Visibility.Hidden;
             ListViewPerros.IsEnabled = false;
 
+            Perro perro = (Perro)ListViewPerros.Items[ListViewPerros.SelectedIndex];
+            ClasePadrinoPerro winPadrino = new ClasePadrinoPerro(this, perro);
+            winPadrino.BtnAceptarCambios.Visibility = Visibility.Visible;
+            winPadrino.BtnAceptarCambios.IsEnabled = true;
+            winPadrino.txtNombrePadrino.IsEnabled = true;
+            winPadrino.txtDniPadrino.IsEnabled = true;
+            winPadrino.txtCorreoPadrino.IsEnabled = true;
+            winPadrino.txtTelefonoPadrino.IsEnabled = true;
+            winPadrino.txtDatosBanPadrino.IsEnabled = true;
+            winPadrino.txtImportePadrino.IsEnabled = true;
+            winPadrino.txtPagoPadrino.IsEnabled = true;
+            winPadrino.txtComienzoPadrino.IsEnabled = true;
         }
 
         private void BtnDeletePerro_Click(object sender, RoutedEventArgs e)

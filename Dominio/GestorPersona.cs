@@ -24,5 +24,10 @@ namespace Protectora.Dominio
             return (int)padrino.InsertarPadrino().Id;
 
         }
+
+        public static void modificarPadrino(Padrino padrino, Perro perro)
+        {
+            padrino.ModificarPadrino();
+        }
     }
 }
