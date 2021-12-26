@@ -20,17 +20,25 @@ namespace Protectora.Presentacion
     /// </summary>
     public partial class ClasePadrinoPerro : Window
     {
-        public ClasePadrinoPerro(Perro perro)
+        PaginaPerro pagPerro;
+        Perro perro;
+        Padrino padrino;
+        public ClasePadrinoPerro(PaginaPerro p, Perro perro)
         {
             InitializeComponent();
-            mostrarPadrino(perro);
+            pagPerro = p;
+            this.perro = perro;
+            mostrarPadrino();
         }
 
-        public void mostrarPadrino(Perro perro)
+        public void mostrarPadrino()
         {
-            Padrino padrino = new Padrino();
+            //Padrino padrino = new Padrino();
+            padrino = new Padrino();
             padrino.Id = perro.Apadrinado;
             padrino = GestorPersona.obtenerPadrino(padrino);
+            if (padrino != null)
+            {
             txtNombrePadrino.Text = padrino.NombreCompleto;
             txtDniPadrino.Text = padrino.Dni;
             txtCorreoPadrino.Text = padrino.Correo;
@@ -39,11 +47,38 @@ namespace Protectora.Presentacion
             txtImportePadrino.Text = padrino.ImporteMensual.ToString();
             txtPagoPadrino.Text = padrino.FormaPago;
             txtComienzoPadrino.Text = padrino.FechaEntrada.ToString();
-
+            }
         }
 
         private void BtnPdrino_Click(object sender, RoutedEventArgs e)
         {
+            bool existe = true;
+            int idPadrino;
+            //Padrino padrino = new Padrino();
+            if (padrino == null)
+            {
+                padrino = new Padrino();
+                existe = false;
+            }
+            padrino.NombreCompleto = txtNombrePadrino.Text;
+            padrino.Dni = txtDniPadrino.Text;
+            padrino.Correo = txtCorreoPadrino.Text;
+            padrino.Telefono = Int32.Parse(txtTelefonoPadrino.Text);
+            padrino.DatosBancarios = txtDatosBanPadrino.Text;
+            padrino.ImporteMensual = Int32.Parse(txtImportePadrino.Text);
+            padrino.FormaPago = txtPagoPadrino.Text;
+            padrino.FechaEntrada = DateTime.Parse(txtComienzoPadrino.Text);
+            if (existe == true)
+            {
+                GestorPersona.modificarPadrino(padrino, perro);
+            }
+            else
+            {
+                idPadrino = GestorPersona.addPadrino(padrino, perro);
+                perro.Apadrinado = idPadrino;
+                GestorAnimal.modificarPerro(perro);
+            }
+            Close();
 
         }
     }
