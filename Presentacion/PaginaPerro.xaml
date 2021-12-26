@@ -44,7 +44,7 @@
                         <ColumnDefinition Width="150*"/>
                         <ColumnDefinition Width="121*"/>
                     </Grid.ColumnDefinitions>
-                    <Image x:Name="ProfileImage" HorizontalAlignment="Left" Height="200" VerticalAlignment="Top" Width="200" Stretch="UniformToFill" Source="C:\Users\laura\source\repos\Protectora\recursos\default.png" Grid.Column="1" Margin="0,52,0,0" Grid.RowSpan="5">
+                    <Image x:Name="ProfileImage" HorizontalAlignment="Left" Height="200" VerticalAlignment="Top" Width="200" Stretch="UniformToFill" Source="/Protectora;component/recursos/default.png" Grid.Column="1" Margin="0,52,0,0" Grid.RowSpan="5">
                         <Image.Clip>
                             <EllipseGeometry Center="100,100" RadiusX="100" RadiusY="100" />
                         </Image.Clip>
