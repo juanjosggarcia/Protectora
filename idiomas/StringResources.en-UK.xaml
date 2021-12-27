@@ -10,6 +10,16 @@
     <sys:String x:Key="tooltipoInformacion">More information</sys:String>
     <sys:String x:Key="tooltipolvidadacontrasenia">If you forgot your password you can check it here</sys:String>
     <sys:String x:Key="tooltipIniciarSesion">Log in in the application</sys:String>
+    <sys:String x:Key="tooltipIdioma">Change the language of the application</sys:String>
+    <sys:String x:Key="puesto">Developer</sys:String>
+    <sys:String x:Key="specs">Specifications</sys:String>
+    <sys:String x:Key="Version">Version:</sys:String>
+    <sys:String x:Key="fechaLanzamiento">Release date:</sys:String>
+    <sys:String x:Key="autores">Authors</sys:String>
+
+
+
+
 
 
 

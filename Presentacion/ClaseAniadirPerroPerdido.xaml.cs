@@ -11,19 +11,20 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Protectora.Dominio;
 
 namespace Protectora.Presentacion
 {
     /// <summary>
-    /// Lógica de interacción para ClaseAcercaDe.xaml
+    /// Lógica de interacción para ClaseAniadirPerroPerdido.xaml
     /// </summary>
-    public partial class ClaseAcercaDe : Window
+    public partial class ClaseAniadirPerroPerdido : Window
     {
-        MainWindow mainwindow;
-        public ClaseAcercaDe(MainWindow m)
+        PaginaAvisos pagAviso;
+        public ClaseAniadirPerroPerdido(PaginaAvisos p)
         {
             InitializeComponent();
-            mainwindow = m;
+            pagAviso = p;
         }
     }
 }

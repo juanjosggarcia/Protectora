@@ -74,6 +74,7 @@ namespace Protectora.Presentacion
             btnAnteriorVoluntario.Visibility = Visibility.Hidden;
             btnNextVoluntario.Visibility = Visibility.Hidden;
             btnImagenVol.Visibility = Visibility.Visible;
+
             NuevoVoluntario.Visibility = Visibility.Hidden;
             ListViewVoluntarios.IsEnabled = false;
 

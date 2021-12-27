@@ -75,6 +75,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Presentacion\ClaseAniadirPerroPerdido.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Presentacion\ClaseAniadirSocio.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -84,6 +88,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Presentacion\ClaseContraseniaOlvidada.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\ClaseDuenio.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -131,6 +139,9 @@
     <Compile Include="Presentacion\ClaseAniadirPerro.xaml.cs">
       <DependentUpon>ClaseAniadirPerro.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\ClaseAniadirPerroPerdido.xaml.cs">
+      <DependentUpon>ClaseAniadirPerroPerdido.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\ClaseAniadirSocio.xaml.cs">
       <DependentUpon>ClaseAniadirSocio.xaml</DependentUpon>
     </Compile>
@@ -139,6 +150,9 @@
     </Compile>
     <Compile Include="Presentacion\ClaseContraseniaOlvidada.xaml.cs">
       <DependentUpon>ClaseContraseniaOlvidada.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\ClaseDuenio.xaml.cs">
+      <DependentUpon>ClaseDuenio.xaml</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\ClasePadrinoPerro.xaml.cs">
       <DependentUpon>ClasePadrinoPerro.xaml</DependentUpon>

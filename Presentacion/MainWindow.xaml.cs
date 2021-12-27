@@ -147,9 +147,11 @@ namespace Protectora
             {
                 case 0:
                     idioma = "es-ES";
+                    txtUsuario.Text = "Nombre de usuario";
                     break;
                 case 1:
                     idioma = "en-UK";
+                    txtUsuario.Text = "Username";
                     break;
             }
             Resources.MergedDictionaries.Add(App.DefineIdioma(idioma));
@@ -157,7 +159,7 @@ namespace Protectora
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ClaseAcercaDe Ad = new ClaseAcercaDe();
+            ClaseAcercaDe Ad = new ClaseAcercaDe(this);
             Ad.Show();
         }
     }
