@@ -36,5 +36,33 @@ namespace Protectora.Dominio
         {
             perro.EliminarPerro();
         }
+
+        public static List<Aviso> obtenerTodosAvisos()
+        {
+            Aviso aviso = new Aviso();
+            aviso.LeerTodosAvisos();
+            if (aviso.AviDAO.avisos.Count != 0)
+            {
+                return aviso.AviDAO.avisos;
+            }
+            return null;
+
+        }
+
+        public static void crearAviso(Aviso aviso)
+        {
+            aviso.InsertarAviso();
+
+        }
+
+        public static void modificarAviso(Aviso aviso)
+        {
+            aviso.ModificarAviso();
+        }
+
+        public static void eliminarAviso(Aviso aviso)
+        {
+            aviso.EliminarAviso();
+        }
     }
 }
