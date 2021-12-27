@@ -72,5 +72,10 @@ namespace Protectora.Presentacion
             txtPagoPadrino.IsEnabled = true;
             txtComienzoPadrino.IsEnabled = true;*/
         }
+
+        private void BtnAceptarCambiosDuenio_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
