@@ -54,6 +54,7 @@ namespace Protectora.Dominio
 
         public List<Voluntario> LeerTodosVoluntarios()
         {
+            /*
             List<Voluntario> arrayVoluntarios = new List<Voluntario>();
 
             VoluntarioDAO volDao = new VoluntarioDAO();
@@ -61,7 +62,9 @@ namespace Protectora.Dominio
 
             Console.Write(" ");
 
-            return arrayVoluntarios;
+            return arrayVoluntarios;*/
+
+            return VolDAO.leerTodas();
         }
 
     }

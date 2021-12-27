@@ -26,11 +26,28 @@ namespace Protectora.Presentacion
     /// </summary>
     public partial class PaginaVoluntarios : Page
     {
-        public List<Voluntario> listaPerro = new List<Voluntario>();
+        public List<Voluntario> listaVoluntario = new List<Voluntario>();
         public PaginaVoluntarios()
         {
             InitializeComponent();
-            //CargarSocios();
+            CargarVoluntarios();
+        }
+        public void CargarVoluntarios()
+        {
+            List<Voluntario> voluntarios = GestorPersona.obtenerTodosVoluntarios();
+            //socios = GestorPersona.obtenerTodosSocios();
+            ListViewVoluntarios.Items.Clear();
+            foreach (Voluntario voluntario in voluntarios)
+            {
+                if (string.IsNullOrEmpty(voluntario.Foto))
+                {
+                    //perro.Foto = "C:\\Users\\laura\\source\\repos\\Protectora\\recursos\\default.png";
+                    voluntario.Foto = "default.jpg";
+                }
+                listaVoluntario.Add(voluntario);
+                ListViewVoluntarios.Items.Add(voluntario);
+            }
+
         }
 
         private void ClickNuevoVoluntario(object sender, RoutedEventArgs e)
@@ -65,8 +82,8 @@ namespace Protectora.Presentacion
         private void BtnDeleteVoluntario_Click(object sender, RoutedEventArgs e)
         {
             int index = ListViewVoluntarios.SelectedIndex;
-            string message = "¿Estas seguro que quieres eliminar el perro seleccionado?";
-            string caption = "Eliminación de perro";
+            string message = "¿Estas seguro que quieres eliminar el voluntario seleccionado?";
+            string caption = "Eliminación de voluntario";
             MessageBoxButton buttons = MessageBoxButton.YesNo;
             DialogResult result;
 
@@ -76,7 +93,7 @@ namespace Protectora.Presentacion
             {
                 // Closes the parent form.
                 //System.Windows.Forms.ListViewItem item = (System.Windows.Forms.ListViewItem)ListViewPerros.Items[ListViewPerros.SelectedIndex];
-                Perro perro = (Perro)ListViewVoluntarios.Items[ListViewVoluntarios.SelectedIndex];
+                Voluntario voluntario = (Voluntario)ListViewVoluntarios.Items[ListViewVoluntarios.SelectedIndex];
 
                 //int idperro = item.SubItems[0].Text;
                 //int cosa= ListViewPerros.ListViewSubItem();
@@ -86,7 +103,7 @@ namespace Protectora.Presentacion
                 //int idperro = Int32.Parse(TextBoxId.Text);
 
                 //perro.Id = idperro;
-                GestorAnimal.eliminarPerro(perro);
+                GestorPersona.eliminarVoluntario(voluntario);
                 ListViewVoluntarios.Items.RemoveAt(index);
                 TextBoxIdVol.Text = "";
                 TextBoxNombreVol.Text = "";
@@ -97,7 +114,7 @@ namespace Protectora.Presentacion
                 TextBoxHorarioVol.Text = "";
                 btnImagenVol.IsEnabled = true;
                 //@"../fotosPerros/default.jpg"
-                string str = @"../fotosPerros/default.jpg";
+                string str = @"../fotosPersona/default.jpg";
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
                 bitmap.UriSource = new Uri(str, UriKind.Relative);
@@ -193,7 +210,11 @@ namespace Protectora.Presentacion
                 voluntario.Horario = TextBoxHorarioVol.Text;
                 voluntario.ZonaDisponibilidad = TextBoxZonaVol.Text;
 
-                //GestorAnimal.modificarPerro(perro);
+                string s = ProfileImageVoluntario.Source.ToString();
+                string[] subs = s.Split('/');
+                voluntario.Foto = subs[subs.Length - 1];
+
+                GestorPersona.modificarVoluntario(voluntario);
                 DesactivarTextBoxsVol();
             }
             catch (Exception ex)
@@ -236,13 +257,11 @@ namespace Protectora.Presentacion
                 TextBoxTelefonoVol.Text = voluntario.Telefono.ToString();
                 TextBoxZonaVol.Text = voluntario.ZonaDisponibilidad;
                 TextBoxHorarioVol.Text = voluntario.Horario;
-
-                //string str = @"C:\Users\juanj\vs2019-workspace\Protectora\recursos\Fotosbd\" + perro.Foto;
-                string str = @"../fotosPerros/" + voluntario.Foto;
+                
+                string str = @"../fotosPersonas/" + voluntario.Foto;
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
                 bitmap.UriSource = new Uri(str, UriKind.Relative);
-                //bitmap.UriSource = new Uri(@"../fotosPerros/bichon.jpg", UriKind.Relative);
                 bitmap.EndInit();
                 ProfileImageVoluntario.Source = bitmap;
 

@@ -351,6 +351,11 @@ namespace Protectora.Presentacion
                 perro.FechaEntrada = DateTime.Parse(TextBoxEntrada.Text);
                 perro.Descripcion = TextBoxDescripcion.Text;
                 perro.Raza = TextBoxRaza.Text;
+
+                string s = ProfileImage.Source.ToString();
+                string[] subs = s.Split('/');
+                perro.Foto = subs[subs.Length - 1];
+
                 GestorAnimal.modificarPerro(perro);
                 DesactivarTextBoxs();
             }

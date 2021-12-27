@@ -24,7 +24,7 @@ namespace Protectora.Persistencia
             //List<List<String>> arrayCarSocios = new List<List<String>>();
             //arrayCarSocios = agente.leer("SELECT * FROM personas p, socios s WHERE p.id=s.idPersona");
 
-            List<List<String>> arrayCarSocios = AgenteDB.obtenerAgente().leer("SELECT * FROM personas p, socios s WHERE p.id=s.idPersona");
+            List<List<String>> arrayCarSocios = AgenteDB.obtenerAgente().leer("SELECT * FROM personas p, socios s WHERE p.id=s.idPersona order by p.id");
 
             foreach (List<String> user in arrayCarSocios)
             {

@@ -246,11 +246,16 @@ namespace Protectora.Presentacion
                 //Foto = txtImagenPerroNuevo.Text,
                 Raza = txtRazaPerro.Text
             };
-            string s = txtImagenPerroNuevo.Text;
-            string[] subs = s.Split('\\');
-            perro.Foto = subs[subs.Length-1];
-            //perro.Foto = string.Join("", subs);
-
+            if (string.IsNullOrEmpty(txtImagenPerroNuevo.Text) || txtImagenPerroNuevo.Text=="Imagen")
+            {
+                perro.Foto = "default.jpg";
+            }
+            else {
+                string s = txtImagenPerroNuevo.Text;
+                string[] subs = s.Split('\\');
+                perro.Foto = subs[subs.Length - 1];
+                //perro.Foto = string.Join("", subs);
+            }
 
             //ventana.paneles[0].CrearPerro(perro);
             //pagPerro.CrearPerro(perro);

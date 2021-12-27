@@ -194,6 +194,10 @@ namespace Protectora.Presentacion
                 socio.Dni = TextBoxDNISocio.Text;
                 socio.FormaPago = TextBoxPagoSocio.Text;
 
+                string s = ProfileImageSocio.Source.ToString();
+                string[] subs = s.Split('/');
+                socio.Foto = subs[subs.Length - 1];
+
                 GestorPersona.modificarSocio(socio);
                 DesactivarTextBoxsSocios();
             }

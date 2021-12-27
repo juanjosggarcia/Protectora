@@ -56,5 +56,32 @@ namespace Protectora.Dominio
         {
             socio.EliminarSocio();
         }
+
+
+        public static List<Voluntario> obtenerTodosVoluntarios()
+        {
+            Voluntario voluntario = new Voluntario();
+            voluntario.LeerTodosVoluntarios();
+            if (voluntario.VolDAO.voluntarios.Count != 0)
+            {
+                return voluntario.VolDAO.voluntarios;
+            }
+            return null;
+
+        }
+        public static void crearVoluntario(Voluntario voluntario)
+        {
+            voluntario.InsertarVoluntario();
+        }
+
+        public static void modificarVoluntario(Voluntario voluntario)
+        {
+            voluntario.ModificarVoluntario();
+        }
+
+        public static void eliminarVoluntario(Voluntario voluntario)
+        {
+            voluntario.EliminarVoluntario();
+        }
     }
 }
