@@ -79,6 +79,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Presentacion\ClaseAniadirVoluntario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Presentacion\ClaseContraseniaOlvidada.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -129,6 +133,9 @@
     </Compile>
     <Compile Include="Presentacion\ClaseAniadirSocio.xaml.cs">
       <DependentUpon>ClaseAniadirSocio.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\ClaseAniadirVoluntario.xaml.cs">
+      <DependentUpon>ClaseAniadirVoluntario.xaml</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\ClaseContraseniaOlvidada.xaml.cs">
       <DependentUpon>ClaseContraseniaOlvidada.xaml</DependentUpon>
