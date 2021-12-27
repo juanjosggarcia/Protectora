@@ -70,12 +70,12 @@
                             <TranslateTransform/>
                         </TransformGroup>
                     </Grid.RenderTransform>
-                    <Button x:Name="ButtonOpenMenu"  Style="{StaticResource EstiloBotonVolver}" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Top"   Click="ButtonOpenMenu_Click" ToolTip="Menu">
+                    <Button x:Name="ButtonOpenMenu"  Style="{StaticResource EstiloBotonVolver}" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Top"   Click="ButtonOpenMenu_Click" ToolTip="Abrir menu">
                         <StackPanel>
                             <Image Source="/Protectora;component/recursos/menu.png" Width="27" Height="33"/>
                         </StackPanel>
                     </Button>
-                    <Button x:Name="ButtonCloseMenu" Visibility="Collapsed" Style="{StaticResource EstiloBotonVolver}" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top" Click="ButtonCloseMenu_Click">
+                    <Button x:Name="ButtonCloseMenu" Visibility="Collapsed" Style="{StaticResource EstiloBotonVolver}" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top" Click="ButtonCloseMenu_Click" ToolTip="Cerrar menu">
                         <StackPanel>
                             <Image Source="/Protectora;component/recursos/left-chevron.png" Width="27" Height="33"/>
                         </StackPanel>
@@ -88,7 +88,7 @@
 
                 <ListView x:Name="ListViewMenu" Foreground="Black" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListViewMenu_SelectionChanged" HorizontalAlignment="Left" VerticalAlignment="Center" >
                     <ListViewItem x:Name="ItemPerros" Height="60" Style="{StaticResource Style2}" >
-                        <Button x:Name="BotonListPerro" BorderBrush="white" Background="White" Click="BotonListPerro_Click" Height="43" Style="{StaticResource EstiloBotonLista}">
+                        <Button x:Name="BotonListPerro" BorderBrush="white" Background="White" Click="BotonListPerro_Click" Height="43" Style="{StaticResource EstiloBotonLista}" ToolTip="Gestion d">
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="/Protectora;component/recursos/hot-dog.png" Width="58" Height="34" />
                                 <TextBlock Text="Avisos de perros perdidos" FontSize="16" VerticalAlignment="Center"  Margin="20 10"/>
