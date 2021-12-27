@@ -60,15 +60,6 @@
             </Grid>
         </Border>
 
-        <!--<Border BorderBrush="white" Background="#FAF9F7" BorderThickness="4" CornerRadius="20" Grid.Column ="1" Grid.Row="5">
-            <Grid Grid.Column ="1" Grid.Row="5" >
-                <Image x:Name="Alberto" HorizontalAlignment="Left" Height="81" VerticalAlignment="Top" Width="80" Stretch="UniformToFill" Source="/recursos/boy.png" Margin="6,20,0,0"/>
-                <Label Margin="116,16,31,31" Content="Alberto Garcia Aparicio" FontFamily="Lucida Sans Unicode" FontSize="20"/>
-                <Label Margin="116,55,31,17" Content="{DynamicResource puesto}" FontFamily="Lucida Sans Unicode" FontSize="13"/>
-
-            </Grid>
-        </Border>-->
-
         <Border BorderBrush="white" Background="#FAF9F7" BorderThickness="4" CornerRadius="20" Grid.Column="3"  Grid.RowSpan="5" Grid.Row="1">
             <Grid Grid.Column ="1" Grid.Row="1" >
                 <Label Margin="221,41,161,326" Content="0.6.2" FontFamily="Lucida Sans Unicode" FontSize="18"/>

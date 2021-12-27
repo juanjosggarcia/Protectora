@@ -29,5 +29,10 @@ namespace Protectora.Presentacion
             pagAviso = p;
             perro = pe;
         }
+
+        private void BtnAceptarCambiosDuenio_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

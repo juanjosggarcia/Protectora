@@ -26,5 +26,6 @@ namespace Protectora.Presentacion
             App.DefineIdioma("es-ES");
             mainwindow = m;
         }
+
     }
 }
