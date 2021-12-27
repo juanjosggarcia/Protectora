@@ -8,6 +8,16 @@ namespace Protectora.Dominio
 {
     class GestorAnimal
     {
+        public static Perro obtenerPerro(Perro perro)
+        {
+            perro.LeerPerroName();
+            if (perro.AniDAO.animales.Count != 0)
+            {
+                return perro.AniDAO.animales[0];
+            }
+            return null;
+
+        }
 
         public static List<Perro> obtenerTodosPerros()
         {

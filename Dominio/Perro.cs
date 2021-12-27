@@ -54,5 +54,10 @@ namespace Protectora
             return AniDAO.leerTodas();
         }
 
+        public Perro LeerPerroName()
+        {
+            return AniDAO.leerName(this);
+        }
+
     }
 }
