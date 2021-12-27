@@ -101,7 +101,7 @@ namespace Protectora.Presentacion
             txtImagenVoluntarioNuevo.Foreground = new SolidColorBrush(Colors.Gray);
         }
 
-        private void NuevoSocio_Click(object sender, RoutedEventArgs e)
+        private void NuevoVoluntario_Click(object sender, RoutedEventArgs e)
         {
             Voluntario voluntario = new Voluntario
             {
@@ -113,14 +113,20 @@ namespace Protectora.Presentacion
                 ZonaDisponibilidad = txtZonaDisVol.Text,
 
             };
-            voluntario.Foto = "";
-            //string s = txtImagenPerroNuevo.Text;
-            //string[] subs = s.Split('\\');
-            //perro.Foto = subs[subs.Length - 1];
 
+            if (string.IsNullOrEmpty(txtImagenVoluntarioNuevo.Text) || txtImagenVoluntarioNuevo.Text == "Imagen")
+            {
+                voluntario.Foto = "default.jpg";
+            }
+            else
+            {
+                string s = txtImagenVoluntarioNuevo.Text;
+                string[] subs = s.Split('\\');
+                voluntario.Foto = subs[subs.Length - 1];
+            }
 
-            //GestorPersona.crearSocio(socio);
-            //pagVoluntarios.CargarVoluntario();
+            GestorPersona.crearVoluntario(voluntario);
+            pagVoluntarios.CargarVoluntarios();
 
             this.Close();
         }

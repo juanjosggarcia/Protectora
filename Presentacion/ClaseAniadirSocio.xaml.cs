@@ -126,12 +126,22 @@ namespace Protectora.Presentacion
                 FormaPago = txtPagoSocio.Text
 
             };
-
-            socio.Foto = "default.jpg";
+            if (string.IsNullOrEmpty(txtImagenSocioNuevo.Text) || txtImagenSocioNuevo.Text == "Imagen")
+            {
+                socio.Foto = "default.jpg";
+            }
+            else
+            {
+                string s = txtImagenSocioNuevo.Text;
+                string[] subs = s.Split('\\');
+                socio.Foto = subs[subs.Length - 1];
+                //perro.Foto = string.Join("", subs);
+            }
+            //socio.Foto = "default.jpg";
             //string s = txtImagenPerroNuevo.Text;
             //string[] subs = s.Split('\\');
             //perro.Foto = subs[subs.Length - 1];
-            
+
 
             GestorPersona.crearSocio(socio);
             pagSocios.CargarSocios();
