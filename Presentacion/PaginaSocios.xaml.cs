@@ -130,6 +130,8 @@ namespace Protectora.Presentacion
             TextBoxCuantiaSocio.IsEnabled = false;
             TextBoxDatosBanSocio.IsEnabled = false;
             TextBoxPagoSocio.IsEnabled = false;
+            btnImagenSocio.IsEnabled = false;
+
 
             btnEditSocio.Visibility = Visibility.Visible;
             btnDeleteSocio.Visibility = Visibility.Visible;

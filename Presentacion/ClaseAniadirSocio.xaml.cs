@@ -104,13 +104,13 @@ namespace Protectora.Presentacion
         }
         private void LimpiarTextoImagen(object sender, EventArgs e)
         {
-            txtPagoSocio.Text = txtPagoSocio.Text == "Forma de pago" ? string.Empty : txtPagoSocio.Text;
-            txtPagoSocio.Foreground = new SolidColorBrush(Colors.Black);
+            txtImagenSocioNuevo.Text = txtImagenSocioNuevo.Text == "Imagen" ? string.Empty : txtImagenSocioNuevo.Text;
+            txtImagenSocioNuevo.Foreground = new SolidColorBrush(Colors.Black);
         }
         private void RellenarTextoImagen(object sender, EventArgs e)
         {
-            txtPagoSocio.Text = txtPagoSocio.Text == string.Empty ? "Forma de pago" : txtPagoSocio.Text;
-            txtPagoSocio.Foreground = new SolidColorBrush(Colors.Gray);
+            txtImagenSocioNuevo.Text = txtImagenSocioNuevo.Text == string.Empty ? "Imagen" : txtImagenSocioNuevo.Text;
+            txtImagenSocioNuevo.Foreground = new SolidColorBrush(Colors.Gray);
         }
 
         private void NuevoSocio_Click(object sender, RoutedEventArgs e)
@@ -149,7 +149,7 @@ namespace Protectora.Presentacion
             {
                 try
                 {
-                    txtImagenPerroNuevo.Text = fd.FileName;
+                    txtImagenSocioNuevo.Text = fd.FileName;
                 }
                 catch (Exception ex)
                 {
