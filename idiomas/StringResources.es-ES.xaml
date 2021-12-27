@@ -16,10 +16,20 @@
     <sys:String x:Key="Version">Versión:</sys:String>
     <sys:String x:Key="fechaLanzamiento">Fecha de lanzamiento:</sys:String>
     <sys:String x:Key="autores">Autores</sys:String>
+    <sys:String x:Key="iconos">Iconos:</sys:String>
+    <sys:String x:Key="fondos">Fondos de pantalla:</sys:String>
+    <sys:String x:Key="paleta">Paleta de colores:</sys:String>
+    <sys:String x:Key="entorno">Entorno de desarrollo:</sys:String>
+    <sys:String x:Key="volver">Volver a la pantalla de inicio de sesion</sys:String>
+    <sys:String x:Key="nombreUsuario">Usuario:</sys:String>
+    <sys:String x:Key="recordar">Recordar contraseña</sys:String>
+    <sys:String x:Key="tooltipRecordar">Recordar contraseña de su cuenta actual</sys:String>
 
-    
 
-    
+
+
+
+
 
 
 </ResourceDictionary>

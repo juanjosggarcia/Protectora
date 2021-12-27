@@ -135,7 +135,7 @@ namespace Protectora
 
         private void BtnOlvidarContraseña_Click(object sender, RoutedEventArgs e)
         {
-            ClaseContraseniaOlvidada Oc = new ClaseContraseniaOlvidada();
+            ClaseContraseniaOlvidada Oc = new ClaseContraseniaOlvidada(this);
             Oc.Show();
         }
 
