@@ -11,6 +11,15 @@
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
 
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Protectora;component/idiomas/StringResources.es-ES.xaml" />
+                <ResourceDictionary Source="/Protectora;component/idiomas/StringResources.en-UK.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
     <Window.Background>
         <ImageBrush ImageSource="/recursos/fondo22.jpg"/>
     </Window.Background>
@@ -36,7 +45,7 @@
         <Border BorderBrush="white" Background="#FAF9F7" BorderThickness="4" CornerRadius="20" Grid.Column="1"  Grid.Row="1">
             <Grid Grid.Column ="1" Grid.Row="1" >
                 <Label Margin="116,16,46,41" Content="Laura Morales Caro" FontFamily="Lucida Sans Unicode" FontSize="20"/>
-                <Label Margin="116,58,91,10" Content="Desarollador" FontFamily="Lucida Sans Unicode" FontSize="15"/>
+                <Label Margin="116,58,91,10" Content="{DynamicResource puesto}" FontFamily="Lucida Sans Unicode" FontSize="15"/>
 
                 <Image x:Name="Laura" HorizontalAlignment="Left" Height="81" VerticalAlignment="Top" Width="80" Stretch="UniformToFill" Source="/recursos/woman.png" Margin="10,16,0,0"/>
             </Grid>
@@ -46,29 +55,33 @@
             <Grid Grid.Column ="1" Grid.Row="3" >
                 <Image x:Name="Juanjo" HorizontalAlignment="Left" Height="81" VerticalAlignment="Top" Width="80" Stretch="UniformToFill" Source="/recursos/man.png" Margin="6,15,0,0"/>
                 <Label Margin="116,16,31,36" Content="Juan Jose Garcia Garcia" FontFamily="Lucida Sans Unicode" FontSize="20"/>
-                <Label Margin="116,56,31,20" Content="Desarrollador" FontFamily="Lucida Sans Unicode" FontSize="15"/>
+                <Label Margin="116,56,31,20" Content="{DynamicResource puesto}" FontFamily="Lucida Sans Unicode" FontSize="15"/>
 
             </Grid>
         </Border>
 
-        <Border BorderBrush="white" Background="#FAF9F7" BorderThickness="4" CornerRadius="20" Grid.Column ="1" Grid.Row="5">
+        <!--<Border BorderBrush="white" Background="#FAF9F7" BorderThickness="4" CornerRadius="20" Grid.Column ="1" Grid.Row="5">
             <Grid Grid.Column ="1" Grid.Row="5" >
                 <Image x:Name="Alberto" HorizontalAlignment="Left" Height="81" VerticalAlignment="Top" Width="80" Stretch="UniformToFill" Source="/recursos/boy.png" Margin="6,20,0,0"/>
                 <Label Margin="116,16,31,31" Content="Alberto Garcia Aparicio" FontFamily="Lucida Sans Unicode" FontSize="20"/>
-                <Label Margin="116,55,31,17" Content="Desarrollador" FontFamily="Lucida Sans Unicode" FontSize="15"/>
+                <Label Margin="116,55,31,17" Content="{DynamicResource puesto}" FontFamily="Lucida Sans Unicode" FontSize="13"/>
 
             </Grid>
-        </Border>
+        </Border>-->
 
         <Border BorderBrush="white" Background="#FAF9F7" BorderThickness="4" CornerRadius="20" Grid.Column="3"  Grid.RowSpan="5" Grid.Row="1">
             <Grid Grid.Column ="1" Grid.Row="1" >
-                <Label Margin="46,41,316,311" Content="Version: 5.2.3&#xD;&#xA;&#xD;&#xA;" FontFamily="Lucida Sans Unicode" FontSize="18"/>
-                <Label Margin="46,101,56,251" Content="Fecha de lanzamiento: 10 de enero, 2021&#xA;" FontFamily="Lucida Sans Unicode" FontSize="18"/>
+                <Label Margin="221,41,161,326" Content="0.6.2" FontFamily="Lucida Sans Unicode" FontSize="18"/>
+                <Label Margin="46,41,356,326" Content="{DynamicResource Version}" FontFamily="Lucida Sans Unicode" FontSize="18"/>
+
+                <Label Margin="46,86,336,281" Content="{DynamicResource fechaLanzamiento}" FontFamily="Lucida Sans Unicode" FontSize="18"/>
+                <Label Margin="221,86,86,281" Content="10 de enero, 2021" FontFamily="Lucida Sans Unicode" FontSize="18"/>
+
             </Grid>
         </Border>
 
-        <Label Content="Autores" Grid.Column="1" HorizontalAlignment="Center"  FontSize="50" VerticalAlignment="Center" Width="184" Height="70" Margin="104,105,142,30" FontFamily="HP Simplified"/>
-        <Label Content="Autores" Grid.Column="3" HorizontalAlignment="Center"  FontSize="50" VerticalAlignment="Center" Width="184" Height="70" Margin="161,105,175,30" FontFamily="HP Simplified"/>
+        <Label Content="{DynamicResource autores}" Grid.Column="1" HorizontalAlignment="Center"  FontSize="50" VerticalAlignment="Center" Width="184" Height="70" Margin="121,105,125,30" FontFamily="HP Simplified"/>
+        <Label Content="{DynamicResource specs}" Grid.Column="3" HorizontalAlignment="Center"  FontSize="50" VerticalAlignment="Center" Width="315" Height="70" Margin="105,105,100,30" FontFamily="HP Simplified"/>
 
     </Grid>
 </Window>

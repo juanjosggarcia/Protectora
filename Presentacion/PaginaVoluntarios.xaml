@@ -60,14 +60,14 @@
                     <Label x:Name="lblZonaVol" Content="Zona Disponible:" HorizontalAlignment="Left" Height="36" Margin="0,3,0,0" VerticalAlignment="Top" Width="156" FontSize="18" Grid.Column="3" Grid.Row="8"/>
                     <Label x:Name="lblHorarioVol" Content="Horario" HorizontalAlignment="Left" Margin="0,4,0,0" Width="151" FontSize="18" Grid.Column="3" Grid.Row="7"/>
                     <Label x:Name="lblTelefonoVol" Content="Telefono:" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="3" Grid.Row="6"/>
-                    <Button x:Name="btnImagenVol" Click="BtnImagenVoluntario_Click" Style="{StaticResource EstiloBotonCambioImagen}" Background="Transparent" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="200" Width="200" Opacity="0.5" Margin="1,0,0,0" Grid.RowSpan="5" Visibility="Hidden" IsEnabled="false" Grid.Row="1">
-                        <!--<Image Source="/recursos/editar.png" Width="55" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
-                    </Button>
                     <Image x:Name="ProfileImageVoluntario" HorizontalAlignment="Left" Height="200" VerticalAlignment="Top" Width="200" Stretch="UniformToFill" Source="/Protectora;component/recursos/default.png" Grid.Column="1" Grid.RowSpan="5" Grid.Row="1">
                         <Image.Clip>
                             <EllipseGeometry Center="100,100" RadiusX="100" RadiusY="100" />
                         </Image.Clip>
                     </Image>
+                    <Button x:Name="btnImagenVol" Click="BtnImagenVoluntario_Click" Style="{StaticResource EstiloBotonCambioImagen}" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Top" Height="200" Width="200" Opacity="0.5" Margin="1,0,0,0" Grid.RowSpan="5" Visibility="Hidden" IsEnabled="False" Grid.Row="1" Grid.Column="1">
+                        <!--<Image Source="/recursos/editar.png" Width="55" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
+                    </Button>
 
 
                 </Grid>

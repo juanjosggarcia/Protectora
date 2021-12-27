@@ -28,6 +28,7 @@ namespace Protectora.Presentacion
         //Dominio.Perro perro;
 
         public List<Perro> listaPerro = new List<Perro>();
+
         public PaginaPerro()
         {
             InitializeComponent();

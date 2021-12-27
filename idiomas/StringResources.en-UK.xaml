@@ -2,14 +2,25 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
-    <sys:String x:Key="lblId">Id:</sys:String>
-    <sys:String x:Key="lblNombre">Name:</sys:String>
-    <sys:String x:Key="lblsexo">Gender</sys:String>
-    <sys:String x:Key="lbltamanio">Size</sys:String>
-    <sys:String x:Key="lblPeso">Weight</sys:String>
-    <sys:String x:Key="lblEdad">Age</sys:String>
-    <sys:String x:Key="lblEntrada">Entry date</sys:String>
-    <sys:String x:Key="lblEstado">Condition</sys:String>
-    <sys:String x:Key="BtnPdrino">Sponsor</sys:String>
+    <sys:String x:Key="btnIniciarSesion">Log In</sys:String>
+    <sys:String x:Key="usuario">Username</sys:String>
+    <sys:String x:Key="contrasenia">Password</sys:String>
+    <sys:String x:Key="wrongLogin">You have entered an invalid username or password</sys:String>
+    <sys:String x:Key="contraseniaOlvidada">Forgot password?</sys:String>
+    <sys:String x:Key="tooltipoInformacion">More information</sys:String>
+    <sys:String x:Key="tooltipolvidadacontrasenia">If you forgot your password you can check it here</sys:String>
+    <sys:String x:Key="tooltipIniciarSesion">Log in in the application</sys:String>
+    <sys:String x:Key="tooltipIdioma">Change the language of the application</sys:String>
+    <sys:String x:Key="puesto">Developer</sys:String>
+    <sys:String x:Key="specs">Specifications</sys:String>
+    <sys:String x:Key="Version">Version:</sys:String>
+    <sys:String x:Key="fechaLanzamiento">Release date:</sys:String>
+    <sys:String x:Key="autores">Authors</sys:String>
+
+
+
+
+
+
 
 </ResourceDictionary>

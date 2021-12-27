@@ -45,15 +45,15 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <TextBox x:Name ="txtUsuario" Style="{StaticResource TextBox1}" Text="Nombre de Usuario" Grid.Column="2" Grid.Row="1" KeyDown="OnKeyDownHandler" PreviewMouseDown="LimpiarTexto" FontSize="17" Foreground="Gray" Margin="0,254,0,175" PreviewMouseUp="MostrarAyudaContrasenia" Width="Auto" Height="Auto"/>
+        <TextBox x:Name ="txtUsuario" Style="{StaticResource TextBox1}" Text="{DynamicResource usuario}" Grid.Column="2" Grid.Row="1" KeyDown="OnKeyDownHandler" PreviewMouseDown="LimpiarTexto" FontSize="17" Foreground="Gray" Margin="0,254,0,175" PreviewMouseUp="MostrarAyudaContrasenia" Width="Auto" Height="Auto"/>
         <PasswordBox x:Name ="txtContrasenia" Grid.Column="2" FontSize="16" Style="{StaticResource PasswordBoxStyle}" Margin="0,299,0,130" Grid.Row="1" VerticalAlignment="Center" Height="40" KeyDown="OnKeyDownHandler" RenderTransformOrigin="0.452,1.5" TextBlock.Foreground="Gray" Password="Contraseña"  PreviewMouseDown="LimpiarTextoContrasenia" PreviewMouseUp="MostrarAyuda"/>
 
-        <Button Name="BtnIniciarSesion" Style="{StaticResource EstiloBotonMediano}" Content="Iniciar Sesión" Click="BtnIniciarSesion_Click" Margin="53,364,68,0" Grid.Column="2" Grid.Row="1" ToolTip="Iniciar sesion en la aplicacion" HorizontalAlignment="Stretch" Width="Auto" >
+        <Button Name="BtnIniciarSesion" ToolTip="{DynamicResource tooltipIniciarSesion}" Style="{StaticResource EstiloBotonMediano}" Content="{DynamicResource btnIniciarSesion}" Click="BtnIniciarSesion_Click" Margin="53,364,68,0" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Stretch" Width="Auto" >
 
         </Button>
-        <Button Name="BtnOlvidarContraseña" Content="Olvidaste tu contraseña?" BorderThickness="2" Style="{StaticResource EstiloBotonOlvidarContrasenia}" HorizontalAlignment="Left" Height="34" Margin="24,425,0,0" VerticalAlignment="Top" Width="211" RenderTransformOrigin="0.591,1.088" Grid.Column="3" Grid.Row="1" FontFamily="Lucida Sans Unicode" Click="BtnOlvidarContraseña_Click" FontSize="16"/>
+        <Button Name="BtnOlvidarContraseña" Content="{DynamicResource contraseniaOlvidada}" BorderThickness="2" Style="{StaticResource EstiloBotonOlvidarContrasenia}" ToolTip="{DynamicResource tooltipolvidadacontrasenia}" HorizontalAlignment="Left" Height="34" Margin="24,425,0,0" VerticalAlignment="Top" Width="211" RenderTransformOrigin="0.591,1.088" Grid.Column="3" Grid.Row="1" FontFamily="Lucida Sans Unicode" Click="BtnOlvidarContraseña_Click" FontSize="16"/>
 
-        <ComboBox x:Name="ComboBoxIdioma" IsReadOnly="True" Style="{StaticResource EstiloComboBox}"  IsEditable="False" HorizontalAlignment="Left" Height="30" Margin="30,30,0,0" VerticalAlignment="Top" Width="155" Text="Idioma" SelectedIndex="0"  ToolTip="Cambiar el idioma de la aplicacion" SelectionChanged="ComboBox_SelectionChanged">
+        <ComboBox x:Name="ComboBoxIdioma" IsReadOnly="True" Style="{StaticResource EstiloComboBox}"  IsEditable="False" HorizontalAlignment="Left" Height="30" Margin="30,30,0,0" VerticalAlignment="Top" Width="155" Text="Idioma" SelectedIndex="0"  ToolTip="{DynamicResource tooltipIdioma}" SelectionChanged="ComboBox_SelectionChanged">
             <ComboBoxItem>
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/recursos/spain.png" Height="20" Width="33" />
@@ -67,8 +67,8 @@
                 </StackPanel>
             </ComboBoxItem>
         </ComboBox>
-        <Label x:Name="errorInicioSesion" Content="" HorizontalAlignment="Center" Height="30" Margin="27,219,43,220" VerticalAlignment="Center" Width="230" Grid.Row="1" FontFamily="{DynamicResource {x:Static SystemFonts.CaptionFontFamilyKey}}" Background="#00000000" FontSize="15" Foreground="#FFE00D0D" FontWeight="Normal" Grid.Column="2"/>
-        <Button Style="{StaticResource EstiloBotonGrande2}"  Grid.Column="5" HorizontalAlignment="Center" Margin="0,0,23,16" Grid.Row="3" VerticalAlignment="Center" Width="72" Height="70" Click="Button_Click">
+        <Label x:Name="errorInicioSesion" Content="{DynamicResource wrongLogin}"  HorizontalAlignment="Center" Height="30" Margin="242,219,235,220" VerticalAlignment="Center" Width="357" Grid.Row="1" FontFamily="{DynamicResource {x:Static SystemFonts.CaptionFontFamilyKey}}" Background="#00000000" FontSize="15" Foreground="#FFE00D0D" FontWeight="Normal" Grid.Column="1" Grid.ColumnSpan="3"/>
+        <Button Style="{StaticResource EstiloBotonGrande2}" ToolTip="{DynamicResource tooltipoInformacion}" Grid.Column="5" HorizontalAlignment="Center" Margin="0,0,23,16" Grid.Row="3" VerticalAlignment="Center" Width="72" Height="70" Click="Button_Click">
             <Image Source="/recursos/info.png" Width="55" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Button>
 
