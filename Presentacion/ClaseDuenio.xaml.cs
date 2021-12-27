@@ -67,27 +67,35 @@ namespace Protectora.Presentacion
 
         private void BtnAceptarCambiosDuenio_Click(object sender, RoutedEventArgs e)
         {
-            bool existe = true;
-            int idDuenio;
-            //Padrino padrino = new Padrino();
-            if (persona == null)
+            try
             {
-                persona = new Persona();
-                existe = false;
+                bool existe = true;
+                int idDuenio;
+                //Padrino padrino = new Padrino();
+                if (persona == null)
+                {
+                    persona = new Persona();
+                    existe = false;
+                }
+                persona.NombreCompleto = txtNombreDuenio.Text;
+                persona.Dni = txtDniDuenio.Text;
+                persona.Correo = txtCorreoDuenio.Text;
+                persona.Telefono = Int32.Parse(txtTelefonoDuenio.Text);
+                if (existe == true)
+                {
+                    GestorPersona.modificarPersona(persona);
+                }
+                else
+                {
+                    idDuenio = GestorPersona.addPersona(persona);
+                    aviso.IdDuenio = idDuenio;
+                    GestorAnimal.modificarAviso(aviso);
+                }
             }
-            persona.NombreCompleto = txtNombreDuenio.Text;
-            persona.Dni = txtDniDuenio.Text;
-            persona.Correo = txtCorreoDuenio.Text;
-            persona.Telefono = Int32.Parse(txtTelefonoDuenio.Text);
-            if (existe == true)
+            catch (Exception ex)
             {
-                GestorPersona.modificarPersona(persona);
-            }
-            else
-            {
-                idDuenio = GestorPersona.addPersona(persona);
-                aviso.IdDuenio = idDuenio;
-                GestorAnimal.modificarAviso(aviso);
+                Console.Write(ex);
+                //List<String> fila;
             }
             Close();
         }

@@ -180,52 +180,54 @@ namespace Protectora.Presentacion
 
         private void NuevoAviso_Click(object sender, RoutedEventArgs e)
         {
-
-            Aviso aviso = new Aviso
+            try
             {
-                Nombre = txtNombrePerroPerdido.Text,
-                Sexo = txtSexoPerroPerdido.Text,
-                Tamanio = Int32.Parse(txtTamanioPerroPerdido.Text),
-                Raza = txtRazaPerroPerdido.Text,
-                FechaPerdida = DateTime.Parse(dateFechaPerroPerdido.Text),
-                ZonaPerdida = txtZonaPerroPerdido.Text,
-                DescripcionAnimal = txtDescripcionPerroPerdido.Text,
-                DescripcionAdicional = txtDescripcionAdicionalPerroPerdido.Text,
-            };
-            if (string.IsNullOrEmpty(txtImagenPerroNuevoPerdido.Text) || txtImagenPerroNuevoPerdido.Text == "Imagen")
-            {
-                aviso.Foto = "default.jpg";
-            }
-            else
-            {
-                string s = txtImagenPerroNuevoPerdido.Text;
-                string[] subs = s.Split('\\');
-                aviso.Foto = subs[subs.Length - 1];
-            }
-
-            //ventana.paneles[0].CrearPerro(perro);
-            //pagPerro.CrearPerro(perro);
-            //GestorAnimal.crearPerro(perro);
-            //if ((bool)btnPadrinoRedondo.IsChecked)
-            //{
-            Persona persona = new Persona();
-            persona.NombreCompleto = txtNombreDuenio.Text;
-            persona = GestorPersona.obtenerPersonaName(persona);
-            if (persona == null)
-            {
-                persona = new Persona
+                Aviso aviso = new Aviso
                 {
-                    NombreCompleto = txtNombreDuenio.Text,
-                    Dni = txtDniDuenio.Text,
-                    Correo = txtCorreoDuenio.Text,
-                    Telefono = Int32.Parse(txtTelefonoDuenio.Text)
+                    Nombre = txtNombrePerroPerdido.Text,
+                    Sexo = txtSexoPerroPerdido.Text,
+                    Tamanio = Int32.Parse(txtTamanioPerroPerdido.Text),
+                    Raza = txtRazaPerroPerdido.Text,
+                    FechaPerdida = DateTime.Parse(dateFechaPerroPerdido.Text),
+                    ZonaPerdida = txtZonaPerroPerdido.Text,
+                    DescripcionAnimal = txtDescripcionPerroPerdido.Text,
+                    DescripcionAdicional = txtDescripcionAdicionalPerroPerdido.Text,
                 };
-                persona.Id = GestorPersona.addPersona(persona);
-            }
+                if (string.IsNullOrEmpty(txtImagenPerroNuevoPerdido.Text) || txtImagenPerroNuevoPerdido.Text == "Imagen")
+                {
+                    aviso.Foto = "default.jpg";
+                }
+                else
+                {
+                    string s = txtImagenPerroNuevoPerdido.Text;
+                    string[] subs = s.Split('\\');
+                    aviso.Foto = subs[subs.Length - 1];
+                }
 
-            aviso.IdDuenio = (int)persona.Id;
-            GestorAnimal.crearAviso(aviso);
-            pagAviso.CargarPerrosPerdidos();
+                Persona persona = new Persona();
+                persona.NombreCompleto = txtNombreDuenio.Text;
+                persona = GestorPersona.obtenerPersonaName(persona);
+                if (persona == null)
+                {
+                    persona = new Persona
+                    {
+                        NombreCompleto = txtNombreDuenio.Text,
+                        Dni = txtDniDuenio.Text,
+                        Correo = txtCorreoDuenio.Text,
+                        Telefono = Int32.Parse(txtTelefonoDuenio.Text)
+                    };
+                    persona.Id = GestorPersona.addPersona(persona);
+                }
+
+                aviso.IdDuenio = (int)persona.Id;
+                GestorAnimal.crearAviso(aviso);
+                pagAviso.CargarPerrosPerdidos();
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex);
+                //List<String> fila;
+            }
 
             this.Close();
         }

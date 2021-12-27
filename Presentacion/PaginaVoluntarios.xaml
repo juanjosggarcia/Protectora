@@ -44,22 +44,22 @@
                         <ColumnDefinition Width="181*"/>
                         <ColumnDefinition Width="90*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBox x:Name="TextBoxIdVol" ToolTip="Número identificativo del voluntario" Style="{StaticResource TextBox1}" FontSize="14" Foreground="Black"  Width="Auto" Height="Auto" Margin="0,5,1,0" RenderTransformOrigin="0.5,0.5"  Grid.Column="4" Grid.Row="2"/>
-                    <TextBox x:Name="TextBoxCorreoVol" ToolTip="Correo actual del voluntario" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontSize="14"  Grid.Column="4" Grid.Row="4"/>
-                    <TextBox x:Name="TextBoxNombreVol" ToolTip="Nombre completo del voluntario" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontSize="14"  Grid.Column="4" Grid.Row="3"/>
-                    <TextBox x:Name="TextBoxDNIVol" ToolTip="DNI actual del voluntario" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="180" FontSize="14"  Grid.Column="4" Grid.Row="5"/>
-                    <TextBox x:Name="TextBoxTelefonoVol" ToolTip="Dato numérico, telefono del voluntario" Style="{StaticResource TextBox1}" GotFocus="PulsarTelefono" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontSize="14"  Grid.Column="4" Grid.Row="6"/>
-                    <TextBox x:Name="TextBoxZonaVol" ToolTip="Zona disponible del voluntario" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontSize="14" Grid.Column="4" Grid.Row="8"/>
-                    <TextBox x:Name="TextBoxHorarioVol" ToolTip="Horario actual voluntario" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontSize="14" Grid.Column="4" Grid.Row="7"/>
+                    <TextBox x:Name="TextBoxIdVol" ToolTip="Número identificativo del voluntario" Style="{StaticResource TextBox1}" FontSize="14" Foreground="Black"  Width="Auto" Height="Auto" Margin="0,6,1,0" RenderTransformOrigin="0.5,0.5"  Grid.Column="4" Grid.Row="1"/>
+                    <TextBox x:Name="TextBoxCorreoVol" ToolTip="Correo actual del voluntario" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontSize="14"  Grid.Column="4" Grid.Row="3"/>
+                    <TextBox x:Name="TextBoxNombreVol" ToolTip="Nombre completo del voluntario" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontSize="14"  Grid.Column="4" Grid.Row="2"/>
+                    <TextBox x:Name="TextBoxDNIVol" ToolTip="DNI actual del voluntario" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="180" FontSize="14"  Grid.Column="4" Grid.Row="4"/>
+                    <TextBox x:Name="TextBoxTelefonoVol" ToolTip="Dato numérico, telefono del voluntario" Style="{StaticResource TextBox1}" GotFocus="PulsarTelefono" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontSize="14"  Grid.Column="4" Grid.Row="5"/>
+                    <TextBox x:Name="TextBoxZonaVol" ToolTip="Zona disponible del voluntario" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontSize="14" Grid.Column="4" Grid.Row="7"/>
+                    <TextBox x:Name="TextBoxHorarioVol" ToolTip="Horario actual voluntario" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontSize="14" Grid.Column="4" Grid.Row="6"/>
 
 
-                    <Label x:Name="lblIdVol" Content="Id:" HorizontalAlignment="Left" Height="37" Margin="0,3,0,0" VerticalAlignment="Top" Width="100" FontSize="18" Grid.Column="3" Grid.Row="2"/>
-                    <Label x:Name="lblNombreVol" Content="Nombre:" HorizontalAlignment="Left" Height="35" VerticalAlignment="Bottom" Width="121" FontSize="18" Grid.Column="3" Grid.Row="3"/>
-                    <Label x:Name="lblCorreoVol" Content="Correo:" HorizontalAlignment="Left" Height="37" Margin="0,3,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="3" Grid.Row="4"/>
-                    <Label x:Name="lblDNIVol" Content="DNI:" HorizontalAlignment="Left" Height="38" Margin="0,2,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="3" Grid.Row="5"/>
-                    <Label x:Name="lblZonaVol" Content="Zona Disponible:" HorizontalAlignment="Left" Height="36" Margin="0,3,0,0" VerticalAlignment="Top" Width="156" FontSize="18" Grid.Column="3" Grid.Row="8"/>
-                    <Label x:Name="lblHorarioVol" Content="Horario" HorizontalAlignment="Left" Margin="0,4,0,0" Width="151" FontSize="18" Grid.Column="3" Grid.Row="7"/>
-                    <Label x:Name="lblTelefonoVol" Content="Telefono:" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="3" Grid.Row="6"/>
+                    <Label x:Name="lblIdVol" Content="Id:" HorizontalAlignment="Left" Height="37" Margin="0,4,0,0" VerticalAlignment="Top" Width="100" FontSize="18" Grid.Column="3" Grid.Row="1"/>
+                    <Label x:Name="lblNombreVol" Content="Nombre:" HorizontalAlignment="Left" Height="35" VerticalAlignment="Bottom" Width="121" FontSize="18" Grid.Column="3" Grid.Row="2"/>
+                    <Label x:Name="lblCorreoVol" Content="Correo:" HorizontalAlignment="Left" Height="37" Margin="0,3,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="3" Grid.Row="3"/>
+                    <Label x:Name="lblDNIVol" Content="DNI:" HorizontalAlignment="Left" Height="38" Margin="0,2,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="3" Grid.Row="4"/>
+                    <Label x:Name="lblZonaVol" Content="Zona Disponible:" HorizontalAlignment="Left" Height="36" Margin="0,4,0,0" VerticalAlignment="Top" Width="156" FontSize="18" Grid.Column="3" Grid.Row="7"/>
+                    <Label x:Name="lblHorarioVol" Content="Horario" HorizontalAlignment="Left" Margin="0,4,0,0" Width="151" FontSize="18" Grid.Column="3" Grid.Row="6"/>
+                    <Label x:Name="lblTelefonoVol" Content="Telefono:" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="3" Grid.Row="5"/>
                     <Image x:Name="ProfileImageVoluntario" HorizontalAlignment="Left" Height="200" VerticalAlignment="Top" Width="200" Stretch="UniformToFill" Source="/Protectora;component/recursos/default.png" Grid.Column="1" Grid.RowSpan="5" Grid.Row="1">
                         <Image.Clip>
                             <EllipseGeometry Center="100,100" RadiusX="100" RadiusY="100" />
