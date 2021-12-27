@@ -23,6 +23,7 @@ namespace Protectora.Presentacion
         public ClaseAcercaDe(MainWindow m)
         {
             InitializeComponent();
+            App.DefineIdioma("es-ES");
             mainwindow = m;
         }
     }
