@@ -113,7 +113,8 @@ namespace Protectora.Presentacion
                 FormaPago = txtPagoSocio.Text
 
             };
-            socio.Foto = "";
+
+            socio.Foto = "default.jpg";
             //string s = txtImagenPerroNuevo.Text;
             //string[] subs = s.Split('\\');
             //perro.Foto = subs[subs.Length - 1];
