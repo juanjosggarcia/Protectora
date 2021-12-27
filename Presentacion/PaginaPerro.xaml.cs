@@ -416,6 +416,12 @@ namespace Protectora.Presentacion
             }
 
         }
+
+        private void btnMostrarTodosPerro_Click(object sender, RoutedEventArgs e)
+        {
+            CargarPerros();
+
+        }
         private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada)
         {
             int num;

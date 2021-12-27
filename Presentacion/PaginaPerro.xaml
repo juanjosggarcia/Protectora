@@ -111,6 +111,7 @@
 
                 </Grid>
             </Border>
+            <Button x:Name="btnMostrarTodos" ToolTip="Buscar por nombre un perro" Style="{StaticResource EstiloBotonMostrarTodos}" Content="Mostrar todos" HorizontalAlignment="Left" Margin="228,0,0,17" VerticalAlignment="Bottom" Width="400" RenderTransformOrigin="0.526,1.458" Height="35" Grid.Row="1" Click="btnMostrarTodosPerro_Click"/>
 
         </Grid>
     </Grid>
