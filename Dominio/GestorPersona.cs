@@ -95,17 +95,17 @@ namespace Protectora.Dominio
             return null;
 
         }
-        public static void crearVoluntario(Persona persona)
+        public static void crearPersona(Persona persona)
         {
             persona.InsertarPersona();
         }
 
-        public static void modificarVoluntario(Persona persona)
+        public static void modificarPersona(Persona persona)
         {
             persona.ModificarPersona();
         }
 
-        public static void eliminarVoluntario(Persona persona)
+        public static void eliminarPersona(Persona persona)
         {
             persona.EliminarPersona();
         }
@@ -118,6 +118,23 @@ namespace Protectora.Dominio
                 return persona.PerDAO.personas[0];
             }
             return null;
+
+        }
+
+        public static Persona obtenerPersonaName(Persona persona)
+        {
+            persona.LeerPersonaName();
+            if (persona.PerDAO.personas.Count != 0)
+            {
+                return persona.PerDAO.personas[0];
+            }
+            return null;
+
+        }
+
+        public static int addPersona(Persona persona)
+        {
+            return (int)persona.InsertarPersona().Id;
 
         }
     }

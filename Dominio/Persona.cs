@@ -38,7 +38,16 @@ namespace Protectora.Dominio
             this.Telefono = telefono;
         }
 
-        public void InsertarPersona()
+        public Persona InsertarPersona()
+        {
+            this.PerDAO.insertar(this);
+            //this.PadDAO.insertar((Padrino)this.MemberwiseClone());
+            //Console.Write(" ");
+            //this.padDAO.leerName(this);
+            return PerDAO.leerName(this);
+        }
+
+        public void InsertarPersonaOLD()
         {
             this.PerDAO.insertar(this);
         }
@@ -61,6 +70,11 @@ namespace Protectora.Dominio
         public Persona LeerPersona()
         {
             return PerDAO.leer(this);
+        }
+
+        public Persona LeerPersonaName()
+        {
+            return PerDAO.leerName(this);
         }
 
     }

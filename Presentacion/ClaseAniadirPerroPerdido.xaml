@@ -55,7 +55,7 @@
                 <TextBox x:Name ="txtCorreoDuenio" Style="{StaticResource TextBox1}" GotFocus="LimpiarCorreoDuenio" LostFocus="RellenarCorreoDuenio" Text="Correo"  FontSize="14" Foreground="Gray" Margin="0,95,1,50"  Height="35" Width="Auto" VerticalAlignment="Center" Grid.ColumnSpan="4" Grid.Column="2" Grid.Row="3"/>
                 <TextBox x:Name ="txtTelefonoDuenio" Style="{StaticResource TextBox1}" GotFocus="LimpiarTelefonoDuenio" LostFocus="RellenarTelefonoDuenio" Text="Telefono"  FontSize="14" Foreground="Gray" Margin="0,135,1,10" Height="35" Width="Auto" VerticalAlignment="Center" Grid.ColumnSpan="4" Grid.Column="2" Grid.Row="3"/>
 
-                <Button x:Name ="nuevoPerroPerdido" Style ="{StaticResource EstiloBotonMediano}" Content="Añadir perro perdido" Margin="40,0,0,0" Width="250" Click="NuevoPerro_Click" Grid.ColumnSpan="4" Grid.Column="2" Grid.Row="5" />
+                <Button x:Name ="nuevoPerroPerdido" Style ="{StaticResource EstiloBotonMediano}" Content="Añadir perro perdido" Margin="40,0,0,0" Width="250" Click="NuevoAviso_Click" Grid.ColumnSpan="4" Grid.Column="2" Grid.Row="5" />
                 <Button x:Name ="btnImagenPerdido" Style ="{StaticResource EstiloBotonLargo}" FontSize="14" Content="Buscar" Margin="20,325,0,0" Width="109" Height="35" Click="BtnImagen_Click" Grid.Column="5" Grid.Row="1" />
 
             </Grid>

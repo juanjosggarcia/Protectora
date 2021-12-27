@@ -171,7 +171,7 @@ namespace Protectora.Presentacion
             {
                 // Closes the parent form.
                 //System.Windows.Forms.ListViewItem item = (System.Windows.Forms.ListViewItem)ListViewPerros.Items[ListViewPerros.SelectedIndex];
-                Aviso perro = (Aviso)ListViewPerrosPerdidos.Items[ListViewPerrosPerdidos.SelectedIndex];
+                Aviso aviso = (Aviso)ListViewPerrosPerdidos.Items[ListViewPerrosPerdidos.SelectedIndex];
 
                 //int idperro = item.SubItems[0].Text;
                 //int cosa= ListViewPerros.ListViewSubItem();
@@ -181,7 +181,8 @@ namespace Protectora.Presentacion
                 //int idperro = Int32.Parse(TextBoxId.Text);
 
                 //perro.Id = idperro;
-                //GestorAnimal.eliminarPerro(perro);
+                GestorAnimal.eliminarAviso(aviso);
+                ListViewPerrosPerdidos.Items.RemoveAt(index);
                 TextBoxIdPerroPer.Text = "";
                 TextBoxSexoPerdido.Text = "";
                 TextBoxNombrePerdido.Text = "";
@@ -243,21 +244,20 @@ namespace Protectora.Presentacion
 
             try
             {
-                //aviso.Sexo = TextBoxSexo.Text;
-                //aviso.Nombre = TextBoxNombre.Text;
-                //aviso.Tamanio = Int32.Parse(TextBoxTamanio.Text);
-                //aviso.Estado = TextBoxEstado.Text;
-                //aviso.Peso = Int32.Parse(TextBoxPeso.Text);
-                //aviso.Edad = Int32.Parse(TextBoxEdad.Text);
-                //aviso.FechaEntrada = DateTime.Parse(TextBoxEntrada.Text);
-                //aviso.Descripcion = TextBoxDescripcion.Text;
-                //aviso.Raza = TextBoxRaza.Text;
+                aviso.Nombre = TextBoxNombrePerdido.Text;
+                aviso.Sexo = TextBoxSexoPerdido.Text;  
+                aviso.Tamanio = Int32.Parse(TextBoxTamanioPerdido.Text);
+                aviso.Raza = TextBoxRazaPerdido.Text;
+                aviso.FechaPerdida = DateTime.Parse(TextBoxFechaPerdida.Text);
+                aviso.ZonaPerdida = TextBoxZonaPerdida.Text;
+                aviso.DescripcionAnimal = TextBoxDescripcionPerdida.Text;
+                aviso.DescripcionAdicional = TextBoxDescripcionAdicional.Text;
 
                 string s = ProfileImagePerroPerdido.Source.ToString();
                 string[] subs = s.Split('/');
                 aviso.Foto = subs[subs.Length - 1];
 
-                //GestorAnimal.modificarPerro(aviso);
+                GestorAnimal.modificarAviso(aviso);
                 DesactivarTextBoxsPerdido();
             }
             catch (Exception ex)

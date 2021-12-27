@@ -16,6 +16,25 @@ namespace Protectora.Persistencia
             this.personas = new List<Persona>();
         }
 
+        public Persona leerName(Persona obj)
+        {
+            AgenteDB agente = AgenteDB.obtenerAgente();
+            //Console.Write(" ");
+            List<List<String>> arrayCarPersona = agente.leer("SELECT * FROM personas p WHERE p.nombreCompleto = '" + obj.NombreCompleto + "'; ");
+            //Padrino s = new Padrino();
+
+            foreach (List<String> user in arrayCarPersona)
+            {
+                Persona s = new Persona(Int32.Parse(user[0]), user[1], user[2], user[3], Int32.Parse(user[4]));
+                personas.Add(s);
+            }
+            if (personas.Count != 0)
+            {
+                return personas[0];
+            }
+            else return null;
+        }
+
         public int actualizar(Persona obj)
         {
             return AgenteDB.obtenerAgente().modificar("UPDATE personas SET nombreCompleto= '" + obj.NombreCompleto.ToString() + "',correo='" + obj.Correo.ToString() + "'," +
@@ -36,7 +55,7 @@ namespace Protectora.Persistencia
 
         public Persona leer(Persona obj)
         {
-            List<List<String>> arrayCarPersonas = AgenteDB.obtenerAgente().leer("SELECT * FROM Personas WHERE nombreCompleto='" + obj.NombreCompleto + "';");
+            List<List<String>> arrayCarPersonas = AgenteDB.obtenerAgente().leer("SELECT * FROM Personas WHERE id=" + obj.Id + ";");
 
             foreach (List<String> user in arrayCarPersonas)
             {

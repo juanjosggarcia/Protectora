@@ -178,32 +178,29 @@ namespace Protectora.Presentacion
             }
         }
 
-        private void NuevoPerro_Click(object sender, RoutedEventArgs e)
+        private void NuevoAviso_Click(object sender, RoutedEventArgs e)
         {
 
-            Perro perro = new Perro
+            Aviso aviso = new Aviso
             {
-                //Nombre = txtNombrePerro.Text,
-                //Sexo = txtSexoPerro.Text,
-                //Tamanio = Int32.Parse(txtTamanioPerro.Text),
-                //Estado = txtEstadoPerro.Text,
-                //Peso = Int32.Parse(txtPesoPerro.Text),
-                //Edad = Int32.Parse(txtEdadPerro.Text),
-                //FechaEntrada = DateTime.Parse(dateEntradaPerro.Text),
-                //Descripcion = txtDescripcionPerro.Text,
-                ////Foto = txtImagenPerroNuevo.Text,
-                //Raza = txtRazaPerro.Text
+                Nombre = txtNombrePerroPerdido.Text,
+                Sexo = txtSexoPerroPerdido.Text,
+                Tamanio = Int32.Parse(txtTamanioPerroPerdido.Text),
+                Raza = txtRazaPerroPerdido.Text,
+                FechaPerdida = DateTime.Parse(dateFechaPerroPerdido.Text),
+                ZonaPerdida = txtZonaPerroPerdido.Text,
+                DescripcionAnimal = txtDescripcionPerroPerdido.Text,
+                DescripcionAdicional = txtDescripcionAdicionalPerroPerdido.Text,
             };
             if (string.IsNullOrEmpty(txtImagenPerroNuevoPerdido.Text) || txtImagenPerroNuevoPerdido.Text == "Imagen")
             {
-                perro.Foto = "default.jpg";
+                aviso.Foto = "default.jpg";
             }
             else
             {
                 string s = txtImagenPerroNuevoPerdido.Text;
                 string[] subs = s.Split('\\');
-                perro.Foto = subs[subs.Length - 1];
-                //perro.Foto = string.Join("", subs);
+                aviso.Foto = subs[subs.Length - 1];
             }
 
             //ventana.paneles[0].CrearPerro(perro);
@@ -211,19 +208,23 @@ namespace Protectora.Presentacion
             //GestorAnimal.crearPerro(perro);
             //if ((bool)btnPadrinoRedondo.IsChecked)
             //{
-            //    Padrino padrino = new Padrino();
-            //    padrino.NombreCompleto = txtNombrePadrino.Text;
-            //    padrino.Dni = txtDniPadrino.Text;
-            //    padrino.Correo = txtCorreoPadrino.Text;
-            //    padrino.Telefono = Int32.Parse(txtTelefonoPadrino.Text);
-            //    padrino.DatosBancarios = txtDatosPadrino.Text;
-            //    padrino.ImporteMensual = Int32.Parse(txtImportePadrino.Text);
-            //    padrino.FormaPago = txtFormaPagoPadrino.Text;
-            //    padrino.FechaEntrada = DateTime.Parse(txtComienzoPadrino.Text);
-            //    int idPadrino = GestorPersona.addPadrino(padrino, perro);
-            //    perro.Apadrinado = idPadrino;
-            //}
-            //GestorAnimal.crearPerro(perro);
+            Persona persona = new Persona();
+            persona.NombreCompleto = txtNombreDuenio.Text;
+            persona = GestorPersona.obtenerPersonaName(persona);
+            if (persona == null)
+            {
+                persona = new Persona
+                {
+                    NombreCompleto = txtNombreDuenio.Text,
+                    Dni = txtDniDuenio.Text,
+                    Correo = txtCorreoDuenio.Text,
+                    Telefono = Int32.Parse(txtTelefonoDuenio.Text)
+                };
+                persona.Id = GestorPersona.addPersona(persona);
+            }
+
+            aviso.IdDuenio = (int)persona.Id;
+            GestorAnimal.crearAviso(aviso);
             pagAviso.CargarPerrosPerdidos();
 
             this.Close();

@@ -45,37 +45,51 @@ namespace Protectora.Presentacion
             persona = GestorPersona.obtenerPersona(persona);
             if (persona != null)
             {
-                /*
-                txtNombrePadrino.Text = persona.NombreCompleto;
-                txtDniPadrino.Text = persona.Dni;
-                txtCorreoPadrino.Text = persona.Correo;
-                txtTelefonoPadrino.Text = persona.Telefono.ToString();
-                txtDatosBanPadrino.Text = persona.DatosBancarios.ToString();
-                txtImportePadrino.Text = persona.ImporteMensual.ToString();
-                txtPagoPadrino.Text = persona.FormaPago;
-                txtComienzoPadrino.Text = persona.FechaEntrada.ToString();*/
+
+                txtNombreDuenio.Text = persona.NombreCompleto;
+                txtDniDuenio.Text = persona.Dni;
+                txtCorreoDuenio.Text = persona.Correo;
+                txtTelefonoDuenio.Text = persona.Telefono.ToString();
             }
         }
 
 
         private void mostrar()
         {
-            /*
-            BtnAceptarCambios.Visibility = Visibility.Visible;
-            BtnAceptarCambios.IsEnabled = true;
-            txtNombrePadrino.IsEnabled = true;
-            txtDniPadrino.IsEnabled = true;
-            txtCorreoPadrino.IsEnabled = true;
-            txtTelefonoPadrino.IsEnabled = true;
-            txtDatosBanPadrino.IsEnabled = true;
-            txtImportePadrino.IsEnabled = true;
-            txtPagoPadrino.IsEnabled = true;
-            txtComienzoPadrino.IsEnabled = true;*/
+
+            BtnAceptarCambiosDuenio.Visibility = Visibility.Visible;
+            BtnAceptarCambiosDuenio.IsEnabled = true;
+            txtNombreDuenio.IsEnabled = true;
+            txtDniDuenio.IsEnabled = true;
+            txtCorreoDuenio.IsEnabled = true;
+            txtTelefonoDuenio.IsEnabled = true;
         }
 
         private void BtnAceptarCambiosDuenio_Click(object sender, RoutedEventArgs e)
         {
-
+            bool existe = true;
+            int idDuenio;
+            //Padrino padrino = new Padrino();
+            if (persona == null)
+            {
+                persona = new Persona();
+                existe = false;
+            }
+            persona.NombreCompleto = txtNombreDuenio.Text;
+            persona.Dni = txtDniDuenio.Text;
+            persona.Correo = txtCorreoDuenio.Text;
+            persona.Telefono = Int32.Parse(txtTelefonoDuenio.Text);
+            if (existe == true)
+            {
+                GestorPersona.modificarPersona(persona);
+            }
+            else
+            {
+                idDuenio = GestorPersona.addPersona(persona);
+                aviso.IdDuenio = idDuenio;
+                GestorAnimal.modificarAviso(aviso);
+            }
+            Close();
         }
     }
 }

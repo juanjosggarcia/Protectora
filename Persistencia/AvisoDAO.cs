@@ -52,8 +52,9 @@ namespace Protectora.Persistencia
         public int actualizar(Aviso obj)
         {
             AgenteDB agente = AgenteDB.obtenerAgente();
+
             return agente.modificar("UPDATE avisos SET nombre= '" + obj.Nombre.ToString() + "',sexo='" + obj.Sexo.ToString() + "',raza='" + obj.Raza.ToString() + "',tamanio= " + obj.Tamanio.ToString() + "," +
-                "descripcionAnimal='" + obj.DescripcionAnimal.ToString() + "',descripcionLocalizacion= '" + obj.DescripcionAdicional.ToString() + "',foto='" + obj.Foto.ToString() + "',fechaperdida='" + obj.FechaPerdida.ToString() +
+                "descripcionAnimal='" + obj.DescripcionAnimal.ToString() + "',descripcionAdicional= '" + obj.DescripcionAdicional.ToString() + "',foto='" + obj.Foto.ToString() + "',fechaperdida='" + obj.FechaPerdida.ToString() +
                 "',zonaPerdida='" + obj.ZonaPerdida.ToString() + "',idDuenio="+obj.IdDuenio.ToString() + " WHERE Id = " + obj.Id.ToString() + "; ");
         }
 

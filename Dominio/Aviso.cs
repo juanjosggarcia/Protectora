@@ -73,7 +73,7 @@ namespace Protectora.Dominio
         public void ModificarAviso()
         {
             this.AviDAO.actualizar((Aviso)this.MemberwiseClone());
-            Console.Write(" ");
+            //Console.Write(" ");
         }
 
 
