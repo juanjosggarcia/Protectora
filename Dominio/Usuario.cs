@@ -53,5 +53,10 @@ namespace Protectora.Dominio
         {
             return UsuDAO.actualizar(this);
         }
+
+        public Usuario LeerUsuarioName()
+        {
+            return UsuDAO.leerName(this);
+        }
     }
 }
