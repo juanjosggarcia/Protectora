@@ -2,14 +2,13 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
-    <sys:String x:Key="lblId">Id:</sys:String>
-    <sys:String x:Key="lblNombre">Nombre:</sys:String>
-    <sys:String x:Key="lblsexo">Sexo</sys:String>
-    <sys:String x:Key="lbltamanio">Tamaño</sys:String>
-    <sys:String x:Key="lblPeso">Peso</sys:String>
-    <sys:String x:Key="lblEdad">Edad</sys:String>
-    <sys:String x:Key="lblEntrada">Fecha de entrada</sys:String>
-    <sys:String x:Key="lblEstado">Estado</sys:String>
-    <sys:String x:Key="BtnPdrino">Padrino</sys:String>
+    <sys:String x:Key="btnIniciarSesion">Iniciar sesion</sys:String>
+    <sys:String x:Key="usuario">Nombre de usuario</sys:String>
+    <sys:String x:Key="contrasenia">Contraseña</sys:String>
+    <sys:String x:Key="wrongLogin">Ha ingresado un nombre de usuario o contraseña inválidos</sys:String>
+    <sys:String x:Key="contraseniaOlvidada">¿Olvidaste tu contraseña?</sys:String>
+    <sys:String x:Key="tooltipoInformacion">Más información</sys:String>
+    <sys:String x:Key="tooltipolvidadacontrasenia">Si ha olvidado su contraseña, puede verla aqui</sys:String>
+    <sys:String x:Key="tooltipIniciarSesion">Iniciar sesion en la aplicacion</sys:String>
 
 </ResourceDictionary>

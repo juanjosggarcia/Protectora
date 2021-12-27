@@ -44,11 +44,6 @@
                         <ColumnDefinition Width="181*"/>
                         <ColumnDefinition Width="90*"/>
                     </Grid.ColumnDefinitions>
-                    <Image x:Name="ProfileImageVoluntario" HorizontalAlignment="Left" Height="200" VerticalAlignment="Top" Width="200" Stretch="UniformToFill" Source="/Protectora;component/recursos/default.png" Grid.Column="1" Grid.RowSpan="5" Grid.Row="1">
-                        <Image.Clip>
-                            <EllipseGeometry Center="100,100" RadiusX="100" RadiusY="100" />
-                        </Image.Clip>
-                    </Image>
                     <TextBox x:Name="TextBoxIdVol" Style="{StaticResource TextBox1}" FontSize="14" Foreground="Black"  Width="Auto" Height="Auto" Margin="0,5,1,0" RenderTransformOrigin="0.5,0.5"  Grid.Column="4" Grid.Row="2"/>
                     <TextBox x:Name="TextBoxCorreoVol" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontSize="14"  Grid.Column="4" Grid.Row="4"/>
                     <TextBox x:Name="TextBoxNombreVol" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontSize="14"  Grid.Column="4" Grid.Row="3"/>
@@ -68,6 +63,11 @@
                     <Button x:Name="btnImagenVol" Click="BtnImagenVoluntario_Click" Style="{StaticResource EstiloBotonCambioImagen}" Background="Transparent" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="200" Width="200" Opacity="0.5" Margin="1,0,0,0" Grid.RowSpan="5" Visibility="Hidden" IsEnabled="false" Grid.Row="1">
                         <!--<Image Source="/recursos/editar.png" Width="55" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
                     </Button>
+                    <Image x:Name="ProfileImageVoluntario" HorizontalAlignment="Left" Height="200" VerticalAlignment="Top" Width="200" Stretch="UniformToFill" Source="/Protectora;component/recursos/default.png" Grid.Column="1" Grid.RowSpan="5" Grid.Row="1">
+                        <Image.Clip>
+                            <EllipseGeometry Center="100,100" RadiusX="100" RadiusY="100" />
+                        </Image.Clip>
+                    </Image>
 
 
                 </Grid>

@@ -27,7 +27,8 @@ namespace Protectora
         public MainWindow()
         {
             InitializeComponent();
-            App.DefineIdioma("es-ES");
+            errorInicioSesion.Content = "";
+            //App.DefineIdioma("es");
         }
         protected override void OnClosed(EventArgs e)
         {
@@ -60,7 +61,13 @@ namespace Protectora
                 // feedback al usuario
                 txtUsuario.Text = "";
                 txtContrasenia.Password = "";
-                errorInicioSesion.Content = "Usuario o contraseña incorrectos";
+                if (ComboBoxIdioma.SelectedIndex == 0) {
+                    errorInicioSesion.Content = "Ha ingresado un nombre de usuario o contraseña inválidos";
+                }
+                else
+                {
+                    errorInicioSesion.Content = "You have entered an invalid username or password";
+                }
             }
             /*
             else
@@ -84,7 +91,7 @@ namespace Protectora
 
         private void LimpiarTexto(object sender, EventArgs e)
         {
-            if (txtUsuario.Text == "Nombre de Usuario")
+            if (txtUsuario.Text == "Nombre de usuario" || txtUsuario.Text == "Username")
             {
                 txtUsuario.Text = "";
                 txtUsuario.Foreground = new SolidColorBrush(Colors.Black);
@@ -95,7 +102,14 @@ namespace Protectora
         {
             if (txtUsuario.Text == "")
             {
-                txtUsuario.Text = "Nombre de Usuario";
+                if (ComboBoxIdioma.SelectedIndex == 0)
+                {
+                    txtUsuario.Text = "Nombre de usuario";
+                }
+                else
+                {
+                    txtUsuario.Text = "Username";
+                }
                 txtUsuario.Foreground = new SolidColorBrush(Colors.Gray);
             }
         }
