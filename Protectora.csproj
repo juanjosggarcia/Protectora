@@ -287,9 +287,6 @@
     <Resource Include="recursos\alert.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="recursos\dog.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="recursos\log-out.png" />
   </ItemGroup>
   <ItemGroup>
@@ -306,9 +303,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="recursos\woman.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="recursos\boy.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="recursos\man.png" />
@@ -351,6 +345,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="fotosPersonas\default.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\volver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\paw-print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\dog.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

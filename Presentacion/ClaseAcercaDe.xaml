@@ -11,15 +11,6 @@
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
 
-    <Window.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Protectora;component/idiomas/StringResources.es-ES.xaml" />
-                <ResourceDictionary Source="/Protectora;component/idiomas/StringResources.en-UK.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Window.Resources>
-
     <Window.Background>
         <ImageBrush ImageSource="/recursos/fondo22.jpg"/>
     </Window.Background>
@@ -31,15 +22,15 @@
             <RowDefinition Height="35*"/>
             <RowDefinition Height="115*"/>
             <RowDefinition Height="35*"/>
-            <RowDefinition Height="115*"/>
-            <RowDefinition Height="251*"/>
+            <RowDefinition Height="120*"/>
+            <RowDefinition Height="246*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="140*"/>
-            <ColumnDefinition Width="215*"/>
-            <ColumnDefinition Width="140*"/>
-            <ColumnDefinition Width="260*"/>
-            <ColumnDefinition Width="142*"/>
+            <ColumnDefinition Width="280*"/>
+            <ColumnDefinition Width="430*"/>
+            <ColumnDefinition Width="235*"/>
+            <ColumnDefinition Width="610*"/>
+            <ColumnDefinition Width="239*"/>
         </Grid.ColumnDefinitions>
 
         <Border BorderBrush="white" Background="#FAF9F7" BorderThickness="4" CornerRadius="20" Grid.Column="1"  Grid.Row="1">
@@ -62,17 +53,33 @@
 
         <Border BorderBrush="white" Background="#FAF9F7" BorderThickness="4" CornerRadius="20" Grid.Column="3"  Grid.RowSpan="5" Grid.Row="1">
             <Grid Grid.Column ="1" Grid.Row="1" >
-                <Label Margin="221,41,161,326" Content="0.6.2" FontFamily="Lucida Sans Unicode" FontSize="18"/>
-                <Label Margin="46,41,356,326" Content="{DynamicResource Version}" FontFamily="Lucida Sans Unicode" FontSize="18"/>
+                <Label Margin="316,51,66,316" Content="0.6.2" FontFamily="Lucida Sans Unicode" FontSize="18"/>
+                <Label Margin="46,51,356,316" Content="{DynamicResource Version}" FontFamily="Lucida Sans Unicode" FontSize="18"/>
 
-                <Label Margin="46,86,336,281" Content="{DynamicResource fechaLanzamiento}" FontFamily="Lucida Sans Unicode" FontSize="18"/>
-                <Label Margin="221,86,86,281" Content="10 de enero, 2021" FontFamily="Lucida Sans Unicode" FontSize="18"/>
+                <Label Margin="46,101,336,266" Content="{DynamicResource fechaLanzamiento}" FontFamily="Lucida Sans Unicode" FontSize="18"/>
+                <Label Margin="316,101,61,266" Content="10 de enero, 2021" FontFamily="Lucida Sans Unicode" FontSize="18"/>
+                <Label Margin="46,201,391,166" Content="{DynamicResource iconos}" FontFamily="Lucida Sans Unicode" FontSize="18"/>
+                <Label Margin="46,151,261,216" Content="{DynamicResource fondos}" FontFamily="Lucida Sans Unicode" FontSize="18"/>
+                <Label Margin="316,201,61,166" Content="https://www.flaticon.es" FontFamily="Lucida Sans Unicode" FontSize="18"/>
+                <Label Margin="316,151,26,216" Content="https://www.vecteezy.com" FontFamily="Lucida Sans Unicode" FontSize="18"/>
+                <Label Margin="46,301,301,66" Content="{DynamicResource entorno}" FontFamily="Lucida Sans Unicode" FontSize="18"/>
+                <Label Margin="316,301,46,66" Content="Visual Studio 2019" FontFamily="Lucida Sans Unicode" FontSize="18"/>
+                <Label Margin="46,251,301,116" Content="{DynamicResource paleta}" FontFamily="Lucida Sans Unicode" FontSize="18"/>
+                <Label Margin="316,251,61,116" Content="coolors.co" FontFamily="Lucida Sans Unicode" FontSize="18"/>
+
+
 
             </Grid>
         </Border>
+        <Button x:Name="BtnVolver" Style="{StaticResource EstiloBotonMediano2}" RenderTransformOrigin="-12.65,-1.4" Margin="35,30,0,0" Width="65" Click="BtnVolver_Click" ToolTip="{DynamicResource volver}">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Protectora;component/recursos/volver.png" Width="58" Height="34" />
+            </StackPanel>
+        </Button>
 
-        <Label Content="{DynamicResource autores}" Grid.Column="1" HorizontalAlignment="Center"  FontSize="50" VerticalAlignment="Center" Width="184" Height="70" Margin="121,105,125,30" FontFamily="HP Simplified"/>
-        <Label Content="{DynamicResource specs}" Grid.Column="3" HorizontalAlignment="Center"  FontSize="50" VerticalAlignment="Center" Width="315" Height="70" Margin="105,105,100,30" FontFamily="HP Simplified"/>
+
+        <Label x:Name="autores" Content="{DynamicResource autores}" Grid.Column="1" HorizontalAlignment="Center"  FontSize="50" VerticalAlignment="Center" Width="184" Height="70" Margin="121,105,125,30" FontFamily="HP Simplified"/>
+        <Label x:Name="especificaciones" Content="{DynamicResource specs}" Grid.Column="3" HorizontalAlignment="Center"  FontSize="50" VerticalAlignment="Center" Width="366" Height="70" Margin="143,105,101,30" FontFamily="HP Simplified"/>
 
     </Grid>
 </Window>

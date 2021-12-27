@@ -19,14 +19,15 @@
             <ColumnDefinition Width="150*"/>
             <ColumnDefinition Width="49*"/>
         </Grid.ColumnDefinitions>
-        <TextBox x:Name="TexBoxUsuario" Style="{StaticResource TextBox1}" FontSize ="15"  HorizontalAlignment="Center" Height="38" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" RenderTransformOrigin="0.531,1.179" Margin="92,80,0,0" Grid.Column="1"/>
-        <Label Content="Usuario:" HorizontalAlignment="Center" Height="40" Margin="0,80,216,146" VerticalAlignment="Center" Width="84" RenderTransformOrigin="0.7,0.565" FontSize="19" Grid.Column="1"/>
-        <Label x:Name="lblContrasenia" Style="{StaticResource EstiloLabel}" Content="" HorizontalAlignment="Center" Height="35" Margin="64,135,66,0" VerticalAlignment="Top" Width="170" FontSize="15" Grid.Column="1"/>
-        <Button x:Name="BtnRecordarContrasenia" Content="Recordar contraseña" BorderThickness="2" BorderBrush="#D4B8B0" Background="#E2CFCA" Height="38" Margin="0,185,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontFamily="Lucida Sans Unicode" FontSize="15" Click="BtnRecordarContrasenia_Click" Grid.Column="1">
+        <TextBox x:Name="TexBoxUsuario" ToolTip="{DynamicResource usuario}" Style="{StaticResource TextBox1}" FontSize ="15"  HorizontalAlignment="Center" Height="38" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" RenderTransformOrigin="0.531,1.179" Margin="89,80,3,0" Grid.Column="1"/>
+        <Label Content="{DynamicResource nombreUsuario}" HorizontalAlignment="Center" Height="40" Margin="5,80,211,146" VerticalAlignment="Center" Width="84" RenderTransformOrigin="0.7,0.565" FontSize="19" Grid.Column="1"/>
+        <Label x:Name="lblContrasenia" Style="{StaticResource EstiloLabel}" Content="" HorizontalAlignment="Center" Height="35" Margin="0,135,0,0" VerticalAlignment="Top" Width="300" FontSize="15" Grid.Column="1"/>
+        <Button x:Name="BtnRecordarContrasenia" Content="{DynamicResource recordar}" BorderThickness="2" BorderBrush="#D4B8B0" Background="#E2CFCA" Height="38" Margin="0,185,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontFamily="Lucida Sans Unicode" FontSize="15" Click="BtnRecordarContrasenia_Click" Grid.Column="1" ToolTip="{DynamicResource tooltipRecordar}">
 
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="15"/>
+                    <Setter Property="Cursor" Value="Hand"/>
                 </Style>
             </Button.Resources>
         </Button>

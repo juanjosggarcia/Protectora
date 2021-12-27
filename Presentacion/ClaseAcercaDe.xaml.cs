@@ -23,9 +23,31 @@ namespace Protectora.Presentacion
         public ClaseAcercaDe(MainWindow m)
         {
             InitializeComponent();
-            App.DefineIdioma("es-ES");
             mainwindow = m;
+            Configuracionidioma();
+
         }
 
+        public void Configuracionidioma()
+        {
+            string idioma = "";
+            int eleccion = mainwindow.ComboBoxIdioma.SelectedIndex;
+            switch (eleccion)
+            {
+                case 0:
+                    idioma = "es-ES";
+                    break;
+                case 1:
+                    idioma = "en-UK";
+                    break;
+            }
+            Resources.MergedDictionaries.Add(App.DefineIdioma(idioma));
+        }
+
+        private void BtnVolver_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.MainWindow.Show();
+            this.Hide();
+        }
     }
 }

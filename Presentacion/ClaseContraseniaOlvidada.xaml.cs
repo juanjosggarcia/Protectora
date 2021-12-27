@@ -19,14 +19,32 @@ namespace Protectora.Presentacion
     /// </summary>
     public partial class ClaseContraseniaOlvidada : Window
     {
-        public ClaseContraseniaOlvidada()
+        MainWindow mainwindow;
+        public ClaseContraseniaOlvidada(MainWindow m)
         {
             InitializeComponent();
+            mainwindow = m;
+            Configuracionidioma();
         }
 
         private void BtnRecordarContrasenia_Click(object sender, RoutedEventArgs e)
         {
             lblContrasenia.Content = "234234";
+        }
+        public void Configuracionidioma()
+        {
+            string idioma = "";
+            int eleccion = mainwindow.ComboBoxIdioma.SelectedIndex;
+            switch (eleccion)
+            {
+                case 0:
+                    idioma = "es-ES";
+                    break;
+                case 1:
+                    idioma = "en-UK";
+                    break;
+            }
+            Resources.MergedDictionaries.Add(App.DefineIdioma(idioma));
         }
     }
 }

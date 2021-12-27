@@ -87,16 +87,17 @@
 
 
                 <ListView x:Name="ListViewMenu" Foreground="Black" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListViewMenu_SelectionChanged" HorizontalAlignment="Left" VerticalAlignment="Center" >
+                   
                     <ListViewItem x:Name="ItemPerros" Height="60" Style="{StaticResource Style2}" >
-                        <Button x:Name="BotonListPerro" BorderBrush="white" Background="White" Click="BotonListPerro_Click" Height="43" Style="{StaticResource EstiloBotonLista}" ToolTip="Gestion d">
+                        <Button x:Name="BotonListPerro" BorderBrush="white" Background="White" Click="BotonListPerro_Click" Height="43" HorizontalAlignment="Left" Style="{StaticResource EstiloBotonLista}" ToolTip="Gestion de perros">
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="/Protectora;component/recursos/hot-dog.png" Width="58" Height="34" />
-                                <TextBlock Text="Avisos de perros perdidos" FontSize="16" VerticalAlignment="Center"  Margin="20 10"/>
+                                <Image Source="/Protectora;component/recursos/dog.png" Width="58" Height="34" />
+                                <TextBlock Text="Gestion de perros" FontSize="16" VerticalAlignment="Center"  Margin="20 10"/>
                             </StackPanel>
                         </Button>
                     </ListViewItem>
                     <ListViewItem x:Name="ItemSocios" Height="60" Style="{StaticResource Style2}">
-                        <Button x:Name="BotonListSocios" Style="{StaticResource EstiloBotonLista}" Click="BotonListSocio_Click">
+                        <Button x:Name="BotonListSocios" Style="{StaticResource EstiloBotonLista}" Click="BotonListSocio_Click" ToolTip="Gestion de socios">
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="/Protectora;component/recursos/socios.png" Width="58" Height="34" />
                                 <TextBlock Text="Voluntarios de la protectora" FontSize="16" VerticalAlignment="Center" Margin="20 10"/>
@@ -105,16 +106,16 @@
                     </ListViewItem>
 
                     <ListViewItem x:Name="ItemVoluntario" Height="60" Style="{StaticResource Style2}" >
-                        <Button x:Name="BotonListVoluntarios" Style="{StaticResource EstiloBotonLista}" Click="BotonListVoluntario_Click" HorizontalAlignment="Left">
+                        <Button x:Name="BotonListVoluntarios" Style="{StaticResource EstiloBotonLista}" Click="BotonListVoluntario_Click" HorizontalAlignment="Left" ToolTip="Gestion de voluntarios">
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="/Protectora;component/recursos/caridad.png" Width="58" Height="34" HorizontalAlignment="Center" />
+                                <Image Source="/Protectora;component/recursos/caridad.png" Width="58" Height="34"  />
                                 <TextBlock Text="Gestión de los socios" FontSize="16" VerticalAlignment="Center"  Margin="20 10"/>
                             </StackPanel>
                         </Button>
                     </ListViewItem>
 
                     <ListViewItem x:Name="ItemAvisos" Height="60" Style="{StaticResource Style2}" >
-                        <Button x:Name="BotonListAvisos" Style="{StaticResource EstiloBotonLista}" Click="BotonListAvisos_Click">
+                        <Button x:Name="BotonListAvisos" Style="{StaticResource EstiloBotonLista}" Click="BotonListAvisos_Click"  ToolTip="Gestion de avisos">
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="/Protectora;component/recursos/alert.png" Width="58" Height="34" />
                                 <TextBlock Text="Avisos de perros perdidos" FontSize="16" VerticalAlignment="Center"  Margin="20 10"/>
