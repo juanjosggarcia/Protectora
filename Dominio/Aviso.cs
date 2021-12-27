@@ -79,13 +79,16 @@ namespace Protectora.Dominio
 
         public List<Aviso> LeerTodosAvisos()
         {
+            /*
             List<Aviso> arrayAvisos = new List<Aviso>();
 
             AvisoDAO aviDao = new AvisoDAO();
             arrayAvisos = aviDao.leerTodas();
             Console.Write(" ");
 
-            return arrayAvisos;
+            return arrayAvisos;*/
+
+            return AviDAO.leerTodas();
         }
 
 

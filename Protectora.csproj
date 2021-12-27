@@ -125,6 +125,7 @@
     <Compile Include="Persistencia\AvisoDAO.cs" />
     <Compile Include="Persistencia\IDAO.cs" />
     <Compile Include="Persistencia\PadrinoDAO .cs" />
+    <Compile Include="Persistencia\PersonaDAO.cs" />
     <Compile Include="Persistencia\SocioDAO.cs" />
     <Compile Include="Persistencia\UsuarioDAO.cs" />
     <Compile Include="Persistencia\VoluntarioDAO.cs" />
