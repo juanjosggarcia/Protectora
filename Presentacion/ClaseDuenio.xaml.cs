@@ -22,17 +22,74 @@ namespace Protectora.Presentacion
     public partial class ClaseDuenio : Window
     {
         PaginaAvisos pagAviso;
-        Perro perro;
-        public ClaseDuenio(PaginaAvisos p, Perro pe)
+        Aviso aviso;
+        Persona persona;
+        public ClaseDuenio(PaginaAvisos p, Aviso aviso, bool visible)
         {
+
             InitializeComponent();
+            if (visible)
+            {
+                mostrar();
+            }
             pagAviso = p;
-            perro = pe;
+            this.aviso = aviso;
+            mostrarDuenio();
+        }
+
+        public void mostrarDuenio()
+        {
+            //Padrino padrino = new Padrino();
+            persona = new Persona();
+            persona.Id = aviso.IdDuenio;
+            persona = GestorPersona.obtenerPersona(persona);
+            if (persona != null)
+            {
+
+                txtNombreDuenio.Text = persona.NombreCompleto;
+                txtDniDuenio.Text = persona.Dni;
+                txtCorreoDuenio.Text = persona.Correo;
+                txtTelefonoDuenio.Text = persona.Telefono.ToString();
+            }
+        }
+
+
+        private void mostrar()
+        {
+
+            BtnAceptarCambiosDuenio.Visibility = Visibility.Visible;
+            BtnAceptarCambiosDuenio.IsEnabled = true;
+            txtNombreDuenio.IsEnabled = true;
+            txtDniDuenio.IsEnabled = true;
+            txtCorreoDuenio.IsEnabled = true;
+            txtTelefonoDuenio.IsEnabled = true;
         }
 
         private void BtnAceptarCambiosDuenio_Click(object sender, RoutedEventArgs e)
         {
-
+            bool existe = true;
+            int idDuenio;
+            //Padrino padrino = new Padrino();
+            if (persona == null)
+            {
+                persona = new Persona();
+                existe = false;
+            }
+            persona.NombreCompleto = txtNombreDuenio.Text;
+            persona.Dni = txtDniDuenio.Text;
+            persona.Correo = txtCorreoDuenio.Text;
+            persona.Telefono = Int32.Parse(txtTelefonoDuenio.Text);
+            if (existe == true)
+            {
+                GestorPersona.modificarPersona(persona);
+            }
+            else
+            {
+                idDuenio = GestorPersona.addPersona(persona);
+                aviso.IdDuenio = idDuenio;
+                GestorAnimal.modificarAviso(aviso);
+            }
+            Close();
         }
     }
 }

@@ -15,10 +15,11 @@ namespace Protectora.Dominio
         private string raza;
         private int tamanio;
         private string descripcionAnimal;
-        private string descripcionLocalizacion;
+        private string descripcionAdicional;
         private string foto;
         private DateTime fechaPerdida;
-        private string datosDuenios;
+        private string zonaPerdida;
+        private int idDuenio;
         private AvisoDAO aviDAO;
 
         public int? Id { get => id; set => id = value; }
@@ -27,10 +28,11 @@ namespace Protectora.Dominio
         public string Raza { get => raza; set => raza = value; }
         public int Tamanio { get => tamanio; set => tamanio = value; }
         public string DescripcionAnimal { get => descripcionAnimal; set => descripcionAnimal = value; }
-        public string DescripcionLocalizacion { get => descripcionLocalizacion; set => descripcionLocalizacion = value; }
+        public string DescripcionAdicional { get => descripcionAdicional; set => descripcionAdicional = value; }
         public string Foto { get => foto; set => foto = value; }
         public DateTime FechaPerdida { get => fechaPerdida; set => fechaPerdida = value; }
-        public string DatosDuenios { get => datosDuenios; set => datosDuenios = value; }
+        public string ZonaPerdida { get => zonaPerdida; set => zonaPerdida = value; }
+        public int IdDuenio { get => idDuenio; set => idDuenio = value; }
         internal AvisoDAO AviDAO { get => aviDAO; set => aviDAO = value; }
 
         public Aviso()
@@ -38,52 +40,55 @@ namespace Protectora.Dominio
             this.AviDAO = new AvisoDAO();
         }
 
-        public Aviso(Nullable<int> idR, string nR, string sexoR, string razaR
-            , int tamanioR, string descripcionAnimalR, string descripcionLocalizacionR,
-            string fotoR, DateTime fechaPerdidaR, string datosDueniosR)
+        public Aviso(int? id, string nombre, string sexo, string raza, int tamanio, string descripcionAnimal, string descripcionAdicional, string foto, DateTime fechaPerdida, string zonaPerdida, int idDuenio)
         {
-            this.AviDAO = new AvisoDAO();
-            Id = idR;
-            Nombre = nR;
-            Sexo = sexoR;
-            Raza = razaR;
-            Tamanio = tamanioR;
-            DescripcionAnimal = descripcionAnimalR;
-            DescripcionLocalizacion = descripcionLocalizacionR;
-            Foto = fotoR;
-            FechaPerdida = fechaPerdidaR;
-            DatosDuenios = datosDueniosR;
-
+            this.aviDAO = new AvisoDAO();
+            Id = id;
+            Nombre = nombre;
+            Sexo = sexo;
+            Raza = raza;
+            Tamanio = tamanio;
+            DescripcionAnimal = descripcionAnimal;
+            DescripcionAdicional = descripcionAdicional;
+            Foto = foto;
+            FechaPerdida = fechaPerdida;
+            ZonaPerdida = zonaPerdida;
+            IdDuenio = idDuenio;
+            AviDAO = aviDAO;
         }
+
         public void InsertarAviso()
         {
 
             this.AviDAO.insertar((Aviso)this.MemberwiseClone());
-            Console.Write(" ");
+            //Console.Write(" ");
         }
 
         public void EliminarAviso()
         {
             this.AviDAO.eliminar((Aviso)this.MemberwiseClone());
-            Console.Write(" ");
+            //Console.Write(" ");
         }
 
         public void ModificarAviso()
         {
             this.AviDAO.actualizar((Aviso)this.MemberwiseClone());
-            Console.Write(" ");
+            //Console.Write(" ");
         }
 
 
         public List<Aviso> LeerTodosAvisos()
         {
+            /*
             List<Aviso> arrayAvisos = new List<Aviso>();
 
             AvisoDAO aviDao = new AvisoDAO();
             arrayAvisos = aviDao.leerTodas();
             Console.Write(" ");
 
-            return arrayAvisos;
+            return arrayAvisos;*/
+
+            return AviDAO.leerTodas();
         }
 
 

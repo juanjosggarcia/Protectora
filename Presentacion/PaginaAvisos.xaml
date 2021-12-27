@@ -87,7 +87,7 @@
                 <ListView.View>
                     <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle}">
                         <GridViewColumn Header="ID" Width="195" DisplayMemberBinding="{Binding Id}"  />
-                        <GridViewColumn Header="NOMBRE" Width="195" DisplayMemberBinding="{Binding NombreCompleto}" />
+                        <GridViewColumn Header="NOMBRE" Width="195" DisplayMemberBinding="{Binding Nombre}" />
 
                     </GridView>
                 </ListView.View>

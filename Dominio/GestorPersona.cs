@@ -83,5 +83,59 @@ namespace Protectora.Dominio
         {
             voluntario.EliminarVoluntario();
         }
+
+        public static List<Persona> obtenerTodasPersonas()
+        {
+            Persona persona = new Persona();
+            persona.LeerTodasPersonas();
+            if (persona.PerDAO.personas.Count != 0)
+            {
+                return persona.PerDAO.personas;
+            }
+            return null;
+
+        }
+        public static void crearPersona(Persona persona)
+        {
+            persona.InsertarPersona();
+        }
+
+        public static void modificarPersona(Persona persona)
+        {
+            persona.ModificarPersona();
+        }
+
+        public static void eliminarPersona(Persona persona)
+        {
+            persona.EliminarPersona();
+        }
+
+        public static Persona obtenerPersona(Persona persona)
+        {
+            persona.LeerPersona();
+            if (persona.PerDAO.personas.Count != 0)
+            {
+                return persona.PerDAO.personas[0];
+            }
+            return null;
+
+        }
+
+        public static Persona obtenerPersonaName(Persona persona)
+        {
+            persona.LeerPersonaName();
+            if (persona.PerDAO.personas.Count != 0)
+            {
+                return persona.PerDAO.personas[0];
+            }
+            return null;
+
+        }
+
+        public static int addPersona(Persona persona)
+        {
+            return (int)persona.InsertarPersona().Id;
+
+        }
     }
 }
