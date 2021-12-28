@@ -301,8 +301,9 @@ namespace Protectora.Presentacion
             TextBoxPeso.Foreground = Brushes.Black;
             TextBoxTamanio.Foreground = Brushes.Black;
             BtnPdrino.ToolTip = "Datos del padrino del perro";
-            ListViewPerros.SelectedItem = ListViewPerros.Items[ListViewPerros.SelectedIndex];
             DesactivarTextBoxs();
+            ListViewPerros.SelectedItem = ListViewPerros.Items[ListViewPerros.SelectedIndex];
+
         }
 
         private void btnEditConfirmar_Click(object sender, RoutedEventArgs e)
@@ -328,8 +329,8 @@ namespace Protectora.Presentacion
                 GestorAnimal.modificarPerro(perro);
                 CargarPerros();
                 DesactivarTextBoxs();
-                BtnPdrino.ToolTip = "Datos del padrino del perro";
                 ListViewPerros.SelectedItem = ListViewPerros.Items[ListViewPerros.SelectedIndex];
+                BtnPdrino.ToolTip = "Datos del padrino del perro";
 
 
             }
