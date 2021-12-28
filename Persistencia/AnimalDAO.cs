@@ -16,6 +16,26 @@ namespace Protectora.Persistencia
             this.animales = new List<Perro>();
         }
 
+        public Perro leerName(Perro obj)
+        {
+            AgenteDB agente = AgenteDB.obtenerAgente();
+            List<List<String>> arrayCarPerros = agente.leer("SELECT * FROM animales a, perros p WHERE a.id=p.idAnimal AND a.nombre = '" + obj.Nombre + "'; ");
+
+            foreach (List<String> user in arrayCarPerros)
+            {
+                Perro a = new Perro(Int32.Parse(user[0]), user[1], user[2],
+                    Int32.Parse(user[3]), Int32.Parse(user[4]), Int32.Parse(user[5]),
+                    DateTime.Parse(user[6]), user[7], user[8], user[9], user[10]
+                    , Int32.Parse(user[11]), user[13]);
+                animales.Add(a);
+            }
+            if (animales.Count != 0)
+            {
+                return animales[0];
+            }
+            else return null;
+        }
+
         public List<Perro> leerTodas()
         {
             //List<Perro> arrayAnimales = new List<Perro>();
@@ -25,7 +45,7 @@ namespace Protectora.Persistencia
 
             foreach (List<String> user in arrayCarAnimales)
             {
-                Console.Write(" ");
+                //Console.Write(" ");
                 Perro a = new Perro(Int32.Parse(user[0]), user[1], user[2],
                     Int32.Parse(user[3]), Int32.Parse(user[4]), Int32.Parse(user[5]),
                     DateTime.Parse(user[6]), user[7], user[8], user[9], user[10]

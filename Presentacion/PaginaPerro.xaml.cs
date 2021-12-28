@@ -27,7 +27,7 @@ namespace Protectora.Presentacion
     {
         //Dominio.Perro perro;
 
-        public List<Perro> listaPerro = new List<Perro>();
+        //public List<Perro> listaPerro = new List<Perro>();
 
         public PaginaPerro()
         {
@@ -141,55 +141,20 @@ namespace Protectora.Presentacion
 
         public void CargarPerros()
         {
-            List<Perro> perros = new List<Perro>();
-            perros = GestorAnimal.obtenerTodosPerros();
+            List<Perro> perros = GestorAnimal.obtenerTodosPerros();
             ListViewPerros.Items.Clear();
             foreach (Perro perro in perros)
             {
                 if (string.IsNullOrEmpty(perro.Foto))
                 {
-                    //perro.Foto = "C:\\Users\\laura\\source\\repos\\Protectora\\recursos\\default.png";
                     perro.Foto = "default.jpg";
                 }
 
-                listaPerro.Add(perro);
+                //listaPerro.Add(perro);
                 ListViewPerros.Items.Add(perro);
-
-                //PanelDinamicoBotones.Children.Add(new ControlUsuarioPerro(perro));
-                //TextBoxId.Text = perro.id.ToString();
-                /*
-                lblNombreAnimal.Content = perro.nombre;
-                lblsexoAnimal.Content = perro.sexo;
-                lbltamanioAnimal.Content = perro.tamanio;
-                lblEstadoAnimal.Content = perro.estado;
-                lblEdadAnimal.Content = perro.edad;
-                lblPesoAnimal.Content = perro.peso;
-                lblEntradaAnimal.Content = perro.fechaEntrada.ToString();
-                lblDescrpcionAnimal.Content = perro.descripcion;
-                */
             }
 
         }
-        /*
-        private void Refresh()
-        {
-            ListViewPerros.Items.Clear();
-            if (listaPerro != null)
-            {
-                foreach (Perro perro in listaPerro)
-                {
-                    ListViewPerros.Items.Add(perro);
-                }
-            }
-        }*/
-
-        /*
-        public void CrearPerro(Perro perro)
-        {
-            listaPerro.Add(perro);
-
-            Refresh();
-        }*/
 
         private void BtnNextPerro_Click(object sender, RoutedEventArgs e)
         {
@@ -357,6 +322,7 @@ namespace Protectora.Presentacion
                 perro.Foto = subs[subs.Length - 1];
 
                 GestorAnimal.modificarPerro(perro);
+                CargarPerros();
                 DesactivarTextBoxs();
             }
             catch (Exception ex)
@@ -396,23 +362,24 @@ namespace Protectora.Presentacion
         }
 
         //ESTO ESTA PUESTO PROVISIONALMENTE
+        
         private void btnBuscarPerro_Click(object sender, RoutedEventArgs e)
         {
+            Perro perro = new Perro();
+
             if (!string.IsNullOrEmpty(TextBoxBuscar.Text))
             {
+                perro.Nombre = TextBoxBuscar.Text;
+                perro = GestorAnimal.obtenerPerro(perro);
                 ListViewPerros.Items.Clear();
-                foreach (Perro perro in listaPerro)
+                if (perro != null)
                 {
-                    if (perro.Nombre.ToLower().Contains(TextBoxBuscar.Text.ToLower()))
-                    {
-                        ListViewPerros.Items.Add(perro);
-                    }
-
+                    ListViewPerros.Items.Add(perro);
                 }
             }
             else
             {
-                //Refresh();
+                CargarPerros();
             }
 
         }

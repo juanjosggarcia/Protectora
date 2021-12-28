@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Protectora.Dominio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,6 +31,16 @@ namespace Protectora.Presentacion
         private void BtnRecordarContrasenia_Click(object sender, RoutedEventArgs e)
         {
             lblContrasenia.Content = "234234";
+            Usuario usuario = new Usuario();
+            usuario.Nombre = TexBoxUsuario.Text;
+            usuario = GestorUsuario.obtenerPass(usuario);
+            if (usuario != null)
+            {
+                lblContrasenia.Content = usuario.Password;
+            }else
+            {
+                lblContrasenia.Content = "El usuario no existe";
+            }
         }
         public void Configuracionidioma()
         {

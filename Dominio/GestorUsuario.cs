@@ -36,6 +36,16 @@ namespace Protectora.Dominio
             user.ModificarUsuarioFecha();
             return true;
         }
+
+        public static Usuario obtenerPass(Usuario usuario)
+        {
+            usuario.LeerUsuarioName();
+            if (usuario.UsuDAO.usuarios.Count != 0)
+            {
+                return usuario.UsuDAO.usuarios[0];
+            }
+            return null;
+        }
     }
 
 
