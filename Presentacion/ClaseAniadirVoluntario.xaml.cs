@@ -103,30 +103,38 @@ namespace Protectora.Presentacion
 
         private void NuevoVoluntario_Click(object sender, RoutedEventArgs e)
         {
-            Voluntario voluntario = new Voluntario
+            try
             {
-                NombreCompleto = txtNombreVoluntario.Text,
-                Correo = txtCorreoVoluntario.Text,
-                Dni = txtDniVoluntario.Text,
-                Telefono = Int32.Parse(txtTelefonoVoluntario.Text),
-                Horario = txtHorarioVol.Text,
-                ZonaDisponibilidad = txtZonaDisVol.Text,
+                Voluntario voluntario = new Voluntario
+                {
+                    NombreCompleto = txtNombreVoluntario.Text,
+                    Correo = txtCorreoVoluntario.Text,
+                    Dni = txtDniVoluntario.Text,
+                    Telefono = Int32.Parse(txtTelefonoVoluntario.Text),
+                    Horario = txtHorarioVol.Text,
+                    ZonaDisponibilidad = txtZonaDisVol.Text,
 
-            };
+                };
 
-            if (string.IsNullOrEmpty(txtImagenVoluntarioNuevo.Text) || txtImagenVoluntarioNuevo.Text == "Imagen")
-            {
-                voluntario.Foto = "default.jpg";
+                if (string.IsNullOrEmpty(txtImagenVoluntarioNuevo.Text) || txtImagenVoluntarioNuevo.Text == "Imagen")
+                {
+                    voluntario.Foto = "default.jpg";
+                }
+                else
+                {
+                    string s = txtImagenVoluntarioNuevo.Text;
+                    string[] subs = s.Split('\\');
+                    voluntario.Foto = subs[subs.Length - 1];
+                }
+
+                GestorPersona.crearVoluntario(voluntario);
+                pagVoluntarios.CargarVoluntarios();
             }
-            else
+            catch (Exception ex)
             {
-                string s = txtImagenVoluntarioNuevo.Text;
-                string[] subs = s.Split('\\');
-                voluntario.Foto = subs[subs.Length - 1];
+                Console.Write(ex);
+                //List<String> fila;
             }
-
-            GestorPersona.crearVoluntario(voluntario);
-            pagVoluntarios.CargarVoluntarios();
 
             this.Close();
         }

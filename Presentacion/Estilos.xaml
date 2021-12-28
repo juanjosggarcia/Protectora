@@ -691,6 +691,35 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <Style x:Key="EstiloBotonMostrarTodos" TargetType="Button">
+        <Setter Property="Background" Value="#E2CFCA"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="FontFamily" Value="Lucida Sans Unicode"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}"
+                    BorderBrush="#D4B8B0" BorderThickness="2" CornerRadius="10" x:Name="bd">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                    Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" RecognizesAccessKey="True" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="bd" Property="Background" Value="#C6A095"/>
+                            <Setter Property="Foreground" Value="Black" />
+                            <Setter Property="Cursor" Value="Hand" />
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
     <Style x:Key="EstiloBotonLista" TargetType="Button">
         <Setter Property="Background" Value="White"/>

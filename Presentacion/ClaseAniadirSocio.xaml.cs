@@ -115,36 +115,44 @@ namespace Protectora.Presentacion
 
         private void NuevoSocio_Click(object sender, RoutedEventArgs e)
         {
-            Socio socio = new Socio
+            try
             {
-                NombreCompleto = txtNombreSocio.Text,
-                Correo = txtCorreoSocio.Text,
-                Dni = txtDniSocio.Text,
-                Telefono = Int32.Parse(txtTelefonoSocio.Text),
-                CuantiaAyuda = Int32.Parse(txtCuantiaSocio.Text),
-                DatosBancarios = txtDatosBanSocio.Text,
-                FormaPago = txtPagoSocio.Text
+                Socio socio = new Socio
+                {
+                    NombreCompleto = txtNombreSocio.Text,
+                    Correo = txtCorreoSocio.Text,
+                    Dni = txtDniSocio.Text,
+                    Telefono = Int32.Parse(txtTelefonoSocio.Text),
+                    CuantiaAyuda = Int32.Parse(txtCuantiaSocio.Text),
+                    DatosBancarios = txtDatosBanSocio.Text,
+                    FormaPago = txtPagoSocio.Text
 
-            };
-            if (string.IsNullOrEmpty(txtImagenSocioNuevo.Text) || txtImagenSocioNuevo.Text == "Imagen")
-            {
-                socio.Foto = "default.jpg";
+                };
+                if (string.IsNullOrEmpty(txtImagenSocioNuevo.Text) || txtImagenSocioNuevo.Text == "Imagen")
+                {
+                    socio.Foto = "default.jpg";
+                }
+                else
+                {
+                    string s = txtImagenSocioNuevo.Text;
+                    string[] subs = s.Split('\\');
+                    socio.Foto = subs[subs.Length - 1];
+                    //perro.Foto = string.Join("", subs);
+                }
+                //socio.Foto = "default.jpg";
+                //string s = txtImagenPerroNuevo.Text;
+                //string[] subs = s.Split('\\');
+                //perro.Foto = subs[subs.Length - 1];
+
+
+                GestorPersona.crearSocio(socio);
+                pagSocios.CargarSocios();
             }
-            else
+            catch (Exception ex)
             {
-                string s = txtImagenSocioNuevo.Text;
-                string[] subs = s.Split('\\');
-                socio.Foto = subs[subs.Length - 1];
-                //perro.Foto = string.Join("", subs);
+                Console.Write(ex);
+                //List<String> fila;
             }
-            //socio.Foto = "default.jpg";
-            //string s = txtImagenPerroNuevo.Text;
-            //string[] subs = s.Split('\\');
-            //perro.Foto = subs[subs.Length - 1];
-
-
-            GestorPersona.crearSocio(socio);
-            pagSocios.CargarSocios();
 
             this.Close();
         }

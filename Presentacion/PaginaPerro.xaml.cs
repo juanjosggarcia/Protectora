@@ -142,6 +142,7 @@ namespace Protectora.Presentacion
             btnImagenPerro.Visibility = Visibility.Visible;
             NuevoPerro.Visibility = Visibility.Hidden;
             ListViewPerros.IsEnabled = false;
+            BtnPdrino.ToolTip = "Editar los datos del padrino del perro";
 
             //Perro perro = (Perro)ListViewPerros.Items[ListViewPerros.SelectedIndex];
             //ClasePadrinoPerro winPadrino = new ClasePadrinoPerro(this, perro, true);
@@ -245,6 +246,7 @@ namespace Protectora.Presentacion
             TextBoxEdad.Foreground = Brushes.Black;
             TextBoxPeso.Foreground = Brushes.Black;
             TextBoxTamanio.Foreground = Brushes.Black;
+            BtnPdrino.ToolTip = "Datos del padrino del perro";
             DesactivarTextBoxs();
         }
 
@@ -271,6 +273,8 @@ namespace Protectora.Presentacion
                 GestorAnimal.modificarPerro(perro);
                 CargarPerros();
                 DesactivarTextBoxs();
+                BtnPdrino.ToolTip = "Datos del padrino del perro";
+
             }
             catch (Exception ex)
             {
@@ -310,6 +314,11 @@ namespace Protectora.Presentacion
 
         }
 
+        private void btnMostrarTodosPerro_Click(object sender, RoutedEventArgs e)
+        {
+            CargarPerros();
+
+        }
         private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada)
         {
             int num;

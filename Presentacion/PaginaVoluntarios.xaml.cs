@@ -290,5 +290,9 @@ namespace Protectora.Presentacion
             TextBoxTelefonoVol.Foreground = Brushes.Black;
         }
 
+        private void btnMostrarTodosVoluntario_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

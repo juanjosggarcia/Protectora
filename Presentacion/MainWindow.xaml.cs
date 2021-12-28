@@ -148,6 +148,7 @@ namespace Protectora
                 case 0:
                     idioma = "es-ES";
                     txtUsuario.Text = "Nombre de usuario";
+
                     break;
                 case 1:
                     idioma = "en-UK";

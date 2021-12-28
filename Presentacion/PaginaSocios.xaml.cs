@@ -303,6 +303,9 @@ namespace Protectora.Presentacion
 
         }
 
+        private void btnMostrarTodosSocio_Click(object sender, RoutedEventArgs e)
+        {
 
+        }
     }
 }

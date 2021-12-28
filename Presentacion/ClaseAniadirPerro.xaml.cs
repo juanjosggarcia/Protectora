@@ -233,49 +233,61 @@ namespace Protectora.Presentacion
 
         private void NuevoPerro_Click(object sender, RoutedEventArgs e)
         {
-            Perro perro = new Perro
+            try
             {
-                Nombre = txtNombrePerro.Text,
-                Sexo = txtSexoPerro.Text,
-                Tamanio = Int32.Parse(txtTamanioPerro.Text),
-                Estado = txtEstadoPerro.Text,
-                Peso = Int32.Parse(txtPesoPerro.Text),
-                Edad = Int32.Parse(txtEdadPerro.Text),
-                FechaEntrada = DateTime.Parse(dateEntradaPerro.Text),
-                Descripcion = txtDescripcionPerro.Text,
-                //Foto = txtImagenPerroNuevo.Text,
-                Raza = txtRazaPerro.Text
-            };
-            if (string.IsNullOrEmpty(txtImagenPerroNuevo.Text) || txtImagenPerroNuevo.Text=="Imagen")
-            {
-                perro.Foto = "default.jpg";
+                Perro perro = new Perro
+                {
+                    Nombre = txtNombrePerro.Text,
+                    Sexo = txtSexoPerro.Text,
+                    Tamanio = Int32.Parse(txtTamanioPerro.Text),
+                    Estado = txtEstadoPerro.Text,
+                    Peso = Int32.Parse(txtPesoPerro.Text),
+                    Edad = Int32.Parse(txtEdadPerro.Text),
+                    FechaEntrada = DateTime.Parse(dateEntradaPerro.Text),
+                    Descripcion = txtDescripcionPerro.Text,
+                    //Foto = txtImagenPerroNuevo.Text,
+                    Raza = txtRazaPerro.Text
+                };
+                if (string.IsNullOrEmpty(txtImagenPerroNuevo.Text) || txtImagenPerroNuevo.Text == "Imagen")
+                {
+                    perro.Foto = "default.jpg";
+                }
+                else
+                {
+                    string s = txtImagenPerroNuevo.Text;
+                    string[] subs = s.Split('\\');
+                    perro.Foto = subs[subs.Length - 1];
+                    //perro.Foto = string.Join("", subs);
+                }
+
+                //ventana.paneles[0].CrearPerro(perro);
+                //pagPerro.CrearPerro(perro);
+                //GestorAnimal.crearPerro(perro);
+                if ((bool)btnPadrinoRedondo.IsChecked)
+                {
+                    Padrino padrino = new Padrino();
+                    padrino.NombreCompleto = txtNombrePadrino.Text;
+                    padrino.Dni = txtDniPadrino.Text;
+                    padrino.Correo = txtCorreoPadrino.Text;
+                    padrino.Telefono = Int32.Parse(txtTelefonoPadrino.Text);
+                    padrino.DatosBancarios = txtDatosPadrino.Text;
+                    padrino.ImporteMensual = Int32.Parse(txtImportePadrino.Text);
+                    padrino.FormaPago = txtFormaPagoPadrino.Text;
+                    padrino.FechaEntrada = DateTime.Parse(txtComienzoPadrino.Text);
+                    int idPadrino = GestorPersona.addPadrino(padrino, perro);
+                    perro.Apadrinado = idPadrino;
+
+                }
+
+                GestorAnimal.crearPerro(perro);
+                pagPerro.CargarPerros();
             }
-            else {
-                string s = txtImagenPerroNuevo.Text;
-                string[] subs = s.Split('\\');
-                perro.Foto = subs[subs.Length - 1];
-                //perro.Foto = string.Join("", subs);
+            catch (Exception ex)
+            {
+                Console.Write(ex);
+                //List<String> fila;
             }
 
-            //ventana.paneles[0].CrearPerro(perro);
-            //pagPerro.CrearPerro(perro);
-            //GestorAnimal.crearPerro(perro);
-            if ((bool)btnPadrinoRedondo.IsChecked)
-            {
-                Padrino padrino = new Padrino();
-                padrino.NombreCompleto = txtNombrePadrino.Text;
-                padrino.Dni = txtDniPadrino.Text;
-                padrino.Correo = txtCorreoPadrino.Text;
-                padrino.Telefono = Int32.Parse(txtTelefonoPadrino.Text);
-                padrino.DatosBancarios = txtDatosPadrino.Text;
-                padrino.ImporteMensual = Int32.Parse(txtImportePadrino.Text);
-                padrino.FormaPago = txtFormaPagoPadrino.Text;
-                padrino.FechaEntrada = DateTime.Parse(txtComienzoPadrino.Text);
-                int idPadrino = GestorPersona.addPadrino(padrino, perro);
-                perro.Apadrinado = idPadrino;
-            }
-            GestorAnimal.crearPerro(perro);
-            pagPerro.CargarPerros();
 
             this.Close();
         }
