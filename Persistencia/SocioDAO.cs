@@ -35,7 +35,7 @@ namespace Protectora.Persistencia
         }
         public Socio leerName(Socio obj)
         {
-            List<List<String>> arrayCarSocios = AgenteDB.obtenerAgente().leer("SELECT * FROM personas p, socios s WHERE p.id=s.idPersona AND p.id = '" + obj.NombreCompleto.ToString() + "';");
+            List<List<String>> arrayCarSocios = AgenteDB.obtenerAgente().leer("SELECT * FROM personas p, socios s WHERE p.id=s.idPersona AND p.nombreCompleto = '" + obj.NombreCompleto.ToString() + "';");
 
             foreach (List<String> user in arrayCarSocios)
             {

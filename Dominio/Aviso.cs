@@ -65,7 +65,7 @@ namespace Protectora.Dominio
         }
         public Aviso leerDatoXName()
         {
-            throw new NotImplementedException();
+            return AviDAO.leerName(this);
         }
         public Aviso leerDatoXId()
         {

@@ -30,6 +30,16 @@ namespace Protectora.Dominio
             padrino.actualizarDato();
         }
 
+        public static Socio obtenerSocio(Socio socio)
+        {
+            socio.leerDatoXName();
+            if (socio.SocDAO.socios.Count != 0)
+            {
+                return socio.SocDAO.socios[0];
+            }
+            return null;
+
+        }
         public static List<Socio> obtenerTodosSocios()
         {
             Socio socio = new Socio();
@@ -57,7 +67,16 @@ namespace Protectora.Dominio
             socio.eliminarDato();
         }
 
+        public static Voluntario obtenerVoluntarioName(Voluntario voluntario)
+        {
+            voluntario.leerDatoXName();
+            if (voluntario.VolDAO.voluntarios.Count != 0)
+            {
+                return voluntario.VolDAO.voluntarios[0];
+            }
+            return null;
 
+        }
         public static List<Voluntario> obtenerTodosVoluntarios()
         {
             Voluntario voluntario = new Voluntario();

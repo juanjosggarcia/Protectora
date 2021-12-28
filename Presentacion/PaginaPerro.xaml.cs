@@ -1,8 +1,11 @@
 ﻿using Protectora.Dominio;
 using System;
 using System.Collections.Generic;
+//using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -16,6 +19,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MessageBox = System.Windows.MessageBox;
+using Path = System.IO.Path;
 using TextBox = System.Windows.Controls.TextBox;
 
 namespace Protectora.Presentacion
@@ -30,54 +34,7 @@ namespace Protectora.Presentacion
         {
             InitializeComponent();
             CargarPerros();
-            //Refresh();
         }
-
-        private void BtnPdrino_Click(object sender, RoutedEventArgs e)
-        {
-            Perro perro = (Perro)ListViewPerros.Items[ListViewPerros.SelectedIndex];
-
-            /*
-            ClasePadrinoPerro winPadrino = System.Windows.Application.Current.Windows.OfType<ClasePadrinoPerro>().FirstOrDefault();
-
-            if (winPadrino == null)
-            {
-                Perro perro = (Perro)ListViewPerros.Items[ListViewPerros.SelectedIndex];
-                if ((bool)ListViewPerros.IsEnabled==false)
-                {
-                    winPadrino = new ClasePadrinoPerro(this, perro, true);
-                }
-                else
-                {
-                    winPadrino = new ClasePadrinoPerro(this, perro, false);
-                }
-
-            }
-            winPadrino.Show();*/
-
-            ClasePadrinoPerro winPadrino;
-            if ((bool)ListViewPerros.IsEnabled == false)
-            {
-                winPadrino = new ClasePadrinoPerro(this, perro, true);
-            }
-            else
-            {
-                winPadrino = new ClasePadrinoPerro(this, perro, false);
-            }
-
-            //ClasePadrinoPerro Padrinito = new ClasePadrinoPerro(perro);
-            winPadrino.Show();
-        }
-
-        private void ClickNuevoPerro(object sender, RoutedEventArgs e)
-        {
-            ClaseAniadirPerro nuevoPerro = new ClaseAniadirPerro(this);
-            nuevoPerro.Show();
-
-            //Algoperro();
-            //Refresh();
-        }
-
         private void ListaPerros_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var selectedItems = ListViewPerros.SelectedItems;
@@ -93,7 +50,6 @@ namespace Protectora.Presentacion
                 {
                     BtnPdrino.IsEnabled = false;
                 }
-
             }
 
             btnAnteriorPerro.IsEnabled = true;
@@ -102,23 +58,63 @@ namespace Protectora.Presentacion
             btnDeletePerro.IsEnabled = true;
         }
 
+        ///////////////////////////////////////////////////////////////// EVENTOS DE BOTON /////////////////////////////////////////////////////////////////
 
-        private void BtnNextPerro_Click(object sender, RoutedEventArgs e)
+
+        private void BtnPdrino_Click(object sender, RoutedEventArgs e)
         {
-            if (ListViewPerros.SelectedIndex != ListViewPerros.Items.Count - 1)
+            Perro perro = (Perro)ListViewPerros.Items[ListViewPerros.SelectedIndex];
+
+            ClasePadrinoPerro winPadrino;
+            if ((bool)ListViewPerros.IsEnabled == false)
             {
-                ListViewPerros.SelectedIndex++;
+                winPadrino = new ClasePadrinoPerro(this, perro, true);
             }
+            else
+            {
+                winPadrino = new ClasePadrinoPerro(this, perro, false);
+            }
+            winPadrino.Show();
         }
 
-        private void BtnAnteriorPerro_Click(object sender, RoutedEventArgs e)
+        private void ClickNuevoPerro(object sender, RoutedEventArgs e)
         {
-            if (ListViewPerros.SelectedIndex != 0)
+            ClaseAniadirPerro nuevoPerro = new ClaseAniadirPerro(this);
+            nuevoPerro.Show();
+        }
+        private void BtnDeletePerro_Click(object sender, RoutedEventArgs e)
+        {
+            int index = ListViewPerros.SelectedIndex;
+            string message = "¿Estas seguro que quieres eliminar el perro seleccionado?";
+            string caption = "Eliminación de perro";
+            MessageBoxButton buttons = MessageBoxButton.YesNo;
+            DialogResult result;
+
+            result = (DialogResult)MessageBox.Show(message, caption, buttons);
+            if (result == System.Windows.Forms.DialogResult.Yes)
             {
-                ListViewPerros.SelectedIndex--;
+                Perro perro = (Perro)ListViewPerros.Items[ListViewPerros.SelectedIndex];
+
+                GestorAnimal.eliminarPerro(perro);
+                ListViewPerros.Items.RemoveAt(index);
+                TextBoxId.Text = "";
+                TextBoxSexo.Text = "";
+                TextBoxNombre.Text = "";
+                TextBoxTamanio.Text = "";
+                TextBoxEstado.Text = "";
+                TextBoxPeso.Text = "";
+                TextBoxEdad.Text = "";
+                TextBoxEntrada.Text = "";
+                TextBoxDescripcion.Text = "";
+                TextBoxRaza.Text = "";
+                string str = @"../fotosPerros/default.jpg";
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(str, UriKind.Relative);
+                bitmap.EndInit();
+                ProfileImage.Source = bitmap;
             }
         }
-
         private void BtnEditPerro_Click(object sender, RoutedEventArgs e)
         {
             TextBoxId.IsEnabled = true;
@@ -143,72 +139,92 @@ namespace Protectora.Presentacion
             NuevoPerro.Visibility = Visibility.Hidden;
             ListViewPerros.IsEnabled = false;
             BtnPdrino.ToolTip = "Editar los datos del padrino del perro";
-
-            //Perro perro = (Perro)ListViewPerros.Items[ListViewPerros.SelectedIndex];
-            //ClasePadrinoPerro winPadrino = new ClasePadrinoPerro(this, perro, true);
-
-            /*
-            winPadrino.BtnAceptarCambios.Visibility = Visibility.Visible;
-            winPadrino.BtnAceptarCambios.IsEnabled = true;
-            winPadrino.txtNombrePadrino.IsEnabled = true;
-            winPadrino.txtDniPadrino.IsEnabled = true;
-            winPadrino.txtCorreoPadrino.IsEnabled = true;
-            winPadrino.txtTelefonoPadrino.IsEnabled = true;
-            winPadrino.txtDatosBanPadrino.IsEnabled = true;
-            winPadrino.txtImportePadrino.IsEnabled = true;
-            winPadrino.txtPagoPadrino.IsEnabled = true;
-            winPadrino.txtComienzoPadrino.IsEnabled = true;*/
         }
-
-        private void BtnDeletePerro_Click(object sender, RoutedEventArgs e)
+        private void btnEditConfirmar_Click(object sender, RoutedEventArgs e)
         {
-            int index = ListViewPerros.SelectedIndex;
-            string message = "¿Estas seguro que quieres eliminar el perro seleccionado?";
-            string caption = "Eliminación de perro";
-            MessageBoxButton buttons = MessageBoxButton.YesNo;
-            DialogResult result;
+            Perro perro = (Perro)ListViewPerros.Items[ListViewPerros.SelectedIndex];
 
-            // Displays the MessageBox.
-            result = (DialogResult)MessageBox.Show(message, caption, buttons);
-            if (result == System.Windows.Forms.DialogResult.Yes)
+            try
             {
-                // Closes the parent form.
-                //System.Windows.Forms.ListViewItem item = (System.Windows.Forms.ListViewItem)ListViewPerros.Items[ListViewPerros.SelectedIndex];
-                Perro perro = (Perro)ListViewPerros.Items[ListViewPerros.SelectedIndex];
+                perro.Sexo = TextBoxSexo.Text;
+                perro.Nombre = TextBoxNombre.Text;
+                perro.Tamanio = Int32.Parse(TextBoxTamanio.Text);
+                perro.Estado = TextBoxEstado.Text;
+                perro.Peso = Int32.Parse(TextBoxPeso.Text);
+                perro.Edad = Int32.Parse(TextBoxEdad.Text);
+                perro.FechaEntrada = DateTime.Parse(TextBoxEntrada.Text);
+                perro.Descripcion = TextBoxDescripcion.Text;
+                perro.Raza = TextBoxRaza.Text;
 
-                //int idperro = item.SubItems[0].Text;
-                //int cosa= ListViewPerros.ListViewSubItem();
+                //string s = ProfileImage.Source.ToString();
+                //string[] subs = s.Split('/');
+                //perro.Foto = subs[subs.Length - 1];
 
-                //Perro perro = new Perro();
-                //string idper = TextBoxId.Text;
-                //int idperro = Int32.Parse(TextBoxId.Text);
+                perro.Foto = copiarImagen(ProfileImage.Source.ToString());
 
-                //perro.Id = idperro;
-                GestorAnimal.eliminarPerro(perro);
-                ListViewPerros.Items.RemoveAt(index);
-                TextBoxId.Text = "";
-                TextBoxSexo.Text = "";
-                TextBoxNombre.Text = "";
-                TextBoxTamanio.Text = "";
-                TextBoxEstado.Text = "";
-                TextBoxPeso.Text = "";
-                TextBoxEdad.Text = "";
-                TextBoxEntrada.Text = "";
-                TextBoxDescripcion.Text = "";
-                TextBoxRaza.Text = "";
-                //@"../fotosPerros/default.jpg"
-                string str = @"../fotosPerros/default.jpg";
-                BitmapImage bitmap = new BitmapImage();
-                bitmap.BeginInit();
-                bitmap.UriSource = new Uri(str, UriKind.Relative);
-                bitmap.EndInit();
-                ProfileImage.Source = bitmap;
+                GestorAnimal.modificarPerro(perro);
+                CargarPerros();
+                DesactivarTextBoxs();
+                BtnPdrino.ToolTip = "Datos del padrino del perro";
+
             }
-            //SetPerro(ListViewPerros.Items.IndexOf;
-
-
-
+            catch (Exception ex)
+            {
+                Console.Write(ex);
+                ComprobarEntradaInt(TextBoxEdad.Text, TextBoxEdad);
+                ComprobarEntradaInt(TextBoxPeso.Text, TextBoxPeso);
+                ComprobarEntradaInt(TextBoxTamanio.Text, TextBoxTamanio);
+            }
         }
+        private void btnEditCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            Perro perro = (Perro)ListViewPerros.Items[ListViewPerros.SelectedIndex];
+            SetPerro(perro);
+            TextBoxEdad.Foreground = Brushes.Black;
+            TextBoxPeso.Foreground = Brushes.Black;
+            TextBoxTamanio.Foreground = Brushes.Black;
+            BtnPdrino.ToolTip = "Datos del padrino del perro";
+            DesactivarTextBoxs();
+        }
+        private void btnBuscarPerro_Click(object sender, RoutedEventArgs e)
+        {
+            Perro perro = new Perro();
+
+            if (!string.IsNullOrEmpty(TextBoxBuscar.Text))
+            {
+                perro.Nombre = TextBoxBuscar.Text;
+                perro = GestorAnimal.obtenerPerro(perro);
+                ListViewPerros.Items.Clear();
+                if (perro != null)
+                {
+                    ListViewPerros.Items.Add(perro);
+                }
+            }
+            else
+            {
+                CargarPerros();
+            }
+        }
+        private void btnMostrarTodosPerro_Click(object sender, RoutedEventArgs e)
+        {
+            CargarPerros();
+        }
+        private void BtnNextPerro_Click(object sender, RoutedEventArgs e)
+        {
+            if (ListViewPerros.SelectedIndex != ListViewPerros.Items.Count - 1)
+            {
+                ListViewPerros.SelectedIndex++;
+            }
+        }
+        private void BtnAnteriorPerro_Click(object sender, RoutedEventArgs e)
+        {
+            if (ListViewPerros.SelectedIndex != 0)
+            {
+                ListViewPerros.SelectedIndex--;
+            }
+        }
+
+        //////////////////////////////////////////////////////////////// EVENTOS AUXILIARES ////////////////////////////////////////////////////////////////
 
         private void BtnImagenPerro_Click(object sender, RoutedEventArgs e)
         {
@@ -231,93 +247,11 @@ namespace Protectora.Presentacion
             }
             catch (Exception ex)
             {
-                if (ex.Message != "URI no válido: URI está vacío.") {
+                if (ex.Message != "URI no válido: URI está vacío.")
+                {
                     MessageBox.Show("Error al cargar la imagen " + ex.Message);
                 }
             }
-
-            
-        }
-
-        private void btnEditCancelar_Click(object sender, RoutedEventArgs e)
-        {
-            Perro perro = (Perro)ListViewPerros.Items[ListViewPerros.SelectedIndex];
-            SetPerro(perro);
-            TextBoxEdad.Foreground = Brushes.Black;
-            TextBoxPeso.Foreground = Brushes.Black;
-            TextBoxTamanio.Foreground = Brushes.Black;
-            BtnPdrino.ToolTip = "Datos del padrino del perro";
-            DesactivarTextBoxs();
-        }
-
-        private void btnEditConfirmar_Click(object sender, RoutedEventArgs e)
-        {
-            Perro perro = (Perro)ListViewPerros.Items[ListViewPerros.SelectedIndex];
-
-            try
-            {
-                perro.Sexo = TextBoxSexo.Text;
-                perro.Nombre = TextBoxNombre.Text;
-                perro.Tamanio = Int32.Parse(TextBoxTamanio.Text);
-                perro.Estado = TextBoxEstado.Text;
-                perro.Peso = Int32.Parse(TextBoxPeso.Text);
-                perro.Edad = Int32.Parse(TextBoxEdad.Text);
-                perro.FechaEntrada = DateTime.Parse(TextBoxEntrada.Text);
-                perro.Descripcion = TextBoxDescripcion.Text;
-                perro.Raza = TextBoxRaza.Text;
-
-                string s = ProfileImage.Source.ToString();
-                string[] subs = s.Split('/');
-                perro.Foto = subs[subs.Length - 1];
-
-                GestorAnimal.modificarPerro(perro);
-                CargarPerros();
-                DesactivarTextBoxs();
-                BtnPdrino.ToolTip = "Datos del padrino del perro";
-
-            }
-            catch (Exception ex)
-            {
-                Console.Write(ex);
-                ComprobarEntradaInt(TextBoxEdad.Text, TextBoxEdad);
-                ComprobarEntradaInt(TextBoxPeso.Text, TextBoxPeso);
-                ComprobarEntradaInt(TextBoxTamanio.Text, TextBoxTamanio);
-
-                //List<String> fila;
-            }
-            
-            //Refresh();
-        }
-
-
-
-        //ESTO ESTA PUESTO PROVISIONALMENTE
-        
-        private void btnBuscarPerro_Click(object sender, RoutedEventArgs e)
-        {
-            Perro perro = new Perro();
-
-            if (!string.IsNullOrEmpty(TextBoxBuscar.Text))
-            {
-                perro.Nombre = TextBoxBuscar.Text;
-                perro = GestorAnimal.obtenerPerro(perro);
-                ListViewPerros.Items.Clear();
-                if (perro != null)
-                {
-                    ListViewPerros.Items.Add(perro);
-                }
-            }
-            else
-            {
-                CargarPerros();
-            }
-
-        }
-
-        private void btnMostrarTodosPerro_Click(object sender, RoutedEventArgs e)
-        {
-            CargarPerros();
-
         }
         private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada)
         {
@@ -326,21 +260,16 @@ namespace Protectora.Presentacion
             if (cosa == false)
             {
                 componenteEntrada.Foreground = Brushes.Red;
-
             }
-
         }
-
         private void PulsarEdad(object sender, RoutedEventArgs e)
         {
             TextBoxEdad.Foreground = Brushes.Black;
         }
-
         private void PulsarTamanio(object sender, RoutedEventArgs e)
         {
             TextBoxTamanio.Foreground = Brushes.Black;
         }
-
         private void PulsarPeso(object sender, RoutedEventArgs e)
         {
             TextBoxPeso.Foreground = Brushes.Black;
@@ -380,11 +309,23 @@ namespace Protectora.Presentacion
                 TextBoxDescripcion.Text = perro.Descripcion;
                 TextBoxRaza.Text = perro.Raza;
                 //string str = @"C:\Users\juanj\vs2019-workspace\Protectora\recursos\Fotosbd\" + perro.Foto;
-                string str = @"../fotosPerros/" + perro.Foto;
+                //string str = @"../fotosPerros/" + perro.Foto;
+
+                //string s = ProfileImage.Source.ToString();
+                //string[] subs = s.Split('/');
+                //string fName = subs[subs.Length - 1];
+                string rutaPerros = obtenerPath() + "/fotosPerros";
+                string[] picList = Directory.GetFiles(rutaPerros, "*.jpg");
+
+                if (!(picList.Contains(rutaPerros + "\\" + perro.Foto)))
+                {
+                    perro.Foto = "default.jpg";
+                }
+
+                string str = rutaPerros + "/" + perro.Foto;
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
-                bitmap.UriSource = new Uri(str, UriKind.Relative);
-                //bitmap.UriSource = new Uri(@"../fotosPerros/bichon.jpg", UriKind.Relative);
+                bitmap.UriSource = new Uri(str);
                 bitmap.EndInit();
                 ProfileImage.Source = bitmap;
 
@@ -393,7 +334,6 @@ namespace Protectora.Presentacion
             catch (Exception ex)
             {
                 Console.Write(ex);
-                //List<String> fila;
             }
 
         }
@@ -418,6 +358,45 @@ namespace Protectora.Presentacion
             btnEditCancelar.Visibility = Visibility.Hidden;
             btnEditConfirmar.Visibility = Visibility.Hidden;
             ListViewPerros.IsEnabled = true;
+        }
+
+        private string obtenerPath()
+        {
+            string pathExe = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
+            string pathApp1 = pathExe.Substring(8);
+            //int posBin = pathApp1.IndexOf("/bin");
+            string proc = "/Protectora/";
+            int posBin = pathApp1.IndexOf(proc);
+            string pathApp = pathApp1.Remove(posBin + proc.Length);
+            return pathApp;
+        }
+        private string copiarImagen(string sourcePath)
+        {
+            string[] subs = sourcePath.Split('/');
+            string fName = subs[subs.Length - 1];
+
+            int tam = 8;
+            string sourceDir1 = sourcePath.Substring(tam);
+            string sourceDir = sourceDir1.Substring(0, (sourceDir1.Length-fName.Length-1));
+
+            string pathApp = obtenerPath();
+
+            string backupDir = pathApp + "/fotosPerros";
+
+            string[] picList = Directory.GetFiles(backupDir, "*.jpg");
+
+            if (!(picList.Contains(backupDir+"\\"+fName)))
+            {
+                try
+                {
+                    File.Copy(Path.Combine(sourceDir, fName), Path.Combine(backupDir, fName), true);
+                }
+                catch (DirectoryNotFoundException dirNotFound)
+                {
+                    Console.WriteLine(dirNotFound.Message);
+                }
+            }
+            return fName;
         }
 
     }

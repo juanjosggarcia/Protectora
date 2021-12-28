@@ -42,7 +42,7 @@ namespace Protectora.Dominio
 
         public new Voluntario leerDatoXName()
         {
-            throw new NotImplementedException();
+            return VolDAO.leerName(this);
         }
 
         public new Voluntario leerDatoXId()

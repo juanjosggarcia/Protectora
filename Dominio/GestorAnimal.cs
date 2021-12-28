@@ -47,6 +47,17 @@ namespace Protectora.Dominio
             perro.eliminarDato();
         }
 
+        public static Aviso obtenerAviso(Aviso aviso)
+        {
+            aviso.leerDatoXName();
+            if (aviso.AviDAO.avisos.Count != 0)
+            {
+                return aviso.AviDAO.avisos[0];
+            }
+            return null;
+
+        }
+
         public static List<Aviso> obtenerTodosAvisos()
         {
             Aviso aviso = new Aviso();

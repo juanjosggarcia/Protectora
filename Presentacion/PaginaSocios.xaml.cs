@@ -1,6 +1,7 @@
 ﻿using Protectora.Dominio;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MessageBox = System.Windows.MessageBox;
+using Path = System.IO.Path;
 using TextBox = System.Windows.Controls.TextBox;
 
 namespace Protectora.Presentacion
@@ -30,31 +32,6 @@ namespace Protectora.Presentacion
             InitializeComponent();
             CargarSocios();
         }
-
-        private void ClickNuevoSocio(object sender, RoutedEventArgs e)
-        {
-            ClaseAniadirSocio nuevoSocio = new ClaseAniadirSocio(this);
-            nuevoSocio.Show();
-
-            //Algoperro();
-            //Refresh();
-        }
-
-        private void BtnNextSocio_Click(object sender, RoutedEventArgs e)
-        {
-            if (ListViewSocios.SelectedIndex != ListViewSocios.Items.Count - 1)
-            {
-                ListViewSocios.SelectedIndex++;
-            }
-        }
-
-        private void BtnAnteriorSocio_Click(object sender, RoutedEventArgs e)
-        {
-            if (ListViewSocios.SelectedIndex != 0)
-            {
-                ListViewSocios.SelectedIndex--;
-            }
-        }
         private void ListaSocios_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var selectedItems = ListViewSocios.SelectedItems;
@@ -62,7 +39,6 @@ namespace Protectora.Presentacion
             {
                 SetSocio(socio);
                 DesactivarTextBoxsSocios();
-
             }
 
             btnAnteriorSocio.IsEnabled = true;
@@ -71,24 +47,216 @@ namespace Protectora.Presentacion
             btnDeleteSocio.IsEnabled = true;
         }
 
+        ///////////////////////////////////////////////////////////////// EVENTOS DE BOTON /////////////////////////////////////////////////////////////////
+
+        private void ClickNuevoSocio(object sender, RoutedEventArgs e)
+        {
+            ClaseAniadirSocio nuevoSocio = new ClaseAniadirSocio(this);
+            nuevoSocio.Show();
+        }
+        private void BtnDeletePerro_Click(object sender, RoutedEventArgs e)
+        {
+            int index = ListViewSocios.SelectedIndex;
+            string message = "¿Estas seguro que quieres eliminar el socio seleccionado?";
+            string caption = "Eliminación de socio";
+            MessageBoxButton buttons = MessageBoxButton.YesNo;
+            DialogResult result;
+
+            // Displays the MessageBox.
+            result = (DialogResult)MessageBox.Show(message, caption, buttons);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                Socio socio = (Socio)ListViewSocios.Items[ListViewSocios.SelectedIndex];
+
+                GestorPersona.eliminarSocio(socio);
+                ListViewSocios.Items.RemoveAt(index);
+                TextBoxIdSocio.Text = "";
+                TextBoxIdSocio.Text = "";
+                TextBoxCorreoSocio.Text = "";
+                TextBoxNombreSocio.Text = "";
+                TextBoxDNISocio.Text = "";
+                TextBoxTelefonoSocio.Text = "";
+                TextBoxCuantiaSocio.Text = "";
+                TextBoxDatosBanSocio.Text = "";
+                TextBoxPagoSocio.Text = "";
+                string str = @"../fotosPersonas/default.jpg";
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(str, UriKind.Relative);
+                bitmap.EndInit();
+                ProfileImageSocio.Source = bitmap;
+            }
+        }
+        private void BtnEditSocio_Click(object sender, RoutedEventArgs e)
+        {
+            ListViewSocios.IsEnabled = false;
+            TextBoxIdSocio.IsEnabled = true;
+            TextBoxCorreoSocio.IsEnabled = true;
+            TextBoxNombreSocio.IsEnabled = true;
+            TextBoxDNISocio.IsEnabled = true;
+            TextBoxTelefonoSocio.IsEnabled = true;
+            TextBoxCuantiaSocio.IsEnabled = true;
+            TextBoxDatosBanSocio.IsEnabled = true;
+            TextBoxPagoSocio.IsEnabled = true;
+            btnImagenSocio.IsEnabled = true;
+
+            btnEditCancelarSocio.Visibility = Visibility.Visible;
+            btnEditConfirmarSocio.Visibility = Visibility.Visible;
+            btnImagenSocio.Visibility = Visibility.Visible;
+            btnEditSocio.Visibility = Visibility.Hidden;
+            btnDeleteSocio.Visibility = Visibility.Hidden;
+            btnAnteriorSocio.Visibility = Visibility.Hidden;
+            btnNextSocio.Visibility = Visibility.Hidden;
+            NuevoSocio.Visibility = Visibility.Hidden;
+
+        }
+        private void btnEditConfirmarSocio_Click(object sender, RoutedEventArgs e)
+        {
+            Socio socio = (Socio)ListViewSocios.Items[ListViewSocios.SelectedIndex];
+
+            try
+            {
+                socio.NombreCompleto = TextBoxNombreSocio.Text;
+                socio.Correo = TextBoxCorreoSocio.Text;
+                socio.Telefono = Int32.Parse(TextBoxTelefonoSocio.Text);
+                socio.CuantiaAyuda = Int32.Parse(TextBoxCuantiaSocio.Text);
+                socio.DatosBancarios = TextBoxDatosBanSocio.Text;
+                socio.Dni = TextBoxDNISocio.Text;
+                socio.FormaPago = TextBoxPagoSocio.Text;
+
+                //string s = ProfileImageSocio.Source.ToString();
+                //string[] subs = s.Split('/');
+                //socio.Foto = subs[subs.Length - 1];
+
+                socio.Foto = copiarImagen(ProfileImageSocio.Source.ToString());
+
+                GestorPersona.modificarSocio(socio);
+                CargarSocios();
+                DesactivarTextBoxsSocios();
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex);
+                ComprobarEntradaInt(TextBoxCuantiaSocio.Text, TextBoxCuantiaSocio);
+                ComprobarEntradaInt(TextBoxTelefonoSocio.Text, TextBoxTelefonoSocio);
+            }
+        }
+        private void btnEditCancelarSocio_Click(object sender, RoutedEventArgs e)
+        {
+            Socio socio = (Socio)ListViewSocios.Items[ListViewSocios.SelectedIndex];
+            SetSocio(socio);
+            //TextBoxEdad.Foreground = Brushes.Black;
+            //TextBoxPeso.Foreground = Brushes.Black;
+            //TextBoxTamanio.Foreground = Brushes.Black;
+            DesactivarTextBoxsSocios();
+        }
+        private void btnBuscarSocio_Click(object sender, RoutedEventArgs e)
+        {
+            Socio socio = new Socio();
+
+            if (!string.IsNullOrEmpty(TextBoxBuscarSocio.Text))
+            {
+                socio.NombreCompleto = TextBoxBuscarSocio.Text;
+                socio = GestorPersona.obtenerSocio(socio);
+                ListViewSocios.Items.Clear();
+                if (socio != null)
+                {
+                    ListViewSocios.Items.Add(socio);
+                }
+            }
+            else
+            {
+                CargarSocios();
+            }
+        }
+
+        private void btnMostrarTodosSocio_Click(object sender, RoutedEventArgs e)
+        {
+            CargarSocios();
+        }
+        private void BtnNextSocio_Click(object sender, RoutedEventArgs e)
+        {
+            if (ListViewSocios.SelectedIndex != ListViewSocios.Items.Count - 1)
+            {
+                ListViewSocios.SelectedIndex++;
+            }
+        }
+        private void BtnAnteriorSocio_Click(object sender, RoutedEventArgs e)
+        {
+            if (ListViewSocios.SelectedIndex != 0)
+            {
+                ListViewSocios.SelectedIndex--;
+            }
+        }
+
+        //////////////////////////////////////////////////////////////// EVENTOS AUXILIARES ////////////////////////////////////////////////////////////////
+
+        private void BtnImagenSocio_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog op = new OpenFileDialog
+            {
+                Title = "Select a picture",
+                Filter = "Images|*.jpg;*.gif;*.bmp;*.png"
+            };
+            BitmapImage bitmap = new BitmapImage();
+            op.ShowDialog();
+
+            try
+            {
+                string str = op.FileName;
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(str);
+                bitmap.EndInit();
+                ProfileImageSocio.Source = bitmap;
+
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message != "URI no válido: URI está vacío.")
+                {
+                    MessageBox.Show("Error al cargar la imagen " + ex.Message);
+                }
+            }
+        }
+        private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada)
+        {
+            int num;
+            bool cosa = int.TryParse(valorIntroducido, out num);
+            if (cosa == false)
+            {
+                componenteEntrada.Foreground = Brushes.Red;
+
+            }
+
+        }
+        private void PulsarTelefono(object sender, RoutedEventArgs e)
+        {
+            TextBoxTelefonoSocio.Foreground = Brushes.Black;
+        }
+
+        private void PulsarCuantia(object sender, RoutedEventArgs e)
+        {
+            TextBoxCuantiaSocio.Foreground = Brushes.Black;
+        }
+
+
+        /////////////////////////////////////////////////////////////// FUNCIONES AUXILIARES ///////////////////////////////////////////////////////////////
+
+
         public void CargarSocios()
         {
             List<Socio> socios = GestorPersona.obtenerTodosSocios();
-            //socios = GestorPersona.obtenerTodosSocios();
             ListViewSocios.Items.Clear();
             foreach (Socio socio in socios)
             {
                 if (string.IsNullOrEmpty(socio.Foto))
                 {
-                    //perro.Foto = "C:\\Users\\laura\\source\\repos\\Protectora\\recursos\\default.png";
                     socio.Foto = "default.jpg";
                 }
                 listaSocio.Add(socio);
                 ListViewSocios.Items.Add(socio);
             }
-
         }
-
         public void SetSocio(Socio socio)
         {
             try
@@ -116,10 +284,8 @@ namespace Protectora.Presentacion
             catch (Exception ex)
             {
                 Console.Write(ex);
-                //List<String> fila;
             }
         }
-
         private void DesactivarTextBoxsSocios()
         {
             TextBoxIdSocio.IsEnabled = false;
@@ -142,170 +308,44 @@ namespace Protectora.Presentacion
             btnEditConfirmarSocio.Visibility = Visibility.Hidden;
             ListViewSocios.IsEnabled = true;
         }
-
-
-        private void BtnEditSocio_Click(object sender, RoutedEventArgs e)
+        private string obtenerPath()
         {
-            ListViewSocios.IsEnabled = false;
-            TextBoxIdSocio.IsEnabled = true;
-            TextBoxCorreoSocio.IsEnabled = true;
-            TextBoxNombreSocio.IsEnabled = true;
-            TextBoxDNISocio.IsEnabled = true;
-            TextBoxTelefonoSocio.IsEnabled = true;
-            TextBoxCuantiaSocio.IsEnabled = true;
-            TextBoxDatosBanSocio.IsEnabled = true;
-            TextBoxPagoSocio.IsEnabled = true;
-            btnImagenSocio.IsEnabled = true;
-
-            btnEditCancelarSocio.Visibility = Visibility.Visible;
-            btnEditConfirmarSocio.Visibility = Visibility.Visible;
-            btnImagenSocio.Visibility = Visibility.Visible;
-            btnEditSocio.Visibility = Visibility.Hidden;
-            btnDeleteSocio.Visibility = Visibility.Hidden;
-            btnAnteriorSocio.Visibility = Visibility.Hidden;
-            btnNextSocio.Visibility = Visibility.Hidden;
-            NuevoSocio.Visibility = Visibility.Hidden;
-
-
+            string pathExe = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
+            string pathApp1 = pathExe.Substring(8);
+            //int posBin = pathApp1.IndexOf("/bin");
+            string proc = "/Protectora/";
+            int posBin = pathApp1.IndexOf(proc);
+            string pathApp = pathApp1.Remove(posBin + proc.Length);
+            return pathApp;
         }
-
-        private void btnEditCancelarSocio_Click(object sender, RoutedEventArgs e)
+        private string copiarImagen(string sourcePath)
         {
-            Socio socio = (Socio)ListViewSocios.Items[ListViewSocios.SelectedIndex];
-            SetSocio(socio);
-            //TextBoxEdad.Foreground = Brushes.Black;
-            //TextBoxPeso.Foreground = Brushes.Black;
-            //TextBoxTamanio.Foreground = Brushes.Black;
-            DesactivarTextBoxsSocios();
-        }
+            string[] subs = sourcePath.Split('/');
+            string fName = subs[subs.Length - 1];
 
-        private void btnEditConfirmarSocio_Click(object sender, RoutedEventArgs e)
-        {
-            Socio socio = (Socio)ListViewSocios.Items[ListViewSocios.SelectedIndex];
+            int tam = 8;
+            string sourceDir1 = sourcePath.Substring(tam);
+            string sourceDir = sourceDir1.Substring(0, (sourceDir1.Length - fName.Length - 1));
 
-            try
+            string pathApp = obtenerPath();
+
+            string backupDir = pathApp + "/fotosPersonas";
+
+            string[] picList = Directory.GetFiles(backupDir, "*.jpg");
+
+            if (!(picList.Contains(backupDir + "\\" + fName)))
             {
-
-                socio.NombreCompleto = TextBoxNombreSocio.Text;
-                socio.Correo = TextBoxCorreoSocio.Text;
-                socio.Telefono = Int32.Parse(TextBoxTelefonoSocio.Text);
-                socio.CuantiaAyuda = Int32.Parse(TextBoxCuantiaSocio.Text);
-                socio.DatosBancarios = TextBoxDatosBanSocio.Text;
-                socio.Dni = TextBoxDNISocio.Text;
-                socio.FormaPago = TextBoxPagoSocio.Text;
-
-                string s = ProfileImageSocio.Source.ToString();
-                string[] subs = s.Split('/');
-                socio.Foto = subs[subs.Length - 1];
-
-                GestorPersona.modificarSocio(socio);
-                DesactivarTextBoxsSocios();
-            }
-            catch (Exception ex)
-            {
-                Console.Write(ex);
-                ComprobarEntradaInt(TextBoxCuantiaSocio.Text, TextBoxCuantiaSocio);
-                ComprobarEntradaInt(TextBoxTelefonoSocio.Text, TextBoxTelefonoSocio);
-
-                //List<String> fila;
-            }
-
-            //Refresh();
-        }
-
-        private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada)
-        {
-            int num;
-            bool cosa = int.TryParse(valorIntroducido, out num);
-            if (cosa == false)
-            {
-                componenteEntrada.Foreground = Brushes.Red;
-
-            }
-
-        }
-
-        private void PulsarTelefono(object sender, RoutedEventArgs e)
-        {
-            TextBoxTelefonoSocio.Foreground = Brushes.Black;
-        }
-
-        private void PulsarCuantia(object sender, RoutedEventArgs e)
-        {
-            TextBoxCuantiaSocio.Foreground = Brushes.Black;
-        }
-
-        private void BtnDeletePerro_Click(object sender, RoutedEventArgs e)
-        {
-            int index = ListViewSocios.SelectedIndex;
-            string message = "¿Estas seguro que quieres eliminar el socio seleccionado?";
-            string caption = "Eliminación de socio";
-            MessageBoxButton buttons = MessageBoxButton.YesNo;
-            DialogResult result;
-
-            // Displays the MessageBox.
-            result = (DialogResult)MessageBox.Show(message, caption, buttons);
-            if (result == System.Windows.Forms.DialogResult.Yes)
-            {
-                Socio socio = (Socio)ListViewSocios.Items[ListViewSocios.SelectedIndex];
-
-                GestorPersona.eliminarSocio(socio);
-                ListViewSocios.Items.RemoveAt(index);
-                TextBoxIdSocio.Text = "";
-                TextBoxIdSocio.Text = "";
-                TextBoxCorreoSocio.Text = "";
-                TextBoxNombreSocio.Text = "";
-                TextBoxDNISocio.Text = "";
-                TextBoxTelefonoSocio.Text = "";
-                TextBoxCuantiaSocio.Text = "";
-                TextBoxDatosBanSocio.Text = "";
-                TextBoxPagoSocio.Text = "";
-                //@"../fotosPerros/default.jpg"
-                //string str = @"../fotosPerros/default.jpg";
-                //BitmapImage bitmap = new BitmapImage();
-                //bitmap.BeginInit();
-                //bitmap.UriSource = new Uri(str, UriKind.Relative);
-                //bitmap.EndInit();
-                //ProfileImage.Source = bitmap;
-            }
-            //SetPerro(ListViewPerros.Items.IndexOf;
-
-
-
-        }
-        private void BtnImagenSocio_Click(object sender, RoutedEventArgs e)
-        {
-            OpenFileDialog op = new OpenFileDialog
-            {
-                Title = "Select a picture",
-                Filter = "Images|*.jpg;*.gif;*.bmp;*.png"
-            };
-            BitmapImage bitmap = new BitmapImage();
-            op.ShowDialog();
-
-            try
-            {
-                string str = op.FileName;
-                bitmap.BeginInit();
-                bitmap.UriSource = new Uri(str);
-                bitmap.EndInit();
-                ProfileImageSocio.Source = bitmap;
-
-            }
-            catch (Exception ex)
-            {
-                if (ex.Message != "URI no válido: URI está vacío.")
+                try
                 {
-                    MessageBox.Show("Error al cargar la imagen " + ex.Message);
+                    File.Copy(Path.Combine(sourceDir, fName), Path.Combine(backupDir, fName), true);
+                }
+                catch (DirectoryNotFoundException dirNotFound)
+                {
+                    Console.WriteLine(dirNotFound.Message);
                 }
             }
-
-
+            return fName;
         }
 
-        private void btnMostrarTodosSocio_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

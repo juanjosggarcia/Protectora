@@ -1,6 +1,7 @@
 ﻿using Protectora.Dominio;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Path = System.IO.Path;
 
 namespace Protectora.Presentacion
 {
@@ -28,6 +30,25 @@ namespace Protectora.Presentacion
             InitializeComponent();
             CargarPerrosPerdidos();
         }
+
+        private void ListaPerrosPerdidos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedItems = ListViewPerrosPerdidos.SelectedItems;
+            foreach (Aviso aviso in selectedItems)
+            {
+                SetPerroPerdido(aviso);
+                DesactivarTextBoxsPerdido();
+
+            }
+
+            btnAnteriorPerroPerdido.IsEnabled = true;
+            btnNextPerroPerdido.IsEnabled = true;
+            btnEditPerroPerdido.IsEnabled = true;
+            btnDeletePerroPerdido.IsEnabled = true;
+        }
+
+        ///////////////////////////////////////////////////////////////// EVENTOS DE BOTON /////////////////////////////////////////////////////////////////
+
 
         private void BtnDuenio_Click(object sender, RoutedEventArgs e)
         {
@@ -51,87 +72,37 @@ namespace Protectora.Presentacion
             nuevoPerroPerdido.Show();
 
         }
-
-        private void ListaPerrosPerdidos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void BtnDeletePerroPerdido_Click(object sender, RoutedEventArgs e)
         {
-            var selectedItems = ListViewPerrosPerdidos.SelectedItems;
-            foreach (Aviso aviso in selectedItems)
+            int index = ListViewPerrosPerdidos.SelectedIndex;
+            string message = "¿Estas seguro que quieres eliminar el aviso seleccionado?";
+            string caption = "Eliminación de aviso";
+            MessageBoxButton buttons = MessageBoxButton.YesNo;
+            DialogResult result;
+
+            result = (DialogResult)System.Windows.MessageBox.Show(message, caption, buttons);
+            if (result == System.Windows.Forms.DialogResult.Yes)
             {
-                SetPerroPerdido(aviso);
-                DesactivarTextBoxsPerdido();
-
-            }
-
-            btnAnteriorPerroPerdido.IsEnabled = true;
-            btnNextPerroPerdido.IsEnabled = true;
-            btnEditPerroPerdido.IsEnabled = true;
-            btnDeletePerroPerdido.IsEnabled = true;
-        }
-        public void SetPerroPerdido(Aviso aviso)
-        {
-            try
-            {
-                TextBoxIdPerroPer.Text = aviso.Id.ToString();
-                TextBoxNombrePerdido.Text = aviso.Nombre;
-                TextBoxSexoPerdido.Text = aviso.Sexo;
-                TextBoxTamanioPerdido.Text = aviso.Tamanio.ToString();
-                TextBoxRazaPerdido.Text = aviso.Raza;
-                TextBoxFechaPerdida.Text = aviso.FechaPerdida.ToString();
-                TextBoxZonaPerdida.Text = aviso.ZonaPerdida;
-                TextBoxDescripcionPerdida.Text = aviso.DescripcionAnimal;
-                TextBoxDescripcionAdicional.Text = aviso.DescripcionAdicional;
-
-                string str = @"../fotosPerros/" + aviso.Foto;
+                Aviso aviso = (Aviso)ListViewPerrosPerdidos.Items[ListViewPerrosPerdidos.SelectedIndex];
+                GestorAnimal.eliminarAviso(aviso);
+                ListViewPerrosPerdidos.Items.RemoveAt(index);
+                TextBoxIdPerroPer.Text = "";
+                TextBoxSexoPerdido.Text = "";
+                TextBoxNombrePerdido.Text = "";
+                TextBoxTamanioPerdido.Text = "";
+                TextBoxRazaPerdido.Text = "";
+                TextBoxZonaPerdida.Text = "";
+                TextBoxFechaPerdida.Text = "";
+                TextBoxDescripcionPerdida.Text = "";
+                TextBoxDescripcionAdicional.Text = "";
+                string str = @"../fotosPerros/default.jpg";
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
                 bitmap.UriSource = new Uri(str, UriKind.Relative);
                 bitmap.EndInit();
                 ProfileImagePerroPerdido.Source = bitmap;
-
-
-            }
-            catch (Exception ex)
-            {
-                Console.Write(ex);
-                //List<String> fila;
             }
         }
-
-        public void CargarPerrosPerdidos()
-        {
-            List<Aviso> avisos = new List<Aviso>();
-            avisos = GestorAnimal.obtenerTodosAvisos();
-            ListViewPerrosPerdidos.Items.Clear();
-            foreach (Aviso aviso in avisos)
-            {
-                if (string.IsNullOrEmpty(aviso.Foto))
-                {
-                    aviso.Foto = "default.jpg";
-                }
-
-                listaAvisos.Add(aviso);
-                ListViewPerrosPerdidos.Items.Add(aviso);
-            }
-
-        }
-    
-
-        private void BtnNextPerroPerdido_Click(object sender, RoutedEventArgs e)
-        {
-            if (ListViewPerrosPerdidos.SelectedIndex != ListViewPerrosPerdidos.Items.Count - 1)
-            {
-                ListViewPerrosPerdidos.SelectedIndex++;
-            }
-        }
-
-        private void BtnAnteriorPerroPerdido_Click(object sender, RoutedEventArgs e)
-        {
-            if (ListViewPerrosPerdidos.SelectedIndex != 0)
-            {
-                ListViewPerrosPerdidos.SelectedIndex--;
-            }
-        }
-
         private void BtnEditPerroPerdido_Click(object sender, RoutedEventArgs e)
         {
             BtnDuenio.ToolTip = "Editar los datos del dueño del perro perdido";
@@ -157,54 +128,86 @@ namespace Protectora.Presentacion
             NuevoPerroPerdido.Visibility = Visibility.Hidden;
             ListViewPerrosPerdidos.IsEnabled = false;
         }
-
-        private void BtnDeletePerroPerdido_Click(object sender, RoutedEventArgs e)
+        private void btnEditConfirmarPerroPerdido_Click(object sender, RoutedEventArgs e)
         {
-            int index = ListViewPerrosPerdidos.SelectedIndex;
-            string message = "¿Estas seguro que quieres eliminar el aviso seleccionado?";
-            string caption = "Eliminación de aviso";
-            MessageBoxButton buttons = MessageBoxButton.YesNo;
-            DialogResult result;
+            Aviso aviso = (Aviso)ListViewPerrosPerdidos.Items[ListViewPerrosPerdidos.SelectedIndex];
 
-            // Displays the MessageBox.
-            result = (DialogResult)System.Windows.MessageBox.Show(message, caption, buttons);
-            if (result == System.Windows.Forms.DialogResult.Yes)
+            try
             {
-                // Closes the parent form.
-                //System.Windows.Forms.ListViewItem item = (System.Windows.Forms.ListViewItem)ListViewPerros.Items[ListViewPerros.SelectedIndex];
-                Aviso aviso = (Aviso)ListViewPerrosPerdidos.Items[ListViewPerrosPerdidos.SelectedIndex];
+                aviso.Nombre = TextBoxNombrePerdido.Text;
+                aviso.Sexo = TextBoxSexoPerdido.Text;
+                aviso.Tamanio = Int32.Parse(TextBoxTamanioPerdido.Text);
+                aviso.Raza = TextBoxRazaPerdido.Text;
+                aviso.FechaPerdida = DateTime.Parse(TextBoxFechaPerdida.Text);
+                aviso.ZonaPerdida = TextBoxZonaPerdida.Text;
+                aviso.DescripcionAnimal = TextBoxDescripcionPerdida.Text;
+                aviso.DescripcionAdicional = TextBoxDescripcionAdicional.Text;
 
-                //int idperro = item.SubItems[0].Text;
-                //int cosa= ListViewPerros.ListViewSubItem();
+                //string s = ProfileImagePerroPerdido.Source.ToString();
+                //string[] subs = s.Split('/');
+                //aviso.Foto = subs[subs.Length - 1];
 
-                //Perro perro = new Perro();
-                //string idper = TextBoxId.Text;
-                //int idperro = Int32.Parse(TextBoxId.Text);
+                aviso.Foto = copiarImagen(ProfileImagePerroPerdido.Source.ToString());
 
-                //perro.Id = idperro;
-                GestorAnimal.eliminarAviso(aviso);
-                ListViewPerrosPerdidos.Items.RemoveAt(index);
-                TextBoxIdPerroPer.Text = "";
-                TextBoxSexoPerdido.Text = "";
-                TextBoxNombrePerdido.Text = "";
-                TextBoxTamanioPerdido.Text = "";
-                TextBoxRazaPerdido.Text = "";
-                TextBoxZonaPerdida.Text = "";
-                TextBoxFechaPerdida.Text = "";
-                TextBoxDescripcionPerdida.Text = "";
-                TextBoxDescripcionAdicional.Text = "";
-                //@"../fotosPerros/default.jpg"
-                string str = @"../fotosPerros/default.jpg";
-                BitmapImage bitmap = new BitmapImage();
-                bitmap.BeginInit();
-                bitmap.UriSource = new Uri(str, UriKind.Relative);
-                bitmap.EndInit();
-                ProfileImagePerroPerdido.Source = bitmap;
+                GestorAnimal.modificarAviso(aviso);
+                DesactivarTextBoxsPerdido();
+                BtnDuenio.ToolTip = "Datos del dueño del perro perdido";
+
             }
-            //SetPerro(ListViewPerros.Items.IndexOf;
+            catch (Exception ex)
+            {
+                Console.Write(ex);
 
-
+            }
         }
+        private void btnEditCancelarPerroPerdido_Click(object sender, RoutedEventArgs e)
+        {
+            Aviso aviso = (Aviso)ListViewPerrosPerdidos.Items[ListViewPerrosPerdidos.SelectedIndex];
+            SetPerroPerdido(aviso);
+            BtnDuenio.ToolTip = "Datos del dueño del perro perdido";
+            DesactivarTextBoxsPerdido();
+        }
+        private void btnBuscarPerroPerdido_Click(object sender, RoutedEventArgs e)
+        {
+            Aviso aviso = new Aviso();
+
+            if (!string.IsNullOrEmpty(TextBoxBuscarPerroPerdido.Text))
+            {
+                aviso.Nombre = TextBoxBuscarPerroPerdido.Text;
+                aviso = GestorAnimal.obtenerAviso(aviso);
+                ListViewPerrosPerdidos.Items.Clear();
+                if (aviso != null)
+                {
+                    ListViewPerrosPerdidos.Items.Add(aviso);
+                }
+            }
+            else
+            {
+                CargarPerrosPerdidos();
+            }
+        }
+        private void btnMostrarTodosAvisos_Click(object sender, RoutedEventArgs e)
+        {
+            CargarPerrosPerdidos();
+        }
+        private void BtnNextPerroPerdido_Click(object sender, RoutedEventArgs e)
+        {
+            if (ListViewPerrosPerdidos.SelectedIndex != ListViewPerrosPerdidos.Items.Count - 1)
+            {
+                ListViewPerrosPerdidos.SelectedIndex++;
+            }
+        }
+
+        private void BtnAnteriorPerroPerdido_Click(object sender, RoutedEventArgs e)
+        {
+            if (ListViewPerrosPerdidos.SelectedIndex != 0)
+            {
+                ListViewPerrosPerdidos.SelectedIndex--;
+            }
+        }
+
+        //////////////////////////////////////////////////////////////// EVENTOS AUXILIARES ////////////////////////////////////////////////////////////////
+
         private void BtnImagenPerroPerdido_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog op = new OpenFileDialog
@@ -231,80 +234,6 @@ namespace Protectora.Presentacion
                     System.Windows.MessageBox.Show("Error al cargar la imagen " + ex.Message);
                 }
             }
-
-        }
-        private void btnEditCancelarPerroPerdido_Click(object sender, RoutedEventArgs e)
-        {
-            Aviso aviso = (Aviso)ListViewPerrosPerdidos.Items[ListViewPerrosPerdidos.SelectedIndex];
-            SetPerroPerdido(aviso);
-            BtnDuenio.ToolTip = "Datos del dueño del perro perdido";
-            DesactivarTextBoxsPerdido();
-        }
-        private void btnEditConfirmarPerroPerdido_Click(object sender, RoutedEventArgs e)
-        {
-            Aviso aviso = (Aviso)ListViewPerrosPerdidos.Items[ListViewPerrosPerdidos.SelectedIndex];
-
-            try
-            {
-                aviso.Nombre = TextBoxNombrePerdido.Text;
-                aviso.Sexo = TextBoxSexoPerdido.Text;  
-                aviso.Tamanio = Int32.Parse(TextBoxTamanioPerdido.Text);
-                aviso.Raza = TextBoxRazaPerdido.Text;
-                aviso.FechaPerdida = DateTime.Parse(TextBoxFechaPerdida.Text);
-                aviso.ZonaPerdida = TextBoxZonaPerdida.Text;
-                aviso.DescripcionAnimal = TextBoxDescripcionPerdida.Text;
-                aviso.DescripcionAdicional = TextBoxDescripcionAdicional.Text;
-
-                string s = ProfileImagePerroPerdido.Source.ToString();
-                string[] subs = s.Split('/');
-                aviso.Foto = subs[subs.Length - 1];
-
-                GestorAnimal.modificarAviso(aviso);
-                DesactivarTextBoxsPerdido();
-                BtnDuenio.ToolTip = "Datos del dueño del perro perdido";
-
-            }
-            catch (Exception ex)
-            {
-                Console.Write(ex);
-
-                //List<String> fila;
-            }
-
-        }
-        private void DesactivarTextBoxsPerdido()
-        {
-            TextBoxIdPerroPer.IsEnabled = false;
-            TextBoxSexoPerdido.IsEnabled = false;
-            TextBoxNombrePerdido.IsEnabled = false;
-            TextBoxTamanioPerdido.IsEnabled = false;
-            TextBoxRazaPerdido.IsEnabled = false;
-            TextBoxZonaPerdida.IsEnabled = false;
-            TextBoxFechaPerdida.IsEnabled = false;
-            TextBoxDescripcionPerdida.IsEnabled = false;
-            TextBoxDescripcionAdicional.IsEnabled = false;
-
-            btnImagenPerroPerdido.IsEnabled = false;
-            BtnDuenio.IsEnabled = true;
-            
-            btnEditPerroPerdido.Visibility = Visibility.Visible;
-            btnDeletePerroPerdido.Visibility = Visibility.Visible;
-            btnAnteriorPerroPerdido.Visibility = Visibility.Visible;
-            btnNextPerroPerdido.Visibility = Visibility.Visible;
-            NuevoPerroPerdido.Visibility = Visibility.Visible;
-            btnEditCancelarPerroPerdido.Visibility = Visibility.Hidden;
-            btnEditConfirmarPerroPerdido.Visibility = Visibility.Hidden;
-            ListViewPerrosPerdidos.IsEnabled = true;
-        }
-
-        private void btnBuscarPerroPerdido_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnMostrarTodosAvisos_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         //private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada)
@@ -323,5 +252,125 @@ namespace Protectora.Presentacion
         //{
         //    TextBoxEdad.Foreground = Brushes.Black;
         //}
+
+        /////////////////////////////////////////////////////////////// FUNCIONES AUXILIARES ///////////////////////////////////////////////////////////////
+
+        public void CargarPerrosPerdidos()
+        {
+            List<Aviso> avisos = new List<Aviso>();
+            avisos = GestorAnimal.obtenerTodosAvisos();
+            ListViewPerrosPerdidos.Items.Clear();
+            foreach (Aviso aviso in avisos)
+            {
+                if (string.IsNullOrEmpty(aviso.Foto))
+                {
+                    aviso.Foto = "default.jpg";
+                }
+
+                listaAvisos.Add(aviso);
+                ListViewPerrosPerdidos.Items.Add(aviso);
+            }
+        }
+        public void SetPerroPerdido(Aviso aviso)
+        {
+            try
+            {
+                TextBoxIdPerroPer.Text = aviso.Id.ToString();
+                TextBoxNombrePerdido.Text = aviso.Nombre;
+                TextBoxSexoPerdido.Text = aviso.Sexo;
+                TextBoxTamanioPerdido.Text = aviso.Tamanio.ToString();
+                TextBoxRazaPerdido.Text = aviso.Raza;
+                TextBoxFechaPerdida.Text = aviso.FechaPerdida.ToString();
+                TextBoxZonaPerdida.Text = aviso.ZonaPerdida;
+                TextBoxDescripcionPerdida.Text = aviso.DescripcionAnimal;
+                TextBoxDescripcionAdicional.Text = aviso.DescripcionAdicional;
+
+                string rutaPerros = obtenerPath() + "/fotosPerros";
+                string[] picList = Directory.GetFiles(rutaPerros, "*.jpg");
+
+                if (!(picList.Contains(rutaPerros + "\\" + aviso.Foto)))
+                {
+                    aviso.Foto = "default.jpg";
+                }
+
+                string str = rutaPerros + "/" + aviso.Foto;
+
+                //string str = @"../fotosPerros/" + aviso.Foto;
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                //bitmap.UriSource = new Uri(str, UriKind.Relative);
+                bitmap.UriSource = new Uri(str);
+                bitmap.EndInit();
+                ProfileImagePerroPerdido.Source = bitmap;
+
+
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex);
+            }
+        }
+        private void DesactivarTextBoxsPerdido()
+        {
+            TextBoxIdPerroPer.IsEnabled = false;
+            TextBoxSexoPerdido.IsEnabled = false;
+            TextBoxNombrePerdido.IsEnabled = false;
+            TextBoxTamanioPerdido.IsEnabled = false;
+            TextBoxRazaPerdido.IsEnabled = false;
+            TextBoxZonaPerdida.IsEnabled = false;
+            TextBoxFechaPerdida.IsEnabled = false;
+            TextBoxDescripcionPerdida.IsEnabled = false;
+            TextBoxDescripcionAdicional.IsEnabled = false;
+
+            btnImagenPerroPerdido.IsEnabled = false;
+            BtnDuenio.IsEnabled = true;
+
+            btnEditPerroPerdido.Visibility = Visibility.Visible;
+            btnDeletePerroPerdido.Visibility = Visibility.Visible;
+            btnAnteriorPerroPerdido.Visibility = Visibility.Visible;
+            btnNextPerroPerdido.Visibility = Visibility.Visible;
+            NuevoPerroPerdido.Visibility = Visibility.Visible;
+            btnEditCancelarPerroPerdido.Visibility = Visibility.Hidden;
+            btnEditConfirmarPerroPerdido.Visibility = Visibility.Hidden;
+            ListViewPerrosPerdidos.IsEnabled = true;
+        }
+        private string obtenerPath()
+        {
+            string pathExe = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
+            string pathApp1 = pathExe.Substring(8);
+            //int posBin = pathApp1.IndexOf("/bin");
+            string proc = "/Protectora/";
+            int posBin = pathApp1.IndexOf(proc);
+            string pathApp = pathApp1.Remove(posBin + proc.Length);
+            return pathApp;
+        }
+        private string copiarImagen(string sourcePath)
+        {
+            string[] subs = sourcePath.Split('/');
+            string fName = subs[subs.Length - 1];
+
+            int tam = 8;
+            string sourceDir1 = sourcePath.Substring(tam);
+            string sourceDir = sourceDir1.Substring(0, (sourceDir1.Length - fName.Length - 1));
+
+            string pathApp = obtenerPath();
+
+            string backupDir = pathApp + "/fotosPerros";
+
+            string[] picList = Directory.GetFiles(backupDir, "*.jpg");
+
+            if (!(picList.Contains(backupDir + "\\" + fName)))
+            {
+                try
+                {
+                    File.Copy(Path.Combine(sourceDir, fName), Path.Combine(backupDir, fName), true);
+                }
+                catch (DirectoryNotFoundException dirNotFound)
+                {
+                    Console.WriteLine(dirNotFound.Message);
+                }
+            }
+            return fName;
+        }
     }
 }

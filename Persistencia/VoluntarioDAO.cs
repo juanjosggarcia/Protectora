@@ -31,7 +31,7 @@ namespace Protectora.Persistencia
         }
         public Voluntario leerName(Voluntario obj)
         {
-            List<List<String>> arrayCarVoluntarios = AgenteDB.obtenerAgente().leer("SELECT * FROM personas p, voluntarios v WHERE p.id=v.idPersona WHERE p.nombreCompleto = '" + obj.NombreCompleto.ToString() + "';");
+            List<List<String>> arrayCarVoluntarios = AgenteDB.obtenerAgente().leer("SELECT * FROM personas p, voluntarios v WHERE p.Id=v.idPersona AND p.nombreCompleto = '" + obj.NombreCompleto.ToString() + "';");
 
             foreach (List<String> user in arrayCarVoluntarios)
             {
@@ -49,7 +49,7 @@ namespace Protectora.Persistencia
         public Voluntario leerId(Voluntario obj)
         {
             List<Voluntario> arrayVoluntarios = new List<Voluntario>();
-            List<List<String>> arrayCarVoluntarios = AgenteDB.obtenerAgente().leer("SELECT * FROM personas p, voluntarios v WHERE p.id=v.idPersona WHERE Id = " + obj.Id.ToString() + ";");
+            List<List<String>> arrayCarVoluntarios = AgenteDB.obtenerAgente().leer("SELECT * FROM personas p, voluntarios v WHERE p.id=v.idPersona AND p.Id = " + obj.Id.ToString() + ";");
 
             foreach (List<String> user in arrayCarVoluntarios)
             {

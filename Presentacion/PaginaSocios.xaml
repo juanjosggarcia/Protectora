@@ -75,7 +75,7 @@
                 </Grid>
             </Border>
             <TextBox x:Name="TextBoxBuscarSocio" Style="{StaticResource EstiloTextBoxBuscar}" FontSize="14" Foreground="Black"  Width="298" Height="Auto" Margin="228,42,0,522" RenderTransformOrigin="0.5,0.5" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=Nombre}"/>
-            <Button x:Name="btnBuscarSocio" ToolTip="Buscar por nombre un socio" Style="{StaticResource EstiloBotonBuscar}" Content="Buscar" HorizontalAlignment="Left" Margin="526,0,0,522" VerticalAlignment="Bottom" Width="102" RenderTransformOrigin="0.526,1.458" Height="35" Grid.Row="1" />
+            <Button x:Name="btnBuscarSocio" ToolTip="Buscar por nombre un socio" Style="{StaticResource EstiloBotonBuscar}" Content="Buscar" HorizontalAlignment="Left" Margin="526,0,0,522" VerticalAlignment="Bottom" Width="102" RenderTransformOrigin="0.526,1.458" Height="35" Grid.Row="1" Click="btnBuscarSocio_Click" />
 
 
             <ListView Style="{StaticResource EstiloListView}" ToolTip="Listado de los socios en la perrera" Width="400" x:Name="ListViewSocios" Grid.Row="1" Foreground="#333" Background="#FAFBFD" FontFamily="Corbel" Margin="228,91,84,67" Padding="-3,-1"  IsSynchronizedWithCurrentItem="True" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="ListaSocios_SelectionChanged" >

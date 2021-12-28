@@ -45,7 +45,7 @@ namespace Protectora.Dominio
         }
         public new Socio leerDatoXName()
         {
-            throw new NotImplementedException();
+            return SocDAO.leerName(this);
         }
         public new Socio leerDatoXId()
         {
