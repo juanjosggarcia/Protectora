@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using MessageBox = System.Windows.MessageBox;
 using TextBox = System.Windows.Controls.TextBox;
 
@@ -391,6 +392,14 @@ namespace Protectora.Presentacion
                 CargarPerros();
             }
 
+        }
+
+        private void OnKeyDownHandler(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                btnBuscarPerro_Click(sender, e);
+            }
         }
 
         private void btnMostrarTodosPerro_Click(object sender, RoutedEventArgs e)

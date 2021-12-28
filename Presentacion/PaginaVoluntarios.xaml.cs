@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Win32;
 using Protectora.Dominio;
+using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using MessageBox = System.Windows.MessageBox;
 using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 using TextBox = System.Windows.Controls.TextBox;
@@ -145,6 +146,13 @@ namespace Protectora.Presentacion
         private void btnBuscarVoluntario_Click(object sender, RoutedEventArgs e)
         {
             //AQUI VA BUSCAR VOLUNTARIO
+        }
+        private void OnKeyDownHandler(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                btnBuscarVoluntario_Click(sender, e);
+            }
         }
 
         private void ListaVoluntarios_SelectionChanged(object sender, SelectionChangedEventArgs e)

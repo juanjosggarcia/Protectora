@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using TextBox = System.Windows.Controls.TextBox;
 
 namespace Protectora.Presentacion
@@ -312,6 +313,14 @@ namespace Protectora.Presentacion
         private void btnMostrarTodosAvisos_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void OnKeyDownHandler(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                btnBuscarPerroPerdido_Click(sender, e);
+            }
         }
 
         private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada)

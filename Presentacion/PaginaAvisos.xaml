@@ -79,7 +79,7 @@
 
                 </Grid>
             </Border>
-            <TextBox x:Name="TextBoxBuscarPerroPerdido" Style="{StaticResource EstiloTextBoxBuscar}" FontSize="14" Foreground="Black"  Width="298" Height="Auto" Margin="228,42,0,522" RenderTransformOrigin="0.5,0.5" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=Nombre}"/>
+            <TextBox x:Name="TextBoxBuscarPerroPerdido" KeyDown="OnKeyDownHandler" Style="{StaticResource EstiloTextBoxBuscar}" FontSize="14" Foreground="Black"  Width="298" Height="Auto" Margin="228,42,0,522" RenderTransformOrigin="0.5,0.5" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=Nombre}"/>
             <Button x:Name="btnBuscarPerroPerdido" ToolTip="Buscar por nombre un perro perdido" Style="{StaticResource EstiloBotonBuscar}" Content="Buscar" HorizontalAlignment="Left" Margin="526,0,0,522" VerticalAlignment="Bottom" Width="102" RenderTransformOrigin="0.526,1.458" Height="35" Grid.Row="1" Click="btnBuscarPerroPerdido_Click" />
 
 
