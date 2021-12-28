@@ -300,6 +300,7 @@ namespace Protectora.Presentacion
             TextBoxPeso.Foreground = Brushes.Black;
             TextBoxTamanio.Foreground = Brushes.Black;
             BtnPdrino.ToolTip = "Datos del padrino del perro";
+            ListViewPerros.SelectedItem = ListViewPerros.Items[ListViewPerros.SelectedIndex];
             DesactivarTextBoxs();
         }
 
@@ -327,6 +328,8 @@ namespace Protectora.Presentacion
                 CargarPerros();
                 DesactivarTextBoxs();
                 BtnPdrino.ToolTip = "Datos del padrino del perro";
+                ListViewPerros.SelectedItem = ListViewPerros.Items[ListViewPerros.SelectedIndex];
+
 
             }
             catch (Exception ex)
@@ -335,10 +338,12 @@ namespace Protectora.Presentacion
                 ComprobarEntradaInt(TextBoxEdad.Text, TextBoxEdad);
                 ComprobarEntradaInt(TextBoxPeso.Text, TextBoxPeso);
                 ComprobarEntradaInt(TextBoxTamanio.Text, TextBoxTamanio);
+                ComprobarEntradaFecha(TextBoxEntrada.Text, TextBoxEntrada);
+
 
                 //List<String> fila;
             }
-            
+
             //Refresh();
         }
 
@@ -400,6 +405,16 @@ namespace Protectora.Presentacion
             if (cosa == false)
             {
                 componenteEntrada.Foreground = Brushes.Red;
+            }
+
+        }
+        private void ComprobarEntradaFecha(string valorIntroducido, TextBox componenteEntrada)
+        {
+            DateTime num;
+            bool cosa = DateTime.TryParse(valorIntroducido, out num);
+            if (cosa == false)
+            {
+                componenteEntrada.Foreground = Brushes.Red;
 
             }
 
@@ -418,6 +433,10 @@ namespace Protectora.Presentacion
         private void PulsarPeso(object sender, RoutedEventArgs e)
         {
             TextBoxPeso.Foreground = Brushes.Black;
+        }
+        private void PulsarFecha(object sender, RoutedEventArgs e)
+        {
+            TextBoxEntrada.Foreground = Brushes.Black;
         }
 
     }

@@ -147,14 +147,18 @@ namespace Protectora.Presentacion
 
                 GestorPersona.crearSocio(socio);
                 pagSocios.CargarSocios();
+                this.Close();
             }
             catch (Exception ex)
             {
+                ComprobarEntradaInt(txtTelefonoSocio.Text, txtTelefonoSocio);
+                ComprobarEntradaInt(txtCuantiaSocio.Text, txtCuantiaSocio);
+
                 Console.Write(ex);
                 //List<String> fila;
             }
 
-            this.Close();
+            
         }
 
         private void BtnImagen_Click(object sender, RoutedEventArgs e)
@@ -176,6 +180,18 @@ namespace Protectora.Presentacion
                 }
             }
         }
+
+        private void ComprobarEntradaInt(string valorIntroducido, System.Windows.Controls.TextBox componenteEntrada)
+        {
+            int num;
+            bool cosa = int.TryParse(valorIntroducido, out num);
+            if (cosa == false)
+            {
+                componenteEntrada.Foreground = Brushes.Red;
+                componenteEntrada.ToolTip = "El dato introducido debe de ser del tipo numerico";
+            }
+        }
+
     }
 }
 

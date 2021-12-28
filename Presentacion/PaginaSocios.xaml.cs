@@ -177,6 +177,8 @@ namespace Protectora.Presentacion
             //TextBoxPeso.Foreground = Brushes.Black;
             //TextBoxTamanio.Foreground = Brushes.Black;
             DesactivarTextBoxsSocios();
+            ListViewSocios.SelectedItem = ListViewSocios.Items[ListViewSocios.SelectedIndex];
+
         }
 
         private void btnEditConfirmarSocio_Click(object sender, RoutedEventArgs e)
@@ -200,6 +202,8 @@ namespace Protectora.Presentacion
 
                 GestorPersona.modificarSocio(socio);
                 DesactivarTextBoxsSocios();
+                ListViewSocios.SelectedItem = ListViewSocios.Items[ListViewSocios.SelectedIndex];
+
             }
             catch (Exception ex)
             {

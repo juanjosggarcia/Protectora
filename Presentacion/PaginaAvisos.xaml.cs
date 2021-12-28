@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TextBox = System.Windows.Controls.TextBox;
 
 namespace Protectora.Presentacion
 {
@@ -239,6 +240,7 @@ namespace Protectora.Presentacion
             SetPerroPerdido(aviso);
             BtnDuenio.ToolTip = "Datos del dueño del perro perdido";
             DesactivarTextBoxsPerdido();
+            ListViewPerrosPerdidos.SelectedItem = ListViewPerrosPerdidos.Items[ListViewPerrosPerdidos.SelectedIndex];
         }
         private void btnEditConfirmarPerroPerdido_Click(object sender, RoutedEventArgs e)
         {
@@ -262,11 +264,16 @@ namespace Protectora.Presentacion
                 GestorAnimal.modificarAviso(aviso);
                 DesactivarTextBoxsPerdido();
                 BtnDuenio.ToolTip = "Datos del dueño del perro perdido";
+                ListViewPerrosPerdidos.SelectedItem = ListViewPerrosPerdidos.Items[ListViewPerrosPerdidos.SelectedIndex];
+
 
             }
             catch (Exception ex)
             {
                 Console.Write(ex);
+                ComprobarEntradaFecha(TextBoxFechaPerdida.Text, TextBoxFechaPerdida);
+                ComprobarEntradaInt(TextBoxTamanioPerdido.Text, TextBoxTamanioPerdido);
+                  
 
                 //List<String> fila;
             }
@@ -307,21 +314,36 @@ namespace Protectora.Presentacion
 
         }
 
-        //private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada)
-        //{
-        //    int num;
-        //    bool cosa = int.TryParse(valorIntroducido, out num);
-        //    if (cosa == false)
-        //    {
-        //        componenteEntrada.Foreground = Brushes.Red;
+        private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada)
+        {
+            int num;
+            bool cosa = int.TryParse(valorIntroducido, out num);
+            if (cosa == false)
+            {
+                componenteEntrada.Foreground = Brushes.Red;
 
-        //    }
+            }
 
-        //}
+        }
+        private void ComprobarEntradaFecha(string valorIntroducido, TextBox componenteEntrada)
+        {
+            DateTime num;
+            bool cosa = DateTime.TryParse(valorIntroducido, out num);
+            if (cosa == false)
+            {
+                componenteEntrada.Foreground = Brushes.Red;
 
-        //private void PulsarEdad(object sender, RoutedEventArgs e)
-        //{
-        //    TextBoxEdad.Foreground = Brushes.Black;
-        //}
+            }
+
+        }
+
+        private void PulsarFecha(object sender, RoutedEventArgs e)
+        {
+            TextBoxFechaPerdida.Foreground = Brushes.Black;
+        }
+        private void PulsarTamanio(object sender, RoutedEventArgs e)
+        {
+            TextBoxTamanioPerdido.Foreground = Brushes.Black;
+        }
     }
 }

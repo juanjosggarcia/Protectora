@@ -198,17 +198,6 @@ namespace Protectora.Presentacion
             txtFormaPagoPadrino.Text = txtFormaPagoPadrino.Text == string.Empty ? "Forma de pago" : txtFormaPagoPadrino.Text;
             txtFormaPagoPadrino.Foreground = new SolidColorBrush(Colors.Gray);
         }
-        private void LimpiarComienzoPadrino(object sender, EventArgs e)
-        {
-            txtComienzoPadrino.Text = txtComienzoPadrino.Text == "Comienzo de apadrinamiento" ? string.Empty : txtComienzoPadrino.Text;
-            txtComienzoPadrino.Foreground = new SolidColorBrush(Colors.Black);
-        }
-        private void RellenarComienzoPadrino(object sender, EventArgs e)
-        {
-            txtComienzoPadrino.Text = txtComienzoPadrino.Text == string.Empty ? "Comienzo de apadrinamiento" : txtComienzoPadrino.Text;
-            txtComienzoPadrino.Foreground = new SolidColorBrush(Colors.Gray);
-        }
-
 
 
         private void BtnImagen_Click(object sender, RoutedEventArgs e)
@@ -273,7 +262,7 @@ namespace Protectora.Presentacion
                     padrino.DatosBancarios = txtDatosPadrino.Text;
                     padrino.ImporteMensual = Int32.Parse(txtImportePadrino.Text);
                     padrino.FormaPago = txtFormaPagoPadrino.Text;
-                    padrino.FechaEntrada = DateTime.Parse(txtComienzoPadrino.Text);
+                    padrino.FechaEntrada = DateTime.Parse(dateComienzoPadrino.Text);
                     int idPadrino = GestorPersona.addPadrino(padrino, perro);
                     perro.Apadrinado = idPadrino;
 
@@ -281,15 +270,58 @@ namespace Protectora.Presentacion
 
                 GestorAnimal.crearPerro(perro);
                 pagPerro.CargarPerros();
+                this.Close();
             }
             catch (Exception ex)
             {
                 Console.Write(ex);
+                ComprobarEntradaInt(txtTamanioPerro.Text, txtTamanioPerro);
+                ComprobarEntradaInt(txtPesoPerro.Text, txtPesoPerro);
+                ComprobarEntradaInt(txtEdadPerro.Text, txtEdadPerro);
+                ComprobarEntradaFecha(dateEntradaPerro.Text, dateEntradaPerro);
+
+                ComprobarEntradaInt(txtTelefonoPadrino.Text, txtTelefonoPadrino);
+                ComprobarEntradaInt(txtImportePadrino.Text, txtImportePadrino);
+                ComprobarEntradaFecha(dateComienzoPadrino.Text, dateComienzoPadrino);
+
                 //List<String> fila;
             }
 
 
-            this.Close();
+        }
+        private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada)
+        {
+            int num;
+            bool cosa = int.TryParse(valorIntroducido, out num);
+            if (cosa == false)
+            {
+                componenteEntrada.Foreground = Brushes.Red;
+                componenteEntrada.ToolTip = "El dato introducido debe de ser del tipo numerico";
+            }
+        }
+
+
+        private void ComprobarEntradaFecha(string valorIntroducido, DatePicker componenteEntrada)
+        {
+            DateTime num;
+            bool cosa = DateTime.TryParse(valorIntroducido, out num);
+            if (cosa == false)
+            {
+                componenteEntrada.Foreground = Brushes.Red;
+                componenteEntrada.ToolTip = "El dato introducido debe de ser del tipo fecha";
+
+            }
+
+        }
+
+        private void PulsarFechaComienzo(object sender, RoutedEventArgs e)
+        {
+            dateComienzoPadrino.Foreground = Brushes.Black;
+        }
+
+        private void PulsarFechaEntrada(object sender, RoutedEventArgs e)
+        {
+            dateEntradaPerro.Foreground = Brushes.Black;
         }
 
 

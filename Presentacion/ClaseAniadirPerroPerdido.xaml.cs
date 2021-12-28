@@ -222,14 +222,48 @@ namespace Protectora.Presentacion
                 aviso.IdDuenio = (int)persona.Id;
                 GestorAnimal.crearAviso(aviso);
                 pagAviso.CargarPerrosPerdidos();
+                this.Close();
             }
             catch (Exception ex)
             {
                 Console.Write(ex);
+                ComprobarEntradaInt(txtTamanioPerroPerdido.Text, txtTamanioPerroPerdido);
+                ComprobarEntradaFecha(dateFechaPerroPerdido.Text, dateFechaPerroPerdido);
+                ComprobarEntradaInt(txtTelefonoDuenio.Text, txtTelefonoDuenio);
+
                 //List<String> fila;
             }
 
-            this.Close();
+
+        }
+        private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada)
+        {
+            int num;
+            bool cosa = int.TryParse(valorIntroducido, out num);
+            if (cosa == false)
+            {
+                componenteEntrada.Foreground = Brushes.Red;
+                componenteEntrada.ToolTip = "El dato introducido debe de ser del tipo numerico";
+            }
+        }
+
+
+        private void ComprobarEntradaFecha(string valorIntroducido, DatePicker componenteEntrada)
+        {
+            DateTime num;
+            bool cosa = DateTime.TryParse(valorIntroducido, out num);
+            if (cosa == false)
+            {
+                componenteEntrada.Foreground = Brushes.Red;
+                componenteEntrada.ToolTip = "El dato introducido debe de ser del tipo fecha";
+
+            }
+
+        }
+
+        private void PulsarFecha(object sender, RoutedEventArgs e)
+        {
+            dateFechaPerroPerdido.Foreground = Brushes.Black;
         }
     }
 }

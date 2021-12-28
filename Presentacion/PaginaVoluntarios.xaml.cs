@@ -196,6 +196,7 @@ namespace Protectora.Presentacion
             SetVoluntario(voluntario);
             TextBoxTelefonoVol.Foreground = Brushes.Black;
             DesactivarTextBoxsVol();
+            ListViewVoluntarios.SelectedItem = ListViewVoluntarios.Items[ListViewVoluntarios.SelectedIndex];
 
         }
         private void btnEditConfirmarVoluntario_Click(object sender, RoutedEventArgs e)
@@ -217,6 +218,8 @@ namespace Protectora.Presentacion
 
                 GestorPersona.modificarVoluntario(voluntario);
                 DesactivarTextBoxsVol();
+                ListViewVoluntarios.SelectedItem = ListViewVoluntarios.Items[ListViewVoluntarios.SelectedIndex];
+
             }
             catch (Exception ex)
             {

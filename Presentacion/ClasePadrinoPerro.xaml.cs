@@ -84,13 +84,17 @@ namespace Protectora.Presentacion
                     perro.Apadrinado = idPadrino;
                     GestorAnimal.modificarPerro(perro);
                 }
+                Close();
             }
             catch (Exception ex)
             {
                 Console.Write(ex);
-                //List<String> fila;
+                ComprobarEntradaInt(txtTelefonoPadrino.Text, txtTelefonoPadrino);
+                ComprobarEntradaInt(txtImportePadrino.Text, txtImportePadrino);
+                ComprobarEntradaFecha(txtComienzoPadrino.Text, txtComienzoPadrino);
+
             }
-            Close();
+            
 
         }
 
@@ -110,9 +114,48 @@ namespace Protectora.Presentacion
             txtComienzoPadrino.IsEnabled = true;
         }
 
-        private void BtnAceptarCambios_Click(object sender, RoutedEventArgs e)
+        private void BtnCancelarCambios_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada)
+        {
+            int num;
+            bool cosa = int.TryParse(valorIntroducido, out num);
+            if (cosa == false)
+            {
+                componenteEntrada.Foreground = Brushes.Red;
+                componenteEntrada.ToolTip = "El dato introducido debe de ser del tipo numerico";
+            }
+        }
+
+
+        private void ComprobarEntradaFecha(string valorIntroducido, TextBox componenteEntrada)
+        {
+            DateTime num;
+            bool cosa = DateTime.TryParse(valorIntroducido, out num);
+            if (cosa == false)
+            {
+                componenteEntrada.Foreground = Brushes.Red;
+                componenteEntrada.ToolTip = "El dato introducido debe de ser del tipo fecha";
+
+            }
+
+        }
+        private void PulsarFecha(object sender, RoutedEventArgs e)
+        {
+            txtComienzoPadrino.Foreground = Brushes.Black;
+        }
+
+        private void PulsarTelefono(object sender, RoutedEventArgs e)
+        {
+            txtComienzoPadrino.Foreground = Brushes.Black;
+        }
+
+        private void PulsarImporte(object sender, RoutedEventArgs e)
+        {
+            txtComienzoPadrino.Foreground = Brushes.Black;
         }
     }
 }
