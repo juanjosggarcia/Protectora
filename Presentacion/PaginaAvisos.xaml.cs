@@ -134,6 +134,7 @@ namespace Protectora.Presentacion
 
         private void BtnEditPerroPerdido_Click(object sender, RoutedEventArgs e)
         {
+            BtnDuenio.ToolTip = "Editar los datos del dueño del perro perdido";
             TextBoxIdPerroPer.IsEnabled = true;
             TextBoxSexoPerdido.IsEnabled = true;
             TextBoxNombrePerdido.IsEnabled = true;
@@ -236,6 +237,7 @@ namespace Protectora.Presentacion
         {
             Aviso aviso = (Aviso)ListViewPerrosPerdidos.Items[ListViewPerrosPerdidos.SelectedIndex];
             SetPerroPerdido(aviso);
+            BtnDuenio.ToolTip = "Datos del dueño del perro perdido";
             DesactivarTextBoxsPerdido();
         }
         private void btnEditConfirmarPerroPerdido_Click(object sender, RoutedEventArgs e)
@@ -259,6 +261,8 @@ namespace Protectora.Presentacion
 
                 GestorAnimal.modificarAviso(aviso);
                 DesactivarTextBoxsPerdido();
+                BtnDuenio.ToolTip = "Datos del dueño del perro perdido";
+
             }
             catch (Exception ex)
             {
@@ -294,6 +298,11 @@ namespace Protectora.Presentacion
         }
 
         private void btnBuscarPerroPerdido_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnMostrarTodosAvisos_Click(object sender, RoutedEventArgs e)
         {
 
         }

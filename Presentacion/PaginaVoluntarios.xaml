@@ -103,67 +103,8 @@
 
                 </Grid>
             </Border>
+            <Button x:Name="btnMostrarTodos" ToolTip="Mostrar todos los voluntarios en la lista" Style="{StaticResource EstiloBotonMostrarTodos}" Content="Mostrar todos" HorizontalAlignment="Left" Margin="228,0,0,17" VerticalAlignment="Bottom" Width="400" RenderTransformOrigin="0.526,1.458" Height="35" Grid.Row="1" Click="btnMostrarTodosVoluntario_Click"/>
 
         </Grid>
     </Grid>
-
-
-    <!--<Grid>
-        <Grid x:Name="GridMain" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="869" Width="1710" Margin="0,0,0,2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="711.2" />
-                <ColumnDefinition Width="668.8" />
-
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="81*"/>
-                <RowDefinition Height="301*"/>
-                <RowDefinition Height="105"/>
-            </Grid.RowDefinitions>
-
-            <Border BorderBrush="white" Background="#FAF9F7" BorderThickness="4" CornerRadius="20" Margin="83,65,-198,64" Grid.Row="1" Grid.Column="1">
-                <Grid Margin="0,0,0,-4">
-                    <Image x:Name="ImagenPerfil" HorizontalAlignment="Left" Height="200" VerticalAlignment="Top" Width="200" Stretch="UniformToFill" Source="C:\Users\laura\source\repos\Protectora\recursos\default.png" Margin="61,133,0,0">
-                        <Image.Clip>
-                            <EllipseGeometry Center="100,100" RadiusX="100" RadiusY="100" />
-                        </Image.Clip>
-                    </Image>
-                    <TextBox x:Name="TextBoxIdVol" Style="{StaticResource TextBox1}" FontSize="14" Foreground="Black"  Width="Auto" Height="35" Margin="509,78,122,353" RenderTransformOrigin="0.5,0.5" Text="{Binding Path=Id}"/>
-                    <TextBox x:Name="TextBoxCorreoVol" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="510,158,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" FontSize="14" Text="{Binding Path=Sexo}"/>
-                    <TextBox x:Name="TextBoxNombreVol" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="510,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" FontSize="14" Text="{Binding Path=Nombre}"/>
-                    <TextBox x:Name="TextBoxDNIVol" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="510,198,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="145" FontSize="14" Text="{Binding Path=Tamanio}"/>
-                    <TextBox x:Name="TextBoxTelefonoVol" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="510,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" FontSize="14" Text="{Binding Path=Estado}"/>
-                    <TextBox x:Name="TextBoxZonaVol" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="510,318,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" FontSize="14" Text="{Binding Path=Peso}"/>
-                    <TextBox x:Name="TextBoxHorarioVol" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="510,278,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" FontSize="14" Text="{Binding Path=Edad}"/>
-                    <Button x:Name="PreviousProfileButton" Content="◀" HorizontalAlignment="Left" Margin="51,0,0,8.8" VerticalAlignment="Bottom" Width="40" Padding="1" FontFamily="Corbel" FontSize="10" Height="25" Foreground="#FF474747" BorderBrush="#FFAEAEAE"/>
-                    <Button x:Name="NextProfileButton" Content="▶" HorizontalAlignment="Left" Margin="716,0,0,8.8" VerticalAlignment="Bottom" Width="36" FontFamily="Corbel" FontSize="10" Height="25" Foreground="#FF474747" BorderBrush="#FFAEAEAE"    />
-                    <Button x:Name="EditProfileButton" Content="Edit" HorizontalAlignment="Left" Margin="116,0,0,9.8" VerticalAlignment="Bottom" Width="60" Padding="1,2,1,1" Height="25" Foreground="#FF474747" BorderBrush="#FFAEAEAE"/>
-                    <Button x:Name="btonBorrar" Content="Borrar" HorizontalAlignment="Left" Margin="201,0,0,9.8" VerticalAlignment="Bottom" Width="60"     Padding="1,2,1,1"  Height="25" Foreground="#FF474747" BorderBrush="#FFAEAEAE"/>
-                </Grid>
-            </Border>
-            <Button x:Name="NuevoVoluntario" Style="{StaticResource EstiloBotonMediano}" Content="Nuevo" HorizontalAlignment="Left" Margin="523,0,0,520" VerticalAlignment="Bottom" Width="102" RenderTransformOrigin="0.526,1.458" Height="39" Grid.Row="1"/>
-
-            <Label x:Name="lblIdVol" Content="Id:" HorizontalAlignment="Left" Height="37" Margin="412,140,0,0" VerticalAlignment="Top" Width="100" FontSize="18" Grid.Column="1" Grid.Row="1"/>
-            <Label x:Name="lblNombreVol" Content="Nombre:" HorizontalAlignment="Left" Height="37" Margin="412,0,0,380" VerticalAlignment="Bottom" Width="121" FontSize="18" Grid.Column="1" Grid.Row="1"/>
-            <Label x:Name="lblCorreoVol" Content="Correo:" HorizontalAlignment="Left" Height="37" Margin="412,224,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="1" Grid.Row="1"/>
-            <Label x:Name="lblDNIVol" Content="DNI:" HorizontalAlignment="Left" Height="38" Margin="412,266,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="1" Grid.Row="1"/>
-            <Label x:Name="lblZonaVol" Content="Zona Disponible:" HorizontalAlignment="Left" Height="36" Margin="412,390,0,0" VerticalAlignment="Top" Width="151" FontSize="18" Grid.Column="1" Grid.Row="1"/>
-            <Label x:Name="lblHorarioVol" Content="Horario" HorizontalAlignment="Left" Height="36" Margin="412,349,0,0" VerticalAlignment="Top" Width="151" FontSize="18" Grid.Column="1" Grid.Row="1"/>
-            <Label x:Name="lblTelefonoVol" Content="Telefono:" HorizontalAlignment="Left" Height="35" Margin="412,309,0,0" VerticalAlignment="Top" Width="121" FontSize="18" Grid.Column="1" Grid.Row="1"/>
-            <ListView x:Name="ListViewVoluntarios" Grid.Row="1" Foreground="#333" Background="#FAFBFD" FontFamily="Corbel" Margin="228,94,0,64" Padding="-3,-1" HorizontalAlignment="Left" Width="397" >
-                <ListView.View>
-
-                    <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle}">
-                        <GridViewColumn Header="ID" Width="200" DisplayMemberBinding="{Binding Id}" />
-                        <GridViewColumn Header="NOMBRE" Width="197" DisplayMemberBinding="{Binding Nombre}" />
-
-                    </GridView>
-                </ListView.View>
-                <ListViewItem>
-
-                </ListViewItem>
-            </ListView>
-
-        </Grid>
-    </Grid>-->
 </Page>

@@ -58,6 +58,8 @@ namespace Protectora.Presentacion
         {
 
             BtnAceptarCambiosDuenio.Visibility = Visibility.Visible;
+            BtnCancelarCambiosDuenio.Visibility = Visibility.Visible;
+            BtnCancelarCambiosDuenio.IsEnabled = true;
             BtnAceptarCambiosDuenio.IsEnabled = true;
             txtNombreDuenio.IsEnabled = true;
             txtDniDuenio.IsEnabled = true;
@@ -97,6 +99,11 @@ namespace Protectora.Presentacion
                 Console.Write(ex);
                 //List<String> fila;
             }
+            Close();
+        }
+
+        private void BtnCancelarCambiosDuenio_Click(object sender, RoutedEventArgs e)
+        {
             Close();
         }
     }

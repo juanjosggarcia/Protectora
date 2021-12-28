@@ -97,7 +97,9 @@ namespace Protectora.Presentacion
         private void mostrar()
         {
             BtnAceptarCambios.Visibility = Visibility.Visible;
+            BtnCancelarCambios.Visibility = Visibility.Visible;
             BtnAceptarCambios.IsEnabled = true;
+            BtnCancelarCambios.IsEnabled = true;
             txtNombrePadrino.IsEnabled = true;
             txtDniPadrino.IsEnabled = true;
             txtCorreoPadrino.IsEnabled = true;
@@ -106,6 +108,11 @@ namespace Protectora.Presentacion
             txtImportePadrino.IsEnabled = true;
             txtPagoPadrino.IsEnabled = true;
             txtComienzoPadrino.IsEnabled = true;
+        }
+
+        private void BtnAceptarCambios_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }
