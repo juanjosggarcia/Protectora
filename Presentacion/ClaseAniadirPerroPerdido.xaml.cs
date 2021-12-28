@@ -302,6 +302,8 @@ namespace Protectora.Presentacion
                 ComprobarEntradaInt(txtTamanioPerroPerdido.Text, txtTamanioPerroPerdido);
                 ComprobarEntradaFecha(dateFechaPerroPerdido.Text, dateFechaPerroPerdido);
                 ComprobarEntradaInt(txtTelefonoDuenio.Text, txtTelefonoDuenio);
+                errorDatos.Visibility = Visibility.Visible;
+
 
                 //List<String> fila;
             }

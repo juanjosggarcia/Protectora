@@ -382,6 +382,8 @@ namespace Protectora.Presentacion
                 ComprobarEntradaInt(txtImportePadrino.Text, txtImportePadrino);
                 ComprobarEntradaFecha(dateComienzoPadrino.Text, dateComienzoPadrino);
 
+                errorDatos.Visibility = Visibility.Visible;
+
                 //List<String> fila;
             }
 

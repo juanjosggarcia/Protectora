@@ -194,6 +194,8 @@ namespace Protectora.Presentacion
             {
                 ComprobarEntradaInt(txtTelefonoSocio.Text, txtTelefonoSocio);
                 ComprobarEntradaInt(txtCuantiaSocio.Text, txtCuantiaSocio);
+                errorDatos.Visibility = Visibility.Visible;
+
 
                 Console.Write(ex);
                 //List<String> fila;

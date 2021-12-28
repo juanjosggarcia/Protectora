@@ -36,6 +36,7 @@
                 </Grid.ColumnDefinitions>
                 <Label Content="Anadir nuevo aviso" Grid.Column="1" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="54" Margin="149,53,0,0" VerticalAlignment="Top" Width="325" FontSize="30" Grid.ColumnSpan="4" Grid.RowSpan="2" HorizontalContentAlignment="Center"/>
 
+                <Label x:Name="errorDatos" Content="Los datos introducidos son incorrectos" Visibility="Hidden" HorizontalAlignment="Center" Height="30" Margin="156,0,133,15" VerticalAlignment="Center" Width="362" Grid.Row="4" Background="#00000000" FontSize="15" Foreground="#FFE00D0D" FontWeight="Normal" Grid.Column="1" Grid.ColumnSpan="4" HorizontalContentAlignment="Center"/>
 
                 <Label Content="Datos del dueño:" Grid.Column="1" Margin="0,20.44,45,161.56" Grid.Row="2" FontFamily="Lucida Sans Unicode" FontSize="20" Grid.RowSpan="2" />
 

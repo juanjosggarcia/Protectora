@@ -175,6 +175,8 @@ namespace Protectora.Presentacion
             catch (Exception ex)
             {
                 ComprobarEntradaInt(txtTelefonoVoluntario.Text, txtTelefonoVoluntario);
+                errorDatos.Visibility = Visibility.Visible;
+
                 Console.Write(ex);
                 //List<String> fila;
             }

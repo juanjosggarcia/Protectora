@@ -56,7 +56,10 @@
                 <Label x:Name="lblZona" Content="Zona disponible:" Grid.Column="2" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,363,0,0" VerticalAlignment="Top" Width="115" FontSize="12" Visibility="Hidden" Grid.Row="1" Grid.RowSpan="2"/>
                 <Label x:Name="lblImagen" Content="Imagen:" Grid.Column="2" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,44,0,0" VerticalAlignment="Top" Width="93" FontSize="12" Visibility="Hidden" Grid.Row="2"/>
 
-                <Button x:Name ="nuevoVoluntario" Style ="{StaticResource EstiloBotonMediano}" Content="Añadir nuevo voluntario" Margin="22,53,0,0" Width="250" Click="NuevoVoluntario_Click" Grid.ColumnSpan="4" Grid.Column="2" Grid.Row="3" Grid.RowSpan="2" />
+                <Label x:Name="errorDatos" Content="Los datos introducidos son incorrectos" Visibility="Hidden" HorizontalAlignment="Center" Height="30" Margin="91,32,86,10" VerticalAlignment="Center" Width="362" Grid.Row="3" Background="#00000000" FontSize="15" Foreground="#FFE00D0D" FontWeight="Normal" Grid.Column="1" Grid.ColumnSpan="6" HorizontalContentAlignment="Center"/>
+
+
+                <Button x:Name ="nuevoVoluntario" Style ="{StaticResource EstiloBotonMediano}" Content="Añadir nuevo voluntario" Margin="22,68,0,0" Width="250" Click="NuevoVoluntario_Click" Grid.ColumnSpan="4" Grid.Column="2" Grid.Row="3" Grid.RowSpan="2" />
                 <Button x:Name ="btnImagenVol" Style ="{StaticResource EstiloBotonLargo}" FontSize="14" Content="Buscar" Margin="5,70,0,0" Width="117" Height="35" Click="BtnImagen_Click" Grid.Column="5" Grid.Row="2" Grid.RowSpan="2" />
 
             </Grid>
