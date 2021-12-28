@@ -16,7 +16,8 @@ namespace Protectora.Persistencia
         }
         */
         List<T> leerTodas();
-        T leer(T obj);
+        T leerName(T obj);
+        T leerId(T obj);
         int insertar(T obj);
         int actualizar(T obj);
         int eliminar(T obj);

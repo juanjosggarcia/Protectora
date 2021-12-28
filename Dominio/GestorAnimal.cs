@@ -10,7 +10,7 @@ namespace Protectora.Dominio
     {
         public static Perro obtenerPerro(Perro perro)
         {
-            perro.LeerPerroName();
+            perro.leerDatoXName();
             if (perro.AniDAO.animales.Count != 0)
             {
                 return perro.AniDAO.animales[0];
@@ -22,7 +22,7 @@ namespace Protectora.Dominio
         public static List<Perro> obtenerTodosPerros()
         {
             Perro perro = new Perro();
-            perro.LeerTodosAnimales();
+            perro.leerTodosDatos();
             if (perro.AniDAO.animales.Count != 0)
             {
                 return perro.AniDAO.animales;
@@ -33,24 +33,24 @@ namespace Protectora.Dominio
 
         public static void crearPerro(Perro perro)
         {
-            perro.InsertarPerro();
+            perro.insertarDato();
 
         }
 
         public static void modificarPerro(Perro perro)
         {
-            perro.ModificarPerro();
+            perro.actualizarDato();
         }
 
         public static void eliminarPerro(Perro perro)
         {
-            perro.EliminarPerro();
+            perro.eliminarDato();
         }
 
         public static List<Aviso> obtenerTodosAvisos()
         {
             Aviso aviso = new Aviso();
-            aviso.LeerTodosAvisos();
+            aviso.leerTodosDatos();
             if (aviso.AviDAO.avisos.Count != 0)
             {
                 return aviso.AviDAO.avisos;
@@ -61,18 +61,18 @@ namespace Protectora.Dominio
 
         public static void crearAviso(Aviso aviso)
         {
-            aviso.InsertarAviso();
+            aviso.insertarDato();
 
         }
 
         public static void modificarAviso(Aviso aviso)
         {
-            aviso.ModificarAviso();
+            aviso.actualizarDato();
         }
 
         public static void eliminarAviso(Aviso aviso)
         {
-            aviso.EliminarAviso();
+            aviso.eliminarDato();
         }
     }
 }

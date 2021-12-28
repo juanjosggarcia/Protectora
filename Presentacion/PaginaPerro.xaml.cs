@@ -20,9 +20,6 @@ using TextBox = System.Windows.Controls.TextBox;
 
 namespace Protectora.Presentacion
 {
-    /// <summary>
-    /// Lógica de interacción para PaginaPerro.xaml
-    /// </summary>
     public partial class PaginaPerro : Page
     {
         //Dominio.Perro perro;
@@ -105,56 +102,6 @@ namespace Protectora.Presentacion
             btnDeletePerro.IsEnabled = true;
         }
 
-        public void SetPerro(Perro perro)
-        {
-            try
-            {
-                TextBoxId.Text = perro.Id.ToString();
-                TextBoxSexo.Text = perro.Sexo;
-                TextBoxNombre.Text = perro.Nombre;
-                TextBoxTamanio.Text = perro.Tamanio.ToString();
-                TextBoxEstado.Text = perro.Estado;
-                TextBoxPeso.Text = perro.Peso.ToString();
-                TextBoxEdad.Text = perro.Edad.ToString();
-                TextBoxEntrada.Text = perro.FechaEntrada.ToString("dd-MM-yyyy");
-                TextBoxDescripcion.Text = perro.Descripcion;
-                TextBoxRaza.Text = perro.Raza;
-                //string str = @"C:\Users\juanj\vs2019-workspace\Protectora\recursos\Fotosbd\" + perro.Foto;
-                string str = @"../fotosPerros/" + perro.Foto;
-                BitmapImage bitmap = new BitmapImage();
-                bitmap.BeginInit();
-                bitmap.UriSource = new Uri(str, UriKind.Relative);
-                //bitmap.UriSource = new Uri(@"../fotosPerros/bichon.jpg", UriKind.Relative);
-                bitmap.EndInit();
-                ProfileImage.Source = bitmap;
-
-
-            }
-            catch (Exception ex)
-            {
-                Console.Write(ex);
-                //List<String> fila;
-            }
-
-
-        }
-
-        public void CargarPerros()
-        {
-            List<Perro> perros = GestorAnimal.obtenerTodosPerros();
-            ListViewPerros.Items.Clear();
-            foreach (Perro perro in perros)
-            {
-                if (string.IsNullOrEmpty(perro.Foto))
-                {
-                    perro.Foto = "default.jpg";
-                }
-
-                //listaPerro.Add(perro);
-                ListViewPerros.Items.Add(perro);
-            }
-
-        }
 
         private void BtnNextPerro_Click(object sender, RoutedEventArgs e)
         {
@@ -338,28 +285,7 @@ namespace Protectora.Presentacion
             //Refresh();
         }
 
-        private void DesactivarTextBoxs()
-        {
-            TextBoxId.IsEnabled = false;
-            TextBoxNombre.IsEnabled = false;
-            TextBoxSexo.IsEnabled = false;
-            TextBoxPeso.IsEnabled = false;
-            TextBoxEdad.IsEnabled = false;
-            TextBoxTamanio.IsEnabled = false;
-            TextBoxEntrada.IsEnabled = false;
-            TextBoxRaza.IsEnabled = false;
-            TextBoxDescripcion.IsEnabled = false;
-            TextBoxEstado.IsEnabled = false;
-            btnImagenPerro.IsEnabled = false;
-            btnEditPerro.Visibility = Visibility.Visible;
-            btnDeletePerro.Visibility = Visibility.Visible;
-            btnAnteriorPerro.Visibility = Visibility.Visible;
-            btnNextPerro.Visibility = Visibility.Visible;
-            NuevoPerro.Visibility = Visibility.Visible;
-            btnEditCancelar.Visibility = Visibility.Hidden;
-            btnEditConfirmar.Visibility = Visibility.Hidden;
-            ListViewPerros.IsEnabled = true;
-        }
+
 
         //ESTO ESTA PUESTO PROVISIONALMENTE
         
@@ -409,6 +335,80 @@ namespace Protectora.Presentacion
         private void PulsarPeso(object sender, RoutedEventArgs e)
         {
             TextBoxPeso.Foreground = Brushes.Black;
+        }
+
+
+        /////////////////////////////////////////////////////////////// FUNCIONES AUXILIARES ///////////////////////////////////////////////////////////////
+
+        public void CargarPerros()
+        {
+            List<Perro> perros = GestorAnimal.obtenerTodosPerros();
+            ListViewPerros.Items.Clear();
+            foreach (Perro perro in perros)
+            {
+                if (string.IsNullOrEmpty(perro.Foto))
+                {
+                    perro.Foto = "default.jpg";
+                }
+
+                //listaPerro.Add(perro);
+                ListViewPerros.Items.Add(perro);
+            }
+
+        }
+        public void SetPerro(Perro perro)
+        {
+            try
+            {
+                TextBoxId.Text = perro.Id.ToString();
+                TextBoxSexo.Text = perro.Sexo;
+                TextBoxNombre.Text = perro.Nombre;
+                TextBoxTamanio.Text = perro.Tamanio.ToString();
+                TextBoxEstado.Text = perro.Estado;
+                TextBoxPeso.Text = perro.Peso.ToString();
+                TextBoxEdad.Text = perro.Edad.ToString();
+                TextBoxEntrada.Text = perro.FechaEntrada.ToString("dd-MM-yyyy");
+                TextBoxDescripcion.Text = perro.Descripcion;
+                TextBoxRaza.Text = perro.Raza;
+                //string str = @"C:\Users\juanj\vs2019-workspace\Protectora\recursos\Fotosbd\" + perro.Foto;
+                string str = @"../fotosPerros/" + perro.Foto;
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(str, UriKind.Relative);
+                //bitmap.UriSource = new Uri(@"../fotosPerros/bichon.jpg", UriKind.Relative);
+                bitmap.EndInit();
+                ProfileImage.Source = bitmap;
+
+
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex);
+                //List<String> fila;
+            }
+
+        }
+        private void DesactivarTextBoxs()
+        {
+            TextBoxId.IsEnabled = false;
+            TextBoxNombre.IsEnabled = false;
+            TextBoxSexo.IsEnabled = false;
+            TextBoxPeso.IsEnabled = false;
+            TextBoxEdad.IsEnabled = false;
+            TextBoxTamanio.IsEnabled = false;
+            TextBoxEntrada.IsEnabled = false;
+            TextBoxRaza.IsEnabled = false;
+            TextBoxDescripcion.IsEnabled = false;
+            TextBoxEstado.IsEnabled = false;
+            btnImagenPerro.IsEnabled = false;
+            btnEditPerro.Visibility = Visibility.Visible;
+            btnDeletePerro.Visibility = Visibility.Visible;
+            btnAnteriorPerro.Visibility = Visibility.Visible;
+            btnNextPerro.Visibility = Visibility.Visible;
+            NuevoPerro.Visibility = Visibility.Visible;
+            btnEditCancelar.Visibility = Visibility.Hidden;
+            btnEditConfirmar.Visibility = Visibility.Hidden;
+            ListViewPerros.IsEnabled = true;
         }
 
     }

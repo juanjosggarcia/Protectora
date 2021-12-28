@@ -16,26 +16,6 @@ namespace Protectora.Persistencia
             this.usuarios = new List<Usuario>();
         }
 
-        /*
-        public void LeerTodosUsuarios()
-        {
-            //List<Usuario> arrayUsuarios = new List<Usuario>();
-            AgenteDB agente = AgenteDB.obtenerAgente();
-
-            List<List<String>> arrayCarUsuarios = new List<List<String>>();
-            arrayCarUsuarios = agente.leer("SELECT * FROM usuarios");
-
-            foreach (List<String> user in arrayCarUsuarios)
-            {
-                Usuario p = new Usuario(Int32.Parse(user[0]), user[1], user[2], DateTime.Parse(user[3]));
-                //arrayUsuarios.Add(p);
-                usuarios.Add(p);
-            }
-
-        }*/
-
-
-        // ESTA PARTE ES LA QUE VALE
         public List<Usuario> leerTodas()
         {
             List<List<String>> arrayCarUsuarios = AgenteDB.obtenerAgente().leer("SELECT * FROM usuarios");
@@ -47,10 +27,9 @@ namespace Protectora.Persistencia
             }
             return usuarios;
         }
-
-        public Usuario leer(Usuario obj)
+        public Usuario leerName(Usuario obj)
         {
-            List<List<String>> arrayCarUsuarios = AgenteDB.obtenerAgente().leer("SELECT * FROM usuarios WHERE user='" + obj.Nombre + "' and password='" + obj.Password + "';");
+            List<List<String>> arrayCarUsuarios = AgenteDB.obtenerAgente().leer("SELECT * FROM usuarios WHERE user='" + obj.Nombre + "';");
 
             foreach (List<String> user in arrayCarUsuarios)
             {
@@ -64,9 +43,9 @@ namespace Protectora.Persistencia
             else return null;
         }
 
-        public Usuario leerName(Usuario obj)
+        public Usuario leerId(Usuario obj)
         {
-            List<List<String>> arrayCarUsuarios = AgenteDB.obtenerAgente().leer("SELECT * FROM usuarios WHERE user='" + obj.Nombre + "';");
+            List<List<String>> arrayCarUsuarios = AgenteDB.obtenerAgente().leer("SELECT * FROM usuarios WHERE user='" + obj.Nombre + "' and password='" + obj.Password + "';");
 
             foreach (List<String> user in arrayCarUsuarios)
             {

@@ -7,7 +7,7 @@ using Protectora.Persistencia;
 
 namespace Protectora.Dominio
 {
-    public class Socio : Persona
+    public class Socio : Persona, IDTO<Socio>
     {
 
         private string datosBancarios;
@@ -37,37 +37,33 @@ namespace Protectora.Dominio
             this.foto = foto;
         }
 
+        /////////////////////////////////////////////////////////////// PARTE DATA TRANSFER OBJECT ///////////////////////////////////////////////////////////////
 
-
-        public void InsertarSocio()
+        public new List<Socio> leerTodosDatos()
         {
-            this.SocDAO.insertar((Socio)this.MemberwiseClone());
-            //Console.Write(" ");
-        }
-
-        public void EliminarSocio()
-        {
-            this.SocDAO.eliminar((Socio)this.MemberwiseClone());
-            //Console.Write(" ");
-        }
-
-        public void ModificarSocio()
-        {
-            this.SocDAO.actualizar((Socio)this.MemberwiseClone());
-            //Console.Write(" ");
-        }
-
-        public List<Socio> LeerTodosSocios()
-        {
-            //List<Socio> arraySocios = new List<Socio>();
-            //SocioDAO socDAO = new SocioDAO();
-            //arraySocios = socDAO.leerTodas();
-            //Console.Write(" ");
-
-            //return arraySocios;
             return SocDAO.leerTodas();
         }
+        public new Socio leerDatoXName()
+        {
+            throw new NotImplementedException();
+        }
+        public new Socio leerDatoXId()
+        {
+            throw new NotImplementedException();
+        }
 
+        public new int insertarDato()
+        {
+            return this.SocDAO.insertar(this);
+        }
+        public new int actualizarDato()
+        {
+            return this.SocDAO.actualizar(this);
+        }
+        public new int eliminarDato()
+        {
+            return this.SocDAO.eliminar(this);
+        }
 
     }
 }

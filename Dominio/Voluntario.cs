@@ -7,7 +7,7 @@ using Protectora.Persistencia;
 
 namespace Protectora.Dominio
 {
-    public class Voluntario : Persona
+    public class Voluntario : Persona, IDTO<Voluntario>
     {
         private string foto;
         private string horario;
@@ -24,7 +24,6 @@ namespace Protectora.Dominio
             this.VolDAO = new VoluntarioDAO();
         }
 
-
         public Voluntario(Nullable<int> id, string nombreCompleto, string correo, string dni, int telefono,
             string foto, string horario, string zonaDisponibilidad) : base(id, nombreCompleto, correo, dni, telefono)
         {
@@ -34,38 +33,36 @@ namespace Protectora.Dominio
             this.ZonaDisponibilidad = zonaDisponibilidad;
         }
 
-        public void InsertarVoluntario()
+        /////////////////////////////////////////////////////////////// PARTE DATA TRANSFER OBJECT ///////////////////////////////////////////////////////////////
+
+        public new List<Voluntario> leerTodosDatos()
         {
-            this.VolDAO.insertar((Voluntario)this.MemberwiseClone());
-            Console.Write(" ");
-        }
-
-        public void EliminarVoluntario()
-        {
-            this.VolDAO.eliminar((Voluntario)this.MemberwiseClone());
-            Console.Write(" ");
-        }
-
-        public void ModificarVoluntario()
-        {
-            this.VolDAO.actualizar((Voluntario)this.MemberwiseClone());
-            Console.Write(" ");
-        }
-
-        public List<Voluntario> LeerTodosVoluntarios()
-        {
-            /*
-            List<Voluntario> arrayVoluntarios = new List<Voluntario>();
-
-            VoluntarioDAO volDao = new VoluntarioDAO();
-            arrayVoluntarios = volDao.leerTodas();
-
-            Console.Write(" ");
-
-            return arrayVoluntarios;*/
-
             return VolDAO.leerTodas();
         }
+
+        public new Voluntario leerDatoXName()
+        {
+            throw new NotImplementedException();
+        }
+
+        public new Voluntario leerDatoXId()
+        {
+            throw new NotImplementedException();
+        }
+
+        public new int insertarDato()
+        {
+            return this .VolDAO.insertar(this);
+        }
+        public new int eliminarDato()
+        {
+            return this.VolDAO.eliminar(this);
+        }
+        public new int actualizarDato()
+        {
+            return this.VolDAO.actualizar(this);
+        }
+
 
     }
 }

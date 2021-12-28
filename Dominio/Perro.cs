@@ -8,7 +8,7 @@ using Protectora.Dominio;
 
 namespace Protectora
 {
-    public class Perro : Animal
+    public class Perro : Animal, IDTO<Perro>
     {
         private string raza;
         private AnimalDAO aniDAO;
@@ -29,35 +29,34 @@ namespace Protectora
             this.Raza = raza;
         }
 
-        // PARTE DTO
-        public void InsertarPerro()
-        {
-            this.AniDAO.insertar((Perro)this.MemberwiseClone());
-            //Console.Write(" ");
-        }
+        /////////////////////////////////////////////////////////////// PARTE DATA TRANSFER OBJECT ///////////////////////////////////////////////////////////////
 
-        public void EliminarPerro()
-        {
-            this.AniDAO.eliminar((Perro)this.MemberwiseClone());
-            //Console.Write(" ");
-        }
-
-        public void ModificarPerro()
-        {
-            this.AniDAO.actualizar((Perro)this.MemberwiseClone());
-            //Console.Write(" ");
-        }
-
-
-        public List<Perro> LeerTodosAnimales()
+        public List<Perro> leerTodosDatos()
         {
             return AniDAO.leerTodas();
         }
-
-        public Perro LeerPerroName()
+        public Perro leerDatoXName()
         {
             return AniDAO.leerName(this);
         }
+        public Perro leerDatoXId()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int insertarDato()
+        {
+            return this.AniDAO.insertar(this);
+        }
+        public int actualizarDato()
+        {
+            return this.AniDAO.actualizar(this);
+        }
+        public int eliminarDato()
+        {
+            return this.AniDAO.eliminar(this);
+        }
+
 
     }
 }

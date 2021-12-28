@@ -16,46 +16,27 @@ namespace Protectora.Persistencia
         }
         public List<Padrino> leerTodas()
         {
+            /*
             List<Padrino> arrayPadrino = new List<Padrino>();
             AgenteDB agente = AgenteDB.obtenerAgente();
 
             List<List<String>> arrayCarPadrino = new List<List<String>>();
-            arrayCarPadrino = agente.leer("SELECT * FROM personas p, padrinos a WHERE p.id=a.idPersona");
+            arrayCarPadrino = agente.leer("SELECT * FROM personas p, padrinos a WHERE p.id=a.idPersona");*/
 
-            foreach (List<String> user in arrayCarPadrino)
-            {
-                Padrino s = new Padrino(Int32.Parse(user[0]), user[1], user[2], user[3], Int32.Parse(user[4]), user[6], Int32.Parse(user[7]), user[8], DateTime.Parse(user[9]));
-                arrayPadrino.Add(s);
-            }
-            Console.Write(" ");
-            return arrayPadrino;
-        }
-
-        public Padrino leer(Padrino obj)
-        {
-            AgenteDB agente = AgenteDB.obtenerAgente();
-            //Console.Write(" ");
-            List<List<String>> arrayCarPadrino = agente.leer("SELECT * FROM personas p, padrinos s WHERE p.id=s.idPersona  AND p.id = " + obj.Id.ToString() + ";");
-            //Padrino s = new Padrino();
+            List<List<String>> arrayCarPadrino = AgenteDB.obtenerAgente().leer("SELECT * FROM personas p, padrinos a WHERE p.id=a.idPersona");
 
             foreach (List<String> user in arrayCarPadrino)
             {
                 Padrino s = new Padrino(Int32.Parse(user[0]), user[1], user[2], user[3], Int32.Parse(user[4]), user[6], Int32.Parse(user[7]), user[8], DateTime.Parse(user[9]));
                 padrinos.Add(s);
             }
-            if (padrinos.Count != 0)
-            {
-                return padrinos[0];
-            }
-            else return null;
-
+            return padrinos;
         }
-
         public Padrino leerName(Padrino obj)
         {
-            AgenteDB agente = AgenteDB.obtenerAgente();
+            //AgenteDB agente = AgenteDB.obtenerAgente();
             //Console.Write(" ");
-            List<List<String>> arrayCarPadrino = agente.leer("SELECT * FROM personas p, padrinos s WHERE p.id=s.idPersona  AND p.nombreCompleto = '" + obj.NombreCompleto + "'; ");
+            List<List<String>> arrayCarPadrino = AgenteDB.obtenerAgente().leer("SELECT * FROM personas p, padrinos s WHERE p.id=s.idPersona  AND p.nombreCompleto = '" + obj.NombreCompleto + "'; ");
             //Padrino s = new Padrino();
 
             foreach (List<String> user in arrayCarPadrino)
@@ -69,7 +50,27 @@ namespace Protectora.Persistencia
             }
             else return null;
         }
+        public Padrino leerId(Padrino obj)
+        {
+            //AgenteDB agente = AgenteDB.obtenerAgente();
+            //Console.Write(" ");
+            List<List<String>> arrayCarPadrino = AgenteDB.obtenerAgente().leer("SELECT * FROM personas p, padrinos s WHERE p.id=s.idPersona  AND p.id = " + obj.Id.ToString() + ";");
+            //Padrino s = new Padrino();
 
+            foreach (List<String> user in arrayCarPadrino)
+            {
+                Padrino s = new Padrino(Int32.Parse(user[0]), user[1], user[2], user[3], Int32.Parse(user[4]), user[6], Int32.Parse(user[7]), user[8], DateTime.Parse(user[9]));
+                padrinos.Add(s);
+            }
+            if (padrinos.Count != 0)
+            {
+                return padrinos[0];
+            }
+            else return null;
+
+        }
+
+        /*
         public Padrino leerOLD(Padrino obj)
         {
             AgenteDB agente = AgenteDB.obtenerAgente();
@@ -84,7 +85,7 @@ namespace Protectora.Persistencia
             }
             Console.Write(" ");
             return s;
-        }
+        }*/
 
         public int insertar(Padrino obj)
         {
@@ -112,8 +113,8 @@ namespace Protectora.Persistencia
 
         public int eliminar(Padrino obj)
         {
-            AgenteDB agente = AgenteDB.obtenerAgente();
-            return agente.modificar("DELETE FROM personas WHERE Id=" + obj.Id.ToString() + ";");
+            //AgenteDB agente = AgenteDB.obtenerAgente();
+            return AgenteDB.obtenerAgente().modificar("DELETE FROM personas WHERE Id=" + obj.Id.ToString() + ";");
         }
     }
 }

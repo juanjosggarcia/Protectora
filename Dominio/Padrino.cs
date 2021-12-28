@@ -7,7 +7,7 @@ using Protectora.Persistencia;
 
 namespace Protectora.Dominio
 {
-    public class Padrino : Persona
+    public class Padrino : Persona, IDTO<Padrino>
     {
 
         private string datosBancarios;
@@ -27,7 +27,6 @@ namespace Protectora.Dominio
             this.PadDAO = new PadrinoDAO();
         }
 
-
         public Padrino(Nullable<int> id, string nombreCompleto, string correo, string dni, int telefono,
             string datosBancarios, int importeMensual, string formaPago, DateTime fechaEntrada) : base(id, nombreCompleto, correo, dni, telefono)
         {
@@ -36,44 +35,41 @@ namespace Protectora.Dominio
             this.ImporteMensual = importeMensual;
             this.FormaPago = formaPago;
             this.FechaEntrada = fechaEntrada;
+        }
 
+        /////////////////////////////////////////////////////////////// PARTE DATA TRANSFER OBJECT ///////////////////////////////////////////////////////////////
+
+        public new List<Padrino> leerTodosDatos()
+        {
+            return PadDAO.leerTodas();
+        }
+        public new Padrino leerDatoXName()
+        {
+            throw new NotImplementedException();
+        }
+        public new Padrino leerDatoXId()
+        {
+            return this.PadDAO.leerId(this);
+        }
+
+        public new int insertarDato()
+        {
+            throw new NotImplementedException();
+        }
+        public new int actualizarDato()
+        {
+            return this.PadDAO.actualizar(this);
+        }
+        public new int eliminarDato()
+        {
+            return this.PadDAO.eliminar(this);
         }
 
         public Padrino InsertarPadrino()
         {
             this.PadDAO.insertar(this);
-            //this.PadDAO.insertar((Padrino)this.MemberwiseClone());
-            //Console.Write(" ");
-            //this.padDAO.leerName(this);
+
             return padDAO.leerName(this);
-        }
-
-        public void EliminarPadrino()
-        {
-            this.PadDAO.eliminar((Padrino)this.MemberwiseClone());
-            //Console.Write(" ");
-        }
-
-        public void ModificarPadrino()
-        {
-            this.PadDAO.actualizar((Padrino)this.MemberwiseClone());
-            //Console.Write(" ");
-        }
-
-        public Padrino LeerunPadrino()
-        {
-            //Console.Write(" ");
-            return this.PadDAO.leer((Padrino)this.MemberwiseClone());
-        }
-
-        public List<Padrino> LeerTodosPadrino()
-        {
-            List<Padrino> arrayPadrino = new List<Padrino>();
-            PadrinoDAO padDAO = new PadrinoDAO();
-            arrayPadrino = padDAO.leerTodas();
-            //Console.Write(" ");
-
-            return arrayPadrino;
         }
 
     }

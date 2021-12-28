@@ -21,7 +21,7 @@ namespace Protectora.Dominio
         */
         public static Usuario obtenerUser(Usuario usuario)
         {
-            usuario.LeerUsuario();
+            usuario.leerDatoXId();
             if (usuario.UsuDAO.usuarios.Count != 0)
             {
                 return usuario.UsuDAO.usuarios[0];
@@ -33,13 +33,13 @@ namespace Protectora.Dominio
 
         public static Boolean addUltimaConexion(Usuario user)
         {
-            user.ModificarUsuarioFecha();
+            user.actualizarDato();
             return true;
         }
 
         public static Usuario obtenerPass(Usuario usuario)
         {
-            usuario.LeerUsuarioName();
+            usuario.leerDatoXName();
             if (usuario.UsuDAO.usuarios.Count != 0)
             {
                 return usuario.UsuDAO.usuarios[0];

@@ -116,6 +116,7 @@
     <Compile Include="Dominio\GestorAnimal.cs" />
     <Compile Include="Dominio\GestorPersona.cs" />
     <Compile Include="Dominio\GestorUsuario.cs" />
+    <Compile Include="Dominio\IDTO.cs" />
     <Compile Include="Dominio\Padrino.cs" />
     <Compile Include="Dominio\Perro.cs" />
     <Compile Include="Dominio\Persona.cs" />

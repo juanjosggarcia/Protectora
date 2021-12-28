@@ -29,11 +29,27 @@ namespace Protectora.Persistencia
             return voluntarios;
 
         }
+        public Voluntario leerName(Voluntario obj)
+        {
+            List<List<String>> arrayCarVoluntarios = AgenteDB.obtenerAgente().leer("SELECT * FROM personas p, voluntarios v WHERE p.id=v.idPersona WHERE p.nombreCompleto = '" + obj.NombreCompleto.ToString() + "';");
 
-        public Voluntario leer(Voluntario obj)
+            foreach (List<String> user in arrayCarVoluntarios)
+            {
+                Voluntario v = new Voluntario(Int32.Parse(user[0]), user[1], user[2], user[3],
+                     Int32.Parse(user[4]), user[6], user[7], user[8]);
+                voluntarios.Add(v);
+            }
+            if (voluntarios.Count != 0)
+            {
+                return voluntarios[0];
+            }
+            else return null;
+        }
+
+        public Voluntario leerId(Voluntario obj)
         {
             List<Voluntario> arrayVoluntarios = new List<Voluntario>();
-            List<List<String>> arrayCarVoluntarios = AgenteDB.obtenerAgente().leer("SELECT * FROM personas p, voluntarios v WHERE p.id=v.idPersona  WHERE Id = " + obj.Id.ToString() + "; ");
+            List<List<String>> arrayCarVoluntarios = AgenteDB.obtenerAgente().leer("SELECT * FROM personas p, voluntarios v WHERE p.id=v.idPersona WHERE Id = " + obj.Id.ToString() + ";");
 
             foreach (List<String> user in arrayCarVoluntarios)
             {
@@ -68,8 +84,8 @@ namespace Protectora.Persistencia
 
         public int eliminar(Voluntario obj)
         {
-            AgenteDB agente = AgenteDB.obtenerAgente();
-            return agente.modificar("DELETE FROM personas WHERE Id=" + obj.Id.ToString() + ";");
+            //AgenteDB agente = AgenteDB.obtenerAgente();
+            return AgenteDB.obtenerAgente().modificar("DELETE FROM personas WHERE Id=" + obj.Id.ToString() + ";");
         }
     }
 }

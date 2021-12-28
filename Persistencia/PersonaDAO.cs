@@ -15,12 +15,23 @@ namespace Protectora.Persistencia
         {
             this.personas = new List<Persona>();
         }
+        public List<Persona> leerTodas()
+        {
+            List<List<String>> arrayCarPersonas = AgenteDB.obtenerAgente().leer("SELECT * FROM persona");
+
+            foreach (List<String> user in arrayCarPersonas)
+            {
+                Persona p = new Persona(Int32.Parse(user[0]), user[1], user[2], user[3], Int32.Parse(user[4]));
+                personas.Add(p);
+            }
+            return personas;
+        }
 
         public Persona leerName(Persona obj)
         {
-            AgenteDB agente = AgenteDB.obtenerAgente();
+            //AgenteDB agente = AgenteDB.obtenerAgente();
             //Console.Write(" ");
-            List<List<String>> arrayCarPersona = agente.leer("SELECT * FROM personas p WHERE p.nombreCompleto = '" + obj.NombreCompleto + "'; ");
+            List<List<String>> arrayCarPersona = AgenteDB.obtenerAgente().leer("SELECT * FROM personas p WHERE p.nombreCompleto = '" + obj.NombreCompleto + "'; ");
             //Padrino s = new Padrino();
 
             foreach (List<String> user in arrayCarPersona)
@@ -35,27 +46,9 @@ namespace Protectora.Persistencia
             else return null;
         }
 
-        public int actualizar(Persona obj)
+        public Persona leerId(Persona obj)
         {
-            return AgenteDB.obtenerAgente().modificar("UPDATE personas SET nombreCompleto= '" + obj.NombreCompleto.ToString() + "',correo='" + obj.Correo.ToString() + "'," +
-                "dni='" + obj.Dni.ToString() + "',telefono=" + obj.Telefono.ToString() + " WHERE Id = " + obj.Id.ToString() + "; ");
-
-        }
-
-        public int eliminar(Persona obj)
-        {
-            return AgenteDB.obtenerAgente().modificar("DELETE FROM personas WHERE Id=" + obj.Id.ToString() + ";");
-        }
-
-        public int insertar(Persona obj)
-        {
-            return AgenteDB.obtenerAgente().modificar("INSERT INTO personas (nombreCompleto,correo,dni,telefono) VALUES ('" + obj.NombreCompleto.ToString() + "', '" + obj.Correo.ToString() + "'," +
-            " '" + obj.Dni.ToString() + "', " + obj.Telefono.ToString() + ");");
-        }
-
-        public Persona leer(Persona obj)
-        {
-            List<List<String>> arrayCarPersonas = AgenteDB.obtenerAgente().leer("SELECT * FROM Personas WHERE id=" + obj.Id + ";");
+            List<List<String>> arrayCarPersonas = AgenteDB.obtenerAgente().leer("SELECT * FROM personas WHERE id=" + obj.Id + ";");
 
             foreach (List<String> user in arrayCarPersonas)
             {
@@ -68,17 +61,22 @@ namespace Protectora.Persistencia
             }
             else return null;
         }
-
-        public List<Persona> leerTodas()
+        public int insertar(Persona obj)
         {
-            List<List<String>> arrayCarPersonas = AgenteDB.obtenerAgente().leer("SELECT * FROM Persona");
-
-            foreach (List<String> user in arrayCarPersonas)
-            {
-                Persona p = new Persona(Int32.Parse(user[0]), user[1], user[2], user[3], Int32.Parse(user[4]));
-                personas.Add(p);
-            }
-            return personas;
+            return AgenteDB.obtenerAgente().modificar("INSERT INTO personas (nombreCompleto,correo,dni,telefono) VALUES ('" + obj.NombreCompleto.ToString() + "', '" + obj.Correo.ToString() + "'," +
+            " '" + obj.Dni.ToString() + "', " + obj.Telefono.ToString() + ");");
         }
+
+        public int actualizar(Persona obj)
+        {
+            return AgenteDB.obtenerAgente().modificar("UPDATE personas SET nombreCompleto= '" + obj.NombreCompleto.ToString() + "',correo='" + obj.Correo.ToString() + "'," +
+                "dni='" + obj.Dni.ToString() + "',telefono=" + obj.Telefono.ToString() + " WHERE Id = " + obj.Id.ToString() + "; ");
+        }
+
+        public int eliminar(Persona obj)
+        {
+            return AgenteDB.obtenerAgente().modificar("DELETE FROM personas WHERE Id=" + obj.Id.ToString() + ";");
+        }
+
     }
 }

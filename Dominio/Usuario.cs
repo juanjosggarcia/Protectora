@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Protectora.Dominio
 {
-    public class Usuario
+    public class Usuario : IDTO<Usuario>
     {
         private int? id; // ? hace que la variable acepte los valores propios del tipo de dato y tambien el valor null
         private string nombre;
@@ -27,7 +27,6 @@ namespace Protectora.Dominio
             this.UsuDAO = new UsuarioDAO();
         }
 
-
         public Usuario(Nullable<int> id, string nombre, string password, DateTime? fechaUltimaConex)
         {
             this.UsuDAO = new UsuarioDAO();
@@ -37,26 +36,34 @@ namespace Protectora.Dominio
             this.fechaUltimaConex = fechaUltimaConex;
         }
 
+        /////////////////////////////////////////////////////////////// PARTE DATA TRANSFER OBJECT ///////////////////////////////////////////////////////////////
 
 
-        public List<Usuario> LeerTodosUsuarios()
+
+        public List<Usuario> leerTodosDatos()
         {
             return UsuDAO.leerTodas();
         }
-
-        public Usuario LeerUsuario()
+        public Usuario leerDatoXName()
         {
-            return UsuDAO.leer(this);
+            return UsuDAO.leerName(this);
+        }
+        public Usuario leerDatoXId()
+        {
+            return UsuDAO.leerId(this);
         }
 
-        public int ModificarUsuarioFecha()
+        public int insertarDato()
+        {
+            throw new NotImplementedException();
+        }
+        public int actualizarDato()
         {
             return UsuDAO.actualizar(this);
         }
-
-        public Usuario LeerUsuarioName()
+        public int eliminarDato()
         {
-            return UsuDAO.leerName(this);
+            throw new NotImplementedException();
         }
     }
 }

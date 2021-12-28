@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Protectora.Dominio
 {
-    public class Persona
+    public class Persona : IDTO<Persona>
     {
         private int? id;
         private string nombreCompleto;
@@ -38,42 +38,37 @@ namespace Protectora.Dominio
             this.Telefono = telefono;
         }
 
-        public Persona InsertarPersona()
-        {
-            this.PerDAO.insertar(this);
-            //this.PadDAO.insertar((Padrino)this.MemberwiseClone());
-            //Console.Write(" ");
-            //this.padDAO.leerName(this);
-            return PerDAO.leerName(this);
-        }
+        /////////////////////////////////////////////////////////////// PARTE DATA TRANSFER OBJECT ///////////////////////////////////////////////////////////////
 
-        public void InsertarPersonaOLD()
-        {
-            this.PerDAO.insertar(this);
-        }
-
-        public void EliminarPersona()
-        {
-            this.PerDAO.eliminar(this);
-        }
-
-        public void ModificarPersona()
-        {
-            this.PerDAO.actualizar(this);
-        }
-
-        public List<Persona> LeerTodasPersonas()
+        public List<Persona> leerTodosDatos()
         {
             return PerDAO.leerTodas();
         }
-
-        public Persona LeerPersona()
+        public Persona leerDatoXId()
         {
-            return PerDAO.leer(this);
+            return PerDAO.leerId(this);
+        }
+        public Persona leerDatoXName()
+        {
+            return PerDAO.leerName(this);
         }
 
-        public Persona LeerPersonaName()
+        public int insertarDato()
         {
+            return this.PerDAO.insertar(this);
+        }
+        public int actualizarDato()
+        {
+            return this.PerDAO.actualizar(this);
+        }
+        public int eliminarDato()
+        {
+            return this.PerDAO.eliminar(this);
+        }
+
+        public Persona InsertarPersona()
+        {
+            this.PerDAO.insertar(this);
             return PerDAO.leerName(this);
         }
 

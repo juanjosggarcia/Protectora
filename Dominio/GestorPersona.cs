@@ -10,7 +10,7 @@ namespace Protectora.Dominio
     {
         public static Padrino obtenerPadrino(Padrino padrino)
         {
-            padrino.LeerunPadrino();
+            padrino.leerDatoXId();
             if (padrino.PadDAO.padrinos.Count != 0)
             {
                 return padrino.PadDAO.padrinos[0];
@@ -27,13 +27,13 @@ namespace Protectora.Dominio
 
         public static void modificarPadrino(Padrino padrino, Perro perro)
         {
-            padrino.ModificarPadrino();
+            padrino.actualizarDato();
         }
 
         public static List<Socio> obtenerTodosSocios()
         {
             Socio socio = new Socio();
-            socio.LeerTodosSocios();
+            socio.leerTodosDatos();
             if (socio.SocDAO.socios.Count != 0)
             {
                 return socio.SocDAO.socios;
@@ -44,24 +44,24 @@ namespace Protectora.Dominio
 
         public static void crearSocio(Socio socio)
         {
-            socio.InsertarSocio();
+            socio.insertarDato();
         }
 
         public static void modificarSocio(Socio socio)
         {
-            socio.ModificarSocio();
+            socio.actualizarDato();
         }
 
         public static void eliminarSocio(Socio socio)
         {
-            socio.EliminarSocio();
+            socio.eliminarDato();
         }
 
 
         public static List<Voluntario> obtenerTodosVoluntarios()
         {
             Voluntario voluntario = new Voluntario();
-            voluntario.LeerTodosVoluntarios();
+            voluntario.leerTodosDatos();
             if (voluntario.VolDAO.voluntarios.Count != 0)
             {
                 return voluntario.VolDAO.voluntarios;
@@ -71,23 +71,23 @@ namespace Protectora.Dominio
         }
         public static void crearVoluntario(Voluntario voluntario)
         {
-            voluntario.InsertarVoluntario();
+            voluntario.insertarDato();
         }
 
         public static void modificarVoluntario(Voluntario voluntario)
         {
-            voluntario.ModificarVoluntario();
+            voluntario.actualizarDato();
         }
 
         public static void eliminarVoluntario(Voluntario voluntario)
         {
-            voluntario.EliminarVoluntario();
+            voluntario.eliminarDato();
         }
 
         public static List<Persona> obtenerTodasPersonas()
         {
             Persona persona = new Persona();
-            persona.LeerTodasPersonas();
+            persona.leerTodosDatos();
             if (persona.PerDAO.personas.Count != 0)
             {
                 return persona.PerDAO.personas;
@@ -102,17 +102,17 @@ namespace Protectora.Dominio
 
         public static void modificarPersona(Persona persona)
         {
-            persona.ModificarPersona();
+            persona.actualizarDato();
         }
 
         public static void eliminarPersona(Persona persona)
         {
-            persona.EliminarPersona();
+            persona.eliminarDato();
         }
 
         public static Persona obtenerPersona(Persona persona)
         {
-            persona.LeerPersona();
+            persona.leerDatoXId();
             if (persona.PerDAO.personas.Count != 0)
             {
                 return persona.PerDAO.personas[0];
@@ -123,7 +123,7 @@ namespace Protectora.Dominio
 
         public static Persona obtenerPersonaName(Persona persona)
         {
-            persona.LeerPersonaName();
+            persona.leerDatoXName();
             if (persona.PerDAO.personas.Count != 0)
             {
                 return persona.PerDAO.personas[0];

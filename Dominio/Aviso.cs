@@ -7,7 +7,7 @@ using Protectora.Persistencia;
 
 namespace Protectora.Dominio
 {
-    public class Aviso
+    public class Aviso : IDTO<Aviso>
     {
         private int? id;
         private string nombre;
@@ -57,40 +57,33 @@ namespace Protectora.Dominio
             AviDAO = aviDAO;
         }
 
-        public void InsertarAviso()
+        /////////////////////////////////////////////////////////////// PARTE DATA TRANSFER OBJECT ///////////////////////////////////////////////////////////////
+
+        public List<Aviso> leerTodosDatos()
         {
-
-            this.AviDAO.insertar((Aviso)this.MemberwiseClone());
-            //Console.Write(" ");
-        }
-
-        public void EliminarAviso()
-        {
-            this.AviDAO.eliminar((Aviso)this.MemberwiseClone());
-            //Console.Write(" ");
-        }
-
-        public void ModificarAviso()
-        {
-            this.AviDAO.actualizar((Aviso)this.MemberwiseClone());
-            //Console.Write(" ");
-        }
-
-
-        public List<Aviso> LeerTodosAvisos()
-        {
-            /*
-            List<Aviso> arrayAvisos = new List<Aviso>();
-
-            AvisoDAO aviDao = new AvisoDAO();
-            arrayAvisos = aviDao.leerTodas();
-            Console.Write(" ");
-
-            return arrayAvisos;*/
-
             return AviDAO.leerTodas();
         }
+        public Aviso leerDatoXName()
+        {
+            throw new NotImplementedException();
+        }
+        public Aviso leerDatoXId()
+        {
+            throw new NotImplementedException();
+        }
 
+        public int insertarDato()
+        {
+            return this.AviDAO.insertar((Aviso)this.MemberwiseClone());
+        }
+        public int actualizarDato()
+        {
+            return this.AviDAO.actualizar((Aviso)this.MemberwiseClone());
+        }
+        public int eliminarDato()
+        {
+            return this.AviDAO.eliminar((Aviso)this.MemberwiseClone());
+        }
 
     }
 }

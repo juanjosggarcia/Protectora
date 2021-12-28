@@ -16,10 +16,33 @@ namespace Protectora.Persistencia
             this.animales = new List<Perro>();
         }
 
+        public List<Perro> leerTodas()
+        {
+            //List<Perro> arrayAnimales = new List<Perro>();
+            //AgenteDB agente = AgenteDB.obtenerAgente();
+            //List<List<String>> arrayCarAnimales = new List<List<String>>();
+            //arrayCarAnimales = agente.leer("SELECT * FROM animales a, perros p WHERE a.id=p.idAnimal");
+
+
+            List<List<String>> arrayCarAnimales = AgenteDB.obtenerAgente().leer("SELECT * FROM animales a, perros p WHERE a.id=p.idAnimal");
+
+            foreach (List<String> user in arrayCarAnimales)
+            {
+                //Console.Write(" ");
+                Perro a = new Perro(Int32.Parse(user[0]), user[1], user[2],
+                    Int32.Parse(user[3]), Int32.Parse(user[4]), Int32.Parse(user[5]),
+                    DateTime.Parse(user[6]), user[7], user[8], user[9], user[10]
+                    , Int32.Parse(user[11]), user[13]);
+                //arrayAnimales.Add(a);
+                animales.Add(a);
+            }
+            return animales;
+        }
+
         public Perro leerName(Perro obj)
         {
-            AgenteDB agente = AgenteDB.obtenerAgente();
-            List<List<String>> arrayCarPerros = agente.leer("SELECT * FROM animales a, perros p WHERE a.id=p.idAnimal AND a.nombre = '" + obj.Nombre + "'; ");
+            //AgenteDB agente = AgenteDB.obtenerAgente();
+            List<List<String>> arrayCarPerros = AgenteDB.obtenerAgente().leer("SELECT * FROM animales a, perros p WHERE a.id=p.idAnimal AND a.nombre = '" + obj.Nombre + "'; ");
 
             foreach (List<String> user in arrayCarPerros)
             {
@@ -36,27 +59,7 @@ namespace Protectora.Persistencia
             else return null;
         }
 
-        public List<Perro> leerTodas()
-        {
-            //List<Perro> arrayAnimales = new List<Perro>();
-            AgenteDB agente = AgenteDB.obtenerAgente();
-            List<List<String>> arrayCarAnimales = new List<List<String>>();
-            arrayCarAnimales = agente.leer("SELECT * FROM animales a, perros p WHERE a.id=p.idAnimal");
-
-            foreach (List<String> user in arrayCarAnimales)
-            {
-                //Console.Write(" ");
-                Perro a = new Perro(Int32.Parse(user[0]), user[1], user[2],
-                    Int32.Parse(user[3]), Int32.Parse(user[4]), Int32.Parse(user[5]),
-                    DateTime.Parse(user[6]), user[7], user[8], user[9], user[10]
-                    , Int32.Parse(user[11]), user[13]);
-                //arrayAnimales.Add(a);
-                animales.Add(a);
-            }
-            return animales;
-        }
-
-        public Perro leer(Perro obj)
+        public Perro leerId(Perro obj)
         {
             throw new NotImplementedException();
         }
@@ -88,8 +91,8 @@ namespace Protectora.Persistencia
 
         public int eliminar(Perro obj)
         {
-            AgenteDB agente = AgenteDB.obtenerAgente();
-            return agente.modificar("DELETE FROM animales WHERE Id=" + obj.Id.ToString() + ";");
+            //AgenteDB agente = AgenteDB.obtenerAgente();
+            return AgenteDB.obtenerAgente().modificar("DELETE FROM animales WHERE Id=" + obj.Id.ToString() + ";");
         }
     }
 }

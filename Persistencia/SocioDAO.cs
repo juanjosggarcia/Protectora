@@ -29,24 +29,36 @@ namespace Protectora.Persistencia
             foreach (List<String> user in arrayCarSocios)
             {
                 Socio s = new Socio(Int32.Parse(user[0]), user[1], user[2], user[3], Int32.Parse(user[4]), user[6], Int32.Parse(user[7]), user[8], user[10]);
-                //arraySocios.Add(s);
                 socios.Add(s);
             }
-            //Console.Write(" ");
             return socios;
         }
-
-        public Socio leer(Socio obj)
+        public Socio leerName(Socio obj)
         {
-            List<Socio> arraySocios = new List<Socio>();
-            List<List<String>> arrayCarSocios = AgenteDB.obtenerAgente().leer("SELECT * FROM personas p, socios s WHERE p.id=s.idPersona  AND p.id = " + obj.Id.ToString() + "; ");
+            List<List<String>> arrayCarSocios = AgenteDB.obtenerAgente().leer("SELECT * FROM personas p, socios s WHERE p.id=s.idPersona AND p.id = '" + obj.NombreCompleto.ToString() + "';");
 
             foreach (List<String> user in arrayCarSocios)
             {
                 Socio s = new Socio(Int32.Parse(user[0]), user[1], user[2], user[3], Int32.Parse(user[4]), user[6], Int32.Parse(user[7]), user[8], user[10]);
-                arraySocios.Add(s);
+                socios.Add(s);
             }
-            return arraySocios[0];
+            if (socios.Count != 0)
+            {
+                return socios[0];
+            }
+            else return null;
+        }
+        public Socio leerId(Socio obj)
+        {
+            //List<Socio> arraySocios = new List<Socio>();
+            List<List<String>> arrayCarSocios = AgenteDB.obtenerAgente().leer("SELECT * FROM personas p, socios s WHERE p.id=s.idPersona AND p.id = " + obj.Id.ToString() + ";");
+
+            foreach (List<String> user in arrayCarSocios)
+            {
+                Socio s = new Socio(Int32.Parse(user[0]), user[1], user[2], user[3], Int32.Parse(user[4]), user[6], Int32.Parse(user[7]), user[8], user[10]);
+                socios.Add(s);
+            }
+            return socios[0];
         }
 
         public int insertar(Socio obj)
@@ -74,8 +86,8 @@ namespace Protectora.Persistencia
 
         public int eliminar(Socio obj)
         {
-            AgenteDB agente = AgenteDB.obtenerAgente();
-            return agente.modificar("DELETE FROM personas WHERE Id=" + obj.Id.ToString() + ";");
+            //AgenteDB agente = AgenteDB.obtenerAgente();
+            return AgenteDB.obtenerAgente().modificar("DELETE FROM personas WHERE Id=" + obj.Id.ToString() + ";");
         }
     }
 }
