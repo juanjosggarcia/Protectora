@@ -27,8 +27,6 @@ namespace Protectora
         public MainWindow()
         {
             InitializeComponent();
-            errorInicioSesion.Content = "";
-            //App.DefineIdioma("es");
         }
         protected override void OnClosed(EventArgs e)
         {
@@ -61,13 +59,8 @@ namespace Protectora
                 // feedback al usuario
                 txtUsuario.Text = "";
                 txtContrasenia.Password = "";
-                if (ComboBoxIdioma.SelectedIndex == 0) {
-                    errorInicioSesion.Content = "Ha ingresado un nombre de usuario o contraseña inválidos";
-                }
-                else
-                {
-                    errorInicioSesion.Content = "You have entered an invalid username or password";
-                }
+                errorInicioSesion.Visibility = Visibility.Visible;
+                
             }
             /*
             else
@@ -148,11 +141,14 @@ namespace Protectora
                 case 0:
                     idioma = "es-ES";
                     txtUsuario.Text = "Nombre de usuario";
+                    //errorInicioSesion.Visibility = Visibility.Hidden;
+
 
                     break;
                 case 1:
                     idioma = "en-UK";
                     txtUsuario.Text = "Username";
+                    //errorInicioSesion.Visibility = Visibility.Hidden;
                     break;
             }
             Resources.MergedDictionaries.Add(App.DefineIdioma(idioma));

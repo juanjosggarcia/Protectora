@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Protectora.Presentacion"
         mc:Ignorable="d"
         
-        Title="Añadir perro perdido" Height="956" Width="1041"
+        Title="Añadir perro perdido" Height="911" Width="1041"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
 
@@ -14,8 +14,8 @@
         <ImageBrush ImageSource="/recursos/botonAnadir.jpg"/>
     </Window.Background>
 
-    <Grid Margin="0,0,4,0" Height="891" VerticalAlignment="Top">
-        <Border BorderBrush="white" Background="#FAF9F7" BorderThickness="3" CornerRadius="25" Margin="85,45,85,0" Height="846" VerticalAlignment="Top">
+    <Grid Margin="0,0,4,0" Height="806" VerticalAlignment="Top">
+        <Border BorderBrush="white" Background="#FAF9F7" BorderThickness="3" CornerRadius="25" Margin="85,45,85,0" Height="760" VerticalAlignment="Top">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="57*"/>
@@ -27,36 +27,53 @@
                     <RowDefinition Height="23*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="127*"/>
-                    <ColumnDefinition Width="135*"/>
-                    <ColumnDefinition Width="135*"/>
-                    <ColumnDefinition Width="30*"/>
-                    <ColumnDefinition Width="30*"/>
-                    <ColumnDefinition Width="130*"/>
-                    <ColumnDefinition Width="140*"/>
-                    <ColumnDefinition Width="128*"/>
+                    <ColumnDefinition Width="102*"/>
+                    <ColumnDefinition Width="280*"/>
+                    <ColumnDefinition Width="45*"/>
+                    <ColumnDefinition Width="45*"/>
+                    <ColumnDefinition Width="280*"/>
+                    <ColumnDefinition Width="102*"/>
                 </Grid.ColumnDefinitions>
-
-                <Label Content="Datos del dueño:" Grid.Column="2" Margin="0,10" Grid.Row="2" Grid.ColumnSpan="3" FontFamily="Lucida Sans Unicode" FontSize="20" />
-
-                <TextBox x:Name ="txtNombrePerroPerdido" Style="{StaticResource TextBox1}" Text="Nombre"  GotFocus="LimpiarTextoNombrePerdido" LostFocus="RellenarTextoNombrePerdido" FontSize="14" Foreground="Gray" Margin="0,0,1,360" Height="35" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
-                <TextBox x:Name ="txtSexoPerroPerdido" Style="{StaticResource TextBox1}" Text="Sexo" GotFocus="LimpiarTextoSexoPerdido" LostFocus="RellenarTextoSexoPerdido" FontSize="14" Foreground="Gray" Margin="0,41,1,320" Height="34" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
-                <TextBox x:Name ="txtTamanioPerroPerdido" Style="{StaticResource TextBox1}" Text="Tamaño" FontSize="14" GotFocus="LimpiarTextoTamanioPerdido" LostFocus="RellenarTextoTamanioPerdido" Foreground="Gray" Margin="0,80,1,280" Height="35" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
-                <TextBox x:Name ="txtDescripcionAdicionalPerroPerdido" Style="{StaticResource TextBox1}" Text="Descripción adicional" FontSize="14" GotFocus="LimpiarTextoDescripcionAdicional" LostFocus="RellenarTextoDescripcionAdicional" Foreground="Gray" Margin="0,284,0,75" Height="36" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
-                <TextBox x:Name ="txtDescripcionPerroPerdido" Style="{StaticResource TextBox1}" Text="Descripción del perro" FontSize="14" GotFocus="LimpiarTextoDescripcionPerdido" LostFocus="RellenarTextoDescripcionPerdido" Foreground="Gray" Margin="0,243,0,116" Height="36" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1"  />
-                <TextBox x:Name ="txtZonaPerroPerdido" Style="{StaticResource TextBox1}" Text="Zona de pérdida" FontSize="14" GotFocus="LimpiarTextoZonaPerdido" LostFocus="RellenarTextoZonaPerdido" Foreground="Gray" Margin="0,202,1,157" Height="36" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1"  />
-                <TextBox x:Name ="txtRazaPerroPerdido" Style="{StaticResource TextBox1}" Text="Raza" FontSize="14" GotFocus="LimpiarTextoRazaPerdido" LostFocus="RellenarTextoRazaPerdido" Foreground="Gray" Margin="0,120,1,239" Height="36" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
-                <DatePicker x:Name="dateFechaPerroPerdido" GotFocus="PulsarFecha" HorizontalAlignment="Left" Margin="0,161,0,0" VerticalAlignment="Top" Height="36" Width="324" Padding="2,4,2,2" FontSize="14" Grid.ColumnSpan="4" Grid.Column="2" Grid.Row="1" Style="{DynamicResource DatePickerStyle1}"/>
-                <TextBox x:Name ="txtImagenPerroNuevoPerdido" Style="{StaticResource TextBox1}" Text="Imagen" GotFocus="LimpiarTextoImagenPerdido" LostFocus="RellenarTextoImagenPerdido" FontSize="14" Foreground="Gray" Margin="0,325,0,35" RenderTransformOrigin="0.5,0.5" Width="Auto" Height="35" Grid.ColumnSpan="3" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
+                <Label Content="Anadir nuevo aviso" Grid.Column="1" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="54" Margin="149,53,0,0" VerticalAlignment="Top" Width="325" FontSize="30" Grid.ColumnSpan="4" Grid.RowSpan="2" HorizontalContentAlignment="Center"/>
 
 
-                <TextBox x:Name ="txtNombreDuenio" Style="{StaticResource TextBox1}" GotFocus="LimpiarNombreDuenio" LostFocus="RellenarNombreDuenio" Text="Nombre del dueño"  FontSize="14" Foreground="Gray" Margin="0,15,1,130" Grid.Column="2" Height="35" Width="Auto" VerticalAlignment="Center" Grid.ColumnSpan="4" Grid.Row="3"/>
-                <TextBox x:Name ="txtDniDuenio" Style="{StaticResource TextBox1}" GotFocus="LimpiarDniDuenio" LostFocus="RellenarDniDuenio" Text="DNI"  FontSize="14" Foreground="Gray" Margin="0,55,1,90" Height="35" Width="Auto" VerticalAlignment="Center" Grid.ColumnSpan="4" Grid.Column="2" Grid.Row="3"/>
-                <TextBox x:Name ="txtCorreoDuenio" Style="{StaticResource TextBox1}" GotFocus="LimpiarCorreoDuenio" LostFocus="RellenarCorreoDuenio" Text="Correo"  FontSize="14" Foreground="Gray" Margin="0,95,1,50"  Height="35" Width="Auto" VerticalAlignment="Center" Grid.ColumnSpan="4" Grid.Column="2" Grid.Row="3"/>
-                <TextBox x:Name ="txtTelefonoDuenio" Style="{StaticResource TextBox1}" GotFocus="LimpiarTelefonoDuenio" LostFocus="RellenarTelefonoDuenio" Text="Telefono"  FontSize="14" Foreground="Gray" Margin="0,135,1,10" Height="35" Width="Auto" VerticalAlignment="Center" Grid.ColumnSpan="4" Grid.Column="2" Grid.Row="3"/>
+                <Label Content="Datos del dueño:" Grid.Column="1" Margin="0,20.44,45,161.56" Grid.Row="2" FontFamily="Lucida Sans Unicode" FontSize="20" Grid.RowSpan="2" />
 
-                <Button x:Name ="nuevoPerroPerdido" Style ="{StaticResource EstiloBotonMediano}" Content="Añadir perro perdido" Margin="40,0,0,0" Width="250" Click="NuevoAviso_Click" Grid.ColumnSpan="4" Grid.Column="2" Grid.Row="5" />
-                <Button x:Name ="btnImagenPerdido" Style ="{StaticResource EstiloBotonLargo}" FontSize="14" Content="Buscar" Margin="20,325,0,0" Width="109" Height="35" Click="BtnImagen_Click" Grid.Column="5" Grid.Row="1" />
+                <TextBox x:Name ="txtNombrePerroPerdido" Style="{StaticResource TextBox1}" Text="Nombre"  GotFocus="LimpiarTextoNombrePerdido" LostFocus="RellenarTextoNombrePerdido" FontSize="14" Foreground="Gray" Margin="0,101,0,219" Height="35" Width="Auto" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" />
+                <TextBox x:Name ="txtSexoPerroPerdido" Style="{StaticResource TextBox1}" Text="Sexo" GotFocus="LimpiarTextoSexoPerdido" LostFocus="RellenarTextoSexoPerdido" FontSize="14" Foreground="Gray" Margin="0,163,0,157" Height="35" Width="Auto" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" />
+                <TextBox x:Name ="txtTamanioPerroPerdido" Style="{StaticResource TextBox1}" Text="Tamaño" FontSize="14" GotFocus="LimpiarTextoTamanioPerdido" LostFocus="RellenarTextoTamanioPerdido" Foreground="Gray" Margin="0,226,0,94" Height="35" Width="Auto" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" />
+                <TextBox x:Name ="txtDescripcionAdicionalPerroPerdido" Style="{StaticResource TextBox1}" Text="Descripción adicional" FontSize="14" GotFocus="LimpiarTextoDescripcionAdicional" LostFocus="RellenarTextoDescripcionAdicional" Foreground="Gray" Margin="1,288,100,31.56" Height="35" Width="Auto" Grid.ColumnSpan="2" VerticalAlignment="Center" Grid.Column="4" Grid.Row="1" />
+                <TextBox x:Name ="txtDescripcionPerroPerdido" Style="{StaticResource TextBox1}" Text="Descripción del perro" FontSize="14" GotFocus="LimpiarTextoDescripcionPerdido" LostFocus="RellenarTextoDescripcionPerdido" Foreground="Gray" Margin="0,226,0,94" Height="35" Width="Auto" VerticalAlignment="Center" Grid.Column="4" Grid.Row="1"  />
+                <TextBox x:Name ="txtZonaPerroPerdido" Style="{StaticResource TextBox1}" Text="Zona de pérdida" FontSize="14" GotFocus="LimpiarTextoZonaPerdido" LostFocus="RellenarTextoZonaPerdido" Foreground="Gray" Margin="0,163,1,157" Height="35" Width="Auto" VerticalAlignment="Center" Grid.Column="4" Grid.Row="1"  />
+                <TextBox x:Name ="txtRazaPerroPerdido" Style="{StaticResource TextBox1}" Text="Raza" FontSize="14" GotFocus="LimpiarTextoRazaPerdido" LostFocus="RellenarTextoRazaPerdido" Foreground="Gray" Margin="0,288,0,32" Height="35" Width="Auto" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" />
+                <DatePicker x:Name="dateFechaPerroPerdido" GotFocus="PulsarFecha" LostFocus="LimpiarFecha" HorizontalAlignment="Left" Margin="0,101,0,0" VerticalAlignment="Top" Height="35" Width="276" Padding="2,4,2,2" FontSize="14" Grid.Column="4" Grid.Row="1" Style="{DynamicResource DatePickerStyle1}"/>
+                <TextBox x:Name ="txtImagenPerroNuevoPerdido" Style="{StaticResource TextBox1}" Text="Imagen" GotFocus="LimpiarTextoImagenPerdido" LostFocus="RellenarTextoImagenPerdido" FontSize="14" Foreground="Gray" Margin="0,349,91,28.56" RenderTransformOrigin="0.497,0.721" Width="Auto" Height="35" VerticalAlignment="Center" Grid.Column="4" Grid.Row="1" Grid.RowSpan="2" />
+
+
+                <TextBox x:Name ="txtNombreDuenio" Style="{StaticResource TextBox1}" GotFocus="LimpiarNombreDuenio" LostFocus="RellenarNombreDuenio" Text="Nombre del dueño"  FontSize="14" Foreground="Gray" Margin="0,33,0,94" Grid.Column="1" Height="35" Width="Auto" VerticalAlignment="Center" Grid.Row="3"/>
+                <TextBox x:Name ="txtDniDuenio" Style="{StaticResource TextBox1}" GotFocus="LimpiarDniDuenio" LostFocus="RellenarDniDuenio" Text="DNI"  FontSize="14" Foreground="Gray" Margin="0,95,0,32" Height="35" Width="Auto" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1"/>
+                <TextBox x:Name ="txtCorreoDuenio" Style="{StaticResource TextBox1}" GotFocus="LimpiarCorreoDuenio" LostFocus="RellenarCorreoDuenio" Text="Correo"  FontSize="14" Foreground="Gray" Margin="0,33,0,93.613"  Height="35" Width="Auto" VerticalAlignment="Center" Grid.Column="4" Grid.Row="3"/>
+                <TextBox x:Name ="txtTelefonoDuenio" Style="{StaticResource TextBox1}" GotFocus="LimpiarTelefonoDuenio" LostFocus="RellenarTelefonoDuenio" Text="Telefono"  FontSize="14" Foreground="Gray" Margin="0,95,0,32" Height="35" Width="Auto" VerticalAlignment="Center" Grid.Column="4" Grid.Row="3"/>
+
+                <Label x:Name="lblNombre" Content="Nombre:" Grid.Column="1" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,74,0,0" VerticalAlignment="Top" Width="68" FontSize="12" Visibility="Hidden" RenderTransformOrigin="-1.471,0.6" Grid.Row="1"/>
+                <Label x:Name="lblSexo" Content="Sexo:" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,136,0,0" VerticalAlignment="Top" Width="68" FontSize="12" Visibility="Hidden" Grid.Row="1" Grid.Column="1"/>
+                <Label x:Name="lblTamanio" Content="Tamaño:" Grid.Column="1" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,199,0,0" VerticalAlignment="Top" Width="68" FontSize="12" Visibility="Hidden" Grid.Row="1"/>
+                <Label x:Name="lblRaza" Content="Raza:" Grid.Column="1" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,261,0,0" VerticalAlignment="Top" Width="68" FontSize="12" Visibility="Hidden" Grid.Row="1"/>
+                <Label x:Name="lblFechaEntrada" Content="Fecha de perdida:" Grid.Column="3" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="40,74,0,0" VerticalAlignment="Top" Width="120" FontSize="12"  Visibility="Hidden" RenderTransformOrigin="-0.515,8.8" Grid.Row="1" Grid.ColumnSpan="2"/>
+                <Label x:Name="lblZona" Content="Zona de perdida:" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="1,136,0,0" VerticalAlignment="Top" Width="114" FontSize="12" Visibility="Hidden" Grid.Row="1" RenderTransformOrigin="0.456,2.6" Grid.Column="4"/>
+                <Label x:Name="lblDescripcion" Content="Descripcion:" Grid.Column="4" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,261,0,0" VerticalAlignment="Top" Width="107" FontSize="12" Visibility="Hidden" Grid.Row="1" RenderTransformOrigin="0.505,0.88"/>
+                <Label x:Name="lblDescripcionAdicional" Content="Descripcion adicional:" Grid.Column="4" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,199,0,0" VerticalAlignment="Top" Width="147" FontSize="12" Visibility="Hidden" Grid.Row="1"/>
+                <Label x:Name="lblImagen" Content="Imagen:" Grid.Column="4" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="26" Margin="0,323,0,0" VerticalAlignment="Top" Width="68" FontSize="12" Visibility="Hidden" Grid.Row="1"/>
+
+                <Label x:Name="lblNombreDuenio" Content="Nombre del dueño:" Grid.Column="1" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" VerticalAlignment="Top" Width="144" FontSize="12" Visibility="Hidden" RenderTransformOrigin="-1.471,0.6" Grid.Row="3" Margin="0,5,0,0"/>
+                <Label x:Name="lblDni" Content="DNI:" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,68,0,0" VerticalAlignment="Top" Width="68" FontSize="12" Visibility="Hidden" Grid.Row="3" Grid.Column="1"/>
+                <Label x:Name="lblCorreo" Content="Correo:" Grid.Column="4" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,5,0,0" VerticalAlignment="Top" Width="68" FontSize="12" Visibility="Hidden" Grid.Row="3"/>
+                <Label x:Name="lblTelefono" Content="Telefono:" Grid.Column="4" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="1,68,0,0" VerticalAlignment="Top" Width="68" FontSize="12" Visibility="Hidden" Grid.Row="3"/>
+
+
+                <Button x:Name ="nuevoPerroPerdido" Style ="{StaticResource EstiloBotonMediano}" Content="Añadir perro perdido" Margin="200,5.429,0,0" Width="250" Click="NuevoAviso_Click" Grid.ColumnSpan="4" Grid.Column="1" Grid.Row="5" Grid.RowSpan="2" />
+                <Button x:Name ="btnImagenPerdido" Style ="{StaticResource EstiloBotonLargo}" FontSize="14" Content="Buscar" Margin="194,349,0,0" Width="86" Height="35" Click="BtnImagen_Click" Grid.Column="4" Grid.Row="1" RenderTransformOrigin="0.523,0.657" Grid.RowSpan="2" />
+
 
             </Grid>
         </Border>

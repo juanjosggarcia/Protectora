@@ -295,23 +295,35 @@ namespace Protectora.Presentacion
 
         private void btnEditCancelar_Click(object sender, RoutedEventArgs e)
         {
-            Perro perro = (Perro)ListViewPerros.Items[ListViewPerros.SelectedIndex];
-            SetPerro(perro);
-            TextBoxEdad.Foreground = Brushes.Black;
-            TextBoxPeso.Foreground = Brushes.Black;
-            TextBoxTamanio.Foreground = Brushes.Black;
-            BtnPdrino.ToolTip = "Datos del padrino del perro";
-            DesactivarTextBoxs();
-            ListViewPerros.SelectedItem = ListViewPerros.Items[ListViewPerros.SelectedIndex];
+            int index = ListViewPerros.SelectedIndex;
+            string message = "¿Estas seguro que quieres cacelar la edición? Se perderan todos los cambios no guardados";
+            string caption = "Cancelar cambios";
+            MessageBoxButton buttons = MessageBoxButton.YesNo;
+            DialogResult result;
+
+            // Displays the MessageBox.
+            result = (DialogResult)MessageBox.Show(message, caption, buttons);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                Perro perro = (Perro)ListViewPerros.Items[ListViewPerros.SelectedIndex];
+                SetPerro(perro);
+                TextBoxEdad.Foreground = Brushes.Black;
+                TextBoxPeso.Foreground = Brushes.Black;
+                TextBoxTamanio.Foreground = Brushes.Black;
+                BtnPdrino.ToolTip = "Datos del padrino del perro";
+                DesactivarTextBoxs();
+                ListViewPerros.SelectedItem = ListViewPerros.Items[ListViewPerros.SelectedIndex];
+            }
 
         }
 
         private void btnEditConfirmar_Click(object sender, RoutedEventArgs e)
         {
-            Perro perro = (Perro)ListViewPerros.Items[ListViewPerros.SelectedIndex];
 
             try
             {
+                Perro perro = (Perro)ListViewPerros.Items[ListViewPerros.SelectedIndex];
+                int index = ListViewPerros.SelectedIndex;
                 perro.Sexo = TextBoxSexo.Text;
                 perro.Nombre = TextBoxNombre.Text;
                 perro.Tamanio = Int32.Parse(TextBoxTamanio.Text);
@@ -329,7 +341,7 @@ namespace Protectora.Presentacion
                 GestorAnimal.modificarPerro(perro);
                 CargarPerros();
                 DesactivarTextBoxs();
-                ListViewPerros.SelectedItem = ListViewPerros.Items[ListViewPerros.SelectedIndex];
+                ListViewPerros.SelectedItem = ListViewPerros.Items[index];
                 BtnPdrino.ToolTip = "Datos del padrino del perro";
 
 

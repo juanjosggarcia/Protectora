@@ -34,83 +34,124 @@ namespace Protectora.Presentacion
         {
             txtNombreSocio.Text = txtNombreSocio.Text == "Nombre completo" ? string.Empty : txtNombreSocio.Text;
             txtNombreSocio.Foreground = new SolidColorBrush(Colors.Black);
+            lblNombre.Visibility = Visibility.Visible;
+
         }
         private void RellenarTextoNombre(object sender, EventArgs e)
         {
-            txtNombreSocio.Text = txtNombreSocio.Text == string.Empty ? "Nombre completo" : txtNombreSocio.Text;
-            txtNombreSocio.Foreground = new SolidColorBrush(Colors.Gray);
+            if (txtNombreSocio.Text == string.Empty)
+            {
+                txtNombreSocio.Text = "Nombre completo";
+                lblNombre.Visibility = Visibility.Hidden;
+                txtNombreSocio.Foreground = new SolidColorBrush(Colors.Gray);
+            }
         }
 
         private void LimpiarTextoCorreo(object sender, EventArgs e)
         {
             txtCorreoSocio.Text = txtCorreoSocio.Text == "Correo" ? string.Empty : txtCorreoSocio.Text;
             txtCorreoSocio.Foreground = new SolidColorBrush(Colors.Black);
+            lblCorreo.Visibility = Visibility.Visible;
         }
         private void RellenarTextoCorreo(object sender, EventArgs e)
         {
-            txtCorreoSocio.Text = txtCorreoSocio.Text == string.Empty ? "Correo" : txtCorreoSocio.Text;
-            txtCorreoSocio.Foreground = new SolidColorBrush(Colors.Gray);
+            if (txtCorreoSocio.Text == string.Empty)
+            {
+                txtCorreoSocio.Text = "Correo";
+                lblCorreo.Visibility = Visibility.Hidden;
+                txtCorreoSocio.Foreground = new SolidColorBrush(Colors.Gray);
+            }
         }
         private void LimpiarTextoDNI(object sender, EventArgs e)
         {
             txtDniSocio.Text = txtDniSocio.Text == "DNI" ? string.Empty : txtDniSocio.Text;
             txtDniSocio.Foreground = new SolidColorBrush(Colors.Black);
+            lblDni.Visibility = Visibility.Visible;
         }
         private void RellenarTextoDNI(object sender, EventArgs e)
         {
-            txtDniSocio.Text = txtDniSocio.Text == string.Empty ? "DNI" : txtDniSocio.Text;
-            txtDniSocio.Foreground = new SolidColorBrush(Colors.Gray);
+            if (txtDniSocio.Text == string.Empty)
+            {
+                txtDniSocio.Text = "DNI";
+                lblDni.Visibility = Visibility.Hidden;
+                txtDniSocio.Foreground = new SolidColorBrush(Colors.Gray);
+            }
         }
         private void LimpiarTextoTelefono(object sender, EventArgs e)
         {
             txtTelefonoSocio.Text = txtTelefonoSocio.Text == "Telefono" ? string.Empty : txtTelefonoSocio.Text;
             txtTelefonoSocio.Foreground = new SolidColorBrush(Colors.Black);
+            lblTelefono.Visibility = Visibility.Visible;
         }
         private void RellenarTextoTelefono(object sender, EventArgs e)
         {
-            txtTelefonoSocio.Text = txtTelefonoSocio.Text == string.Empty ? "Telefono" : txtTelefonoSocio.Text;
-            txtTelefonoSocio.Foreground = new SolidColorBrush(Colors.Gray);
+            if (txtTelefonoSocio.Text == string.Empty)
+            {
+                txtTelefonoSocio.Text = "Telefono";
+                lblTelefono.Visibility = Visibility.Hidden;
+                txtTelefonoSocio.Foreground = new SolidColorBrush(Colors.Gray);
+            }
         }
 
         private void LimpiarTextoCuantia(object sender, EventArgs e)
         {
             txtCuantiaSocio.Text = txtCuantiaSocio.Text == "Cuantia de la ayuda" ? string.Empty : txtCuantiaSocio.Text;
             txtCuantiaSocio.Foreground = new SolidColorBrush(Colors.Black);
+            lblCuantia.Visibility = Visibility.Visible;
         }
         private void RellenarTextoCuantia(object sender, EventArgs e)
         {
-            txtCuantiaSocio.Text = txtCuantiaSocio.Text == string.Empty ? "Cuantia de la ayuda" : txtCuantiaSocio.Text;
-            txtCuantiaSocio.Foreground = new SolidColorBrush(Colors.Gray);
+            if (txtCuantiaSocio.Text == string.Empty)
+            {
+                txtCuantiaSocio.Text = "Cuantia de la ayuda";
+                lblCuantia.Visibility = Visibility.Hidden;
+                txtCuantiaSocio.Foreground = new SolidColorBrush(Colors.Gray);
+            }
         }
         private void LimpiarTextoDatosBan(object sender, EventArgs e)
         {
             txtDatosBanSocio.Text = txtDatosBanSocio.Text == "Datos bancarios" ? string.Empty : txtDatosBanSocio.Text;
             txtDatosBanSocio.Foreground = new SolidColorBrush(Colors.Black);
+            lblDatosBan.Visibility = Visibility.Visible;
         }
         private void RellenarTextoDatosBan(object sender, EventArgs e)
         {
-            txtDatosBanSocio.Text = txtDatosBanSocio.Text == string.Empty ? "Datos bancarios" : txtDatosBanSocio.Text;
-            txtDatosBanSocio.Foreground = new SolidColorBrush(Colors.Gray);
+            if (txtDatosBanSocio.Text == string.Empty)
+            {
+                txtDatosBanSocio.Text = "Datos bancarios";
+                lblDatosBan.Visibility = Visibility.Hidden;
+                txtDatosBanSocio.Foreground = new SolidColorBrush(Colors.Gray);
+            }
         }
         private void LimpiarTextoFormaPago(object sender, EventArgs e)
         {
             txtPagoSocio.Text = txtPagoSocio.Text == "Forma de pago" ? string.Empty : txtPagoSocio.Text;
             txtPagoSocio.Foreground = new SolidColorBrush(Colors.Black);
+            lblFormaPago.Visibility = Visibility.Visible;
         }
         private void RellenarTextoFormaPago(object sender, EventArgs e)
         {
-            txtPagoSocio.Text = txtPagoSocio.Text == string.Empty ? "Forma de pago" : txtPagoSocio.Text;
-            txtPagoSocio.Foreground = new SolidColorBrush(Colors.Gray);
+            if (txtPagoSocio.Text == string.Empty)
+            {
+                txtPagoSocio.Text = "Forma de pago";
+                lblFormaPago.Visibility = Visibility.Hidden;
+                txtPagoSocio.Foreground = new SolidColorBrush(Colors.Gray);
+            }
         }
         private void LimpiarTextoImagen(object sender, EventArgs e)
         {
             txtImagenSocioNuevo.Text = txtImagenSocioNuevo.Text == "Imagen" ? string.Empty : txtImagenSocioNuevo.Text;
             txtImagenSocioNuevo.Foreground = new SolidColorBrush(Colors.Black);
+            lblImagen.Visibility = Visibility.Visible;
         }
         private void RellenarTextoImagen(object sender, EventArgs e)
         {
-            txtImagenSocioNuevo.Text = txtImagenSocioNuevo.Text == string.Empty ? "Imagen" : txtImagenSocioNuevo.Text;
-            txtImagenSocioNuevo.Foreground = new SolidColorBrush(Colors.Gray);
+            if (txtImagenSocioNuevo.Text == string.Empty)
+            {
+                txtImagenSocioNuevo.Text = "Imagen";
+                lblImagen.Visibility = Visibility.Hidden;
+                txtImagenSocioNuevo.Foreground = new SolidColorBrush(Colors.Gray);
+            }
         }
 
         private void NuevoSocio_Click(object sender, RoutedEventArgs e)

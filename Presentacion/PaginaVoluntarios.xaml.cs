@@ -201,10 +201,20 @@ namespace Protectora.Presentacion
         private void btnEditCancelarVoluntario_Click(object sender, RoutedEventArgs e)
         {
             Voluntario voluntario = (Voluntario)ListViewVoluntarios.Items[ListViewVoluntarios.SelectedIndex];
-            SetVoluntario(voluntario);
-            TextBoxTelefonoVol.Foreground = Brushes.Black;
-            DesactivarTextBoxsVol();
-            ListViewVoluntarios.SelectedItem = ListViewVoluntarios.Items[ListViewVoluntarios.SelectedIndex];
+            string message = "¿Estas seguro que quieres cacelar la edición? Se perderan todos los cambios no guardados";
+            string caption = "Cancelar cambios";
+            MessageBoxButton buttons = MessageBoxButton.YesNo;
+            DialogResult result;
+
+            // Displays the MessageBox.
+            result = (DialogResult)MessageBox.Show(message, caption, buttons);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                SetVoluntario(voluntario);
+                TextBoxTelefonoVol.Foreground = Brushes.Black;
+                DesactivarTextBoxsVol();
+                ListViewVoluntarios.SelectedItem = ListViewVoluntarios.Items[ListViewVoluntarios.SelectedIndex];
+            }
 
         }
         private void btnEditConfirmarVoluntario_Click(object sender, RoutedEventArgs e)
@@ -213,6 +223,7 @@ namespace Protectora.Presentacion
 
             try
             {
+                int index = ListViewVoluntarios.SelectedIndex;
                 voluntario.NombreCompleto = TextBoxNombreVol.Text;
                 voluntario.Dni = TextBoxDNIVol.Text;
                 voluntario.Correo = TextBoxCorreoVol.Text;
@@ -226,7 +237,7 @@ namespace Protectora.Presentacion
 
                 GestorPersona.modificarVoluntario(voluntario);
                 DesactivarTextBoxsVol();
-                ListViewVoluntarios.SelectedItem = ListViewVoluntarios.Items[ListViewVoluntarios.SelectedIndex];
+                ListViewVoluntarios.SelectedItem = ListViewVoluntarios.Items[index];
 
             }
             catch (Exception ex)

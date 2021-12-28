@@ -304,6 +304,7 @@
         <Setter Property="FontSize" Value="17"/>
         <Setter Property="Height" Value="20"/>
         <Setter Property="Width" Value="250"/>
+        <Setter Property="FontFamily" Value="Lucida Sans Unicode"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TextBox}">
@@ -825,6 +826,7 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
     <Style x:Key="DatePickerStyle1" TargetType="{x:Type DatePicker}">
         <Setter Property="Foreground" Value="gray"/>
         <Setter Property="IsTodayHighlighted" Value="True"/>

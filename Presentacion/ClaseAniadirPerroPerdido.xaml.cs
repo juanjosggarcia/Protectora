@@ -32,129 +32,201 @@ namespace Protectora.Presentacion
         {
             txtNombrePerroPerdido.Text = txtNombrePerroPerdido.Text == "Nombre" ? string.Empty : txtNombrePerroPerdido.Text;
             txtNombrePerroPerdido.Foreground = new SolidColorBrush(Colors.Black);
+            lblNombre.Visibility = Visibility.Visible;
+
         }
         private void RellenarTextoNombrePerdido(object sender, EventArgs e)
         {
-            txtNombrePerroPerdido.Text = txtNombrePerroPerdido.Text == string.Empty ? "Nombre" : txtNombrePerroPerdido.Text;
-            txtNombrePerroPerdido.Foreground = new SolidColorBrush(Colors.Gray);
+            if (txtNombrePerroPerdido.Text == string.Empty)
+            {
+                txtNombrePerroPerdido.Text = "Nombre";
+                lblNombre.Visibility = Visibility.Hidden;
+                txtNombrePerroPerdido.Foreground = new SolidColorBrush(Colors.Gray);
+            }
         }
 
         private void LimpiarTextoSexoPerdido(object sender, EventArgs e)
         {
             txtSexoPerroPerdido.Text = txtSexoPerroPerdido.Text == "Sexo" ? string.Empty : txtSexoPerroPerdido.Text;
             txtSexoPerroPerdido.Foreground = new SolidColorBrush(Colors.Black);
+            lblSexo.Visibility = Visibility.Visible;
+
         }
         private void RellenarTextoSexoPerdido(object sender, EventArgs e)
         {
-            txtSexoPerroPerdido.Text = txtSexoPerroPerdido.Text == string.Empty ? "Sexo" : txtSexoPerroPerdido.Text;
-            txtSexoPerroPerdido.Foreground = new SolidColorBrush(Colors.Gray);
+            if (txtSexoPerroPerdido.Text == string.Empty)
+            {
+                txtSexoPerroPerdido.Text = "Sexo";
+                lblSexo.Visibility = Visibility.Hidden;
+                txtSexoPerroPerdido.Foreground = new SolidColorBrush(Colors.Gray);
+            }
         }
 
         private void LimpiarTextoTamanioPerdido(object sender, EventArgs e)
         {
             txtTamanioPerroPerdido.Text = txtTamanioPerroPerdido.Text == "Tamaño" ? string.Empty : txtTamanioPerroPerdido.Text;
             txtTamanioPerroPerdido.Foreground = new SolidColorBrush(Colors.Black);
+            lblTamanio.Visibility = Visibility.Visible;
+
         }
         private void RellenarTextoTamanioPerdido(object sender, EventArgs e)
         {
-            txtTamanioPerroPerdido.Text = txtTamanioPerroPerdido.Text == string.Empty ? "Tamaño" : txtTamanioPerroPerdido.Text;
-            txtTamanioPerroPerdido.Foreground = new SolidColorBrush(Colors.Gray);
+            if (txtTamanioPerroPerdido.Text == string.Empty)
+            {
+                txtTamanioPerroPerdido.Text = "Tamaño";
+                lblTamanio.Visibility = Visibility.Hidden;
+                txtTamanioPerroPerdido.Foreground = new SolidColorBrush(Colors.Gray);
+            }
         }
 
         private void LimpiarTextoDescripcionAdicional(object sender, EventArgs e)
         {
             txtDescripcionAdicionalPerroPerdido.Text = txtDescripcionAdicionalPerroPerdido.Text == "Descripción adicional" ? string.Empty : txtDescripcionAdicionalPerroPerdido.Text;
             txtDescripcionAdicionalPerroPerdido.Foreground = new SolidColorBrush(Colors.Black);
+            lblDescripcionAdicional.Visibility = Visibility.Visible;
+
         }
         private void RellenarTextoDescripcionAdicional(object sender, EventArgs e)
         {
-            txtDescripcionAdicionalPerroPerdido.Text = txtDescripcionAdicionalPerroPerdido.Text == string.Empty ? "Descripción adicional" : txtDescripcionAdicionalPerroPerdido.Text;
-            txtDescripcionAdicionalPerroPerdido.Foreground = new SolidColorBrush(Colors.Gray);
+            if (txtDescripcionAdicionalPerroPerdido.Text == string.Empty)
+            {
+                txtDescripcionAdicionalPerroPerdido.Text = "Descripción adicional";
+                lblDescripcionAdicional.Visibility = Visibility.Hidden;
+                txtDescripcionAdicionalPerroPerdido.Foreground = new SolidColorBrush(Colors.Gray);
+            }
         }
 
         private void LimpiarTextoDescripcionPerdido(object sender, EventArgs e)
         {
             txtDescripcionPerroPerdido.Text = txtDescripcionPerroPerdido.Text == "Descripción del perro" ? string.Empty : txtDescripcionPerroPerdido.Text;
             txtDescripcionPerroPerdido.Foreground = new SolidColorBrush(Colors.Black);
+            lblDescripcion.Visibility = Visibility.Visible;
+
         }
         private void RellenarTextoDescripcionPerdido(object sender, EventArgs e)
         {
-            txtDescripcionPerroPerdido.Text = txtDescripcionPerroPerdido.Text == string.Empty ? "Descripción del perro" : txtDescripcionPerroPerdido.Text;
-            txtDescripcionPerroPerdido.Foreground = new SolidColorBrush(Colors.Gray);
+            if (txtDescripcionPerroPerdido.Text == string.Empty)
+            {
+                txtDescripcionPerroPerdido.Text = "Descripción del perro";
+                lblDescripcion.Visibility = Visibility.Hidden;
+                txtDescripcionPerroPerdido.Foreground = new SolidColorBrush(Colors.Gray);
+            }
         }
 
         private void LimpiarTextoZonaPerdido(object sender, EventArgs e)
         {
             txtZonaPerroPerdido.Text = txtZonaPerroPerdido.Text == "Zona de pérdida" ? string.Empty : txtZonaPerroPerdido.Text;
             txtZonaPerroPerdido.Foreground = new SolidColorBrush(Colors.Black);
+            lblZona.Visibility = Visibility.Visible;
+
         }
         private void RellenarTextoZonaPerdido(object sender, EventArgs e)
         {
-            txtZonaPerroPerdido.Text = txtZonaPerroPerdido.Text == string.Empty ? "Zona de pérdida" : txtZonaPerroPerdido.Text;
-            txtZonaPerroPerdido.Foreground = new SolidColorBrush(Colors.Gray);
+            if (txtZonaPerroPerdido.Text == string.Empty)
+            {
+                txtZonaPerroPerdido.Text = "Zona de perdida";
+                lblZona.Visibility = Visibility.Hidden;
+                txtZonaPerroPerdido.Foreground = new SolidColorBrush(Colors.Gray);
+            }
         }
 
         private void LimpiarTextoRazaPerdido(object sender, EventArgs e)
         {
             txtRazaPerroPerdido.Text = txtRazaPerroPerdido.Text == "Raza" ? string.Empty : txtRazaPerroPerdido.Text;
             txtRazaPerroPerdido.Foreground = new SolidColorBrush(Colors.Black);
+            lblRaza.Visibility = Visibility.Visible;
+
         }
         private void RellenarTextoRazaPerdido(object sender, EventArgs e)
         {
-            txtRazaPerroPerdido.Text = txtRazaPerroPerdido.Text == string.Empty ? "Raza" : txtRazaPerroPerdido.Text;
-            txtRazaPerroPerdido.Foreground = new SolidColorBrush(Colors.Gray);
+            if (txtRazaPerroPerdido.Text == string.Empty)
+            {
+                txtRazaPerroPerdido.Text = "Raza";
+                lblRaza.Visibility = Visibility.Hidden;
+                txtRazaPerroPerdido.Foreground = new SolidColorBrush(Colors.Gray);
+            }
         }
 
         private void LimpiarTextoImagenPerdido(object sender, EventArgs e)
         {
             txtImagenPerroNuevoPerdido.Text = txtImagenPerroNuevoPerdido.Text == "Imagen" ? string.Empty : txtImagenPerroNuevoPerdido.Text;
             txtImagenPerroNuevoPerdido.Foreground = new SolidColorBrush(Colors.Black);
+            lblImagen.Visibility = Visibility.Visible;
+
         }
         private void RellenarTextoImagenPerdido(object sender, EventArgs e)
         {
-            txtImagenPerroNuevoPerdido.Text = txtImagenPerroNuevoPerdido.Text == string.Empty ? "Imagen" : txtImagenPerroNuevoPerdido.Text;
-            txtImagenPerroNuevoPerdido.Foreground = new SolidColorBrush(Colors.Gray);
+            if (txtImagenPerroNuevoPerdido.Text == string.Empty)
+            {
+                txtImagenPerroNuevoPerdido.Text = "Imagen";
+                lblImagen.Visibility = Visibility.Hidden;
+                txtImagenPerroNuevoPerdido.Foreground = new SolidColorBrush(Colors.Gray);
+            }
         }
 
         private void LimpiarNombreDuenio(object sender, EventArgs e)
         {
             txtNombreDuenio.Text = txtNombreDuenio.Text == "Nombre del dueño" ? string.Empty : txtNombreDuenio.Text;
             txtNombreDuenio.Foreground = new SolidColorBrush(Colors.Black);
+            lblNombreDuenio.Visibility = Visibility.Visible;
+
         }
         private void RellenarNombreDuenio(object sender, EventArgs e)
         {
-            txtNombreDuenio.Text = txtNombreDuenio.Text == string.Empty ? "Nombre del dueño" : txtNombreDuenio.Text;
-            txtNombreDuenio.Foreground = new SolidColorBrush(Colors.Gray);
+            if (txtNombreDuenio.Text == string.Empty)
+            {
+                txtNombreDuenio.Text = "Nombre del dueño";
+                lblNombreDuenio.Visibility = Visibility.Hidden;
+                txtNombreDuenio.Foreground = new SolidColorBrush(Colors.Gray);
+            }
         }
         private void LimpiarDniDuenio(object sender, EventArgs e)
         {
             txtDniDuenio.Text = txtDniDuenio.Text == "DNI" ? string.Empty : txtDniDuenio.Text;
             txtDniDuenio.Foreground = new SolidColorBrush(Colors.Black);
+            lblDni.Visibility = Visibility.Visible;
+
         }
         private void RellenarDniDuenio(object sender, EventArgs e)
         {
-            txtDniDuenio.Text = txtDniDuenio.Text == string.Empty ? "DNI" : txtDniDuenio.Text;
-            txtDniDuenio.Foreground = new SolidColorBrush(Colors.Gray);
+            if (txtDniDuenio.Text == string.Empty)
+            {
+                txtDniDuenio.Text = "DNI";
+                lblDni.Visibility = Visibility.Hidden;
+                txtDniDuenio.Foreground = new SolidColorBrush(Colors.Gray);
+            }
         }
         private void LimpiarCorreoDuenio(object sender, EventArgs e)
         {
             txtCorreoDuenio.Text = txtCorreoDuenio.Text == "Correo" ? string.Empty : txtCorreoDuenio.Text;
             txtCorreoDuenio.Foreground = new SolidColorBrush(Colors.Black);
+            lblCorreo.Visibility = Visibility.Visible;
+
         }
         private void RellenarCorreoDuenio(object sender, EventArgs e)
         {
-            txtCorreoDuenio.Text = txtCorreoDuenio.Text == string.Empty ? "Correo" : txtCorreoDuenio.Text;
-            txtCorreoDuenio.Foreground = new SolidColorBrush(Colors.Gray);
+            if (txtCorreoDuenio.Text == string.Empty)
+            {
+                txtCorreoDuenio.Text = "Correo";
+                lblCorreo.Visibility = Visibility.Hidden;
+                txtCorreoDuenio.Foreground = new SolidColorBrush(Colors.Gray);
+            }
         }
         private void LimpiarTelefonoDuenio(object sender, EventArgs e)
         {
             txtTelefonoDuenio.Text = txtTelefonoDuenio.Text == "Telefono" ? string.Empty : txtTelefonoDuenio.Text;
             txtTelefonoDuenio.Foreground = new SolidColorBrush(Colors.Black);
+            lblTelefono.Visibility = Visibility.Visible;
+
         }
         private void RellenarTelefonoDuenio(object sender, EventArgs e)
         {
-            txtTelefonoDuenio.Text = txtTelefonoDuenio.Text == string.Empty ? "Telefono" : txtTelefonoDuenio.Text;
-            txtTelefonoDuenio.Foreground = new SolidColorBrush(Colors.Gray);
+            if (txtTelefonoDuenio.Text == string.Empty)
+            {
+                txtTelefonoDuenio.Text = "Telefono";
+                lblTelefono.Visibility = Visibility.Hidden;
+                txtTelefonoDuenio.Foreground = new SolidColorBrush(Colors.Gray);
+            }
 
         }
 
@@ -264,6 +336,18 @@ namespace Protectora.Presentacion
         private void PulsarFecha(object sender, RoutedEventArgs e)
         {
             dateFechaPerroPerdido.Foreground = Brushes.Black;
+            lblFechaEntrada.Visibility = Visibility.Visible;
+
         }
+
+        private void LimpiarFecha(object sender, RoutedEventArgs e)
+        {
+            if (dateFechaPerroPerdido.Text == string.Empty)
+            {
+                dateFechaPerroPerdido.Foreground = Brushes.Gray;
+                lblFechaEntrada.Visibility = Visibility.Hidden;
+            }
+        }
+        
     }
 }

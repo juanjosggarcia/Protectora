@@ -30,7 +30,7 @@ namespace Protectora.Presentacion
 
         private void BtnRecordarContrasenia_Click(object sender, RoutedEventArgs e)
         {
-            lblContrasenia.Content = "234234";
+            //lblContrasenia.Content = "234234";
             Usuario usuario = new Usuario();
             usuario.Nombre = TexBoxUsuario.Text;
             usuario = GestorUsuario.obtenerPass(usuario);
