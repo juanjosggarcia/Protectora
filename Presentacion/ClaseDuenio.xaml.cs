@@ -15,10 +15,6 @@ using Protectora.Dominio;
 
 namespace Protectora.Presentacion
 {
-    /// <summary>
-    /// Lógica de interacción para ClaseDuenio.xaml
-    /// </summary>
-
     public partial class ClaseDuenio : Window
     {
         PaginaAvisos pagAviso;
@@ -39,24 +35,26 @@ namespace Protectora.Presentacion
 
         public void mostrarDuenio()
         {
-            //Padrino padrino = new Padrino();
-            persona = new Persona();
-            persona.Id = aviso.IdDuenio;
-            persona = GestorPersona.obtenerPersona(persona);
-            if (persona != null)
-            {
+            try{
+                persona = new Persona();
+                persona.Id = aviso.IdDuenio;
+                persona = GestorPersona.obtenerPersona(persona);
+                if (persona != null)
+                {
 
-                txtNombreDuenio.Text = persona.NombreCompleto;
-                txtDniDuenio.Text = persona.Dni;
-                txtCorreoDuenio.Text = persona.Correo;
-                txtTelefonoDuenio.Text = persona.Telefono.ToString();
+                    txtNombreDuenio.Text = persona.NombreCompleto;
+                    txtDniDuenio.Text = persona.Dni;
+                    txtCorreoDuenio.Text = persona.Correo;
+                    txtTelefonoDuenio.Text = persona.Telefono.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                ELog.save(this, ex);
             }
         }
-
-
         private void mostrar()
         {
-
             BtnAceptarCambiosDuenio.Visibility = Visibility.Visible;
             BtnCancelarCambiosDuenio.Visibility = Visibility.Visible;
             BtnCancelarCambiosDuenio.IsEnabled = true;
@@ -73,7 +71,6 @@ namespace Protectora.Presentacion
             {
                 bool existe = true;
                 int idDuenio;
-                //Padrino padrino = new Padrino();
                 if (persona == null)
                 {
                     persona = new Persona();
@@ -94,14 +91,24 @@ namespace Protectora.Presentacion
                     GestorAnimal.modificarAviso(aviso);
                 }
             }
-            catch (Exception ex)
+            catch (FormatException ex)
             {
                 Console.Write(ex);
                 ComprobarEntradaInt(txtTelefonoDuenio.Text, txtTelefonoDuenio);
-                //List<String> fila;
+            }
+            catch (Exception ex)
+            {
+                ELog.save(this, ex);
             }
             Close();
         }
+        private void BtnCancelarCambiosDuenio_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+
+        //////////////////////////////////////////////////////////////// EVENTOS AUXILIARES ////////////////////////////////////////////////////////////////
 
         private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada)
         {
@@ -113,12 +120,6 @@ namespace Protectora.Presentacion
                 componenteEntrada.ToolTip = "El dato introducido debe de ser del tipo numerico";
             }
         }
-
-        private void BtnCancelarCambiosDuenio_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-
         private void PulsarTelefono(object sender, RoutedEventArgs e)
         {
             txtTelefonoDuenio.Foreground = Brushes.Black;

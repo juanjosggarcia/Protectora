@@ -398,7 +398,7 @@ namespace Protectora.Presentacion
                 pagPerro.CargarPerros();
                 this.Close();
             }
-            catch (Exception ex)
+            catch (FormatException ex)
             {
                 Console.Write(ex);
                 ComprobarEntradaInt(txtTamanioPerro.Text, txtTamanioPerro);
@@ -417,6 +417,10 @@ namespace Protectora.Presentacion
 
                 //List<String> fila;
 
+            }
+            catch (Exception ex)
+            {
+                ELog.save(this, ex);
             }
 
 

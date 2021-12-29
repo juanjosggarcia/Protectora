@@ -363,8 +363,9 @@
   <ItemGroup>
     <Resource Include="recursos\conversacion.png" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="log\" />
+    <Resource Include="log\20211229.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

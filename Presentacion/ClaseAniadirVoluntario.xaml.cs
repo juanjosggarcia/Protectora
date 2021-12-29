@@ -174,15 +174,17 @@ namespace Protectora.Presentacion
 
                 this.Close();
             }
-            catch (Exception ex)
+            catch (FormatException ex)
             {
                 ComprobarEntradaInt(txtTelefonoVoluntario.Text, txtTelefonoVoluntario);
                 errorDatos.Visibility = Visibility.Visible;
 
                 Console.Write(ex);
-                //List<String> fila;
             }
-
+            catch (Exception ex)
+            {
+                ELog.save(this, ex);
+            }
         }
 
         private void BtnImagen_Click(object sender, RoutedEventArgs e)

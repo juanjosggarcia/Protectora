@@ -313,15 +313,17 @@ namespace Protectora.Presentacion
 
                 this.Close();
             }
-            catch (Exception ex)
+            catch (FormatException ex)
             {
                 Console.Write(ex);
                 ComprobarEntradaInt(txtTamanioPerroPerdido.Text, txtTamanioPerroPerdido);
                 ComprobarEntradaFecha(dateFechaPerroPerdido.Text, dateFechaPerroPerdido);
                 ComprobarEntradaInt(txtTelefonoDuenio.Text, txtTelefonoDuenio);
                 errorDatos.Visibility = Visibility.Visible;
-
-                //List<String> fila;
+            }
+            catch (Exception ex)
+            {
+                ELog.save(this, ex);
             }
 
         }

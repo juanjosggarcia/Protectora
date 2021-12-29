@@ -190,16 +190,17 @@ namespace Protectora.Presentacion
 
                 this.Close();
             }
-            catch (Exception ex)
+            catch (FormatException ex)
             {
                 Console.Write(ex);
                 ComprobarEntradaInt(txtTelefonoSocio.Text, txtTelefonoSocio);
                 ComprobarEntradaInt(txtCuantiaSocio.Text, txtCuantiaSocio);
                 errorDatos.Visibility = Visibility.Visible;
-                
-                //List<String> fila;
             }
-
+            catch (Exception ex)
+            {
+                ELog.save(this, ex);
+            }
         }
 
         private void BtnImagen_Click(object sender, RoutedEventArgs e)

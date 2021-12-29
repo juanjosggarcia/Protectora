@@ -172,7 +172,7 @@ namespace Protectora.Presentacion
 
 
             }
-            catch (System.FormatException ex)
+            catch (FormatException ex)
             {
                 Console.Write(ex);
                 ComprobarEntradaInt(TextBoxEdad.Text, TextBoxEdad);
@@ -182,10 +182,6 @@ namespace Protectora.Presentacion
             catch (Exception ex)
             {
                 ELog.save(this, ex);
-                Console.Write(ex);
-                ComprobarEntradaInt(TextBoxEdad.Text, TextBoxEdad);
-                ComprobarEntradaInt(TextBoxPeso.Text, TextBoxPeso);
-                ComprobarEntradaInt(TextBoxTamanio.Text, TextBoxTamanio);
             }
         }
         private void btnEditCancelar_Click(object sender, RoutedEventArgs e)

@@ -37,21 +37,42 @@ namespace Protectora.Presentacion
 
         public void mostrarPadrino()
         {
-            //Padrino padrino = new Padrino();
-            padrino = new Padrino();
-            padrino.Id = perro.Apadrinado;
-            padrino = GestorPersona.obtenerPadrino(padrino);
-            if (padrino != null)
+            try
             {
-                txtNombrePadrino.Text = padrino.NombreCompleto;
-                txtDniPadrino.Text = padrino.Dni;
-                txtCorreoPadrino.Text = padrino.Correo;
-                txtTelefonoPadrino.Text = padrino.Telefono.ToString();
-                txtDatosBanPadrino.Text = padrino.DatosBancarios.ToString();
-                txtImportePadrino.Text = padrino.ImporteMensual.ToString();
-                txtPagoPadrino.Text = padrino.FormaPago;
-                txtComienzoPadrino.Text = padrino.FechaEntrada.ToString();
+                padrino = new Padrino();
+                padrino.Id = perro.Apadrinado;
+                padrino = GestorPersona.obtenerPadrino(padrino);
+                if (padrino != null)
+                {
+                    txtNombrePadrino.Text = padrino.NombreCompleto;
+                    txtDniPadrino.Text = padrino.Dni;
+                    txtCorreoPadrino.Text = padrino.Correo;
+                    txtTelefonoPadrino.Text = padrino.Telefono.ToString();
+                    txtDatosBanPadrino.Text = padrino.DatosBancarios.ToString();
+                    txtImportePadrino.Text = padrino.ImporteMensual.ToString();
+                    txtPagoPadrino.Text = padrino.FormaPago;
+                    txtComienzoPadrino.Text = padrino.FechaEntrada.ToString();
+                }
             }
+            catch (Exception ex)
+            {
+                ELog.save(this, ex);
+            }
+        }
+        private void mostrar()
+        {
+            BtnAceptarCambios.Visibility = Visibility.Visible;
+            BtnCancelarCambios.Visibility = Visibility.Visible;
+            BtnAceptarCambios.IsEnabled = true;
+            BtnCancelarCambios.IsEnabled = true;
+            txtNombrePadrino.IsEnabled = true;
+            txtDniPadrino.IsEnabled = true;
+            txtCorreoPadrino.IsEnabled = true;
+            txtTelefonoPadrino.IsEnabled = true;
+            txtDatosBanPadrino.IsEnabled = true;
+            txtImportePadrino.IsEnabled = true;
+            txtPagoPadrino.IsEnabled = true;
+            txtComienzoPadrino.IsEnabled = true;
         }
 
         private void BtnPdrino_Click(object sender, RoutedEventArgs e)
@@ -60,7 +81,6 @@ namespace Protectora.Presentacion
             {
                 bool existe = true;
                 int idPadrino;
-                //Padrino padrino = new Padrino();
                 if (padrino == null)
                 {
                     padrino = new Padrino();
@@ -86,44 +106,26 @@ namespace Protectora.Presentacion
                 }
                 Close();
             }
-            catch (Exception ex)
+            catch (FormatException ex)
             {
                 Console.Write(ex);
                 ComprobarEntradaInt(txtTelefonoPadrino.Text, txtTelefonoPadrino);
                 ComprobarEntradaInt(txtImportePadrino.Text, txtImportePadrino);
                 ComprobarEntradaFecha(txtComienzoPadrino.Text, txtComienzoPadrino);
-                //List<String> fila;
+            }
+            catch (Exception ex)
+            {
+                ELog.save(this, ex);
             }
 
-
         }
-
-        private void mostrar()
-        {
-            BtnAceptarCambios.Visibility = Visibility.Visible;
-            BtnCancelarCambios.Visibility = Visibility.Visible;
-            BtnAceptarCambios.IsEnabled = true;
-            BtnCancelarCambios.IsEnabled = true;
-            txtNombrePadrino.IsEnabled = true;
-            txtDniPadrino.IsEnabled = true;
-            txtCorreoPadrino.IsEnabled = true;
-            txtTelefonoPadrino.IsEnabled = true;
-            txtDatosBanPadrino.IsEnabled = true;
-            txtImportePadrino.IsEnabled = true;
-            txtPagoPadrino.IsEnabled = true;
-            txtComienzoPadrino.IsEnabled = true;
-        }
-
-        private void BtnAceptarCambios_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-
         private void BtnCancelarCambios_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
 
+        //////////////////////////////////////////////////////////////// EVENTOS AUXILIARES ////////////////////////////////////////////////////////////////
+        
         private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada)
         {
             int num;
@@ -134,8 +136,6 @@ namespace Protectora.Presentacion
                 componenteEntrada.ToolTip = "El dato introducido debe de ser del tipo numerico";
             }
         }
-
-
         private void ComprobarEntradaFecha(string valorIntroducido, TextBox componenteEntrada)
         {
             DateTime num;
@@ -146,19 +146,15 @@ namespace Protectora.Presentacion
                 componenteEntrada.ToolTip = "El dato introducido debe de ser del tipo fecha";
 
             }
-
         }
-
         private void PulsarFecha(object sender, RoutedEventArgs e)
         {
             txtComienzoPadrino.Foreground = Brushes.Black;
         }
-
         private void PulsarTelefono(object sender, RoutedEventArgs e)
         {
             txtComienzoPadrino.Foreground = Brushes.Black;
         }
-
         private void PulsarImporte(object sender, RoutedEventArgs e)
         {
             txtComienzoPadrino.Foreground = Brushes.Black;

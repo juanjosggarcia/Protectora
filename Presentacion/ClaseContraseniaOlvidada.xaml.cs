@@ -30,16 +30,22 @@ namespace Protectora.Presentacion
 
         private void BtnRecordarContrasenia_Click(object sender, RoutedEventArgs e)
         {
-            lblContrasenia.Content = "234234";
-            Usuario usuario = new Usuario();
-            usuario.Nombre = TexBoxUsuario.Text;
-            usuario = GestorUsuario.obtenerPass(usuario);
-            if (usuario != null)
+            try {
+                lblContrasenia.Content = "234234";
+                Usuario usuario = new Usuario();
+                usuario.Nombre = TexBoxUsuario.Text;
+                usuario = GestorUsuario.obtenerPass(usuario);
+                if (usuario != null)
+                {
+                    lblContrasenia.Content = usuario.Password;
+                } else
+                {
+                    lblContrasenia.Content = "El usuario no existe";
+                }
+            }
+            catch (Exception ex)
             {
-                lblContrasenia.Content = usuario.Password;
-            }else
-            {
-                lblContrasenia.Content = "El usuario no existe";
+                ELog.save(this, ex);
             }
         }
         public void Configuracionidioma()
