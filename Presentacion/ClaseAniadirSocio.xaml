@@ -62,6 +62,10 @@
                 <Label x:Name="errorDatos" Content="Los datos introducidos son incorrectos" Visibility="Hidden" HorizontalAlignment="Center" Height="30" Margin="75,0,100,56" VerticalAlignment="Center" Width="362" Grid.Row="3" Background="#00000000" FontSize="15" Foreground="#FFE00D0D" FontWeight="Normal" Grid.Column="1" Grid.ColumnSpan="6" HorizontalContentAlignment="Center"/>
 
 
+                <Image x:Name="errorCuantia" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="22" Stretch="UniformToFill" Source="/recursos/remove2.png" Margin="10,310,0,0" Grid.Row="1" Grid.Column="6" Visibility="Hidden"/>
+                <Image x:Name="errorTelefono" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="22" Stretch="UniformToFill" Source="/recursos/remove2.png" Margin="10,245,0,0" Grid.Column="6" Grid.Row="1" Visibility="Hidden"/>
+
+
             </Grid>
         </Border>
     </Grid>

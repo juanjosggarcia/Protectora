@@ -231,8 +231,6 @@
     <None Include="Presentacion\App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="recursos\fondo.jpg" />
-    <Resource Include="recursos\fondo2.jpg" />
     <Resource Include="recursos\pawprint.ico" />
     <Resource Include="recursos\spain.png" />
     <Resource Include="recursos\united-kingdom.png" />
@@ -241,25 +239,7 @@
     <Resource Include="recursos\caridad.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="recursos\fondo4.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="recursos\socios.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="recursos\fondo3.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="recursos\fondo6.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="recursos\fondo7.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="recursos\fondo8.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="recursos\fondoOlvidarContrasenia.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="recursos\fondo20.jpg" />
@@ -277,13 +257,7 @@
     <Resource Include="recursos\fondoOlvidarContrasenia2.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="recursos\balloon-dog.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="recursos\menu.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="recursos\hot-dog.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="recursos\left-chevron.png" />
@@ -355,9 +329,6 @@
     <Resource Include="recursos\volver.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="recursos\paw-print.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="recursos\dog.png" />
   </ItemGroup>
   <ItemGroup>
@@ -365,6 +336,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="log\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\remove2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

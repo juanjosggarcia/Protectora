@@ -76,8 +76,8 @@ namespace Protectora.Presentacion
             catch (FormatException ex)
             {
                 Console.Write(ex);
-                ComprobarEntradaInt(txtTelefonoSocio.Text, txtTelefonoSocio);
-                ComprobarEntradaInt(txtCuantiaSocio.Text, txtCuantiaSocio);
+                ComprobarEntradaInt(txtTelefonoSocio.Text, txtTelefonoSocio, errorTelefono);
+                ComprobarEntradaInt(txtCuantiaSocio.Text, txtCuantiaSocio, errorCuantia);
                 errorDatos.Visibility = Visibility.Visible;
             }
             catch (Exception ex)
@@ -138,6 +138,8 @@ namespace Protectora.Presentacion
             txtTelefonoSocio.Text = txtTelefonoSocio.Text == "Telefono" ? string.Empty : txtTelefonoSocio.Text;
             txtTelefonoSocio.Foreground = new SolidColorBrush(Colors.Black);
             lblTelefono.Visibility = Visibility.Visible;
+            errorTelefono.Visibility = Visibility.Hidden;
+
         }
         private void RellenarTextoTelefono(object sender, EventArgs e)
         {
@@ -153,6 +155,8 @@ namespace Protectora.Presentacion
             txtCuantiaSocio.Text = txtCuantiaSocio.Text == "Cuantia de la ayuda" ? string.Empty : txtCuantiaSocio.Text;
             txtCuantiaSocio.Foreground = new SolidColorBrush(Colors.Black);
             lblCuantia.Visibility = Visibility.Visible;
+            errorCuantia.Visibility = Visibility.Hidden;
+
         }
         private void RellenarTextoCuantia(object sender, EventArgs e)
         {
@@ -236,7 +240,7 @@ namespace Protectora.Presentacion
                 }
             }
         }
-        private void ComprobarEntradaInt(string valorIntroducido, System.Windows.Controls.TextBox componenteEntrada)
+        private void ComprobarEntradaInt(string valorIntroducido, System.Windows.Controls.TextBox componenteEntrada, Image entradaImagen)
         {
             int num;
             bool cosa = int.TryParse(valorIntroducido, out num);
@@ -244,6 +248,8 @@ namespace Protectora.Presentacion
             {
                 componenteEntrada.Foreground = Brushes.Red;
                 componenteEntrada.ToolTip = "El dato introducido debe de ser del tipo numerico";
+                entradaImagen.Visibility = Visibility.Visible;
+
             }
         }
 

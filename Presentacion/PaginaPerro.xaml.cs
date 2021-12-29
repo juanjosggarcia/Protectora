@@ -172,9 +172,10 @@ namespace Protectora.Presentacion
             catch (FormatException ex)
             {
                 Console.Write(ex);
-                ComprobarEntradaInt(TextBoxEdad.Text, TextBoxEdad);
-                ComprobarEntradaInt(TextBoxPeso.Text, TextBoxPeso);
-                ComprobarEntradaInt(TextBoxTamanio.Text, TextBoxTamanio);
+                ComprobarEntradaInt(TextBoxEdad.Text, TextBoxEdad, errorEdad);
+                ComprobarEntradaInt(TextBoxPeso.Text, TextBoxPeso, errorPeso);
+                ComprobarEntradaInt(TextBoxTamanio.Text, TextBoxTamanio, errorTamanio);
+                ComprobarEntradaFecha(TextBoxEntrada.Text, TextBoxEntrada, errorFecha);
             }
             catch (Exception ex)
             {
@@ -286,27 +287,50 @@ namespace Protectora.Presentacion
                 ELog.save(this, ex);
             }
         }
-        private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada)
+        private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada, Image entradaImagen)
         {
             int num;
             bool cosa = int.TryParse(valorIntroducido, out num);
             if (cosa == false)
             {
                 componenteEntrada.Foreground = Brushes.Red;
+                componenteEntrada.ToolTip = "El dato introducido debe de ser del tipo numerico";
+                entradaImagen.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void ComprobarEntradaFecha(string valorIntroducido, TextBox componenteEntrada, Image entradaImagen)
+        {
+            DateTime num;
+            bool cosa = DateTime.TryParse(valorIntroducido, out num);
+            if (cosa == false)
+            {
+                componenteEntrada.Foreground = Brushes.Red;
+                componenteEntrada.ToolTip = "El dato introducido debe de ser del tipo fecha dd-mm-aaaa";
+                entradaImagen.Visibility = Visibility.Visible;
+
             }
         }
         private void PulsarEdad(object sender, RoutedEventArgs e)
         {
             TextBoxEdad.Foreground = Brushes.Black;
+            errorEdad.Visibility = Visibility.Hidden;
+
+
         }
         private void PulsarTamanio(object sender, RoutedEventArgs e)
         {
             TextBoxTamanio.Foreground = Brushes.Black;
+            errorTamanio.Visibility = Visibility.Hidden;
+
         }
         private void PulsarPeso(object sender, RoutedEventArgs e)
         {
             TextBoxPeso.Foreground = Brushes.Black;
+            errorPeso.Visibility = Visibility.Hidden;
+
         }
+
         private void OnKeyDownHandler(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Return)
@@ -317,6 +341,8 @@ namespace Protectora.Presentacion
         private void PulsarFecha(object sender, RoutedEventArgs e)
         {
             TextBoxEntrada.Foreground = Brushes.Black;
+            errorFecha.Visibility = Visibility.Hidden;
+
         }
 
 

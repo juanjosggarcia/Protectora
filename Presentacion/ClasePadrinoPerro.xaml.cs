@@ -106,9 +106,9 @@ namespace Protectora.Presentacion
             catch (FormatException ex)
             {
                 Console.Write(ex);
-                ComprobarEntradaInt(txtTelefonoPadrino.Text, txtTelefonoPadrino);
-                ComprobarEntradaInt(txtImportePadrino.Text, txtImportePadrino);
-                ComprobarEntradaFecha(txtComienzoPadrino.Text, txtComienzoPadrino);
+                ComprobarEntradaInt(txtTelefonoPadrino.Text, txtTelefonoPadrino, errorTelefono);
+                ComprobarEntradaInt(txtImportePadrino.Text, txtImportePadrino, errorImporte);
+                ComprobarEntradaFecha(txtComienzoPadrino.Text, txtComienzoPadrino, errorFecha);
             }
             catch (System.Data.OleDb.OleDbException ex)
             {
@@ -127,7 +127,7 @@ namespace Protectora.Presentacion
 
         //////////////////////////////////////////////////////////////// EVENTOS AUXILIARES ////////////////////////////////////////////////////////////////
         
-        private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada)
+        private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada, Image entradaImagen)
         {
             int num;
             bool cosa = int.TryParse(valorIntroducido, out num);
@@ -135,30 +135,37 @@ namespace Protectora.Presentacion
             {
                 componenteEntrada.Foreground = Brushes.Red;
                 componenteEntrada.ToolTip = "El dato introducido debe de ser del tipo numerico";
+                entradaImagen.Visibility = Visibility.Visible;
+
             }
         }
-        private void ComprobarEntradaFecha(string valorIntroducido, TextBox componenteEntrada)
+        private void ComprobarEntradaFecha(string valorIntroducido, TextBox componenteEntrada, Image entradaImagen)
         {
             DateTime num;
             bool cosa = DateTime.TryParse(valorIntroducido, out num);
             if (cosa == false)
             {
                 componenteEntrada.Foreground = Brushes.Red;
-                componenteEntrada.ToolTip = "El dato introducido debe de ser del tipo fecha";
-
+                componenteEntrada.ToolTip = "El dato introducido debe de ser del tipo fecha dd-mm-aaaa";
+                entradaImagen.Visibility = Visibility.Visible;
             }
         }
         private void PulsarFecha(object sender, RoutedEventArgs e)
         {
             txtComienzoPadrino.Foreground = Brushes.Black;
+            errorFecha.Visibility = Visibility.Hidden;
+
         }
         private void PulsarTelefono(object sender, RoutedEventArgs e)
         {
-            txtComienzoPadrino.Foreground = Brushes.Black;
+            txtTelefonoPadrino.Foreground = Brushes.Black;
+            errorTelefono.Visibility = Visibility.Hidden;
+
         }
         private void PulsarImporte(object sender, RoutedEventArgs e)
         {
-            txtComienzoPadrino.Foreground = Brushes.Black;
+            txtImportePadrino.Foreground = Brushes.Black;
+            errorImporte.Visibility = Visibility.Hidden;
         }
 
     }

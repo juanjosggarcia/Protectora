@@ -140,8 +140,8 @@ namespace Protectora.Presentacion
             catch (FormatException ex)
             {
                 Console.Write(ex);
-                ComprobarEntradaInt(TextBoxCuantiaSocio.Text, TextBoxCuantiaSocio);
-                ComprobarEntradaInt(TextBoxTelefonoSocio.Text, TextBoxTelefonoSocio);
+                ComprobarEntradaInt(TextBoxCuantiaSocio.Text, TextBoxCuantiaSocio, errorCuantia);
+                ComprobarEntradaInt(TextBoxTelefonoSocio.Text, TextBoxTelefonoSocio, errorTelefono);
             }
             catch (Exception ex)
             {
@@ -241,22 +241,28 @@ namespace Protectora.Presentacion
                 ELog.save(this, ex);
             }
         }
-        private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada)
+        private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada, Image entradaImagen)
         {
             int num;
             bool cosa = int.TryParse(valorIntroducido, out num);
             if (cosa == false)
             {
                 componenteEntrada.Foreground = Brushes.Red;
+                componenteEntrada.ToolTip = "El dato introducido debe de ser del tipo numerico";
+                entradaImagen.Visibility = Visibility.Visible;
             }
         }
         private void PulsarTelefono(object sender, RoutedEventArgs e)
         {
             TextBoxTelefonoSocio.Foreground = Brushes.Black;
+            errorTelefono.Visibility = Visibility.Hidden;
+
         }
         private void PulsarCuantia(object sender, RoutedEventArgs e)
         {
             TextBoxCuantiaSocio.Foreground = Brushes.Black;
+            errorCuantia.Visibility = Visibility.Hidden;
+
         }
         private void OnKeyDownHandler(object sender, KeyEventArgs e)
         {

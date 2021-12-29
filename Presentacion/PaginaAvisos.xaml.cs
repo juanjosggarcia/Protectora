@@ -17,6 +17,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MessageBox = System.Windows.MessageBox;
 using Path = System.IO.Path;
+using TextBox = System.Windows.Controls.TextBox;
 
 namespace Protectora.Presentacion
 {
@@ -158,6 +159,9 @@ namespace Protectora.Presentacion
             }
             catch (Exception ex)
             {
+                ComprobarEntradaInt(TextBoxTamanioPerdido.Text, TextBoxTamanioPerdido, errorTamanio);
+                ComprobarEntradaFecha(TextBoxFechaPerdida.Text, TextBoxFechaPerdida, errorFecha);
+                
                 ELog.save(this, ex);
             }
         }
@@ -261,6 +265,40 @@ namespace Protectora.Presentacion
             {
                 ELog.save(this, ex);
             }
+        }
+
+        private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada, Image entradaImagen)
+        {
+            int num;
+            bool cosa = int.TryParse(valorIntroducido, out num);
+            if (cosa == false)
+            {
+                componenteEntrada.Foreground = Brushes.Red;
+                componenteEntrada.ToolTip = "El dato introducido debe de ser del tipo numerico";
+                entradaImagen.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void ComprobarEntradaFecha(string valorIntroducido, TextBox componenteEntrada, Image entradaImagen)
+        {
+            DateTime num;
+            bool cosa = DateTime.TryParse(valorIntroducido, out num);
+            if (cosa == false)
+            {
+                componenteEntrada.Foreground = Brushes.Red;
+                componenteEntrada.ToolTip = "El dato introducido debe de ser del tipo fecha dd-mm-aaaa";
+                entradaImagen.Visibility = Visibility.Visible;
+
+            }
+        }
+
+        private void PulsarFecha(object sender, RoutedEventArgs e)
+        {
+            TextBoxFechaPerdida.Foreground = Brushes.Black;
+        }
+        private void PulsarTamanio(object sender, RoutedEventArgs e)
+        {
+            TextBoxTamanioPerdido.Foreground = Brushes.Black;
         }
 
 
@@ -404,13 +442,5 @@ namespace Protectora.Presentacion
             }
         }
 
-        private void PulsarFecha(object sender, RoutedEventArgs e)
-        {
-            TextBoxFechaPerdida.Foreground = Brushes.Black;
-        }
-        private void PulsarTamanio(object sender, RoutedEventArgs e)
-        {
-            TextBoxTamanioPerdido.Foreground = Brushes.Black;
-        }
     }
 }
