@@ -48,7 +48,7 @@ namespace Protectora.Dominio
         {
             return PerDAO.leerId(this);
         }
-        public Persona leerDatoXName()
+        public List<Persona> leerDatoXName()
         {
             return PerDAO.leerName(this);
         }
@@ -69,7 +69,7 @@ namespace Protectora.Dominio
         public Persona InsertarPersona()
         {
             this.PerDAO.insertar(this);
-            return PerDAO.leerName(this);
+            return PerDAO.leerName(this)[0];
         }
 
     }

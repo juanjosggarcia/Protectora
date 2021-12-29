@@ -27,23 +27,16 @@ namespace Protectora.Persistencia
             return personas;
         }
 
-        public Persona leerName(Persona obj)
+        public List<Persona> leerName(Persona obj)
         {
-            //AgenteDB agente = AgenteDB.obtenerAgente();
-            //Console.Write(" ");
-            List<List<String>> arrayCarPersona = AgenteDB.obtenerAgente().leer("SELECT * FROM personas p WHERE p.nombreCompleto = '" + obj.NombreCompleto + "'; ");
-            //Padrino s = new Padrino();
+            List<List<String>> arrayCarPersona = AgenteDB.obtenerAgente().leer("SELECT * FROM personas p WHERE p.nombreCompleto LIKE '%" + obj.NombreCompleto + "%'; ");
 
             foreach (List<String> user in arrayCarPersona)
             {
                 Persona s = new Persona(Int32.Parse(user[0]), user[1], user[2], user[3], Int32.Parse(user[4]));
                 personas.Add(s);
             }
-            if (personas.Count != 0)
-            {
-                return personas[0];
-            }
-            else return null;
+            return personas;
         }
 
         public Persona leerId(Persona obj)

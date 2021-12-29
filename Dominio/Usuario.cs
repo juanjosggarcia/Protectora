@@ -44,7 +44,7 @@ namespace Protectora.Dominio
         {
             return UsuDAO.leerTodas();
         }
-        public Usuario leerDatoXName()
+        public List<Usuario> leerDatoXName()
         {
             return UsuDAO.leerName(this);
         }

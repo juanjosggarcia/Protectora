@@ -43,7 +43,7 @@ namespace Protectora.Dominio
         {
             return PadDAO.leerTodas();
         }
-        public new Padrino leerDatoXName()
+        public new List<Padrino> leerDatoXName()
         {
             throw new NotImplementedException();
         }
@@ -69,7 +69,7 @@ namespace Protectora.Dominio
         {
             this.PadDAO.insertar(this);
 
-            return padDAO.leerName(this);
+            return padDAO.leerName(this)[0];
         }
 
     }

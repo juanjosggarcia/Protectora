@@ -17,13 +17,8 @@ using System.Windows.Shapes;
 
 namespace Protectora
 {
-    /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
-        //private string usuario = "1234";
-        //private string password = "1234";
         public MainWindow()
         {
             InitializeComponent();
@@ -33,51 +28,66 @@ namespace Protectora
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
-
             App.Current.Shutdown();
         }
 
         private void BtnIniciarSesion_Click(object sender, RoutedEventArgs e)
         {
-
-            errorInicioSesion.Content = "";
-            Usuario usuario = new Usuario(null, txtUsuario.Text.ToString(), txtContrasenia.Password.ToString(), null);
-            usuario = GestorUsuario.obtenerUser(usuario);
-
-            if (usuario != null)
+            try
             {
+                errorInicioSesion.Content = "";
+                Usuario usuario = new Usuario(null, txtUsuario.Text.ToString(), txtContrasenia.Password.ToString(), null);
+                usuario = GestorUsuario.obtenerUser(usuario);
 
-                ClaseVentanaPrincipal nw = new ClaseVentanaPrincipal(usuario);
-                //string cosa = nw.paneles[0].putamierda;
-                nw.Show();
+                if (usuario != null)
+                {
 
-                //this.Close();
+                    ClaseVentanaPrincipal nw = new ClaseVentanaPrincipal(usuario);
+                    nw.Show();
 
-                Hide();
-                //Close();
-            }
-            else
-            {
-                // feedback al usuario
-                txtUsuario.Text = "";
-                txtContrasenia.Password = "";
-                if (ComboBoxIdioma.SelectedIndex == 0) {
-                    errorInicioSesion.Content = "Ha ingresado un nombre de usuario o contraseña inválidos";
+                    //this.Close();
+
+                    Hide();
+                    //Close();
                 }
                 else
                 {
-                    errorInicioSesion.Content = "You have entered an invalid username or password";
+                    txtUsuario.Text = "";
+                    txtContrasenia.Password = "";
+                    if (ComboBoxIdioma.SelectedIndex == 0)
+                    {
+                        errorInicioSesion.Content = "Ha ingresado un nombre de usuario o contraseña inválidos";
+                    }
+                    else
+                    {
+                        errorInicioSesion.Content = "You have entered an invalid username or password";
+                    }
                 }
             }
-            /*
-            else
+            catch (System.Data.OleDb.OleDbException ex)
             {
-                // feedback al usuario con ventana emergente
-                string message = "Usuario o contraseña invalido";
-                string title = "Error autentificacion";
-                MessageBox.Show(message, title);
+                ELog.save(this, ex);
+                string message = "No se puede tener acceder a la base de datos.\nAsegurese que se encuentra disponible";
+                string caption = "Problema con la base de datos";
+                MessageBoxButton buttons = MessageBoxButton.OK;
+                MessageBox.Show(message, caption, buttons);
             }
-            */
+            catch (InvalidOperationException ex)
+            {
+                ELog.save(this, ex);
+                string message = "No se puede tener acceder a la base de datos.\nPor favor asegurese de tener instalada la ultima version del proveedor";
+                string caption = "Problema con la base de datos";
+                MessageBoxButton buttons = MessageBoxButton.OK;
+                MessageBox.Show(message, caption, buttons);
+            }
+            catch (Exception ex)
+            {
+                ELog.save(this, ex);
+                string message = "No se puede tener acceder a la base de datos.\nPor favor pongase en contanto con su administrador";
+                string caption = "Problema con la base de datos";
+                MessageBoxButton buttons = MessageBoxButton.OK;
+                MessageBox.Show(message, caption, buttons);
+            }
 
         }
 

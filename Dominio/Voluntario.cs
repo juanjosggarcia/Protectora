@@ -40,7 +40,7 @@ namespace Protectora.Dominio
             return VolDAO.leerTodas();
         }
 
-        public new Voluntario leerDatoXName()
+        public new List<Voluntario> leerDatoXName()
         {
             return VolDAO.leerName(this);
         }

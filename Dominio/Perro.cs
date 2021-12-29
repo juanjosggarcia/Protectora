@@ -35,7 +35,7 @@ namespace Protectora
         {
             return AniDAO.leerTodas();
         }
-        public Perro leerDatoXName()
+        public List<Perro> leerDatoXName()
         {
             return AniDAO.leerName(this);
         }

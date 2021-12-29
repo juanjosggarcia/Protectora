@@ -14,13 +14,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Protectora.Dominio;
 using Microsoft.Win32;
-
+using System.IO;
+using Path = System.IO.Path;
 
 namespace Protectora.Presentacion
 {
-    /// <summary>
-    /// Lógica de interacción para ClaseAniadirSocio.xaml
-    /// </summary>
     public partial class ClaseAniadirSocio : Window
     {
         PaginaSocios pagSocios;
@@ -29,6 +27,57 @@ namespace Protectora.Presentacion
             InitializeComponent();
             pagSocios = p;
         }
+        private void NuevoSocio_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Socio socio = new Socio
+                {
+                    NombreCompleto = txtNombreSocio.Text,
+                    Correo = txtCorreoSocio.Text,
+                    Dni = txtDniSocio.Text,
+                    Telefono = Int32.Parse(txtTelefonoSocio.Text),
+                    CuantiaAyuda = Int32.Parse(txtCuantiaSocio.Text),
+                    DatosBancarios = txtDatosBanSocio.Text,
+                    FormaPago = txtPagoSocio.Text
+
+                };
+                if (string.IsNullOrEmpty(txtImagenSocioNuevo.Text) || txtImagenSocioNuevo.Text == "Imagen")
+                {
+                    socio.Foto = "default.jpg";
+                }
+                else
+                {
+                    string s = txtImagenSocioNuevo.Text;
+                    string[] subs = s.Split('\\');
+                    socio.Foto = subs[subs.Length - 1];
+                    //perro.Foto = string.Join("", subs);
+                }
+                //socio.Foto = "default.jpg";
+                //string s = txtImagenPerroNuevo.Text;
+                //string[] subs = s.Split('\\');
+                //perro.Foto = subs[subs.Length - 1];
+
+
+                GestorPersona.crearSocio(socio);
+                pagSocios.CargarSocios();
+
+                this.Close();
+            }
+            catch (FormatException ex)
+            {
+                Console.Write(ex);
+                ComprobarEntradaInt(txtTelefonoSocio.Text, txtTelefonoSocio);
+                ComprobarEntradaInt(txtCuantiaSocio.Text, txtCuantiaSocio);
+                errorDatos.Visibility = Visibility.Visible;
+            }
+            catch (Exception ex)
+            {
+                ELog.save(this, ex);
+            }
+        }
+
+        //////////////////////////////////////////////////////////////// EVENTOS AUXILIARES ////////////////////////////////////////////////////////////////
 
         private void LimpiarTextoNombre(object sender, EventArgs e)
         {
@@ -153,55 +202,7 @@ namespace Protectora.Presentacion
                 txtImagenSocioNuevo.Foreground = new SolidColorBrush(Colors.Gray);
             }
         }
-        private void NuevoSocio_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                Socio socio = new Socio
-                {
-                    NombreCompleto = txtNombreSocio.Text,
-                    Correo = txtCorreoSocio.Text,
-                    Dni = txtDniSocio.Text,
-                    Telefono = Int32.Parse(txtTelefonoSocio.Text),
-                    CuantiaAyuda = Int32.Parse(txtCuantiaSocio.Text),
-                    DatosBancarios = txtDatosBanSocio.Text,
-                    FormaPago = txtPagoSocio.Text
 
-                };
-                if (string.IsNullOrEmpty(txtImagenSocioNuevo.Text) || txtImagenSocioNuevo.Text == "Imagen")
-                {
-                    socio.Foto = "default.jpg";
-                }
-                else
-                {
-                    string s = txtImagenSocioNuevo.Text;
-                    string[] subs = s.Split('\\');
-                    socio.Foto = subs[subs.Length - 1];
-                    //perro.Foto = string.Join("", subs);
-                }
-                //socio.Foto = "default.jpg";
-                //string s = txtImagenPerroNuevo.Text;
-                //string[] subs = s.Split('\\');
-                //perro.Foto = subs[subs.Length - 1];
-
-
-                GestorPersona.crearSocio(socio);
-                pagSocios.CargarSocios();
-
-                this.Close();
-            }
-            catch (FormatException ex)
-            {
-                Console.Write(ex);
-                ComprobarEntradaInt(txtTelefonoSocio.Text, txtTelefonoSocio);
-                ComprobarEntradaInt(txtCuantiaSocio.Text, txtCuantiaSocio);
-                errorDatos.Visibility = Visibility.Visible;
-            }
-            catch (Exception ex)
-            {
-                ELog.save(this, ex);
-            }
-        }
 
         private void BtnImagen_Click(object sender, RoutedEventArgs e)
         {
@@ -232,6 +233,63 @@ namespace Protectora.Presentacion
                 componenteEntrada.Foreground = Brushes.Red;
                 componenteEntrada.ToolTip = "El dato introducido debe de ser del tipo numerico";
             }
+        }
+
+        /////////////////////////////////////////////////////////////// FUNCIONES AUXILIARES ///////////////////////////////////////////////////////////////
+
+        private string obtenerPath()
+        {
+            string pathExe = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
+            string pathApp1 = pathExe.Substring(8);
+            //int posBin = pathApp1.IndexOf("/bin");
+            string proc = "/Protectora/";
+            int posBin = pathApp1.IndexOf(proc);
+            string pathApp = pathApp1.Remove(posBin + proc.Length - 1);
+            return pathApp;
+        }
+
+        private string[] extraerFName(string sourcePath)
+        {
+            string[] subs = sourcePath.Split('\\');
+            if (subs.Length == 1)
+            {
+                subs = sourcePath.Split('/');
+            }
+            string fName = subs[subs.Length - 1];
+            string sourceDir1 = sourcePath.Substring(0, (sourcePath.Length - fName.Length - 1));
+            string sourceDir;
+            if (sourceDir1.Contains("file///"))
+            {
+                sourceDir = sourcePath.Substring(8);
+            }
+            else
+            {
+                sourceDir = sourceDir1;
+            }
+            string[] datos = { sourceDir, fName };
+            return datos;
+        }
+        private string copiarImagen(string sourceDir, string fName)
+        {
+
+            string pathApp = obtenerPath();
+
+            string backupDir = pathApp + "/fotosPerros";
+
+            string[] picList = Directory.GetFiles(backupDir, "*.jpg");
+
+            if (!(picList.Contains(backupDir + "\\" + fName)))
+            {
+                try
+                {
+                    File.Copy(Path.Combine(sourceDir, fName), Path.Combine(backupDir, fName), true);
+                }
+                catch (DirectoryNotFoundException dirNotFound)
+                {
+                    Console.WriteLine(dirNotFound.Message);
+                }
+            }
+            return fName;
         }
     }
 }
