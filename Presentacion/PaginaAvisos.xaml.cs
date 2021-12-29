@@ -15,16 +15,13 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MessageBox = System.Windows.MessageBox;
 using Path = System.IO.Path;
 
 namespace Protectora.Presentacion
 {
-    /// <summary>
-    /// Lógica de interacción para PaginaAvisos.xaml
-    /// </summary>
     public partial class PaginaAvisos : Page
     {
-        public List<Aviso> listaAvisos = new List<Aviso>();
         public PaginaAvisos()
         {
             InitializeComponent();
@@ -38,7 +35,6 @@ namespace Protectora.Presentacion
             {
                 SetPerroPerdido(aviso);
                 DesactivarTextBoxsPerdido();
-
             }
 
             btnAnteriorPerroPerdido.IsEnabled = true;
@@ -83,24 +79,31 @@ namespace Protectora.Presentacion
             result = (DialogResult)System.Windows.MessageBox.Show(message, caption, buttons);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
-                Aviso aviso = (Aviso)ListViewPerrosPerdidos.Items[ListViewPerrosPerdidos.SelectedIndex];
-                GestorAnimal.eliminarAviso(aviso);
-                ListViewPerrosPerdidos.Items.RemoveAt(index);
-                TextBoxIdPerroPer.Text = "";
-                TextBoxSexoPerdido.Text = "";
-                TextBoxNombrePerdido.Text = "";
-                TextBoxTamanioPerdido.Text = "";
-                TextBoxRazaPerdido.Text = "";
-                TextBoxZonaPerdida.Text = "";
-                TextBoxFechaPerdida.Text = "";
-                TextBoxDescripcionPerdida.Text = "";
-                TextBoxDescripcionAdicional.Text = "";
-                string str = @"../fotosPerros/default.jpg";
-                BitmapImage bitmap = new BitmapImage();
-                bitmap.BeginInit();
-                bitmap.UriSource = new Uri(str, UriKind.Relative);
-                bitmap.EndInit();
-                ProfileImagePerroPerdido.Source = bitmap;
+                try
+                {
+                    Aviso aviso = (Aviso)ListViewPerrosPerdidos.Items[ListViewPerrosPerdidos.SelectedIndex];
+                    GestorAnimal.eliminarAviso(aviso);
+                    ListViewPerrosPerdidos.Items.RemoveAt(index);
+                    TextBoxIdPerroPer.Text = "";
+                    TextBoxSexoPerdido.Text = "";
+                    TextBoxNombrePerdido.Text = "";
+                    TextBoxTamanioPerdido.Text = "";
+                    TextBoxRazaPerdido.Text = "";
+                    TextBoxZonaPerdida.Text = "";
+                    TextBoxFechaPerdida.Text = "";
+                    TextBoxDescripcionPerdida.Text = "";
+                    TextBoxDescripcionAdicional.Text = "";
+                    string str = @"../fotosPerros/default.jpg";
+                    BitmapImage bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.UriSource = new Uri(str, UriKind.Relative);
+                    bitmap.EndInit();
+                    ProfileImagePerroPerdido.Source = bitmap;
+                }
+                catch (Exception ex)
+                {
+                    ELog.save(this, ex);
+                }
             }
         }
         private void BtnEditPerroPerdido_Click(object sender, RoutedEventArgs e)
@@ -144,10 +147,6 @@ namespace Protectora.Presentacion
                 aviso.DescripcionAnimal = TextBoxDescripcionPerdida.Text;
                 aviso.DescripcionAdicional = TextBoxDescripcionAdicional.Text;
 
-                //string s = ProfileImagePerroPerdido.Source.ToString();
-                //string[] subs = s.Split('/');
-                //aviso.Foto = subs[subs.Length - 1];
-
                 aviso.Foto = copiarImagen(ProfileImagePerroPerdido.Source.ToString());
 
                 GestorAnimal.modificarAviso(aviso);
@@ -159,7 +158,6 @@ namespace Protectora.Presentacion
             }
             catch (Exception ex)
             {
-                Console.Write(ex);
                 ELog.save(this, ex);
             }
         }
@@ -171,7 +169,6 @@ namespace Protectora.Presentacion
             MessageBoxButton buttons = MessageBoxButton.YesNo;
             DialogResult result;
 
-            // Displays the MessageBox.
             result = (DialogResult)System.Windows.MessageBox.Show(message, caption, buttons);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
@@ -185,23 +182,30 @@ namespace Protectora.Presentacion
         {
             Aviso aviso = new Aviso();
 
-            if (!string.IsNullOrEmpty(TextBoxBuscarPerroPerdido.Text))
+            try
             {
-                aviso.Nombre = TextBoxBuscarPerroPerdido.Text;
-                List<Aviso> avisos = GestorAnimal.obtenerAviso(aviso);
-                ListViewPerrosPerdidos.Items.Clear();
-                if (avisos != null)
+                if (!string.IsNullOrEmpty(TextBoxBuscarPerroPerdido.Text))
                 {
-                    foreach (Aviso avis in avisos)
+                    aviso.Nombre = TextBoxBuscarPerroPerdido.Text;
+                    List<Aviso> avisos = GestorAnimal.obtenerAviso(aviso);
+                    ListViewPerrosPerdidos.Items.Clear();
+                    if (avisos != null)
                     {
-                        avis.Foto = "default.jpg";
-                        ListViewPerrosPerdidos.Items.Add(avis);
+                        foreach (Aviso avis in avisos)
+                        {
+                            avis.Foto = "default.jpg";
+                            ListViewPerrosPerdidos.Items.Add(avis);
+                        }
                     }
                 }
+                else
+                {
+                    CargarPerrosPerdidos();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                CargarPerrosPerdidos();
+                ELog.save(this, ex);
             }
         }
         private void btnMostrarTodosAvisos_Click(object sender, RoutedEventArgs e)
@@ -215,7 +219,6 @@ namespace Protectora.Presentacion
                 ListViewPerrosPerdidos.SelectedIndex++;
             }
         }
-
         private void BtnAnteriorPerroPerdido_Click(object sender, RoutedEventArgs e)
         {
             if (ListViewPerrosPerdidos.SelectedIndex != 0)
@@ -245,50 +248,43 @@ namespace Protectora.Presentacion
                 ProfileImagePerroPerdido.Source = bitmap;
 
             }
+            catch (UriFormatException ex)
+            {
+                Console.WriteLine(ex);
+            }
+            catch (NotSupportedException ex)
+            {
+                Console.WriteLine(ex);
+                MessageBox.Show("EL formato de imagen elegido no esta soportado");
+            }
             catch (Exception ex)
             {
-                if (ex.Message != "URI no válido: URI está vacío.")
-                {
-                    System.Windows.MessageBox.Show("Error al cargar la imagen " + ex.Message);
-                }
+                ELog.save(this, ex);
             }
         }
 
-
-
-        //private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada)
-        //{
-        //    int num;
-        //    bool cosa = int.TryParse(valorIntroducido, out num);
-        //    if (cosa == false)
-        //    {
-        //        componenteEntrada.Foreground = Brushes.Red;
-
-        //    }
-
-        //}
-
-        //private void PulsarEdad(object sender, RoutedEventArgs e)
-        //{
-        //    TextBoxEdad.Foreground = Brushes.Black;
-        //}
 
         /////////////////////////////////////////////////////////////// FUNCIONES AUXILIARES ///////////////////////////////////////////////////////////////
 
         public void CargarPerrosPerdidos()
         {
-            List<Aviso> avisos = new List<Aviso>();
-            avisos = GestorAnimal.obtenerTodosAvisos();
-            ListViewPerrosPerdidos.Items.Clear();
-            foreach (Aviso aviso in avisos)
+            try
             {
-                if (string.IsNullOrEmpty(aviso.Foto))
+                List<Aviso> avisos = new List<Aviso>();
+                avisos = GestorAnimal.obtenerTodosAvisos();
+                ListViewPerrosPerdidos.Items.Clear();
+                foreach (Aviso aviso in avisos)
                 {
-                    aviso.Foto = "default.jpg";
+                    if (string.IsNullOrEmpty(aviso.Foto))
+                    {
+                        aviso.Foto = "default.jpg";
+                    }
+                    ListViewPerrosPerdidos.Items.Add(aviso);
                 }
-
-                listaAvisos.Add(aviso);
-                ListViewPerrosPerdidos.Items.Add(aviso);
+            }
+            catch (Exception ex)
+            {
+                ELog.save(this, ex);
             }
         }
         public void SetPerroPerdido(Aviso aviso)
@@ -306,7 +302,9 @@ namespace Protectora.Presentacion
                 TextBoxDescripcionAdicional.Text = aviso.DescripcionAdicional;
 
                 string rutaPerros = obtenerPath() + "/fotosPerros";
-                string[] picList = Directory.GetFiles(rutaPerros, "*.jpg");
+                string[] picListTXT = Directory.GetFiles(rutaPerros, "*.jpg");
+                string[] picListPNG = Directory.GetFiles(rutaPerros, "*.png");
+                string[] picList = picListTXT.Concat(picListPNG).ToArray();
 
                 if (!(picList.Contains(rutaPerros + "\\" + aviso.Foto)))
                 {
@@ -315,10 +313,8 @@ namespace Protectora.Presentacion
 
                 string str = rutaPerros + "/" + aviso.Foto;
 
-                //string str = @"../fotosPerros/" + aviso.Foto;
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
-                //bitmap.UriSource = new Uri(str, UriKind.Relative);
                 bitmap.UriSource = new Uri(str);
                 bitmap.EndInit();
                 ProfileImagePerroPerdido.Source = bitmap;
@@ -327,7 +323,7 @@ namespace Protectora.Presentacion
             }
             catch (Exception ex)
             {
-                Console.Write(ex);
+                ELog.save(this, ex);
             }
         }
         private void DesactivarTextBoxsPerdido()
@@ -358,10 +354,9 @@ namespace Protectora.Presentacion
         {
             string pathExe = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
             string pathApp1 = pathExe.Substring(8);
-            //int posBin = pathApp1.IndexOf("/bin");
             string proc = "/Protectora/";
             int posBin = pathApp1.IndexOf(proc);
-            string pathApp = pathApp1.Remove(posBin + proc.Length);
+            string pathApp = pathApp1.Remove(posBin + proc.Length-1);
             return pathApp;
         }
         private string copiarImagen(string sourcePath)
@@ -377,7 +372,15 @@ namespace Protectora.Presentacion
 
             string backupDir = pathApp + "/fotosPerros";
 
-            string[] picList = Directory.GetFiles(backupDir, "*.jpg");
+            //string[] picList = Directory.GetFiles(backupDir, "*.jpg");
+
+            string[] picListTXT = Directory.GetFiles(backupDir, "*.jpg");
+            string[] picListPNG = Directory.GetFiles(backupDir, "*.png");
+            string[] picListGIF = Directory.GetFiles(backupDir, "*.gif");
+            string[] picListBMP = Directory.GetFiles(backupDir, "*.bmp");
+            string[] picList1 = picListTXT.Concat(picListPNG).ToArray();
+            string[] picList2 = picList1.Concat(picListGIF).ToArray();
+            string[] picList = picList2.Concat(picListBMP).ToArray();
 
             if (!(picList.Contains(backupDir + "\\" + fName)))
             {
@@ -385,9 +388,9 @@ namespace Protectora.Presentacion
                 {
                     File.Copy(Path.Combine(sourceDir, fName), Path.Combine(backupDir, fName), true);
                 }
-                catch (DirectoryNotFoundException dirNotFound)
+                catch (DirectoryNotFoundException ex)
                 {
-                    Console.WriteLine(dirNotFound.Message);
+                    ELog.save(this, ex);
                 }
             }
             return fName;
@@ -400,7 +403,6 @@ namespace Protectora.Presentacion
                 btnBuscarPerroPerdido_Click(sender, e);
             }
         }
-
 
         private void PulsarFecha(object sender, RoutedEventArgs e)
         {

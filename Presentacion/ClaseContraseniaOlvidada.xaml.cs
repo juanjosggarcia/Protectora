@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace Protectora.Presentacion
 {
-    /// <summary>
-    /// Lógica de interacción para ClaseContraseniaOlvidada.xaml
-    /// </summary>
     public partial class ClaseContraseniaOlvidada : Window
     {
         MainWindow mainwindow;

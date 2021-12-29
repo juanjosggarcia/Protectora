@@ -58,7 +58,11 @@ namespace Protectora.Presentacion
                     string rutaPerros = obtenerPath() + "/fotosPerros";
                     string[] picListTXT = Directory.GetFiles(rutaPerros, "*.jpg");
                     string[] picListPNG = Directory.GetFiles(rutaPerros, "*.png");
-                    string[] picList = picListTXT.Concat(picListPNG).ToArray();
+                    string[] picListGIF = Directory.GetFiles(rutaPerros, "*.gif");
+                    string[] picListBMP = Directory.GetFiles(rutaPerros, "*.bmp");
+                    string[] picList1 = picListTXT.Concat(picListPNG).ToArray();
+                    string[] picList2 = picList1.Concat(picListGIF).ToArray();
+                    string[] picList = picList2.Concat(picListBMP).ToArray();
 
                     if (!(picList.Contains(rutaPerros + "\\" + perro.Foto)))
                     {
@@ -142,7 +146,6 @@ namespace Protectora.Presentacion
                 txtSexoPerro.Foreground = new SolidColorBrush(Colors.Gray);
             }
         }
-
         private void LimpiarTextoTamanio(object sender, EventArgs e)
         {
             txtTamanioPerro.Text = txtTamanioPerro.Text == "Tamaño" ? string.Empty : txtTamanioPerro.Text;
@@ -158,13 +161,11 @@ namespace Protectora.Presentacion
                 txtTamanioPerro.Foreground = new SolidColorBrush(Colors.Gray);
             }
         }
-
         private void LimpiarTextoPeso(object sender, EventArgs e)
         {
             txtPesoPerro.Text = txtPesoPerro.Text == "Peso" ? string.Empty : txtPesoPerro.Text;
             txtPesoPerro.Foreground = new SolidColorBrush(Colors.Black);
             lblPeso.Visibility = Visibility.Visible;
-
         }
         private void RellenarTextoPeso(object sender, EventArgs e)
         {
@@ -180,7 +181,6 @@ namespace Protectora.Presentacion
             txtEdadPerro.Text = txtEdadPerro.Text == "Edad" ? string.Empty : txtEdadPerro.Text;
             txtEdadPerro.Foreground = new SolidColorBrush(Colors.Black);
             lblEdad.Visibility = Visibility.Visible;
-
         }
         private void RellenarTextoEdad(object sender, EventArgs e)
         {
@@ -206,13 +206,11 @@ namespace Protectora.Presentacion
                 txtEstadoPerro.Foreground = new SolidColorBrush(Colors.Gray);
             }
         }
-
         private void LimpiarTextoDescripcion(object sender, EventArgs e)
         {
             txtDescripcionPerro.Text = txtDescripcionPerro.Text == "Descripción" ? string.Empty : txtDescripcionPerro.Text;
             txtDescripcionPerro.Foreground = new SolidColorBrush(Colors.Black);
             lblDescripcion.Visibility = Visibility.Visible;
-
         }
         private void RellenarTextoDescripcion(object sender, EventArgs e)
         {
@@ -223,13 +221,11 @@ namespace Protectora.Presentacion
                 txtDescripcionPerro.Foreground = new SolidColorBrush(Colors.Gray);
             }
         }
-
         private void LimpiarTextoRaza(object sender, EventArgs e)
         {
             txtRazaPerro.Text = txtRazaPerro.Text == "Raza" ? string.Empty : txtRazaPerro.Text;
             txtRazaPerro.Foreground = new SolidColorBrush(Colors.Black);
             lblRaza.Visibility = Visibility.Visible;
-
         }
         private void RellenarTextoRaza(object sender, EventArgs e)
         {
@@ -240,7 +236,6 @@ namespace Protectora.Presentacion
                 txtRazaPerro.Foreground = new SolidColorBrush(Colors.Gray);
             }
         }
-
         private void LimpiarTextoImagen(object sender, EventArgs e)
         {
             txtImagenPerroNuevo.Text = txtImagenPerroNuevo.Text == "Imagen" ? string.Empty : txtImagenPerroNuevo.Text;
@@ -261,7 +256,6 @@ namespace Protectora.Presentacion
             txtNombrePadrino.Text = txtNombrePadrino.Text == "Nombre del padrino" ? string.Empty : txtNombrePadrino.Text;
             txtNombrePadrino.Foreground = new SolidColorBrush(Colors.Black);
             lblNombrePadrino.Visibility = Visibility.Visible;
-
         }
         private void RellenarNombrePadrino(object sender, EventArgs e)
         {
@@ -271,14 +265,12 @@ namespace Protectora.Presentacion
                 lblNombrePadrino.Visibility = Visibility.Hidden;
                 txtNombrePadrino.Foreground = new SolidColorBrush(Colors.Gray);
             }
-
         }
         private void LimpiarDniPadrino(object sender, EventArgs e)
         {
             txtDniPadrino.Text = txtDniPadrino.Text == "DNI" ? string.Empty : txtDniPadrino.Text;
             txtDniPadrino.Foreground = new SolidColorBrush(Colors.Black);
             lblDniPadrino.Visibility = Visibility.Visible;
-
         }
         private void RellenarDniPadrino(object sender, EventArgs e)
         {
@@ -294,7 +286,6 @@ namespace Protectora.Presentacion
             txtCorreoPadrino.Text = txtCorreoPadrino.Text == "Correo" ? string.Empty : txtCorreoPadrino.Text;
             txtCorreoPadrino.Foreground = new SolidColorBrush(Colors.Black);
             lblCorreoPadrino.Visibility = Visibility.Visible;
-
         }
         private void RellenarCorreoPadrino(object sender, EventArgs e)
         {
@@ -310,7 +301,6 @@ namespace Protectora.Presentacion
             txtTelefonoPadrino.Text = txtTelefonoPadrino.Text == "Telefono" ? string.Empty : txtTelefonoPadrino.Text;
             txtTelefonoPadrino.Foreground = new SolidColorBrush(Colors.Black);
             lblTelefonoPadrino.Visibility = Visibility.Visible;
-
         }
         private void RellenarTelefonoPadrino(object sender, EventArgs e)
         {
@@ -326,7 +316,6 @@ namespace Protectora.Presentacion
             txtDatosPadrino.Text = txtDatosPadrino.Text == "Datos bancarios" ? string.Empty : txtDatosPadrino.Text;
             txtDatosPadrino.Foreground = new SolidColorBrush(Colors.Black);
             lblDatosBanPadrino.Visibility = Visibility.Visible;
-
         }
         private void RellenarDatosPadrino(object sender, EventArgs e)
         {
@@ -342,7 +331,6 @@ namespace Protectora.Presentacion
             txtImportePadrino.Text = txtImportePadrino.Text == "Importe mensual" ? string.Empty : txtImportePadrino.Text;
             txtImportePadrino.Foreground = new SolidColorBrush(Colors.Black);
             lblImportePadrino.Visibility = Visibility.Visible;
-
         }
         private void RellenarImportePadrino(object sender, EventArgs e)
         {
@@ -358,7 +346,6 @@ namespace Protectora.Presentacion
             txtFormaPagoPadrino.Text = txtFormaPagoPadrino.Text == "Forma de pago" ? string.Empty : txtFormaPagoPadrino.Text;
             txtFormaPagoPadrino.Foreground = new SolidColorBrush(Colors.Black);
             lblFormaPagoPadrino.Visibility = Visibility.Visible;
-
         }
         private void RellenarFormaPagoPadrino(object sender, EventArgs e)
         {
@@ -373,15 +360,12 @@ namespace Protectora.Presentacion
         {
             dateComienzoPadrino.Foreground = Brushes.Black;
             lblFechaPadrino.Visibility = Visibility.Visible;
-
         }
-
         private void PulsarFechaEntrada(object sender, RoutedEventArgs e)
         {
             dateEntradaPerro.Foreground = Brushes.Black;
             lblFechaEntrada.Visibility = Visibility.Visible;
         }
-
         private void LimpiarTextoFecha(object sender, RoutedEventArgs e)
         {
             if (dateEntradaPerro.Text == string.Empty)
@@ -390,7 +374,6 @@ namespace Protectora.Presentacion
                 lblFechaEntrada.Visibility = Visibility.Hidden;
             }
         }
-
         private void LimpiarTextoFechaComienzo(object sender, RoutedEventArgs e)
         {
             if (dateComienzoPadrino.Text == string.Empty)
@@ -399,7 +382,6 @@ namespace Protectora.Presentacion
                 lblFechaPadrino.Visibility = Visibility.Hidden;
             }
         }
-
         private void BtnImagen_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog op = new OpenFileDialog
@@ -413,13 +395,21 @@ namespace Protectora.Presentacion
                 {
                     txtImagenPerroNuevo.Text = op.FileName;
                 }
+                catch (UriFormatException ex)
+                {
+                    Console.WriteLine(ex);
+                }
+                catch (NotSupportedException ex)
+                {
+                    Console.WriteLine(ex);
+                    MessageBox.Show("EL formato de imagen elegido no esta soportado");
+                }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error al cargar la imagen " + ex.Message);
+                    ELog.save(this, ex);
                 }
             }
         }
-
         private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada)
         {
             int num;
@@ -430,8 +420,6 @@ namespace Protectora.Presentacion
                 componenteEntrada.ToolTip = "El dato introducido debe de ser del tipo numerico";
             }
         }
-
-
         private void ComprobarEntradaFecha(string valorIntroducido, DatePicker componenteEntrada)
         {
             DateTime num;
@@ -451,13 +439,11 @@ namespace Protectora.Presentacion
         {
             string pathExe = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
             string pathApp1 = pathExe.Substring(8);
-            //int posBin = pathApp1.IndexOf("/bin");
             string proc = "/Protectora/";
             int posBin = pathApp1.IndexOf(proc);
             string pathApp = pathApp1.Remove(posBin + proc.Length-1);
             return pathApp;
         }
-
         private string[] extraerFName(string sourcePath)
         {
             string[] subs = sourcePath.Split('\\');
@@ -468,7 +454,7 @@ namespace Protectora.Presentacion
             string fName = subs[subs.Length - 1];
             string sourceDir1 = sourcePath.Substring(0, (sourcePath.Length - fName.Length - 1));
             string sourceDir;
-            if (sourceDir1.Contains("file///"))
+            if (sourceDir1.Contains("file:///"))
             {
                 sourceDir = sourcePath.Substring(8);
             }
@@ -486,7 +472,13 @@ namespace Protectora.Presentacion
 
             string backupDir = pathApp + "/fotosPerros";
 
-            string[] picList = Directory.GetFiles(backupDir, "*.jpg");
+            string[] picListTXT = Directory.GetFiles(backupDir, "*.jpg");
+            string[] picListPNG = Directory.GetFiles(backupDir, "*.png");
+            string[] picListGIF = Directory.GetFiles(backupDir, "*.gif");
+            string[] picListBMP = Directory.GetFiles(backupDir, "*.bmp");
+            string[] picList1 = picListTXT.Concat(picListPNG).ToArray();
+            string[] picList2 = picList1.Concat(picListGIF).ToArray();
+            string[] picList = picList2.Concat(picListBMP).ToArray();
 
             if (!(picList.Contains(backupDir + "\\" + fName)))
             {
@@ -494,9 +486,9 @@ namespace Protectora.Presentacion
                 {
                     File.Copy(Path.Combine(sourceDir, fName), Path.Combine(backupDir, fName), true);
                 }
-                catch (DirectoryNotFoundException dirNotFound)
+                catch (DirectoryNotFoundException ex)
                 {
-                    Console.WriteLine(dirNotFound.Message);
+                    ELog.save(this, ex);
                 }
             }
             return fName;

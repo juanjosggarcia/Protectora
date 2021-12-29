@@ -38,7 +38,6 @@ namespace Protectora.Presentacion
                     Telefono = Int32.Parse(txtTelefonoVoluntario.Text),
                     Horario = txtHorarioVol.Text,
                     ZonaDisponibilidad = txtZonaDisVol.Text,
-
                 };
 
                 if (string.IsNullOrEmpty(txtImagenVoluntarioNuevo.Text) || txtImagenVoluntarioNuevo.Text == "Imagen")
@@ -47,9 +46,24 @@ namespace Protectora.Presentacion
                 }
                 else
                 {
-                    string s = txtImagenVoluntarioNuevo.Text;
-                    string[] subs = s.Split('\\');
-                    voluntario.Foto = subs[subs.Length - 1];
+                    string[] sourcePath = extraerFName(txtImagenVoluntarioNuevo.Text);
+                    string sourceDir = sourcePath[0];
+                    string fName = sourcePath[1];
+                    voluntario.Foto = fName;
+
+                    string rutaPersonas = obtenerPath() + "/fotosPersonas";
+                    string[] picListTXT = Directory.GetFiles(rutaPersonas, "*.jpg");
+                    string[] picListPNG = Directory.GetFiles(rutaPersonas, "*.png");
+                    string[] picListGIF = Directory.GetFiles(rutaPersonas, "*.gif");
+                    string[] picListBMP = Directory.GetFiles(rutaPersonas, "*.bmp");
+                    string[] picList1 = picListTXT.Concat(picListPNG).ToArray();
+                    string[] picList2 = picList1.Concat(picListGIF).ToArray();
+                    string[] picList = picList2.Concat(picListBMP).ToArray();
+
+                    if (!(picList.Contains(rutaPersonas + "\\" + fName)))
+                    {
+                        copiarImagen(sourceDir, fName);
+                    }
                 }
 
                 GestorPersona.crearVoluntario(voluntario);
@@ -73,7 +87,6 @@ namespace Protectora.Presentacion
 
         //////////////////////////////////////////////////////////////// EVENTOS AUXILIARES ////////////////////////////////////////////////////////////////
 
-
         private void LimpiarTextoNombre(object sender, EventArgs e)
         {
             txtNombreVoluntario.Text = txtNombreVoluntario.Text == "Nombre completo" ? string.Empty : txtNombreVoluntario.Text;
@@ -89,13 +102,11 @@ namespace Protectora.Presentacion
                 txtNombreVoluntario.Foreground = new SolidColorBrush(Colors.Gray);
             }
         }
-
         private void LimpiarTextoCorreo(object sender, EventArgs e)
         {
             txtCorreoVoluntario.Text = txtCorreoVoluntario.Text == "Correo" ? string.Empty : txtCorreoVoluntario.Text;
             txtCorreoVoluntario.Foreground = new SolidColorBrush(Colors.Black);
             lblCorreo.Visibility = Visibility.Visible;
-
         }
         private void RellenarTextoCorreo(object sender, EventArgs e)
         {
@@ -111,7 +122,6 @@ namespace Protectora.Presentacion
             txtDniVoluntario.Text = txtDniVoluntario.Text == "DNI" ? string.Empty : txtDniVoluntario.Text;
             txtDniVoluntario.Foreground = new SolidColorBrush(Colors.Black);
             lblDni.Visibility = Visibility.Visible;
-
         }
         private void RellenarTextoDNI(object sender, EventArgs e)
         {
@@ -127,7 +137,6 @@ namespace Protectora.Presentacion
             txtTelefonoVoluntario.Text = txtTelefonoVoluntario.Text == "Telefono" ? string.Empty : txtTelefonoVoluntario.Text;
             txtTelefonoVoluntario.Foreground = new SolidColorBrush(Colors.Black);
             lblTelefono.Visibility = Visibility.Visible;
-
         }
         private void RellenarTextoTelefono(object sender, EventArgs e)
         {
@@ -138,13 +147,11 @@ namespace Protectora.Presentacion
                 txtTelefonoVoluntario.Foreground = new SolidColorBrush(Colors.Gray);
             }
         }
-
         private void LimpiarTextoHorario(object sender, EventArgs e)
         {
             txtHorarioVol.Text = txtHorarioVol.Text == "Horario del voluntario" ? string.Empty : txtHorarioVol.Text;
             txtHorarioVol.Foreground = new SolidColorBrush(Colors.Black);
             lblHorario.Visibility = Visibility.Visible;
-
         }
         private void RellenarTextoHorario(object sender, EventArgs e)
         {
@@ -160,7 +167,6 @@ namespace Protectora.Presentacion
             txtZonaDisVol.Text = txtZonaDisVol.Text == "Zona disponible" ? string.Empty : txtZonaDisVol.Text;
             txtZonaDisVol.Foreground = new SolidColorBrush(Colors.Black);
             lblZona.Visibility = Visibility.Visible;
-
         }
         private void RellenarTextoZona(object sender, EventArgs e)
         {
@@ -171,13 +177,11 @@ namespace Protectora.Presentacion
                 txtZonaDisVol.Foreground = new SolidColorBrush(Colors.Gray);
             }
         }
-
         private void LimpiarTextoImagen(object sender, EventArgs e)
         {
             txtImagenVoluntarioNuevo.Text = txtImagenVoluntarioNuevo.Text == "Imagen" ? string.Empty : txtImagenVoluntarioNuevo.Text;
             txtImagenVoluntarioNuevo.Foreground = new SolidColorBrush(Colors.Black);
             lblImagen.Visibility = Visibility.Visible;
-
         }
         private void RellenarTextoImagen(object sender, EventArgs e)
         {
@@ -188,8 +192,6 @@ namespace Protectora.Presentacion
                 txtImagenVoluntarioNuevo.Foreground = new SolidColorBrush(Colors.Gray);
             }
         }
-
-
         private void BtnImagen_Click(object sender, RoutedEventArgs e)
         {
             Microsoft.Win32.OpenFileDialog fd = new Microsoft.Win32.OpenFileDialog
@@ -203,9 +205,18 @@ namespace Protectora.Presentacion
                 {
                     txtImagenVoluntarioNuevo.Text = fd.FileName;
                 }
+                catch (UriFormatException ex)
+                {
+                    Console.WriteLine(ex);
+                }
+                catch (NotSupportedException ex)
+                {
+                    Console.WriteLine(ex);
+                    MessageBox.Show("EL formato de imagen elegido no esta soportado");
+                }
                 catch (Exception ex)
                 {
-                    System.Windows.MessageBox.Show("Error al cargar la imagen " + ex.Message);
+                    ELog.save(this, ex);
                 }
             }
         }
@@ -227,13 +238,11 @@ namespace Protectora.Presentacion
         {
             string pathExe = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
             string pathApp1 = pathExe.Substring(8);
-            //int posBin = pathApp1.IndexOf("/bin");
             string proc = "/Protectora/";
             int posBin = pathApp1.IndexOf(proc);
             string pathApp = pathApp1.Remove(posBin + proc.Length - 1);
             return pathApp;
         }
-
         private string[] extraerFName(string sourcePath)
         {
             string[] subs = sourcePath.Split('\\');
@@ -260,9 +269,15 @@ namespace Protectora.Presentacion
 
             string pathApp = obtenerPath();
 
-            string backupDir = pathApp + "/fotosPerros";
+            string backupDir = pathApp + "/fotosPersonas";
 
-            string[] picList = Directory.GetFiles(backupDir, "*.jpg");
+            string[] picListTXT = Directory.GetFiles(backupDir, "*.jpg");
+            string[] picListPNG = Directory.GetFiles(backupDir, "*.png");
+            string[] picListGIF = Directory.GetFiles(backupDir, "*.gif");
+            string[] picListBMP = Directory.GetFiles(backupDir, "*.bmp");
+            string[] picList1 = picListTXT.Concat(picListPNG).ToArray();
+            string[] picList2 = picList1.Concat(picListGIF).ToArray();
+            string[] picList = picList2.Concat(picListBMP).ToArray();
 
             if (!(picList.Contains(backupDir + "\\" + fName)))
             {
@@ -270,9 +285,9 @@ namespace Protectora.Presentacion
                 {
                     File.Copy(Path.Combine(sourceDir, fName), Path.Combine(backupDir, fName), true);
                 }
-                catch (DirectoryNotFoundException dirNotFound)
+                catch (DirectoryNotFoundException ex)
                 {
-                    Console.WriteLine(dirNotFound.Message);
+                    ELog.save(this, ex);
                 }
             }
             return fName;

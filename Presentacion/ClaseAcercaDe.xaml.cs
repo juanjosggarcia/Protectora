@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace Protectora.Presentacion
 {
-    /// <summary>
-    /// Lógica de interacción para ClaseAcercaDe.xaml
-    /// </summary>
     public partial class ClaseAcercaDe : Window
     {
         MainWindow mainwindow;
@@ -26,7 +23,6 @@ namespace Protectora.Presentacion
             InitializeComponent();
             mainwindow = m;
             Configuracionidioma();
-
         }
 
         public void Configuracionidioma()
@@ -60,7 +56,6 @@ namespace Protectora.Presentacion
                 dialogo2.Visibility = Visibility.Visible;
                 dialogo3.Visibility = Visibility.Visible;
                 dialogo4.Visibility = Visibility.Visible;
-
             }
         }
     }

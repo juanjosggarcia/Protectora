@@ -57,7 +57,11 @@ namespace Protectora.Presentacion
                     string rutaPerros = obtenerPath() + "/fotosPerros";
                     string[] picListTXT = Directory.GetFiles(rutaPerros, "*.jpg");
                     string[] picListPNG = Directory.GetFiles(rutaPerros, "*.png");
-                    string[] picList = picListTXT.Concat(picListPNG).ToArray();
+                    string[] picListGIF = Directory.GetFiles(rutaPerros, "*.gif");
+                    string[] picListBMP = Directory.GetFiles(rutaPerros, "*.bmp");
+                    string[] picList1 = picListTXT.Concat(picListPNG).ToArray();
+                    string[] picList2 = picList1.Concat(picListGIF).ToArray();
+                    string[] picList = picList2.Concat(picListBMP).ToArray();
 
                     if (!(picList.Contains(rutaPerros + "\\" + fName)))
                     {
@@ -108,7 +112,6 @@ namespace Protectora.Presentacion
             txtNombrePerroPerdido.Text = txtNombrePerroPerdido.Text == "Nombre" ? string.Empty : txtNombrePerroPerdido.Text;
             txtNombrePerroPerdido.Foreground = new SolidColorBrush(Colors.Black);
             lblNombre.Visibility = Visibility.Visible;
-
         }
         private void RellenarTextoNombrePerdido(object sender, EventArgs e)
         {
@@ -119,13 +122,11 @@ namespace Protectora.Presentacion
                 txtNombrePerroPerdido.Foreground = new SolidColorBrush(Colors.Gray);
             }
         }
-
         private void LimpiarTextoSexoPerdido(object sender, EventArgs e)
         {
             txtSexoPerroPerdido.Text = txtSexoPerroPerdido.Text == "Sexo" ? string.Empty : txtSexoPerroPerdido.Text;
             txtSexoPerroPerdido.Foreground = new SolidColorBrush(Colors.Black);
             lblSexo.Visibility = Visibility.Visible;
-
         }
         private void RellenarTextoSexoPerdido(object sender, EventArgs e)
         {
@@ -136,13 +137,11 @@ namespace Protectora.Presentacion
                 txtSexoPerroPerdido.Foreground = new SolidColorBrush(Colors.Gray);
             }
         }
-
         private void LimpiarTextoTamanioPerdido(object sender, EventArgs e)
         {
             txtTamanioPerroPerdido.Text = txtTamanioPerroPerdido.Text == "Tamaño" ? string.Empty : txtTamanioPerroPerdido.Text;
             txtTamanioPerroPerdido.Foreground = new SolidColorBrush(Colors.Black);
             lblTamanio.Visibility = Visibility.Visible;
-
         }
         private void RellenarTextoTamanioPerdido(object sender, EventArgs e)
         {
@@ -153,13 +152,11 @@ namespace Protectora.Presentacion
                 txtTamanioPerroPerdido.Foreground = new SolidColorBrush(Colors.Gray);
             }
         }
-
         private void LimpiarTextoDescripcionAdicional(object sender, EventArgs e)
         {
             txtDescripcionAdicionalPerroPerdido.Text = txtDescripcionAdicionalPerroPerdido.Text == "Descripción adicional" ? string.Empty : txtDescripcionAdicionalPerroPerdido.Text;
             txtDescripcionAdicionalPerroPerdido.Foreground = new SolidColorBrush(Colors.Black);
             lblDescripcionAdicional.Visibility = Visibility.Visible;
-
         }
         private void RellenarTextoDescripcionAdicional(object sender, EventArgs e)
         {
@@ -170,13 +167,11 @@ namespace Protectora.Presentacion
                 txtDescripcionAdicionalPerroPerdido.Foreground = new SolidColorBrush(Colors.Gray);
             }
         }
-
         private void LimpiarTextoDescripcionPerdido(object sender, EventArgs e)
         {
             txtDescripcionPerroPerdido.Text = txtDescripcionPerroPerdido.Text == "Descripción del perro" ? string.Empty : txtDescripcionPerroPerdido.Text;
             txtDescripcionPerroPerdido.Foreground = new SolidColorBrush(Colors.Black);
             lblDescripcion.Visibility = Visibility.Visible;
-
         }
         private void RellenarTextoDescripcionPerdido(object sender, EventArgs e)
         {
@@ -187,13 +182,11 @@ namespace Protectora.Presentacion
                 txtDescripcionPerroPerdido.Foreground = new SolidColorBrush(Colors.Gray);
             }
         }
-
         private void LimpiarTextoZonaPerdido(object sender, EventArgs e)
         {
             txtZonaPerroPerdido.Text = txtZonaPerroPerdido.Text == "Zona de pérdida" ? string.Empty : txtZonaPerroPerdido.Text;
             txtZonaPerroPerdido.Foreground = new SolidColorBrush(Colors.Black);
             lblZona.Visibility = Visibility.Visible;
-
         }
         private void RellenarTextoZonaPerdido(object sender, EventArgs e)
         {
@@ -204,13 +197,11 @@ namespace Protectora.Presentacion
                 txtZonaPerroPerdido.Foreground = new SolidColorBrush(Colors.Gray);
             }
         }
-
         private void LimpiarTextoRazaPerdido(object sender, EventArgs e)
         {
             txtRazaPerroPerdido.Text = txtRazaPerroPerdido.Text == "Raza" ? string.Empty : txtRazaPerroPerdido.Text;
             txtRazaPerroPerdido.Foreground = new SolidColorBrush(Colors.Black);
             lblRaza.Visibility = Visibility.Visible;
-
         }
         private void RellenarTextoRazaPerdido(object sender, EventArgs e)
         {
@@ -221,13 +212,11 @@ namespace Protectora.Presentacion
                 txtRazaPerroPerdido.Foreground = new SolidColorBrush(Colors.Gray);
             }
         }
-
         private void LimpiarTextoImagenPerdido(object sender, EventArgs e)
         {
             txtImagenPerroNuevoPerdido.Text = txtImagenPerroNuevoPerdido.Text == "Imagen" ? string.Empty : txtImagenPerroNuevoPerdido.Text;
             txtImagenPerroNuevoPerdido.Foreground = new SolidColorBrush(Colors.Black);
             lblImagen.Visibility = Visibility.Visible;
-
         }
         private void RellenarTextoImagenPerdido(object sender, EventArgs e)
         {
@@ -238,13 +227,11 @@ namespace Protectora.Presentacion
                 txtImagenPerroNuevoPerdido.Foreground = new SolidColorBrush(Colors.Gray);
             }
         }
-
         private void LimpiarNombreDuenio(object sender, EventArgs e)
         {
             txtNombreDuenio.Text = txtNombreDuenio.Text == "Nombre del dueño" ? string.Empty : txtNombreDuenio.Text;
             txtNombreDuenio.Foreground = new SolidColorBrush(Colors.Black);
             lblNombreDuenio.Visibility = Visibility.Visible;
-
         }
         private void RellenarNombreDuenio(object sender, EventArgs e)
         {
@@ -260,7 +247,6 @@ namespace Protectora.Presentacion
             txtDniDuenio.Text = txtDniDuenio.Text == "DNI" ? string.Empty : txtDniDuenio.Text;
             txtDniDuenio.Foreground = new SolidColorBrush(Colors.Black);
             lblDni.Visibility = Visibility.Visible;
-
         }
         private void RellenarDniDuenio(object sender, EventArgs e)
         {
@@ -276,7 +262,6 @@ namespace Protectora.Presentacion
             txtCorreoDuenio.Text = txtCorreoDuenio.Text == "Correo" ? string.Empty : txtCorreoDuenio.Text;
             txtCorreoDuenio.Foreground = new SolidColorBrush(Colors.Black);
             lblCorreo.Visibility = Visibility.Visible;
-
         }
         private void RellenarCorreoDuenio(object sender, EventArgs e)
         {
@@ -292,7 +277,6 @@ namespace Protectora.Presentacion
             txtTelefonoDuenio.Text = txtTelefonoDuenio.Text == "Telefono" ? string.Empty : txtTelefonoDuenio.Text;
             txtTelefonoDuenio.Foreground = new SolidColorBrush(Colors.Black);
             lblTelefono.Visibility = Visibility.Visible;
-
         }
         private void RellenarTelefonoDuenio(object sender, EventArgs e)
         {
@@ -302,16 +286,12 @@ namespace Protectora.Presentacion
                 lblTelefono.Visibility = Visibility.Hidden;
                 txtTelefonoDuenio.Foreground = new SolidColorBrush(Colors.Gray);
             }
-
         }
-
         private void PulsarFecha(object sender, RoutedEventArgs e)
         {
             dateFechaPerroPerdido.Foreground = Brushes.Black;
             lblFechaEntrada.Visibility = Visibility.Visible;
-
         }
-
         private void LimpiarFecha(object sender, RoutedEventArgs e)
         {
             if (dateFechaPerroPerdido.Text == string.Empty)
@@ -320,7 +300,6 @@ namespace Protectora.Presentacion
                 lblFechaEntrada.Visibility = Visibility.Hidden;
             }
         }
-
         private void BtnImagen_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog op = new OpenFileDialog
@@ -334,13 +313,21 @@ namespace Protectora.Presentacion
                 {
                     txtImagenPerroNuevoPerdido.Text = op.FileName;
                 }
+                catch (UriFormatException ex)
+                {
+                    Console.WriteLine(ex);
+                }
+                catch (NotSupportedException ex)
+                {
+                    Console.WriteLine(ex);
+                    MessageBox.Show("EL formato de imagen elegido no esta soportado");
+                }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error al cargar la imagen " + ex.Message);
+                    ELog.save(this, ex);
                 }
             }
         }
-
         private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada)
         {
             int num;
@@ -351,8 +338,6 @@ namespace Protectora.Presentacion
                 componenteEntrada.ToolTip = "El dato introducido debe de ser del tipo numerico";
             }
         }
-
-
         private void ComprobarEntradaFecha(string valorIntroducido, DatePicker componenteEntrada)
         {
             DateTime num;
@@ -361,9 +346,7 @@ namespace Protectora.Presentacion
             {
                 componenteEntrada.Foreground = Brushes.Red;
                 componenteEntrada.ToolTip = "El dato introducido debe de ser del tipo fecha";
-
             }
-
         }
 
         /////////////////////////////////////////////////////////////// FUNCIONES AUXILIARES ///////////////////////////////////////////////////////////////
@@ -372,7 +355,6 @@ namespace Protectora.Presentacion
         {
             string pathExe = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
             string pathApp1 = pathExe.Substring(8);
-            //int posBin = pathApp1.IndexOf("/bin");
             string proc = "/Protectora/";
             int posBin = pathApp1.IndexOf(proc);
             string pathApp = pathApp1.Remove(posBin + proc.Length - 1);
@@ -407,7 +389,13 @@ namespace Protectora.Presentacion
 
             string backupDir = pathApp + "/fotosPerros";
 
-            string[] picList = Directory.GetFiles(backupDir, "*.jpg");
+            string[] picListTXT = Directory.GetFiles(backupDir, "*.jpg");
+            string[] picListPNG = Directory.GetFiles(backupDir, "*.png");
+            string[] picListGIF = Directory.GetFiles(backupDir, "*.gif");
+            string[] picListBMP = Directory.GetFiles(backupDir, "*.bmp");
+            string[] picList1 = picListTXT.Concat(picListPNG).ToArray();
+            string[] picList2 = picList1.Concat(picListGIF).ToArray();
+            string[] picList = picList2.Concat(picListBMP).ToArray();
 
             if (!(picList.Contains(backupDir + "\\" + fName)))
             {
@@ -415,9 +403,9 @@ namespace Protectora.Presentacion
                 {
                     File.Copy(Path.Combine(sourceDir, fName), Path.Combine(backupDir, fName), true);
                 }
-                catch (DirectoryNotFoundException dirNotFound)
+                catch (DirectoryNotFoundException ex)
                 {
-                    Console.WriteLine(dirNotFound.Message);
+                    ELog.save(this, ex);
                 }
             }
             return fName;

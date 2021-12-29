@@ -16,6 +16,7 @@ using Protectora.Dominio;
 using Microsoft.Win32;
 using System.IO;
 using Path = System.IO.Path;
+using MessageBox = System.Windows.MessageBox;
 
 namespace Protectora.Presentacion
 {
@@ -48,17 +49,25 @@ namespace Protectora.Presentacion
                 }
                 else
                 {
-                    string s = txtImagenSocioNuevo.Text;
-                    string[] subs = s.Split('\\');
-                    socio.Foto = subs[subs.Length - 1];
-                    //perro.Foto = string.Join("", subs);
+                    string[] sourcePath = extraerFName(txtImagenSocioNuevo.Text);
+                    string sourceDir = sourcePath[0];
+                    string fName = sourcePath[1];
+                    socio.Foto = fName;
+
+                    string rutaPersonas = obtenerPath() + "/fotosPersonas";
+                    string[] picListTXT = Directory.GetFiles(rutaPersonas, "*.jpg");
+                    string[] picListPNG = Directory.GetFiles(rutaPersonas, "*.png");
+                    string[] picListGIF = Directory.GetFiles(rutaPersonas, "*.gif");
+                    string[] picListBMP = Directory.GetFiles(rutaPersonas, "*.bmp");
+                    string[] picList1 = picListTXT.Concat(picListPNG).ToArray();
+                    string[] picList2 = picList1.Concat(picListGIF).ToArray();
+                    string[] picList = picList2.Concat(picListBMP).ToArray();
+
+                    if (!(picList.Contains(rutaPersonas + "\\" + fName)))
+                    {
+                        copiarImagen(sourceDir, fName);
+                    }
                 }
-                //socio.Foto = "default.jpg";
-                //string s = txtImagenPerroNuevo.Text;
-                //string[] subs = s.Split('\\');
-                //perro.Foto = subs[subs.Length - 1];
-
-
                 GestorPersona.crearSocio(socio);
                 pagSocios.CargarSocios();
 
@@ -84,7 +93,6 @@ namespace Protectora.Presentacion
             txtNombreSocio.Text = txtNombreSocio.Text == "Nombre completo" ? string.Empty : txtNombreSocio.Text;
             txtNombreSocio.Foreground = new SolidColorBrush(Colors.Black);
             lblNombre.Visibility = Visibility.Visible;
-
         }
         private void RellenarTextoNombre(object sender, EventArgs e)
         {
@@ -95,7 +103,6 @@ namespace Protectora.Presentacion
                 txtNombreSocio.Foreground = new SolidColorBrush(Colors.Gray);
             }
         }
-
         private void LimpiarTextoCorreo(object sender, EventArgs e)
         {
             txtCorreoSocio.Text = txtCorreoSocio.Text == "Correo" ? string.Empty : txtCorreoSocio.Text;
@@ -141,7 +148,6 @@ namespace Protectora.Presentacion
                 txtTelefonoSocio.Foreground = new SolidColorBrush(Colors.Gray);
             }
         }
-
         private void LimpiarTextoCuantia(object sender, EventArgs e)
         {
             txtCuantiaSocio.Text = txtCuantiaSocio.Text == "Cuantia de la ayuda" ? string.Empty : txtCuantiaSocio.Text;
@@ -202,8 +208,6 @@ namespace Protectora.Presentacion
                 txtImagenSocioNuevo.Foreground = new SolidColorBrush(Colors.Gray);
             }
         }
-
-
         private void BtnImagen_Click(object sender, RoutedEventArgs e)
         {
             Microsoft.Win32.OpenFileDialog fd = new Microsoft.Win32.OpenFileDialog
@@ -217,13 +221,21 @@ namespace Protectora.Presentacion
                 {
                     txtImagenSocioNuevo.Text = fd.FileName;
                 }
+                catch (UriFormatException ex)
+                {
+                    Console.WriteLine(ex);
+                }
+                catch (NotSupportedException ex)
+                {
+                    Console.WriteLine(ex);
+                    MessageBox.Show("EL formato de imagen elegido no esta soportado");
+                }
                 catch (Exception ex)
                 {
-                    System.Windows.MessageBox.Show("Error al cargar la imagen " + ex.Message);
+                    ELog.save(this, ex);
                 }
             }
         }
-
         private void ComprobarEntradaInt(string valorIntroducido, System.Windows.Controls.TextBox componenteEntrada)
         {
             int num;
@@ -241,7 +253,6 @@ namespace Protectora.Presentacion
         {
             string pathExe = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
             string pathApp1 = pathExe.Substring(8);
-            //int posBin = pathApp1.IndexOf("/bin");
             string proc = "/Protectora/";
             int posBin = pathApp1.IndexOf(proc);
             string pathApp = pathApp1.Remove(posBin + proc.Length - 1);
@@ -274,9 +285,15 @@ namespace Protectora.Presentacion
 
             string pathApp = obtenerPath();
 
-            string backupDir = pathApp + "/fotosPerros";
+            string backupDir = pathApp + "/fotosPersonas";
 
-            string[] picList = Directory.GetFiles(backupDir, "*.jpg");
+            string[] picListTXT = Directory.GetFiles(backupDir, "*.jpg");
+            string[] picListPNG = Directory.GetFiles(backupDir, "*.png");
+            string[] picListGIF = Directory.GetFiles(backupDir, "*.gif");
+            string[] picListBMP = Directory.GetFiles(backupDir, "*.bmp");
+            string[] picList1 = picListTXT.Concat(picListPNG).ToArray();
+            string[] picList2 = picList1.Concat(picListGIF).ToArray();
+            string[] picList = picList2.Concat(picListBMP).ToArray();
 
             if (!(picList.Contains(backupDir + "\\" + fName)))
             {
@@ -284,9 +301,9 @@ namespace Protectora.Presentacion
                 {
                     File.Copy(Path.Combine(sourceDir, fName), Path.Combine(backupDir, fName), true);
                 }
-                catch (DirectoryNotFoundException dirNotFound)
+                catch (DirectoryNotFoundException ex)
                 {
-                    Console.WriteLine(dirNotFound.Message);
+                    ELog.save(this, ex);
                 }
             }
             return fName;

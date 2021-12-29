@@ -22,12 +22,9 @@ using TextBox = System.Windows.Controls.TextBox;
 
 namespace Protectora.Presentacion
 {
-    /// <summary>
-    /// Lógica de interacción para PaginaSocios.xaml
-    /// </summary>
     public partial class PaginaSocios : Page
     {
-        public List<Socio> listaSocio = new List<Socio>();
+        //public List<Socio> listaSocio = new List<Socio>();
         public PaginaSocios()
         {
             InitializeComponent();
@@ -55,7 +52,7 @@ namespace Protectora.Presentacion
             ClaseAniadirSocio nuevoSocio = new ClaseAniadirSocio(this);
             nuevoSocio.Show();
         }
-        private void BtnDeletePerro_Click(object sender, RoutedEventArgs e)
+        private void BtnDeleteSocio_Click(object sender, RoutedEventArgs e)
         {
             int index = ListViewSocios.SelectedIndex;
             string message = "¿Estas seguro que quieres eliminar el socio seleccionado?";
@@ -63,29 +60,35 @@ namespace Protectora.Presentacion
             MessageBoxButton buttons = MessageBoxButton.YesNo;
             DialogResult result;
 
-            // Displays the MessageBox.
             result = (DialogResult)MessageBox.Show(message, caption, buttons);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
-                Socio socio = (Socio)ListViewSocios.Items[ListViewSocios.SelectedIndex];
+                try
+                {
+                    Socio socio = (Socio)ListViewSocios.Items[ListViewSocios.SelectedIndex];
 
-                GestorPersona.eliminarSocio(socio);
-                ListViewSocios.Items.RemoveAt(index);
-                TextBoxIdSocio.Text = "";
-                TextBoxIdSocio.Text = "";
-                TextBoxCorreoSocio.Text = "";
-                TextBoxNombreSocio.Text = "";
-                TextBoxDNISocio.Text = "";
-                TextBoxTelefonoSocio.Text = "";
-                TextBoxCuantiaSocio.Text = "";
-                TextBoxDatosBanSocio.Text = "";
-                TextBoxPagoSocio.Text = "";
-                string str = @"../fotosPersonas/default.jpg";
-                BitmapImage bitmap = new BitmapImage();
-                bitmap.BeginInit();
-                bitmap.UriSource = new Uri(str, UriKind.Relative);
-                bitmap.EndInit();
-                ProfileImageSocio.Source = bitmap;
+                    GestorPersona.eliminarSocio(socio);
+                    ListViewSocios.Items.RemoveAt(index);
+                    TextBoxIdSocio.Text = "";
+                    TextBoxIdSocio.Text = "";
+                    TextBoxCorreoSocio.Text = "";
+                    TextBoxNombreSocio.Text = "";
+                    TextBoxDNISocio.Text = "";
+                    TextBoxTelefonoSocio.Text = "";
+                    TextBoxCuantiaSocio.Text = "";
+                    TextBoxDatosBanSocio.Text = "";
+                    TextBoxPagoSocio.Text = "";
+                    string str = @"../fotosPersonas/default.jpg";
+                    BitmapImage bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.UriSource = new Uri(str, UriKind.Relative);
+                    bitmap.EndInit();
+                    ProfileImageSocio.Source = bitmap;
+                }
+                catch (Exception ex)
+                {
+                    ELog.save(this, ex);
+                }
             }
         }
         private void BtnEditSocio_Click(object sender, RoutedEventArgs e)
@@ -126,10 +129,6 @@ namespace Protectora.Presentacion
                 socio.Dni = TextBoxDNISocio.Text;
                 socio.FormaPago = TextBoxPagoSocio.Text;
 
-                //string s = ProfileImageSocio.Source.ToString();
-                //string[] subs = s.Split('/');
-                //socio.Foto = subs[subs.Length - 1];
-
                 socio.Foto = copiarImagen(ProfileImageSocio.Source.ToString());
 
                 GestorPersona.modificarSocio(socio);
@@ -138,11 +137,15 @@ namespace Protectora.Presentacion
                 ListViewSocios.SelectedItem = ListViewSocios.Items[index];
 
             }
-            catch (Exception ex)
+            catch (FormatException ex)
             {
                 Console.Write(ex);
                 ComprobarEntradaInt(TextBoxCuantiaSocio.Text, TextBoxCuantiaSocio);
                 ComprobarEntradaInt(TextBoxTelefonoSocio.Text, TextBoxTelefonoSocio);
+            }
+            catch (Exception ex)
+            {
+                ELog.save(this, ex);
             }
         }
         private void btnEditCancelarSocio_Click(object sender, RoutedEventArgs e)
@@ -153,14 +156,10 @@ namespace Protectora.Presentacion
             MessageBoxButton buttons = MessageBoxButton.YesNo;
             DialogResult result;
 
-            // Displays the MessageBox.
             result = (DialogResult)MessageBox.Show(message, caption, buttons);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
                 SetSocio(socio);
-                //TextBoxEdad.Foreground = Brushes.Black;
-                //TextBoxPeso.Foreground = Brushes.Black;
-                //TextBoxTamanio.Foreground = Brushes.Black;
                 DesactivarTextBoxsSocios();
                 ListViewSocios.SelectedItem = ListViewSocios.Items[ListViewSocios.SelectedIndex];
             }
@@ -227,14 +226,19 @@ namespace Protectora.Presentacion
                 bitmap.UriSource = new Uri(str);
                 bitmap.EndInit();
                 ProfileImageSocio.Source = bitmap;
-
+            }
+            catch (UriFormatException ex)
+            {
+                Console.WriteLine(ex);
+            }
+            catch (NotSupportedException ex)
+            {
+                Console.WriteLine(ex);
+                MessageBox.Show("EL formato de imagen elegido no esta soportado");
             }
             catch (Exception ex)
             {
-                if (ex.Message != "URI no válido: URI está vacío.")
-                {
-                    MessageBox.Show("Error al cargar la imagen " + ex.Message);
-                }
+                ELog.save(this, ex);
             }
         }
         private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada)
@@ -244,20 +248,16 @@ namespace Protectora.Presentacion
             if (cosa == false)
             {
                 componenteEntrada.Foreground = Brushes.Red;
-
             }
-
         }
         private void PulsarTelefono(object sender, RoutedEventArgs e)
         {
             TextBoxTelefonoSocio.Foreground = Brushes.Black;
         }
-
         private void PulsarCuantia(object sender, RoutedEventArgs e)
         {
             TextBoxCuantiaSocio.Foreground = Brushes.Black;
         }
-
         private void OnKeyDownHandler(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Return)
@@ -271,16 +271,22 @@ namespace Protectora.Presentacion
 
         public void CargarSocios()
         {
-            List<Socio> socios = GestorPersona.obtenerTodosSocios();
-            ListViewSocios.Items.Clear();
-            foreach (Socio socio in socios)
+            try
             {
-                if (string.IsNullOrEmpty(socio.Foto))
+                List<Socio> socios = GestorPersona.obtenerTodosSocios();
+                ListViewSocios.Items.Clear();
+                foreach (Socio socio in socios)
                 {
-                    socio.Foto = "default.jpg";
+                    if (string.IsNullOrEmpty(socio.Foto))
+                    {
+                        socio.Foto = "default.jpg";
+                    }
+                    ListViewSocios.Items.Add(socio);
                 }
-                listaSocio.Add(socio);
-                ListViewSocios.Items.Add(socio);
+            }
+            catch (Exception ex)
+            {
+                ELog.save(this, ex);
             }
         }
         public void SetSocio(Socio socio)
@@ -296,20 +302,28 @@ namespace Protectora.Presentacion
                 TextBoxDatosBanSocio.Text = socio.DatosBancarios;
                 TextBoxPagoSocio.Text = socio.FormaPago;
 
-                ////string str = @"C:\Users\juanj\vs2019-workspace\Protectora\recursos\Fotosbd\" + perro.Foto;
-                string str = @"../fotosPersonas/" + socio.Foto;
+                string rutaPersonas = obtenerPath() + "/fotosPersonas";
+                string[] picListTXT = Directory.GetFiles(rutaPersonas, "*.jpg");
+                string[] picListPNG = Directory.GetFiles(rutaPersonas, "*.png");
+                string[] picList = picListTXT.Concat(picListPNG).ToArray();
+
+                if (!(picList.Contains(rutaPersonas + "\\" + socio.Foto)))
+                {
+                    socio.Foto = "default.jpg";
+                }
+
+                string str = rutaPersonas + "/" + socio.Foto;
+
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
-                bitmap.UriSource = new Uri(str, UriKind.Relative);
-                //bitmap.UriSource = new Uri(@"../fotosPerros/bichon.jpg", UriKind.Relative);
+                bitmap.UriSource = new Uri(str);
                 bitmap.EndInit();
                 ProfileImageSocio.Source = bitmap;
-
 
             }
             catch (Exception ex)
             {
-                Console.Write(ex);
+                ELog.save(this, ex);
             }
         }
         private void DesactivarTextBoxsSocios()
@@ -324,7 +338,6 @@ namespace Protectora.Presentacion
             TextBoxPagoSocio.IsEnabled = false;
             btnImagenSocio.IsEnabled = false;
 
-
             btnEditSocio.Visibility = Visibility.Visible;
             btnDeleteSocio.Visibility = Visibility.Visible;
             btnAnteriorSocio.Visibility = Visibility.Visible;
@@ -338,10 +351,9 @@ namespace Protectora.Presentacion
         {
             string pathExe = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
             string pathApp1 = pathExe.Substring(8);
-            //int posBin = pathApp1.IndexOf("/bin");
             string proc = "/Protectora/";
             int posBin = pathApp1.IndexOf(proc);
-            string pathApp = pathApp1.Remove(posBin + proc.Length);
+            string pathApp = pathApp1.Remove(posBin + proc.Length - 1);
             return pathApp;
         }
         private string copiarImagen(string sourcePath)
@@ -357,7 +369,13 @@ namespace Protectora.Presentacion
 
             string backupDir = pathApp + "/fotosPersonas";
 
-            string[] picList = Directory.GetFiles(backupDir, "*.jpg");
+            string[] picListTXT = Directory.GetFiles(backupDir, "*.jpg");
+            string[] picListPNG = Directory.GetFiles(backupDir, "*.png");
+            string[] picListGIF = Directory.GetFiles(backupDir, "*.gif");
+            string[] picListBMP = Directory.GetFiles(backupDir, "*.bmp");
+            string[] picList1 = picListTXT.Concat(picListPNG).ToArray();
+            string[] picList2 = picList1.Concat(picListGIF).ToArray();
+            string[] picList = picList2.Concat(picListBMP).ToArray();
 
             if (!(picList.Contains(backupDir + "\\" + fName)))
             {
@@ -365,9 +383,9 @@ namespace Protectora.Presentacion
                 {
                     File.Copy(Path.Combine(sourceDir, fName), Path.Combine(backupDir, fName), true);
                 }
-                catch (DirectoryNotFoundException dirNotFound)
+                catch (DirectoryNotFoundException ex)
                 {
-                    Console.WriteLine(dirNotFound.Message);
+                    ELog.save(this, ex);
                 }
             }
             return fName;
