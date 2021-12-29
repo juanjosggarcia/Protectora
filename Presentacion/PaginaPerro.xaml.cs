@@ -168,8 +168,16 @@ namespace Protectora.Presentacion
                 BtnPdrino.ToolTip = "Datos del padrino del perro";
 
             }
+            catch (System.FormatException ex)
+            {
+                Console.Write(ex);
+                ComprobarEntradaInt(TextBoxEdad.Text, TextBoxEdad);
+                ComprobarEntradaInt(TextBoxPeso.Text, TextBoxPeso);
+                ComprobarEntradaInt(TextBoxTamanio.Text, TextBoxTamanio);
+            }
             catch (Exception ex)
             {
+                ELog.save(this, ex);
                 Console.Write(ex);
                 ComprobarEntradaInt(TextBoxEdad.Text, TextBoxEdad);
                 ComprobarEntradaInt(TextBoxPeso.Text, TextBoxPeso);

@@ -128,6 +128,7 @@ namespace Protectora.Presentacion
                 voluntario.Foto = subs[subs.Length - 1];
 
                 GestorPersona.modificarVoluntario(voluntario);
+                CargarVoluntarios();
                 DesactivarTextBoxsVol();
             }
             catch (Exception ex)

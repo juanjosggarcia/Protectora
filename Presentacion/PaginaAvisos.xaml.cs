@@ -150,6 +150,7 @@ namespace Protectora.Presentacion
                 aviso.Foto = copiarImagen(ProfileImagePerroPerdido.Source.ToString());
 
                 GestorAnimal.modificarAviso(aviso);
+                CargarPerrosPerdidos();
                 DesactivarTextBoxsPerdido();
                 BtnDuenio.ToolTip = "Datos del dueño del perro perdido";
 
@@ -157,7 +158,7 @@ namespace Protectora.Presentacion
             catch (Exception ex)
             {
                 Console.Write(ex);
-
+                ELog.save(this, ex);
             }
         }
         private void btnEditCancelarPerroPerdido_Click(object sender, RoutedEventArgs e)

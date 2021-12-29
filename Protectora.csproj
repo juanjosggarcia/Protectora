@@ -41,6 +41,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -124,6 +125,7 @@
     <Compile Include="Dominio\Socio.cs" />
     <Compile Include="Dominio\Usuario.cs" />
     <Compile Include="Dominio\Voluntario.cs" />
+    <Compile Include="ELog.cs" />
     <Compile Include="Persistencia\AvisoDAO.cs" />
     <Compile Include="Persistencia\IDAO.cs" />
     <Compile Include="Persistencia\PadrinoDAO .cs" />
@@ -357,6 +359,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="recursos\dog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="log\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
