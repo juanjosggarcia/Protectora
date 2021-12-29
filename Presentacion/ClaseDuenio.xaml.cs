@@ -97,14 +97,31 @@ namespace Protectora.Presentacion
             catch (Exception ex)
             {
                 Console.Write(ex);
+                ComprobarEntradaInt(txtTelefonoDuenio.Text, txtTelefonoDuenio);
                 //List<String> fila;
             }
             Close();
         }
 
+        private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada)
+        {
+            int num;
+            bool cosa = int.TryParse(valorIntroducido, out num);
+            if (cosa == false)
+            {
+                componenteEntrada.Foreground = Brushes.Red;
+                componenteEntrada.ToolTip = "El dato introducido debe de ser del tipo numerico";
+            }
+        }
+
         private void BtnCancelarCambiosDuenio_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void PulsarTelefono(object sender, RoutedEventArgs e)
+        {
+            txtTelefonoDuenio.Foreground = Brushes.Black;
         }
     }
 }
