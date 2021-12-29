@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using MessageBox = System.Windows.MessageBox;
 using Path = System.IO.Path;
 using TextBox = System.Windows.Controls.TextBox;
@@ -116,6 +117,7 @@ namespace Protectora.Presentacion
 
             try
             {
+                int index = ListViewSocios.SelectedIndex;
                 socio.NombreCompleto = TextBoxNombreSocio.Text;
                 socio.Correo = TextBoxCorreoSocio.Text;
                 socio.Telefono = Int32.Parse(TextBoxTelefonoSocio.Text);
@@ -133,6 +135,8 @@ namespace Protectora.Presentacion
                 GestorPersona.modificarSocio(socio);
                 CargarSocios();
                 DesactivarTextBoxsSocios();
+                ListViewSocios.SelectedItem = ListViewSocios.Items[index];
+
             }
             catch (Exception ex)
             {
@@ -144,11 +148,22 @@ namespace Protectora.Presentacion
         private void btnEditCancelarSocio_Click(object sender, RoutedEventArgs e)
         {
             Socio socio = (Socio)ListViewSocios.Items[ListViewSocios.SelectedIndex];
-            SetSocio(socio);
-            //TextBoxEdad.Foreground = Brushes.Black;
-            //TextBoxPeso.Foreground = Brushes.Black;
-            //TextBoxTamanio.Foreground = Brushes.Black;
-            DesactivarTextBoxsSocios();
+            string message = "¿Estas seguro que quieres cacelar la edición? Se perderan todos los cambios no guardados";
+            string caption = "Cancelar cambios";
+            MessageBoxButton buttons = MessageBoxButton.YesNo;
+            DialogResult result;
+
+            // Displays the MessageBox.
+            result = (DialogResult)MessageBox.Show(message, caption, buttons);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                SetSocio(socio);
+                //TextBoxEdad.Foreground = Brushes.Black;
+                //TextBoxPeso.Foreground = Brushes.Black;
+                //TextBoxTamanio.Foreground = Brushes.Black;
+                DesactivarTextBoxsSocios();
+                ListViewSocios.SelectedItem = ListViewSocios.Items[ListViewSocios.SelectedIndex];
+            }
         }
         private void btnBuscarSocio_Click(object sender, RoutedEventArgs e)
         {
@@ -239,6 +254,13 @@ namespace Protectora.Presentacion
             TextBoxCuantiaSocio.Foreground = Brushes.Black;
         }
 
+        private void OnKeyDownHandler(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                btnBuscarSocio_Click(sender, e);
+            }
+        }
 
         /////////////////////////////////////////////////////////////// FUNCIONES AUXILIARES ///////////////////////////////////////////////////////////////
 

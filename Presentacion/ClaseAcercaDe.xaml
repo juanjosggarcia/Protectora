@@ -44,9 +44,18 @@
 
         <Border BorderBrush="white" Background="#FAF9F7" BorderThickness="4" CornerRadius="20" Grid.Column ="1" Grid.Row="3">
             <Grid Grid.Column ="1" Grid.Row="3" >
-                <Image x:Name="Juanjo" HorizontalAlignment="Left" Height="81" VerticalAlignment="Top" Width="80" Stretch="UniformToFill" Source="/recursos/man.png" Margin="6,15,0,0"/>
+                <Button Style="{StaticResource EstiloBotonInfo}" ToolTip="{DynamicResource tooltipoInformacion}" HorizontalAlignment="Center" Margin="10,10,321,6" VerticalAlignment="Center" Width="91" Height="91" Click="Button_Click">
+                    <Image x:Name="Juanjo" HorizontalAlignment="Left" Height="81" VerticalAlignment="Top" Width="80" Stretch="UniformToFill" Source="/recursos/man.png" />
+                </Button>
+
                 <Label Margin="116,16,31,36" Content="Juan Jose Garcia Garcia" FontFamily="Lucida Sans Unicode" FontSize="20"/>
                 <Label Margin="116,56,31,20" Content="{DynamicResource puesto}" FontFamily="Lucida Sans Unicode" FontSize="15"/>
+
+                <Image x:Name="dialogo" HorizontalAlignment="Left" Height="170" VerticalAlignment="Top" Width="180" Stretch="UniformToFill" Source="/recursos/conversacion.png" Margin="-179,-99,0,0" Visibility="Hidden" />
+                <Label x:Name="dialogo2" Margin="-159,-57,436,0" Content="Enhorabuena, has " FontFamily="Lucida Sans Unicode" FontSize="15" Visibility="Hidden" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="145"/>
+                <Label x:Name="dialogo3" Margin="-159,-37,436,0" Content="descubierto  " FontFamily="Lucida Sans Unicode" FontSize="15" Visibility="Hidden" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="145"/>
+                <Label x:Name="dialogo4" Margin="-159,-19,436,0" Content="el easter egg  " FontFamily="Lucida Sans Unicode" FontSize="15" Visibility="Hidden" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="145"/>
+
 
             </Grid>
         </Border>

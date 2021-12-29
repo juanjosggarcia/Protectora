@@ -20,6 +20,7 @@ namespace Protectora.Presentacion
     public partial class ClaseAcercaDe : Window
     {
         MainWindow mainwindow;
+        int contadorJuanjo = 0;
         public ClaseAcercaDe(MainWindow m)
         {
             InitializeComponent();
@@ -48,6 +49,19 @@ namespace Protectora.Presentacion
         {
             Application.Current.MainWindow.Show();
             this.Hide();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            contadorJuanjo++;
+            if (contadorJuanjo >= 5)
+            {
+                dialogo.Visibility = Visibility.Visible;
+                dialogo2.Visibility = Visibility.Visible;
+                dialogo3.Visibility = Visibility.Visible;
+                dialogo4.Visibility = Visibility.Visible;
+
+            }
         }
     }
 }

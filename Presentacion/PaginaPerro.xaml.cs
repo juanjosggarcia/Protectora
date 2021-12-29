@@ -18,6 +18,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using MessageBox = System.Windows.MessageBox;
 using Path = System.IO.Path;
 using TextBox = System.Windows.Controls.TextBox;
@@ -146,6 +147,7 @@ namespace Protectora.Presentacion
 
             try
             {
+                int index = ListViewPerros.SelectedIndex;
                 perro.Sexo = TextBoxSexo.Text;
                 perro.Nombre = TextBoxNombre.Text;
                 perro.Tamanio = Int32.Parse(TextBoxTamanio.Text);
@@ -166,6 +168,8 @@ namespace Protectora.Presentacion
                 CargarPerros();
                 DesactivarTextBoxs();
                 BtnPdrino.ToolTip = "Datos del padrino del perro";
+                ListViewPerros.SelectedItem = ListViewPerros.Items[index];
+
 
             }
             catch (System.FormatException ex)
@@ -186,13 +190,25 @@ namespace Protectora.Presentacion
         }
         private void btnEditCancelar_Click(object sender, RoutedEventArgs e)
         {
-            Perro perro = (Perro)ListViewPerros.Items[ListViewPerros.SelectedIndex];
-            SetPerro(perro);
-            TextBoxEdad.Foreground = Brushes.Black;
-            TextBoxPeso.Foreground = Brushes.Black;
-            TextBoxTamanio.Foreground = Brushes.Black;
-            BtnPdrino.ToolTip = "Datos del padrino del perro";
-            DesactivarTextBoxs();
+            int index = ListViewPerros.SelectedIndex;
+            string message = "¿Estas seguro que quieres cacelar la edición? Se perderan todos los cambios no guardados";
+            string caption = "Cancelar cambios";
+            MessageBoxButton buttons = MessageBoxButton.YesNo;
+            DialogResult result;
+
+            // Displays the MessageBox.
+            result = (DialogResult)MessageBox.Show(message, caption, buttons);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                Perro perro = (Perro)ListViewPerros.Items[ListViewPerros.SelectedIndex];
+                SetPerro(perro);
+                TextBoxEdad.Foreground = Brushes.Black;
+                TextBoxPeso.Foreground = Brushes.Black;
+                TextBoxTamanio.Foreground = Brushes.Black;
+                BtnPdrino.ToolTip = "Datos del padrino del perro";
+                DesactivarTextBoxs();
+                ListViewPerros.SelectedItem = ListViewPerros.Items[ListViewPerros.SelectedIndex];
+            }
         }
         private void btnBuscarPerro_Click(object sender, RoutedEventArgs e)
         {
@@ -282,6 +298,18 @@ namespace Protectora.Presentacion
         {
             TextBoxPeso.Foreground = Brushes.Black;
         }
+        private void OnKeyDownHandler(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                btnBuscarPerro_Click(sender, e);
+            }
+        }
+        private void PulsarFecha(object sender, RoutedEventArgs e)
+        {
+            TextBoxEntrada.Foreground = Brushes.Black;
+        }
+
 
 
         /////////////////////////////////////////////////////////////// FUNCIONES AUXILIARES ///////////////////////////////////////////////////////////////

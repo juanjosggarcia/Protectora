@@ -68,7 +68,7 @@
             </ComboBoxItem>
         </ComboBox>
         <Label x:Name="errorInicioSesion" Content="{DynamicResource wrongLogin}"  HorizontalAlignment="Center" Height="30" Margin="197,219,187,220" VerticalAlignment="Center" Width="450" Grid.Row="1" FontFamily="{DynamicResource {x:Static SystemFonts.CaptionFontFamilyKey}}" Background="#00000000" FontSize="15" Foreground="#FFE00D0D" FontWeight="Normal" Grid.Column="1" Grid.ColumnSpan="3" HorizontalContentAlignment="Center"/>
-        <Button Style="{StaticResource EstiloBotonGrande2}" ToolTip="{DynamicResource tooltipoInformacion}" Grid.Column="5" HorizontalAlignment="Center" Margin="0,0,23,16" Grid.Row="3" VerticalAlignment="Center" Width="72" Height="70" Click="Button_Click">
+        <Button Style="{StaticResource EstiloBotonInfo}" ToolTip="{DynamicResource tooltipoInformacion}" Grid.Column="5" HorizontalAlignment="Center" Margin="0,0,23,16" Grid.Row="3" VerticalAlignment="Center" Width="72" Height="70" Click="Button_Click">
             <Image Source="/recursos/info.png" Width="55" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Button>
 

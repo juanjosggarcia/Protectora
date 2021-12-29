@@ -33,182 +33,297 @@ namespace Protectora.Presentacion
         {
             txtNombrePerro.Text = txtNombrePerro.Text == "Nombre" ? string.Empty : txtNombrePerro.Text;
             txtNombrePerro.Foreground = new SolidColorBrush(Colors.Black);
+            lblNombre.Visibility = Visibility.Visible;
         }
         private void RellenarTextoNombre(object sender, EventArgs e)
         {
-            txtNombrePerro.Text = txtNombrePerro.Text == string.Empty ? "Nombre" : txtNombrePerro.Text;
-            txtNombrePerro.Foreground = new SolidColorBrush(Colors.Gray);
+            if (txtNombrePerro.Text == string.Empty)
+            {
+                txtNombrePerro.Text = "Nombre";
+                lblNombre.Visibility = Visibility.Hidden;
+                txtNombrePerro.Foreground = new SolidColorBrush(Colors.Gray);
+            }
         }
-
         private void LimpiarTextoSexo(object sender, EventArgs e)
         {
             txtSexoPerro.Text = txtSexoPerro.Text == "Sexo" ? string.Empty : txtSexoPerro.Text;
             txtSexoPerro.Foreground = new SolidColorBrush(Colors.Black);
+            lblSexo.Visibility = Visibility.Visible;
+
         }
         private void RellenarTextoSexo(object sender, EventArgs e)
         {
-            txtSexoPerro.Text = txtSexoPerro.Text == string.Empty ? "Sexo" : txtSexoPerro.Text;
-            txtSexoPerro.Foreground = new SolidColorBrush(Colors.Gray);
+            if (txtSexoPerro.Text == string.Empty)
+            {
+                txtSexoPerro.Text = "Sexo";
+                lblSexo.Visibility = Visibility.Hidden;
+                txtSexoPerro.Foreground = new SolidColorBrush(Colors.Gray);
+            }
+
         }
 
         private void LimpiarTextoTamanio(object sender, EventArgs e)
         {
             txtTamanioPerro.Text = txtTamanioPerro.Text == "Tamaño" ? string.Empty : txtTamanioPerro.Text;
             txtTamanioPerro.Foreground = new SolidColorBrush(Colors.Black);
+            lblTamanio.Visibility = Visibility.Visible;
+
         }
         private void RellenarTextoTamanio(object sender, EventArgs e)
         {
-            txtTamanioPerro.Text = txtTamanioPerro.Text == string.Empty ? "Tamaño" : txtTamanioPerro.Text;
-            txtTamanioPerro.Foreground = new SolidColorBrush(Colors.Gray);
+            if (txtTamanioPerro.Text == string.Empty)
+            {
+                txtTamanioPerro.Text = "Tamaño";
+                lblTamanio.Visibility = Visibility.Hidden;
+                txtTamanioPerro.Foreground = new SolidColorBrush(Colors.Gray);
+            }
         }
 
         private void LimpiarTextoPeso(object sender, EventArgs e)
         {
             txtPesoPerro.Text = txtPesoPerro.Text == "Peso" ? string.Empty : txtPesoPerro.Text;
             txtPesoPerro.Foreground = new SolidColorBrush(Colors.Black);
+            lblPeso.Visibility = Visibility.Visible;
+
         }
         private void RellenarTextoPeso(object sender, EventArgs e)
         {
-            txtPesoPerro.Text = txtPesoPerro.Text == string.Empty ? "Peso" : txtPesoPerro.Text;
-            txtPesoPerro.Foreground = new SolidColorBrush(Colors.Gray);
+            if (txtPesoPerro.Text == string.Empty)
+            {
+                txtPesoPerro.Text = "Peso";
+                lblPeso.Visibility = Visibility.Hidden;
+                txtPesoPerro.Foreground = new SolidColorBrush(Colors.Gray);
+            }
         }
 
         private void LimpiarTextoEdad(object sender, EventArgs e)
         {
             txtEdadPerro.Text = txtEdadPerro.Text == "Edad" ? string.Empty : txtEdadPerro.Text;
             txtEdadPerro.Foreground = new SolidColorBrush(Colors.Black);
+            lblEdad.Visibility = Visibility.Visible;
+
         }
         private void RellenarTextoEdad(object sender, EventArgs e)
         {
-            txtEdadPerro.Text = txtEdadPerro.Text == string.Empty ? "Edad" : txtEdadPerro.Text;
-            txtEdadPerro.Foreground = new SolidColorBrush(Colors.Gray);
+            if (txtEdadPerro.Text == string.Empty)
+            {
+                txtEdadPerro.Text = "Edad";
+                lblEdad.Visibility = Visibility.Hidden;
+                txtEdadPerro.Foreground = new SolidColorBrush(Colors.Gray);
+            }
         }
 
         private void LimpiarTextoEstado(object sender, EventArgs e)
         {
             txtEstadoPerro.Text = txtEstadoPerro.Text == "Estado" ? string.Empty : txtEstadoPerro.Text;
             txtEstadoPerro.Foreground = new SolidColorBrush(Colors.Black);
+            lblEstado.Visibility = Visibility.Visible;
+
         }
         private void RellenarTextoEstado(object sender, EventArgs e)
         {
-            txtEstadoPerro.Text = txtEstadoPerro.Text == string.Empty ? "Estado" : txtEstadoPerro.Text;
-            txtEstadoPerro.Foreground = new SolidColorBrush(Colors.Gray);
+            if (txtEstadoPerro.Text == string.Empty)
+            {
+                txtEstadoPerro.Text = "Estado";
+                lblEstado.Visibility = Visibility.Hidden;
+                txtEstadoPerro.Foreground = new SolidColorBrush(Colors.Gray);
+            }
         }
 
         private void LimpiarTextoDescripcion(object sender, EventArgs e)
         {
             txtDescripcionPerro.Text = txtDescripcionPerro.Text == "Descripción" ? string.Empty : txtDescripcionPerro.Text;
             txtDescripcionPerro.Foreground = new SolidColorBrush(Colors.Black);
+            lblDescripcion.Visibility = Visibility.Visible;
+
         }
         private void RellenarTextoDescripcion(object sender, EventArgs e)
         {
-            txtDescripcionPerro.Text = txtDescripcionPerro.Text == string.Empty ? "Descripción" : txtDescripcionPerro.Text;
-            txtDescripcionPerro.Foreground = new SolidColorBrush(Colors.Gray);
+            if (txtDescripcionPerro.Text == string.Empty)
+            {
+                txtDescripcionPerro.Text = "Descripción";
+                lblDescripcion.Visibility = Visibility.Hidden;
+                txtDescripcionPerro.Foreground = new SolidColorBrush(Colors.Gray);
+            }
         }
 
         private void LimpiarTextoRaza(object sender, EventArgs e)
         {
             txtRazaPerro.Text = txtRazaPerro.Text == "Raza" ? string.Empty : txtRazaPerro.Text;
             txtRazaPerro.Foreground = new SolidColorBrush(Colors.Black);
+            lblRaza.Visibility = Visibility.Visible;
+
         }
         private void RellenarTextoRaza(object sender, EventArgs e)
         {
-            txtRazaPerro.Text = txtRazaPerro.Text == string.Empty ? "Raza" : txtRazaPerro.Text;
-            txtRazaPerro.Foreground = new SolidColorBrush(Colors.Gray);
+            if (txtRazaPerro.Text == string.Empty)
+            {
+                txtRazaPerro.Text = "Raza";
+                lblRaza.Visibility = Visibility.Hidden;
+                txtRazaPerro.Foreground = new SolidColorBrush(Colors.Gray);
+            }
         }
 
         private void LimpiarTextoImagen(object sender, EventArgs e)
         {
             txtImagenPerroNuevo.Text = txtImagenPerroNuevo.Text == "Imagen" ? string.Empty : txtImagenPerroNuevo.Text;
             txtImagenPerroNuevo.Foreground = new SolidColorBrush(Colors.Black);
+            lblImagen.Visibility = Visibility.Visible;
+
         }
         private void RellenarTextoImagen(object sender, EventArgs e)
         {
-            txtImagenPerroNuevo.Text = txtImagenPerroNuevo.Text == string.Empty ? "Imagen" : txtImagenPerroNuevo.Text;
-            txtImagenPerroNuevo.Foreground = new SolidColorBrush(Colors.Gray);
+            if (txtImagenPerroNuevo.Text == string.Empty)
+            {
+                txtRazaPerro.Text = "Imagen";
+                lblImagen.Visibility = Visibility.Hidden;
+                txtImagenPerroNuevo.Foreground = new SolidColorBrush(Colors.Gray);
+            }
         }
 
         private void LimpiarNombrePadrino(object sender, EventArgs e)
         {
             txtNombrePadrino.Text = txtNombrePadrino.Text == "Nombre del padrino" ? string.Empty : txtNombrePadrino.Text;
             txtNombrePadrino.Foreground = new SolidColorBrush(Colors.Black);
+            lblNombrePadrino.Visibility = Visibility.Visible;
+
         }
         private void RellenarNombrePadrino(object sender, EventArgs e)
         {
-            txtNombrePadrino.Text = txtNombrePadrino.Text == string.Empty ? "Nombre del padrino" : txtNombrePadrino.Text;
-            txtNombrePadrino.Foreground = new SolidColorBrush(Colors.Gray);
+            if (txtNombrePadrino.Text == string.Empty)
+            {
+                txtNombrePadrino.Text = "Nombre del padrino";
+                lblNombrePadrino.Visibility = Visibility.Hidden;
+                txtNombrePadrino.Foreground = new SolidColorBrush(Colors.Gray);
+            }
+
         }
         private void LimpiarDniPadrino(object sender, EventArgs e)
         {
             txtDniPadrino.Text = txtDniPadrino.Text == "DNI" ? string.Empty : txtDniPadrino.Text;
             txtDniPadrino.Foreground = new SolidColorBrush(Colors.Black);
+            lblDniPadrino.Visibility = Visibility.Visible;
+
         }
         private void RellenarDniPadrino(object sender, EventArgs e)
         {
-            txtDniPadrino.Text = txtDniPadrino.Text == string.Empty ? "DNI" : txtDniPadrino.Text;
-            txtDniPadrino.Foreground = new SolidColorBrush(Colors.Gray);
+            if (txtDniPadrino.Text == string.Empty)
+            {
+                txtDniPadrino.Text = "DNI";
+                lblDniPadrino.Visibility = Visibility.Hidden;
+                txtDniPadrino.Foreground = new SolidColorBrush(Colors.Gray);
+            }
         }
         private void LimpiarCorreoPadrino(object sender, EventArgs e)
         {
             txtCorreoPadrino.Text = txtCorreoPadrino.Text == "Correo" ? string.Empty : txtCorreoPadrino.Text;
             txtCorreoPadrino.Foreground = new SolidColorBrush(Colors.Black);
+            lblCorreoPadrino.Visibility = Visibility.Visible;
+
         }
         private void RellenarCorreoPadrino(object sender, EventArgs e)
         {
-            txtCorreoPadrino.Text = txtCorreoPadrino.Text == string.Empty ? "Correo" : txtCorreoPadrino.Text;
-            txtCorreoPadrino.Foreground = new SolidColorBrush(Colors.Gray);
+            if (txtCorreoPadrino.Text == string.Empty)
+            {
+                txtCorreoPadrino.Text = "Correo";
+                lblCorreoPadrino.Visibility = Visibility.Hidden;
+                txtCorreoPadrino.Foreground = new SolidColorBrush(Colors.Gray);
+            }
         }
         private void LimpiarTelefonoPadrino(object sender, EventArgs e)
         {
             txtTelefonoPadrino.Text = txtTelefonoPadrino.Text == "Telefono" ? string.Empty : txtTelefonoPadrino.Text;
             txtTelefonoPadrino.Foreground = new SolidColorBrush(Colors.Black);
+            lblTelefonoPadrino.Visibility = Visibility.Visible;
+
         }
         private void RellenarTelefonoPadrino(object sender, EventArgs e)
         {
-            txtTelefonoPadrino.Text = txtTelefonoPadrino.Text == string.Empty ? "Telefono" : txtTelefonoPadrino.Text;
-            txtTelefonoPadrino.Foreground = new SolidColorBrush(Colors.Gray);
+            if (txtTelefonoPadrino.Text == string.Empty)
+            {
+                txtTelefonoPadrino.Text = "Telefono";
+                lblTelefonoPadrino.Visibility = Visibility.Hidden;
+                txtTelefonoPadrino.Foreground = new SolidColorBrush(Colors.Gray);
+            }
         }
         private void LimpiarDatosPadrino(object sender, EventArgs e)
         {
             txtDatosPadrino.Text = txtDatosPadrino.Text == "Datos bancarios" ? string.Empty : txtDatosPadrino.Text;
             txtDatosPadrino.Foreground = new SolidColorBrush(Colors.Black);
+            lblDatosBanPadrino.Visibility = Visibility.Visible;
+
         }
         private void RellenarDatosPadrino(object sender, EventArgs e)
         {
-            txtDatosPadrino.Text = txtDatosPadrino.Text == string.Empty ? "Datos bancarios" : txtDatosPadrino.Text;
-            txtDatosPadrino.Foreground = new SolidColorBrush(Colors.Gray);
+            if (txtDatosPadrino.Text == string.Empty)
+            {
+                txtDatosPadrino.Text = "Datos bancarios";
+                lblDatosBanPadrino.Visibility = Visibility.Hidden;
+                txtDatosPadrino.Foreground = new SolidColorBrush(Colors.Gray);
+            }
         }
         private void LimpiarImportePadrino(object sender, EventArgs e)
         {
             txtImportePadrino.Text = txtImportePadrino.Text == "Importe mensual" ? string.Empty : txtImportePadrino.Text;
             txtImportePadrino.Foreground = new SolidColorBrush(Colors.Black);
+            lblImportePadrino.Visibility = Visibility.Visible;
+
         }
         private void RellenarImportePadrino(object sender, EventArgs e)
         {
-            txtImportePadrino.Text = txtImportePadrino.Text == string.Empty ? "Importe mensual" : txtImportePadrino.Text;
-            txtImportePadrino.Foreground = new SolidColorBrush(Colors.Gray);
+            if (txtImportePadrino.Text == string.Empty)
+            {
+                txtImportePadrino.Text = "Importe mensual";
+                lblImportePadrino.Visibility = Visibility.Hidden;
+                txtImportePadrino.Foreground = new SolidColorBrush(Colors.Gray);
+            }
         }
         private void LimpiarFormaPagoPadrino(object sender, EventArgs e)
         {
             txtFormaPagoPadrino.Text = txtFormaPagoPadrino.Text == "Forma de pago" ? string.Empty : txtFormaPagoPadrino.Text;
             txtFormaPagoPadrino.Foreground = new SolidColorBrush(Colors.Black);
+            lblFormaPagoPadrino.Visibility = Visibility.Visible;
+
         }
         private void RellenarFormaPagoPadrino(object sender, EventArgs e)
         {
-            txtFormaPagoPadrino.Text = txtFormaPagoPadrino.Text == string.Empty ? "Forma de pago" : txtFormaPagoPadrino.Text;
-            txtFormaPagoPadrino.Foreground = new SolidColorBrush(Colors.Gray);
+            if (txtFormaPagoPadrino.Text == string.Empty)
+            {
+                txtFormaPagoPadrino.Text = "Forma de pago";
+                lblFormaPagoPadrino.Visibility = Visibility.Hidden;
+                txtFormaPagoPadrino.Foreground = new SolidColorBrush(Colors.Gray);
+            }
         }
-        private void LimpiarComienzoPadrino(object sender, EventArgs e)
+        private void PulsarFechaComienzo(object sender, RoutedEventArgs e)
         {
-            txtComienzoPadrino.Text = txtComienzoPadrino.Text == "Comienzo de apadrinamiento" ? string.Empty : txtComienzoPadrino.Text;
-            txtComienzoPadrino.Foreground = new SolidColorBrush(Colors.Black);
-        }
-        private void RellenarComienzoPadrino(object sender, EventArgs e)
-        {
-            txtComienzoPadrino.Text = txtComienzoPadrino.Text == string.Empty ? "Comienzo de apadrinamiento" : txtComienzoPadrino.Text;
-            txtComienzoPadrino.Foreground = new SolidColorBrush(Colors.Gray);
+            dateComienzoPadrino.Foreground = Brushes.Black;
+            lblFechaPadrino.Visibility = Visibility.Visible;
+
         }
 
+        private void PulsarFechaEntrada(object sender, RoutedEventArgs e)
+        {
+            dateEntradaPerro.Foreground = Brushes.Black;
+            lblFechaEntrada.Visibility = Visibility.Visible;
+        }
+
+        private void LimpiarTextoFecha(object sender, RoutedEventArgs e)
+        {
+            if (dateEntradaPerro.Text == string.Empty)
+            {
+                dateEntradaPerro.Foreground = Brushes.Gray;
+                lblFechaEntrada.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void LimpiarTextoFechaComienzo(object sender, RoutedEventArgs e)
+        {
+            if (dateComienzoPadrino.Text == string.Empty)
+            {
+                dateComienzoPadrino.Foreground = Brushes.Gray;
+                lblFechaPadrino.Visibility = Visibility.Hidden;
+            }
+        }
 
 
         private void BtnImagen_Click(object sender, RoutedEventArgs e)
@@ -273,7 +388,7 @@ namespace Protectora.Presentacion
                     padrino.DatosBancarios = txtDatosPadrino.Text;
                     padrino.ImporteMensual = Int32.Parse(txtImportePadrino.Text);
                     padrino.FormaPago = txtFormaPagoPadrino.Text;
-                    padrino.FechaEntrada = DateTime.Parse(txtComienzoPadrino.Text);
+                    padrino.FechaEntrada = DateTime.Parse(dateComienzoPadrino.Text);
                     int idPadrino = GestorPersona.addPadrino(padrino, perro);
                     perro.Apadrinado = idPadrino;
 
@@ -281,15 +396,56 @@ namespace Protectora.Presentacion
 
                 GestorAnimal.crearPerro(perro);
                 pagPerro.CargarPerros();
+                this.Close();
             }
             catch (Exception ex)
             {
                 Console.Write(ex);
+                ComprobarEntradaInt(txtTamanioPerro.Text, txtTamanioPerro);
+                ComprobarEntradaInt(txtPesoPerro.Text, txtPesoPerro);
+                ComprobarEntradaInt(txtEdadPerro.Text, txtEdadPerro);
+                ComprobarEntradaFecha(dateEntradaPerro.Text, dateEntradaPerro);
+                if ((bool)btnPadrinoRedondo.IsChecked)
+                {
+
+                    ComprobarEntradaInt(txtTelefonoPadrino.Text, txtTelefonoPadrino);
+                    ComprobarEntradaInt(txtImportePadrino.Text, txtImportePadrino);
+                    ComprobarEntradaFecha(dateComienzoPadrino.Text, dateComienzoPadrino);
+                }
+
+                errorDatos.Visibility = Visibility.Visible;
+
                 //List<String> fila;
+
             }
 
 
-            this.Close();
+
+        }
+
+        private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada)
+        {
+            int num;
+            bool cosa = int.TryParse(valorIntroducido, out num);
+            if (cosa == false)
+            {
+                componenteEntrada.Foreground = Brushes.Red;
+                componenteEntrada.ToolTip = "El dato introducido debe de ser del tipo numerico";
+            }
+        }
+
+
+        private void ComprobarEntradaFecha(string valorIntroducido, DatePicker componenteEntrada)
+        {
+            DateTime num;
+            bool cosa = DateTime.TryParse(valorIntroducido, out num);
+            if (cosa == false)
+            {
+                componenteEntrada.Foreground = Brushes.Red;
+                componenteEntrada.ToolTip = "El dato introducido debe de ser del tipo fecha";
+
+            }
+
         }
 
 
