@@ -23,7 +23,6 @@ namespace Protectora
         {
             InitializeComponent();
             errorInicioSesion.Content = "";
-            //App.DefineIdioma("es");
         }
         protected override void OnClosed(EventArgs e)
         {
@@ -41,14 +40,10 @@ namespace Protectora
 
                 if (usuario != null)
                 {
-
                     ClaseVentanaPrincipal nw = new ClaseVentanaPrincipal(usuario);
                     nw.Show();
 
-                    //this.Close();
-
                     Hide();
-                    //Close();
                 }
                 else
                 {
@@ -123,7 +118,6 @@ namespace Protectora
                 txtUsuario.Foreground = new SolidColorBrush(Colors.Gray);
             }
         }
-
 
         private void LimpiarTextoContrasenia(object sender, EventArgs e)
         {

@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace Protectora.Presentacion
 {
-    /// <summary>
-    /// Lógica de interacción para ClaseVentanaPrincipal.xaml
-    /// </summary>
     public partial class ClaseVentanaPrincipal : Window
     {
         private Usuario user;
@@ -27,7 +24,6 @@ namespace Protectora.Presentacion
             this.user = user;
             InitializeComponent();
             MainFrame.Content = paneles[0];
-            //lblFinalFechaSesion.Content = user.FechaUltimaConex;
 
             DateTime userSesion = (DateTime)user.FechaUltimaConex;
             lblFinalFechaSesion.Content = userSesion.ToString("dd-MM-yyyy HH:mm");
@@ -42,7 +38,6 @@ namespace Protectora.Presentacion
 
         private void BtnCerrarSesion_Click(object sender, RoutedEventArgs e)
         {
-            //MainWindow loginWin = new MainWindow();
 
             DateTime localDate = DateTime.Now;
 
@@ -53,8 +48,6 @@ namespace Protectora.Presentacion
 
             Application.Current.MainWindow.Show();
 
-            //loginWin.Show();
-
             this.Hide();
         }
 
@@ -62,7 +55,6 @@ namespace Protectora.Presentacion
         {
             ButtonCloseMenu.Visibility = Visibility.Visible;
             ButtonOpenMenu.Visibility = Visibility.Collapsed;
-
         }
 
 
@@ -70,13 +62,11 @@ namespace Protectora.Presentacion
         {
             ButtonCloseMenu.Visibility = Visibility.Collapsed;
             ButtonOpenMenu.Visibility = Visibility.Visible;
-
         }
 
         private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             MainFrame.Content = paneles[((ListView)sender).SelectedIndex];
-
         }
 
         private void BotonListPerro_Click(object sender, RoutedEventArgs e)

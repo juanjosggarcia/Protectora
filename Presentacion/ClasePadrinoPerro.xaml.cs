@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace Protectora.Presentacion
 {
-    /// <summary>
-    /// Lógica de interacción para ClasePadrinoPerro.xaml
-    /// </summary>
     public partial class ClasePadrinoPerro : Window
     {
         PaginaPerro pagPerro;

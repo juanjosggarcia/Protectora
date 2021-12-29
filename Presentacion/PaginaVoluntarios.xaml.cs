@@ -24,12 +24,9 @@ using TextBox = System.Windows.Controls.TextBox;
 
 namespace Protectora.Presentacion
 {
-    /// <summary>
-    /// Lógica de interacción para PaginaVoluntarios.xaml
-    /// </summary>
     public partial class PaginaVoluntarios : Page
     {
-        public List<Voluntario> listaVoluntario = new List<Voluntario>();
+        //public List<Voluntario> listaVoluntario = new List<Voluntario>();
         public PaginaVoluntarios()
         {
             InitializeComponent();
@@ -68,24 +65,31 @@ namespace Protectora.Presentacion
             result = (DialogResult)MessageBox.Show(message, caption, buttons);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
-                Voluntario voluntario = (Voluntario)ListViewVoluntarios.Items[ListViewVoluntarios.SelectedIndex];
+                try
+                {
+                    Voluntario voluntario = (Voluntario)ListViewVoluntarios.Items[ListViewVoluntarios.SelectedIndex];
 
-                GestorPersona.eliminarVoluntario(voluntario);
-                ListViewVoluntarios.Items.RemoveAt(index);
-                TextBoxIdVol.Text = "";
-                TextBoxNombreVol.Text = "";
-                TextBoxCorreoVol.Text = "";
-                TextBoxDNIVol.Text = "";
-                TextBoxTelefonoVol.Text = "";
-                TextBoxZonaVol.Text = "";
-                TextBoxHorarioVol.Text = "";
-                btnImagenVol.IsEnabled = true;
-                string str = @"../fotosPersona/default.jpg";
-                BitmapImage bitmap = new BitmapImage();
-                bitmap.BeginInit();
-                bitmap.UriSource = new Uri(str, UriKind.Relative);
-                bitmap.EndInit();
-                ProfileImageVoluntario.Source = bitmap;
+                    GestorPersona.eliminarVoluntario(voluntario);
+                    ListViewVoluntarios.Items.RemoveAt(index);
+                    TextBoxIdVol.Text = "";
+                    TextBoxNombreVol.Text = "";
+                    TextBoxCorreoVol.Text = "";
+                    TextBoxDNIVol.Text = "";
+                    TextBoxTelefonoVol.Text = "";
+                    TextBoxZonaVol.Text = "";
+                    TextBoxHorarioVol.Text = "";
+                    btnImagenVol.IsEnabled = true;
+                    string str = @"../fotosPersona/default.jpg";
+                    BitmapImage bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.UriSource = new Uri(str, UriKind.Relative);
+                    bitmap.EndInit();
+                    ProfileImageVoluntario.Source = bitmap;
+                }
+                catch (Exception ex)
+                {
+                    ELog.save(this, ex);
+                }
             }
         }
         private void BtnEditVoluntario_Click(object sender, RoutedEventArgs e)
@@ -135,10 +139,14 @@ namespace Protectora.Presentacion
                 ListViewVoluntarios.SelectedItem = ListViewVoluntarios.Items[index];
 
             }
-            catch (Exception ex)
+            catch (FormatException ex)
             {
                 Console.Write(ex);
                 ComprobarEntradaInt(TextBoxTelefonoVol.Text, TextBoxTelefonoVol);
+            }
+            catch (Exception ex)
+            {
+                ELog.save(this, ex);
             }
         }
         private void btnEditCancelarVoluntario_Click(object sender, RoutedEventArgs e)
@@ -153,24 +161,30 @@ namespace Protectora.Presentacion
         private void btnBuscarVoluntario_Click(object sender, RoutedEventArgs e)
         {
             Voluntario voluntario = new Voluntario();
-
-            if (!string.IsNullOrEmpty(TextBoxBuscarVoluntario.Text))
+            try
             {
-                voluntario.NombreCompleto = TextBoxBuscarVoluntario.Text;
-                List<Voluntario> voluntarios = GestorPersona.obtenerVoluntarioName(voluntario);
-                ListViewVoluntarios.Items.Clear();
-                if (voluntario != null)
+                if (!string.IsNullOrEmpty(TextBoxBuscarVoluntario.Text))
                 {
-                    foreach (Voluntario voluntari in voluntarios)
+                    voluntario.NombreCompleto = TextBoxBuscarVoluntario.Text;
+                    List<Voluntario> voluntarios = GestorPersona.obtenerVoluntarioName(voluntario);
+                    ListViewVoluntarios.Items.Clear();
+                    if (voluntario != null)
                     {
-                        voluntari.Foto = "default.jpg";
-                        ListViewVoluntarios.Items.Add(voluntari);
+                        foreach (Voluntario voluntari in voluntarios)
+                        {
+                            voluntari.Foto = "default.jpg";
+                            ListViewVoluntarios.Items.Add(voluntari);
+                        }
                     }
                 }
+                else
+                {
+                    CargarVoluntarios();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                CargarVoluntarios();
+                ELog.save(this, ex);
             }
         }
 
@@ -214,12 +228,18 @@ namespace Protectora.Presentacion
                 ProfileImageVoluntario.Source = bitmap;
 
             }
+            catch (UriFormatException ex)
+            {
+                Console.WriteLine(ex);
+            }
+            catch (NotSupportedException ex)
+            {
+                Console.WriteLine(ex);
+                MessageBox.Show("EL formato de imagen elegido no esta soportado");
+            }
             catch (Exception ex)
             {
-                if (ex.Message != "URI no válido: URI está vacío.")
-                {
-                    MessageBox.Show("Error al cargar la imagen " + ex.Message);
-                }
+                ELog.save(this, ex);
             }
         }
         private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada)
@@ -250,16 +270,22 @@ namespace Protectora.Presentacion
 
         public void CargarVoluntarios()
         {
-            List<Voluntario> voluntarios = GestorPersona.obtenerTodosVoluntarios();
-            ListViewVoluntarios.Items.Clear();
-            foreach (Voluntario voluntario in voluntarios)
+            try
             {
-                if (string.IsNullOrEmpty(voluntario.Foto))
+                List<Voluntario> voluntarios = GestorPersona.obtenerTodosVoluntarios();
+                ListViewVoluntarios.Items.Clear();
+                foreach (Voluntario voluntario in voluntarios)
                 {
-                    voluntario.Foto = "default.jpg";
+                    if (string.IsNullOrEmpty(voluntario.Foto))
+                    {
+                        voluntario.Foto = "default.jpg";
+                    }
+                    ListViewVoluntarios.Items.Add(voluntario);
                 }
-                listaVoluntario.Add(voluntario);
-                ListViewVoluntarios.Items.Add(voluntario);
+            }
+            catch (Exception ex)
+            {
+                ELog.save(this, ex);
             }
         }
         public void SetVoluntario(Voluntario voluntario)
@@ -274,17 +300,29 @@ namespace Protectora.Presentacion
                 TextBoxZonaVol.Text = voluntario.ZonaDisponibilidad;
                 TextBoxHorarioVol.Text = voluntario.Horario;
 
-                string str = @"../fotosPersonas/" + voluntario.Foto;
+                string rutaPersonas = obtenerPath() + "/fotosPersonas";
+                string[] picListTXT = Directory.GetFiles(rutaPersonas, "*.jpg");
+                string[] picListPNG = Directory.GetFiles(rutaPersonas, "*.png");
+                string[] picList = picListTXT.Concat(picListPNG).ToArray();
+
+                if (!(picList.Contains(rutaPersonas + "\\" + voluntario.Foto)))
+                {
+                    voluntario.Foto = "default.jpg";
+                }
+
+                string str = rutaPersonas + "/" + voluntario.Foto;
+
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
-                bitmap.UriSource = new Uri(str, UriKind.Relative);
+                bitmap.UriSource = new Uri(str);
+                //bitmap.UriSource = new Uri(str, UriKind.Relative);
                 bitmap.EndInit();
                 ProfileImageVoluntario.Source = bitmap;
 
             }
             catch (Exception ex)
             {
-                Console.Write(ex);
+                ELog.save(this, ex);
             }
         }
         private void DesactivarTextBoxsVol()
@@ -303,7 +341,6 @@ namespace Protectora.Presentacion
             btnEditVoluntario.Visibility = Visibility;
             btnDeleteVoluntario.Visibility = Visibility;
 
-
             NuevoVoluntario.Visibility = Visibility.Visible;
             btnEditCancelarVoluntario.Visibility = Visibility.Hidden;
             btnEditConfirmarVoluntario.Visibility = Visibility.Hidden;
@@ -313,7 +350,6 @@ namespace Protectora.Presentacion
         {
             string pathExe = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
             string pathApp1 = pathExe.Substring(8);
-            //int posBin = pathApp1.IndexOf("/bin");
             string proc = "/Protectora/";
             int posBin = pathApp1.IndexOf(proc);
             string pathApp = pathApp1.Remove(posBin + proc.Length);
@@ -332,7 +368,13 @@ namespace Protectora.Presentacion
 
             string backupDir = pathApp + "/fotosPersonas";
 
-            string[] picList = Directory.GetFiles(backupDir, "*.jpg");
+            string[] picListTXT = Directory.GetFiles(backupDir, "*.jpg");
+            string[] picListPNG = Directory.GetFiles(backupDir, "*.png");
+            string[] picListGIF = Directory.GetFiles(backupDir, "*.gif");
+            string[] picListBMP = Directory.GetFiles(backupDir, "*.bmp");
+            string[] picList1 = picListTXT.Concat(picListPNG).ToArray();
+            string[] picList2 = picList1.Concat(picListGIF).ToArray();
+            string[] picList = picList2.Concat(picListBMP).ToArray();
 
             if (!(picList.Contains(backupDir + "\\" + fName)))
             {
@@ -340,9 +382,9 @@ namespace Protectora.Presentacion
                 {
                     File.Copy(Path.Combine(sourceDir, fName), Path.Combine(backupDir, fName), true);
                 }
-                catch (DirectoryNotFoundException dirNotFound)
+                catch (DirectoryNotFoundException ex)
                 {
-                    Console.WriteLine(dirNotFound.Message);
+                    ELog.save(this, ex);
                 }
             }
             return fName;

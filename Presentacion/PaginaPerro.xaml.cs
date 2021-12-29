@@ -27,10 +27,6 @@ namespace Protectora.Presentacion
 {
     public partial class PaginaPerro : Page
     {
-        //Dominio.Perro perro;
-
-        //public List<Perro> listaPerro = new List<Perro>();
-
         public PaginaPerro()
         {
             InitializeComponent();
@@ -94,26 +90,32 @@ namespace Protectora.Presentacion
             result = (DialogResult)MessageBox.Show(message, caption, buttons);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
-                Perro perro = (Perro)ListViewPerros.Items[ListViewPerros.SelectedIndex];
-
-                GestorAnimal.eliminarPerro(perro);
-                ListViewPerros.Items.RemoveAt(index);
-                TextBoxId.Text = "";
-                TextBoxSexo.Text = "";
-                TextBoxNombre.Text = "";
-                TextBoxTamanio.Text = "";
-                TextBoxEstado.Text = "";
-                TextBoxPeso.Text = "";
-                TextBoxEdad.Text = "";
-                TextBoxEntrada.Text = "";
-                TextBoxDescripcion.Text = "";
-                TextBoxRaza.Text = "";
-                string str = @"../fotosPerros/default.jpg";
-                BitmapImage bitmap = new BitmapImage();
-                bitmap.BeginInit();
-                bitmap.UriSource = new Uri(str, UriKind.Relative);
-                bitmap.EndInit();
-                ProfileImage.Source = bitmap;
+                try
+                {
+                    Perro perro = (Perro)ListViewPerros.Items[ListViewPerros.SelectedIndex];
+                    GestorAnimal.eliminarPerro(perro);
+                    ListViewPerros.Items.RemoveAt(index);
+                    TextBoxId.Text = "";
+                    TextBoxSexo.Text = "";
+                    TextBoxNombre.Text = "";
+                    TextBoxTamanio.Text = "";
+                    TextBoxEstado.Text = "";
+                    TextBoxPeso.Text = "";
+                    TextBoxEdad.Text = "";
+                    TextBoxEntrada.Text = "";
+                    TextBoxDescripcion.Text = "";
+                    TextBoxRaza.Text = "";
+                    string str = @"../fotosPerros/default.jpg";
+                    BitmapImage bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.UriSource = new Uri(str, UriKind.Relative);
+                    bitmap.EndInit();
+                    ProfileImage.Source = bitmap;
+                }
+                catch (Exception ex)
+                {
+                    ELog.save(this, ex);
+                }
             }
         }
         private void BtnEditPerro_Click(object sender, RoutedEventArgs e)
@@ -158,10 +160,6 @@ namespace Protectora.Presentacion
                 perro.Descripcion = TextBoxDescripcion.Text;
                 perro.Raza = TextBoxRaza.Text;
 
-                //string s = ProfileImage.Source.ToString();
-                //string[] subs = s.Split('/');
-                //perro.Foto = subs[subs.Length - 1];
-
                 perro.Foto = copiarImagen(ProfileImage.Source.ToString());
 
                 GestorAnimal.modificarPerro(perro);
@@ -169,7 +167,6 @@ namespace Protectora.Presentacion
                 DesactivarTextBoxs();
                 BtnPdrino.ToolTip = "Datos del padrino del perro";
                 ListViewPerros.SelectedItem = ListViewPerros.Items[index];
-
 
             }
             catch (FormatException ex)
@@ -192,7 +189,6 @@ namespace Protectora.Presentacion
             MessageBoxButton buttons = MessageBoxButton.YesNo;
             DialogResult result;
 
-            // Displays the MessageBox.
             result = (DialogResult)MessageBox.Show(message, caption, buttons);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
@@ -210,24 +206,30 @@ namespace Protectora.Presentacion
         {
             Perro perro = new Perro();
 
-            if (!string.IsNullOrEmpty(TextBoxBuscar.Text))
+            try
             {
-                perro.Nombre = TextBoxBuscar.Text;
-                List<Perro> perros = GestorAnimal.obtenerPerro(perro);
-                //perro = GestorAnimal.obtenerPerro(perro);
-                ListViewPerros.Items.Clear();
-                if (perros != null)
+                if (!string.IsNullOrEmpty(TextBoxBuscar.Text))
                 {
-                    foreach (Perro perr in perros)
+                    perro.Nombre = TextBoxBuscar.Text;
+                    List<Perro> perros = GestorAnimal.obtenerPerro(perro);
+                    ListViewPerros.Items.Clear();
+                    if (perros != null)
                     {
-                        perr.Foto = "default.jpg";
-                        ListViewPerros.Items.Add(perr);
+                        foreach (Perro perr in perros)
+                        {
+                            perr.Foto = "default.jpg";
+                            ListViewPerros.Items.Add(perr);
+                        }
                     }
                 }
+                else
+                {
+                    CargarPerros();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                CargarPerros();
+                ELog.save(this, ex);
             }
         }
         private void btnMostrarTodosPerro_Click(object sender, RoutedEventArgs e)
@@ -270,12 +272,18 @@ namespace Protectora.Presentacion
                 ProfileImage.Source = bitmap;
 
             }
+            catch (UriFormatException ex)
+            {
+                Console.WriteLine(ex);
+            }
+            catch (NotSupportedException ex)
+            {
+                Console.WriteLine(ex);
+                MessageBox.Show("EL formato de imagen elegido no esta soportado");
+            }
             catch (Exception ex)
             {
-                if (ex.Message != "URI no válido: URI está vacío.")
-                {
-                    MessageBox.Show("Error al cargar la imagen " + ex.Message);
-                }
+                ELog.save(this, ex);
             }
         }
         private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada)
@@ -317,19 +325,24 @@ namespace Protectora.Presentacion
 
         public void CargarPerros()
         {
-            List<Perro> perros = GestorAnimal.obtenerTodosPerros();
-            ListViewPerros.Items.Clear();
-            foreach (Perro perro in perros)
+            try
             {
-                if (string.IsNullOrEmpty(perro.Foto))
+                List<Perro> perros = GestorAnimal.obtenerTodosPerros();
+                ListViewPerros.Items.Clear();
+                foreach (Perro perro in perros)
                 {
-                    perro.Foto = "default.jpg";
+                    if (string.IsNullOrEmpty(perro.Foto))
+                    {
+                        perro.Foto = "default.jpg";
+                    }
+
+                    ListViewPerros.Items.Add(perro);
                 }
-
-                //listaPerro.Add(perro);
-                ListViewPerros.Items.Add(perro);
             }
-
+            catch (Exception ex)
+            {
+                ELog.save(this, ex);
+            }
         }
         public void SetPerro(Perro perro)
         {
@@ -345,12 +358,7 @@ namespace Protectora.Presentacion
                 TextBoxEntrada.Text = perro.FechaEntrada.ToString("dd-MM-yyyy");
                 TextBoxDescripcion.Text = perro.Descripcion;
                 TextBoxRaza.Text = perro.Raza;
-                //string str = @"C:\Users\juanj\vs2019-workspace\Protectora\recursos\Fotosbd\" + perro.Foto;
-                //string str = @"../fotosPerros/" + perro.Foto;
 
-                //string s = ProfileImage.Source.ToString();
-                //string[] subs = s.Split('/');
-                //string fName = subs[subs.Length - 1];
                 string rutaPerros = obtenerPath() + "/fotosPerros";
                 string[] picListTXT = Directory.GetFiles(rutaPerros, "*.jpg");
                 string[] picListPNG = Directory.GetFiles(rutaPerros, "*.png");
@@ -362,6 +370,7 @@ namespace Protectora.Presentacion
                 }
 
                 string str = rutaPerros + "/" + perro.Foto;
+
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
                 bitmap.UriSource = new Uri(str);
@@ -372,7 +381,7 @@ namespace Protectora.Presentacion
             }
             catch (Exception ex)
             {
-                Console.Write(ex);
+                ELog.save(this, ex);
             }
 
         }
@@ -403,10 +412,9 @@ namespace Protectora.Presentacion
         {
             string pathExe = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
             string pathApp1 = pathExe.Substring(8);
-            //int posBin = pathApp1.IndexOf("/bin");
             string proc = "/Protectora/";
             int posBin = pathApp1.IndexOf(proc);
-            string pathApp = pathApp1.Remove(posBin + proc.Length);
+            string pathApp = pathApp1.Remove(posBin + proc.Length-1);
             return pathApp;
         }
         private string copiarImagen(string sourcePath)
@@ -422,7 +430,13 @@ namespace Protectora.Presentacion
 
             string backupDir = pathApp + "/fotosPerros";
 
-            string[] picList = Directory.GetFiles(backupDir, "*.jpg");
+            string[] picListTXT = Directory.GetFiles(backupDir, "*.jpg");
+            string[] picListPNG = Directory.GetFiles(backupDir, "*.png");
+            string[] picListGIF = Directory.GetFiles(backupDir, "*.gif");
+            string[] picListBMP = Directory.GetFiles(backupDir, "*.bmp");
+            string[] picList1 = picListTXT.Concat(picListPNG).ToArray();
+            string[] picList2 = picList1.Concat(picListGIF).ToArray();
+            string[] picList = picList2.Concat(picListBMP).ToArray();
 
             if (!(picList.Contains(backupDir+"\\"+fName)))
             {
@@ -430,9 +444,9 @@ namespace Protectora.Presentacion
                 {
                     File.Copy(Path.Combine(sourceDir, fName), Path.Combine(backupDir, fName), true);
                 }
-                catch (DirectoryNotFoundException dirNotFound)
+                catch (DirectoryNotFoundException ex)
                 {
-                    Console.WriteLine(dirNotFound.Message);
+                    ELog.save(this, ex);
                 }
             }
             return fName;
