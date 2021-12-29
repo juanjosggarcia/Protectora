@@ -8,15 +8,8 @@ namespace Protectora.Persistencia
 {
     interface IDAO<T>
     {
-        /*
-        List<T> ts
-        {
-            get;
-            set;
-        }
-        */
         List<T> leerTodas();
-        T leerName(T obj);
+        List<T> leerName(T obj);
         T leerId(T obj);
         int insertar(T obj);
         int actualizar(T obj);

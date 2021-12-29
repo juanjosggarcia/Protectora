@@ -43,7 +43,6 @@ namespace Protectora.Persistencia
             catch (Exception ex)
             {
                 Console.Write(ex);
-                //List<String> fila;
                 return false;
             }
         }
@@ -63,7 +62,6 @@ namespace Protectora.Persistencia
             OleDbDataReader reader;
             OleDbCommand com = new OleDbCommand(sql, conexionBD);
             conectar();
-            //conectarCutre();
 
             reader = com.ExecuteReader();
             while (reader.Read())
@@ -84,7 +82,6 @@ namespace Protectora.Persistencia
             OleDbCommand com = new OleDbCommand(sql, conexionBD);
             int result;
             conectar();
-            //conectarCutre();
             result = com.ExecuteNonQuery();
             desconectar();
             return result;

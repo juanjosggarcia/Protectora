@@ -8,12 +8,12 @@ namespace Protectora.Dominio
 {
     class GestorAnimal
     {
-        public static Perro obtenerPerro(Perro perro)
+        public static List<Perro> obtenerPerro(Perro perro)
         {
             perro.leerDatoXName();
             if (perro.AniDAO.animales.Count != 0)
             {
-                return perro.AniDAO.animales[0];
+                return perro.AniDAO.animales;
             }
             return null;
 
@@ -47,12 +47,12 @@ namespace Protectora.Dominio
             perro.eliminarDato();
         }
 
-        public static Aviso obtenerAviso(Aviso aviso)
+        public static List<Aviso> obtenerAviso(Aviso aviso)
         {
             aviso.leerDatoXName();
             if (aviso.AviDAO.avisos.Count != 0)
             {
-                return aviso.AviDAO.avisos[0];
+                return aviso.AviDAO.avisos;
             }
             return null;
 

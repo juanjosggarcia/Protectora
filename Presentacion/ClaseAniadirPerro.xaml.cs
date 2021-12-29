@@ -2,6 +2,7 @@
 using Protectora.Dominio;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,12 +14,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Path = System.IO.Path;
 
 namespace Protectora.Presentacion
 {
-    /// <summary>
-    /// Lógica de interacción para BotonAniadir.xaml
-    /// </summary>
     public partial class ClaseAniadirPerro: Window
     {
         PaginaPerro pagPerro;
@@ -28,7 +27,90 @@ namespace Protectora.Presentacion
             pagPerro = p;
         }
 
-        //no se si esto se puede hacer mejor pero por ahora se queda asi
+        private void NuevoPerro_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Perro perro = new Perro
+                {
+                    Nombre = txtNombrePerro.Text,
+                    Sexo = txtSexoPerro.Text,
+                    Tamanio = Int32.Parse(txtTamanioPerro.Text),
+                    Estado = txtEstadoPerro.Text,
+                    Peso = Int32.Parse(txtPesoPerro.Text),
+                    Edad = Int32.Parse(txtEdadPerro.Text),
+                    FechaEntrada = DateTime.Parse(dateEntradaPerro.Text),
+                    Descripcion = txtDescripcionPerro.Text,
+                    Raza = txtRazaPerro.Text
+                };
+
+                if (string.IsNullOrEmpty(txtImagenPerroNuevo.Text) || txtImagenPerroNuevo.Text == "Imagen")
+                {
+                    perro.Foto = "default.jpg";
+                }
+                else
+                {
+                    string[] sourcePath = extraerFName(txtImagenPerroNuevo.Text);
+                    string sourceDir = sourcePath[0];
+                    string fName = sourcePath[1];
+                    perro.Foto = fName;
+
+                    string rutaPerros = obtenerPath() + "/fotosPerros";
+                    string[] picListTXT = Directory.GetFiles(rutaPerros, "*.jpg");
+                    string[] picListPNG = Directory.GetFiles(rutaPerros, "*.png");
+                    string[] picList = picListTXT.Concat(picListPNG).ToArray();
+
+                    if (!(picList.Contains(rutaPerros + "\\" + perro.Foto)))
+                    {
+                        copiarImagen(sourceDir, fName);
+                    }
+                }
+
+                if ((bool)btnPadrinoRedondo.IsChecked)
+                {
+                    Padrino padrino = new Padrino();
+                    padrino.NombreCompleto = txtNombrePadrino.Text;
+                    padrino.Dni = txtDniPadrino.Text;
+                    padrino.Correo = txtCorreoPadrino.Text;
+                    padrino.Telefono = Int32.Parse(txtTelefonoPadrino.Text);
+                    padrino.DatosBancarios = txtDatosPadrino.Text;
+                    padrino.ImporteMensual = Int32.Parse(txtImportePadrino.Text);
+                    padrino.FormaPago = txtFormaPagoPadrino.Text;
+                    padrino.FechaEntrada = DateTime.Parse(dateComienzoPadrino.Text);
+                    int idPadrino = GestorPersona.addPadrino(padrino, perro);
+                    perro.Apadrinado = idPadrino;
+
+                }
+
+                GestorAnimal.crearPerro(perro);
+                pagPerro.CargarPerros();
+                this.Close();
+            }
+            catch (FormatException ex)
+            {
+                Console.Write(ex);
+                ComprobarEntradaInt(txtTamanioPerro.Text, txtTamanioPerro);
+                ComprobarEntradaInt(txtPesoPerro.Text, txtPesoPerro);
+                ComprobarEntradaInt(txtEdadPerro.Text, txtEdadPerro);
+                ComprobarEntradaFecha(dateEntradaPerro.Text, dateEntradaPerro);
+                if ((bool)btnPadrinoRedondo.IsChecked)
+                {
+
+                    ComprobarEntradaInt(txtTelefonoPadrino.Text, txtTelefonoPadrino);
+                    ComprobarEntradaInt(txtImportePadrino.Text, txtImportePadrino);
+                    ComprobarEntradaFecha(dateComienzoPadrino.Text, dateComienzoPadrino);
+                }
+                errorDatos.Visibility = Visibility.Visible;
+
+            }
+            catch (Exception ex)
+            {
+                ELog.save(this, ex);
+            }
+        }
+
+        //////////////////////////////////////////////////////////////// EVENTOS AUXILIARES ////////////////////////////////////////////////////////////////
+
         private void LimpiarTextoNombre(object sender, EventArgs e)
         {
             txtNombrePerro.Text = txtNombrePerro.Text == "Nombre" ? string.Empty : txtNombrePerro.Text;
@@ -59,7 +141,6 @@ namespace Protectora.Presentacion
                 lblSexo.Visibility = Visibility.Hidden;
                 txtSexoPerro.Foreground = new SolidColorBrush(Colors.Gray);
             }
-
         }
 
         private void LimpiarTextoTamanio(object sender, EventArgs e)
@@ -67,7 +148,6 @@ namespace Protectora.Presentacion
             txtTamanioPerro.Text = txtTamanioPerro.Text == "Tamaño" ? string.Empty : txtTamanioPerro.Text;
             txtTamanioPerro.Foreground = new SolidColorBrush(Colors.Black);
             lblTamanio.Visibility = Visibility.Visible;
-
         }
         private void RellenarTextoTamanio(object sender, EventArgs e)
         {
@@ -95,7 +175,6 @@ namespace Protectora.Presentacion
                 txtPesoPerro.Foreground = new SolidColorBrush(Colors.Gray);
             }
         }
-
         private void LimpiarTextoEdad(object sender, EventArgs e)
         {
             txtEdadPerro.Text = txtEdadPerro.Text == "Edad" ? string.Empty : txtEdadPerro.Text;
@@ -112,13 +191,11 @@ namespace Protectora.Presentacion
                 txtEdadPerro.Foreground = new SolidColorBrush(Colors.Gray);
             }
         }
-
         private void LimpiarTextoEstado(object sender, EventArgs e)
         {
             txtEstadoPerro.Text = txtEstadoPerro.Text == "Estado" ? string.Empty : txtEstadoPerro.Text;
             txtEstadoPerro.Foreground = new SolidColorBrush(Colors.Black);
             lblEstado.Visibility = Visibility.Visible;
-
         }
         private void RellenarTextoEstado(object sender, EventArgs e)
         {
@@ -169,7 +246,6 @@ namespace Protectora.Presentacion
             txtImagenPerroNuevo.Text = txtImagenPerroNuevo.Text == "Imagen" ? string.Empty : txtImagenPerroNuevo.Text;
             txtImagenPerroNuevo.Foreground = new SolidColorBrush(Colors.Black);
             lblImagen.Visibility = Visibility.Visible;
-
         }
         private void RellenarTextoImagen(object sender, EventArgs e)
         {
@@ -180,7 +256,6 @@ namespace Protectora.Presentacion
                 txtImagenPerroNuevo.Foreground = new SolidColorBrush(Colors.Gray);
             }
         }
-
         private void LimpiarNombrePadrino(object sender, EventArgs e)
         {
             txtNombrePadrino.Text = txtNombrePadrino.Text == "Nombre del padrino" ? string.Empty : txtNombrePadrino.Text;
@@ -325,7 +400,6 @@ namespace Protectora.Presentacion
             }
         }
 
-
         private void BtnImagen_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog op = new OpenFileDialog
@@ -344,87 +418,6 @@ namespace Protectora.Presentacion
                     MessageBox.Show("Error al cargar la imagen " + ex.Message);
                 }
             }
-        }
-
-        private void NuevoPerro_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                Perro perro = new Perro
-                {
-                    Nombre = txtNombrePerro.Text,
-                    Sexo = txtSexoPerro.Text,
-                    Tamanio = Int32.Parse(txtTamanioPerro.Text),
-                    Estado = txtEstadoPerro.Text,
-                    Peso = Int32.Parse(txtPesoPerro.Text),
-                    Edad = Int32.Parse(txtEdadPerro.Text),
-                    FechaEntrada = DateTime.Parse(dateEntradaPerro.Text),
-                    Descripcion = txtDescripcionPerro.Text,
-                    //Foto = txtImagenPerroNuevo.Text,
-                    Raza = txtRazaPerro.Text
-                };
-                if (string.IsNullOrEmpty(txtImagenPerroNuevo.Text) || txtImagenPerroNuevo.Text == "Imagen")
-                {
-                    perro.Foto = "default.jpg";
-                }
-                else
-                {
-                    string s = txtImagenPerroNuevo.Text;
-                    string[] subs = s.Split('\\');
-                    perro.Foto = subs[subs.Length - 1];
-                    //perro.Foto = string.Join("", subs);
-                }
-
-                //ventana.paneles[0].CrearPerro(perro);
-                //pagPerro.CrearPerro(perro);
-                //GestorAnimal.crearPerro(perro);
-                if ((bool)btnPadrinoRedondo.IsChecked)
-                {
-                    Padrino padrino = new Padrino();
-                    padrino.NombreCompleto = txtNombrePadrino.Text;
-                    padrino.Dni = txtDniPadrino.Text;
-                    padrino.Correo = txtCorreoPadrino.Text;
-                    padrino.Telefono = Int32.Parse(txtTelefonoPadrino.Text);
-                    padrino.DatosBancarios = txtDatosPadrino.Text;
-                    padrino.ImporteMensual = Int32.Parse(txtImportePadrino.Text);
-                    padrino.FormaPago = txtFormaPagoPadrino.Text;
-                    padrino.FechaEntrada = DateTime.Parse(dateComienzoPadrino.Text);
-                    int idPadrino = GestorPersona.addPadrino(padrino, perro);
-                    perro.Apadrinado = idPadrino;
-
-                }
-
-                GestorAnimal.crearPerro(perro);
-                pagPerro.CargarPerros();
-                this.Close();
-            }
-            catch (FormatException ex)
-            {
-                Console.Write(ex);
-                ComprobarEntradaInt(txtTamanioPerro.Text, txtTamanioPerro);
-                ComprobarEntradaInt(txtPesoPerro.Text, txtPesoPerro);
-                ComprobarEntradaInt(txtEdadPerro.Text, txtEdadPerro);
-                ComprobarEntradaFecha(dateEntradaPerro.Text, dateEntradaPerro);
-                if ((bool)btnPadrinoRedondo.IsChecked)
-                {
-
-                    ComprobarEntradaInt(txtTelefonoPadrino.Text, txtTelefonoPadrino);
-                    ComprobarEntradaInt(txtImportePadrino.Text, txtImportePadrino);
-                    ComprobarEntradaFecha(dateComienzoPadrino.Text, dateComienzoPadrino);
-                }
-
-                errorDatos.Visibility = Visibility.Visible;
-
-                //List<String> fila;
-
-            }
-            catch (Exception ex)
-            {
-                ELog.save(this, ex);
-            }
-
-
-
         }
 
         private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada)
@@ -452,6 +445,62 @@ namespace Protectora.Presentacion
 
         }
 
+        /////////////////////////////////////////////////////////////// FUNCIONES AUXILIARES ///////////////////////////////////////////////////////////////
+
+        private string obtenerPath()
+        {
+            string pathExe = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
+            string pathApp1 = pathExe.Substring(8);
+            //int posBin = pathApp1.IndexOf("/bin");
+            string proc = "/Protectora/";
+            int posBin = pathApp1.IndexOf(proc);
+            string pathApp = pathApp1.Remove(posBin + proc.Length-1);
+            return pathApp;
+        }
+
+        private string[] extraerFName(string sourcePath)
+        {
+            string[] subs = sourcePath.Split('\\');
+            if (subs.Length == 1)
+            {
+                subs = sourcePath.Split('/');
+            }
+            string fName = subs[subs.Length - 1];
+            string sourceDir1 = sourcePath.Substring(0, (sourcePath.Length - fName.Length - 1));
+            string sourceDir;
+            if (sourceDir1.Contains("file///"))
+            {
+                sourceDir = sourcePath.Substring(8);
+            }
+            else
+            {
+                sourceDir = sourceDir1;
+            }
+            string[] datos = {sourceDir, fName};
+            return datos;
+        }
+        private string copiarImagen(string sourceDir, string fName)
+        {
+
+            string pathApp = obtenerPath();
+
+            string backupDir = pathApp + "/fotosPerros";
+
+            string[] picList = Directory.GetFiles(backupDir, "*.jpg");
+
+            if (!(picList.Contains(backupDir + "\\" + fName)))
+            {
+                try
+                {
+                    File.Copy(Path.Combine(sourceDir, fName), Path.Combine(backupDir, fName), true);
+                }
+                catch (DirectoryNotFoundException dirNotFound)
+                {
+                    Console.WriteLine(dirNotFound.Message);
+                }
+            }
+            return fName;
+        }
 
     }
 

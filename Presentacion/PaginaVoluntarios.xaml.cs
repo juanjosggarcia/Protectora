@@ -157,11 +157,15 @@ namespace Protectora.Presentacion
             if (!string.IsNullOrEmpty(TextBoxBuscarVoluntario.Text))
             {
                 voluntario.NombreCompleto = TextBoxBuscarVoluntario.Text;
-                voluntario = GestorPersona.obtenerVoluntarioName(voluntario);
+                List<Voluntario> voluntarios = GestorPersona.obtenerVoluntarioName(voluntario);
                 ListViewVoluntarios.Items.Clear();
                 if (voluntario != null)
                 {
-                    ListViewVoluntarios.Items.Add(voluntario);
+                    foreach (Voluntario voluntari in voluntarios)
+                    {
+                        voluntari.Foto = "default.jpg";
+                        ListViewVoluntarios.Items.Add(voluntari);
+                    }
                 }
             }
             else

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,12 +14,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Microsoft.Win32;
 using Protectora.Dominio;
+using Path = System.IO.Path;
 
 namespace Protectora.Presentacion
 {
-    /// <summary>
-    /// Lógica de interacción para ClaseAniadirPerroPerdido.xaml
-    /// </summary>
     public partial class ClaseAniadirPerroPerdido : Window
     {
         PaginaAvisos pagAviso;
@@ -27,6 +26,82 @@ namespace Protectora.Presentacion
             InitializeComponent();
             pagAviso = p;
         }
+
+        private void NuevoAviso_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Aviso aviso = new Aviso
+                {
+                    Nombre = txtNombrePerroPerdido.Text,
+                    Sexo = txtSexoPerroPerdido.Text,
+                    Tamanio = Int32.Parse(txtTamanioPerroPerdido.Text),
+                    Raza = txtRazaPerroPerdido.Text,
+                    FechaPerdida = DateTime.Parse(dateFechaPerroPerdido.Text),
+                    ZonaPerdida = txtZonaPerroPerdido.Text,
+                    DescripcionAnimal = txtDescripcionPerroPerdido.Text,
+                    DescripcionAdicional = txtDescripcionAdicionalPerroPerdido.Text,
+                };
+
+                if (string.IsNullOrEmpty(txtImagenPerroNuevoPerdido.Text) || txtImagenPerroNuevoPerdido.Text == "Imagen")
+                {
+                    aviso.Foto = "default.jpg";
+                }
+                else
+                {
+                    string[] sourcePath = extraerFName(txtImagenPerroNuevoPerdido.Text);
+                    string sourceDir = sourcePath[0];
+                    string fName = sourcePath[1];
+                    aviso.Foto = fName;
+
+                    string rutaPerros = obtenerPath() + "/fotosPerros";
+                    string[] picListTXT = Directory.GetFiles(rutaPerros, "*.jpg");
+                    string[] picListPNG = Directory.GetFiles(rutaPerros, "*.png");
+                    string[] picList = picListTXT.Concat(picListPNG).ToArray();
+
+                    if (!(picList.Contains(rutaPerros + "\\" + fName)))
+                    {
+                        copiarImagen(sourceDir, fName);
+                    }
+                }
+
+                Persona persona = new Persona();
+                persona.NombreCompleto = txtNombreDuenio.Text;
+                persona = GestorPersona.obtenerPersonaName(persona);
+                if (persona == null)
+                {
+                    persona = new Persona
+                    {
+                        NombreCompleto = txtNombreDuenio.Text,
+                        Dni = txtDniDuenio.Text,
+                        Correo = txtCorreoDuenio.Text,
+                        Telefono = Int32.Parse(txtTelefonoDuenio.Text)
+                    };
+                    persona.Id = GestorPersona.addPersona(persona);
+                }
+
+                aviso.IdDuenio = (int)persona.Id;
+                GestorAnimal.crearAviso(aviso);
+                pagAviso.CargarPerrosPerdidos();
+
+                this.Close();
+            }
+            catch (FormatException ex)
+            {
+                Console.Write(ex);
+                ComprobarEntradaInt(txtTamanioPerroPerdido.Text, txtTamanioPerroPerdido);
+                ComprobarEntradaFecha(dateFechaPerroPerdido.Text, dateFechaPerroPerdido);
+                ComprobarEntradaInt(txtTelefonoDuenio.Text, txtTelefonoDuenio);
+                errorDatos.Visibility = Visibility.Visible;
+            }
+            catch (Exception ex)
+            {
+                ELog.save(this, ex);
+            }
+        }
+
+        //////////////////////////////////////////////////////////////// EVENTOS AUXILIARES ////////////////////////////////////////////////////////////////
+
 
         private void LimpiarTextoNombrePerdido(object sender, EventArgs e)
         {
@@ -266,68 +341,6 @@ namespace Protectora.Presentacion
             }
         }
 
-        private void NuevoAviso_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                Aviso aviso = new Aviso
-                {
-                    Nombre = txtNombrePerroPerdido.Text,
-                    Sexo = txtSexoPerroPerdido.Text,
-                    Tamanio = Int32.Parse(txtTamanioPerroPerdido.Text),
-                    Raza = txtRazaPerroPerdido.Text,
-                    FechaPerdida = DateTime.Parse(dateFechaPerroPerdido.Text),
-                    ZonaPerdida = txtZonaPerroPerdido.Text,
-                    DescripcionAnimal = txtDescripcionPerroPerdido.Text,
-                    DescripcionAdicional = txtDescripcionAdicionalPerroPerdido.Text,
-                };
-                if (string.IsNullOrEmpty(txtImagenPerroNuevoPerdido.Text) || txtImagenPerroNuevoPerdido.Text == "Imagen")
-                {
-                    aviso.Foto = "default.jpg";
-                }
-                else
-                {
-                    string s = txtImagenPerroNuevoPerdido.Text;
-                    string[] subs = s.Split('\\');
-                    aviso.Foto = subs[subs.Length - 1];
-                }
-
-                Persona persona = new Persona();
-                persona.NombreCompleto = txtNombreDuenio.Text;
-                persona = GestorPersona.obtenerPersonaName(persona);
-                if (persona == null)
-                {
-                    persona = new Persona
-                    {
-                        NombreCompleto = txtNombreDuenio.Text,
-                        Dni = txtDniDuenio.Text,
-                        Correo = txtCorreoDuenio.Text,
-                        Telefono = Int32.Parse(txtTelefonoDuenio.Text)
-                    };
-                    persona.Id = GestorPersona.addPersona(persona);
-                }
-
-                aviso.IdDuenio = (int)persona.Id;
-                GestorAnimal.crearAviso(aviso);
-                pagAviso.CargarPerrosPerdidos();
-
-                this.Close();
-            }
-            catch (FormatException ex)
-            {
-                Console.Write(ex);
-                ComprobarEntradaInt(txtTamanioPerroPerdido.Text, txtTamanioPerroPerdido);
-                ComprobarEntradaFecha(dateFechaPerroPerdido.Text, dateFechaPerroPerdido);
-                ComprobarEntradaInt(txtTelefonoDuenio.Text, txtTelefonoDuenio);
-                errorDatos.Visibility = Visibility.Visible;
-            }
-            catch (Exception ex)
-            {
-                ELog.save(this, ex);
-            }
-
-        }
-
         private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada)
         {
             int num;
@@ -353,5 +366,61 @@ namespace Protectora.Presentacion
 
         }
 
+        /////////////////////////////////////////////////////////////// FUNCIONES AUXILIARES ///////////////////////////////////////////////////////////////
+
+        private string obtenerPath()
+        {
+            string pathExe = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
+            string pathApp1 = pathExe.Substring(8);
+            //int posBin = pathApp1.IndexOf("/bin");
+            string proc = "/Protectora/";
+            int posBin = pathApp1.IndexOf(proc);
+            string pathApp = pathApp1.Remove(posBin + proc.Length - 1);
+            return pathApp;
+        }
+
+        private string[] extraerFName(string sourcePath)
+        {
+            string[] subs = sourcePath.Split('\\');
+            if (subs.Length == 1)
+            {
+                subs = sourcePath.Split('/');
+            }
+            string fName = subs[subs.Length - 1];
+            string sourceDir1 = sourcePath.Substring(0, (sourcePath.Length - fName.Length - 1));
+            string sourceDir;
+            if (sourceDir1.Contains("file///"))
+            {
+                sourceDir = sourcePath.Substring(8);
+            }
+            else
+            {
+                sourceDir = sourceDir1;
+            }
+            string[] datos = { sourceDir, fName };
+            return datos;
+        }
+        private string copiarImagen(string sourceDir, string fName)
+        {
+
+            string pathApp = obtenerPath();
+
+            string backupDir = pathApp + "/fotosPerros";
+
+            string[] picList = Directory.GetFiles(backupDir, "*.jpg");
+
+            if (!(picList.Contains(backupDir + "\\" + fName)))
+            {
+                try
+                {
+                    File.Copy(Path.Combine(sourceDir, fName), Path.Combine(backupDir, fName), true);
+                }
+                catch (DirectoryNotFoundException dirNotFound)
+                {
+                    Console.WriteLine(dirNotFound.Message);
+                }
+            }
+            return fName;
+        }
     }
 }

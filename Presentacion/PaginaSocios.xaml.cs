@@ -172,11 +172,15 @@ namespace Protectora.Presentacion
             if (!string.IsNullOrEmpty(TextBoxBuscarSocio.Text))
             {
                 socio.NombreCompleto = TextBoxBuscarSocio.Text;
-                socio = GestorPersona.obtenerSocio(socio);
+                List<Socio> socios = GestorPersona.obtenerSocio(socio);
                 ListViewSocios.Items.Clear();
-                if (socio != null)
+                if (socios != null)
                 {
-                    ListViewSocios.Items.Add(socio);
+                    foreach (Socio soci in socios)
+                    {
+                        soci.Foto = "default.jpg";
+                        ListViewSocios.Items.Add(soci);
+                    }
                 }
             }
             else

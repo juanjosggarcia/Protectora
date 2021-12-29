@@ -16,12 +16,12 @@ namespace Protectora.Persistencia
             this.avisos = new List<Aviso>();
         }
 
-        public Aviso leerName(Aviso obj)
+        public List<Aviso> leerName(Aviso obj)
         {
             //AgenteDB agente = AgenteDB.obtenerAgente();
             //List<List<String>> arrayCarPerros = agente.leer("SELECT * FROM animales a, perros p WHERE a.id=p.idAnimal AND a.nombre = '" + obj.Nombre + "'; ");
 
-            List<List<String>> arrayCarAvisos = AgenteDB.obtenerAgente().leer("SELECT * FROM avisos a WHERE a.nombre = '" + obj.Nombre + "';");
+            List<List<String>> arrayCarAvisos = AgenteDB.obtenerAgente().leer("SELECT * FROM avisos a WHERE a.nombre LIKE '%" + obj.Nombre + "%';");
 
             foreach (List<String> user in arrayCarAvisos)
             {
@@ -29,11 +29,7 @@ namespace Protectora.Persistencia
                     user[5], user[6], user[7], DateTime.Parse(user[8]), user[9], Int32.Parse(user[10]));
                 avisos.Add(a);
             }
-            if (avisos.Count != 0)
-            {
-                return avisos[0];
-            }
-            else return null;
+            return avisos;
         }
         public List<Aviso> leerTodas()
         {

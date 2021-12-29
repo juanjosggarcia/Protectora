@@ -188,11 +188,15 @@ namespace Protectora.Presentacion
             if (!string.IsNullOrEmpty(TextBoxBuscarPerroPerdido.Text))
             {
                 aviso.Nombre = TextBoxBuscarPerroPerdido.Text;
-                aviso = GestorAnimal.obtenerAviso(aviso);
+                List<Aviso> avisos = GestorAnimal.obtenerAviso(aviso);
                 ListViewPerrosPerdidos.Items.Clear();
-                if (aviso != null)
+                if (avisos != null)
                 {
-                    ListViewPerrosPerdidos.Items.Add(aviso);
+                    foreach (Aviso avis in avisos)
+                    {
+                        avis.Foto = "default.jpg";
+                        ListViewPerrosPerdidos.Items.Add(avis);
+                    }
                 }
             }
             else

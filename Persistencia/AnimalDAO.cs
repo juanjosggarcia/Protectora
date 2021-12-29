@@ -18,31 +18,23 @@ namespace Protectora.Persistencia
 
         public List<Perro> leerTodas()
         {
-            //List<Perro> arrayAnimales = new List<Perro>();
-            //AgenteDB agente = AgenteDB.obtenerAgente();
-            //List<List<String>> arrayCarAnimales = new List<List<String>>();
-            //arrayCarAnimales = agente.leer("SELECT * FROM animales a, perros p WHERE a.id=p.idAnimal");
-
-
             List<List<String>> arrayCarAnimales = AgenteDB.obtenerAgente().leer("SELECT * FROM animales a, perros p WHERE a.id=p.idAnimal");
 
             foreach (List<String> user in arrayCarAnimales)
             {
-                //Console.Write(" ");
                 Perro a = new Perro(Int32.Parse(user[0]), user[1], user[2],
                     Int32.Parse(user[3]), Int32.Parse(user[4]), Int32.Parse(user[5]),
                     DateTime.Parse(user[6]), user[7], user[8], user[9], user[10]
                     , Int32.Parse(user[11]), user[13]);
-                //arrayAnimales.Add(a);
                 animales.Add(a);
             }
             return animales;
         }
 
-        public Perro leerName(Perro obj)
+        public List<Perro> leerName(Perro obj)
         {
-            //AgenteDB agente = AgenteDB.obtenerAgente();
-            List<List<String>> arrayCarPerros = AgenteDB.obtenerAgente().leer("SELECT * FROM animales a, perros p WHERE a.id=p.idAnimal AND a.nombre = '" + obj.Nombre + "'; ");
+            //List<List<String>> arrayCarPerros = AgenteDB.obtenerAgente().leer("SELECT * FROM animales a, perros p WHERE a.id=p.idAnimal AND a.nombre = '" + obj.Nombre + "'; ");
+            List<List<String>> arrayCarPerros = AgenteDB.obtenerAgente().leer("SELECT * FROM animales a, perros p WHERE a.id=p.idAnimal AND a.nombre LIKE '%" + obj.Nombre + "%'; ");
 
             foreach (List<String> user in arrayCarPerros)
             {
@@ -52,11 +44,7 @@ namespace Protectora.Persistencia
                     , Int32.Parse(user[11]), user[13]);
                 animales.Add(a);
             }
-            if (animales.Count != 0)
-            {
-                return animales[0];
-            }
-            else return null;
+            return animales;
         }
 
         public Perro leerId(Perro obj)

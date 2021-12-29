@@ -63,7 +63,7 @@ namespace Protectora.Dominio
         {
             return AviDAO.leerTodas();
         }
-        public Aviso leerDatoXName()
+        public List<Aviso> leerDatoXName()
         {
             return AviDAO.leerName(this);
         }

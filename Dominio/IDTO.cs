@@ -9,7 +9,7 @@ namespace Protectora.Dominio
     interface IDTO<T>
     {
         List<T> leerTodosDatos();
-        T leerDatoXName();
+        List<T> leerDatoXName();
         T leerDatoXId();
         int insertarDato();
         int actualizarDato();

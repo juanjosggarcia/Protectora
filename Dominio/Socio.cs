@@ -43,7 +43,7 @@ namespace Protectora.Dominio
         {
             return SocDAO.leerTodas();
         }
-        public new Socio leerDatoXName()
+        public new List<Socio> leerDatoXName()
         {
             return SocDAO.leerName(this);
         }

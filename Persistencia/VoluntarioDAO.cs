@@ -25,13 +25,12 @@ namespace Protectora.Persistencia
                      Int32.Parse(user[4]), user[6], user[7], user[8]);
                 voluntarios.Add(v);
             }
-            //Console.Write(" ");
             return voluntarios;
 
         }
-        public Voluntario leerName(Voluntario obj)
+        public List<Voluntario> leerName(Voluntario obj)
         {
-            List<List<String>> arrayCarVoluntarios = AgenteDB.obtenerAgente().leer("SELECT * FROM personas p, voluntarios v WHERE p.Id=v.idPersona AND p.nombreCompleto = '" + obj.NombreCompleto.ToString() + "';");
+            List<List<String>> arrayCarVoluntarios = AgenteDB.obtenerAgente().leer("SELECT * FROM personas p, voluntarios v WHERE p.Id=v.idPersona AND p.nombreCompleto LIKE '%" + obj.NombreCompleto.ToString() + "%';");
 
             foreach (List<String> user in arrayCarVoluntarios)
             {
@@ -39,11 +38,7 @@ namespace Protectora.Persistencia
                      Int32.Parse(user[4]), user[6], user[7], user[8]);
                 voluntarios.Add(v);
             }
-            if (voluntarios.Count != 0)
-            {
-                return voluntarios[0];
-            }
-            else return null;
+            return voluntarios;
         }
 
         public Voluntario leerId(Voluntario obj)
@@ -84,7 +79,6 @@ namespace Protectora.Persistencia
 
         public int eliminar(Voluntario obj)
         {
-            //AgenteDB agente = AgenteDB.obtenerAgente();
             return AgenteDB.obtenerAgente().modificar("DELETE FROM personas WHERE Id=" + obj.Id.ToString() + ";");
         }
     }

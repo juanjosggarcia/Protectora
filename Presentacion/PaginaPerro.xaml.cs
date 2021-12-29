@@ -213,11 +213,16 @@ namespace Protectora.Presentacion
             if (!string.IsNullOrEmpty(TextBoxBuscar.Text))
             {
                 perro.Nombre = TextBoxBuscar.Text;
-                perro = GestorAnimal.obtenerPerro(perro);
+                List<Perro> perros = GestorAnimal.obtenerPerro(perro);
+                //perro = GestorAnimal.obtenerPerro(perro);
                 ListViewPerros.Items.Clear();
-                if (perro != null)
+                if (perros != null)
                 {
-                    ListViewPerros.Items.Add(perro);
+                    foreach (Perro perr in perros)
+                    {
+                        perr.Foto = "default.jpg";
+                        ListViewPerros.Items.Add(perr);
+                    }
                 }
             }
             else
@@ -347,7 +352,9 @@ namespace Protectora.Presentacion
                 //string[] subs = s.Split('/');
                 //string fName = subs[subs.Length - 1];
                 string rutaPerros = obtenerPath() + "/fotosPerros";
-                string[] picList = Directory.GetFiles(rutaPerros, "*.jpg");
+                string[] picListTXT = Directory.GetFiles(rutaPerros, "*.jpg");
+                string[] picListPNG = Directory.GetFiles(rutaPerros, "*.png");
+                string[] picList = picListTXT.Concat(picListPNG).ToArray();
 
                 if (!(picList.Contains(rutaPerros + "\\" + perro.Foto)))
                 {
