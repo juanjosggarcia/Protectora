@@ -69,7 +69,7 @@ namespace Protectora.Presentacion
                 {
                     Voluntario voluntario = (Voluntario)ListViewVoluntarios.Items[ListViewVoluntarios.SelectedIndex];
 
-                    GestorPersona.eliminarVoluntario(voluntario);
+                    //GestorPersona.eliminarVoluntario(voluntario);
                     ListViewVoluntarios.Items.RemoveAt(index);
                     TextBoxIdVol.Text = "";
                     TextBoxNombreVol.Text = "";
@@ -79,10 +79,14 @@ namespace Protectora.Presentacion
                     TextBoxZonaVol.Text = "";
                     TextBoxHorarioVol.Text = "";
                     btnImagenVol.IsEnabled = true;
-                    string str = @"../fotosPersona/default.jpg";
+
+                    string str = obtenerPath() + @"/fotosPersonas/default.jpg";
+
+                    //string str = @".. /fotosPers/default.jpg";
                     BitmapImage bitmap = new BitmapImage();
                     bitmap.BeginInit();
-                    bitmap.UriSource = new Uri(str, UriKind.Relative);
+                    //bitmap.UriSource = new Uri(str, UriKind.Relative);
+                    bitmap.UriSource = new Uri(str);
                     bitmap.EndInit();
                     ProfileImageVoluntario.Source = bitmap;
                 }
@@ -352,7 +356,7 @@ namespace Protectora.Presentacion
             string pathApp1 = pathExe.Substring(8);
             string proc = "/Protectora/";
             int posBin = pathApp1.IndexOf(proc);
-            string pathApp = pathApp1.Remove(posBin + proc.Length);
+            string pathApp = pathApp1.Remove(posBin + proc.Length-1);
             return pathApp;
         }
         private string copiarImagen(string sourcePath)

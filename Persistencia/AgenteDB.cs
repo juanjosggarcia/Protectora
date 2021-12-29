@@ -14,7 +14,8 @@ namespace Protectora.Persistencia
     {
         private static AgenteDB AgenteBD = null;
         private static OleDbConnection conexionBD = new OleDbConnection();
-        private static string rutaBD = @"..\..\protectoraDB.accdb";
+        //private static string rutaBD = @"..\..\protectoraDB.accdb";
+        private static string rutaBD = obtenerPath() + @"\protectoraDB.accdb";
         private string cadenaConexionBD = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source=";
 
         private AgenteDB()
@@ -85,6 +86,16 @@ namespace Protectora.Persistencia
             result = com.ExecuteNonQuery();
             desconectar();
             return result;
+        }
+
+        private static string obtenerPath()
+        {
+            string pathExe = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
+            string pathApp1 = pathExe.Substring(8);
+            string proc = "/Protectora/";
+            int posBin = pathApp1.IndexOf(proc);
+            string pathApp = pathApp1.Remove(posBin + proc.Length);
+            return pathApp;
         }
 
     }

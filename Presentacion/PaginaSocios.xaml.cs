@@ -78,10 +78,13 @@ namespace Protectora.Presentacion
                     TextBoxCuantiaSocio.Text = "";
                     TextBoxDatosBanSocio.Text = "";
                     TextBoxPagoSocio.Text = "";
-                    string str = @"../fotosPersonas/default.jpg";
+
+                    string str = obtenerPath() + @"/fotosPersonas/default.jpg";
+                    //string str = @"../fotosPersonas/default.jpg";
                     BitmapImage bitmap = new BitmapImage();
                     bitmap.BeginInit();
-                    bitmap.UriSource = new Uri(str, UriKind.Relative);
+                    //bitmap.UriSource = new Uri(str, UriKind.Relative);
+                    bitmap.UriSource = new Uri(str);
                     bitmap.EndInit();
                     ProfileImageSocio.Source = bitmap;
                 }
