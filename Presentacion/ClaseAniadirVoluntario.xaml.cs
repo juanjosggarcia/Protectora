@@ -73,7 +73,7 @@ namespace Protectora.Presentacion
             }
             catch (FormatException ex)
             {
-                ComprobarEntradaInt(txtTelefonoVoluntario.Text, txtTelefonoVoluntario);
+                ComprobarEntradaInt(txtTelefonoVoluntario.Text, txtTelefonoVoluntario, errorTelefono);
                 errorDatos.Visibility = Visibility.Visible;
 
                 Console.Write(ex);
@@ -137,6 +137,8 @@ namespace Protectora.Presentacion
             txtTelefonoVoluntario.Text = txtTelefonoVoluntario.Text == "Telefono" ? string.Empty : txtTelefonoVoluntario.Text;
             txtTelefonoVoluntario.Foreground = new SolidColorBrush(Colors.Black);
             lblTelefono.Visibility = Visibility.Visible;
+            errorTelefono.Visibility = Visibility.Hidden;
+
         }
         private void RellenarTextoTelefono(object sender, EventArgs e)
         {
@@ -221,7 +223,7 @@ namespace Protectora.Presentacion
             }
         }
 
-        private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada)
+        private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada, Image entradaImagen)
         {
             int num;
             bool cosa = int.TryParse(valorIntroducido, out num);
@@ -229,6 +231,8 @@ namespace Protectora.Presentacion
             {
                 componenteEntrada.Foreground = Brushes.Red;
                 componenteEntrada.ToolTip = "El dato introducido debe de ser del tipo numerico";
+                entradaImagen.Visibility = Visibility.Visible;
+
             }
         }
 

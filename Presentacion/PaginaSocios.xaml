@@ -70,6 +70,8 @@
                         <!--<Image Source="/recursos/editar.png" Width="55" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
                     </Button>
 
+                    <Image x:Name="errorCuantia" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="22" Stretch="UniformToFill" Source="/recursos/remove2.png" Margin="10,10,0,0" Grid.Row="7" Grid.Column="5" Visibility="Hidden"/>
+                    <Image x:Name="errorTelefono" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="22" Stretch="UniformToFill" Source="/recursos/remove2.png" Margin="10,10,0,0" Grid.Column="5" Grid.Row="5" Visibility="Hidden"/>
 
                 </Grid>
             </Border>

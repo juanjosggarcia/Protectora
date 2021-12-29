@@ -69,6 +69,9 @@
                     <Label x:Name="lblRazaPerdido" Content="Raza:" HorizontalAlignment="Left"  Height="36" Margin="0,3,0,0" VerticalAlignment="Top" Width="156" FontSize="18" Grid.Column="3" Grid.Row="4"/>
                     <Label x:Name="lblDescrpcionPerdido" Content="Descripcion del perro:" HorizontalAlignment="Left" Height="36" Margin="0,16,0,0" VerticalAlignment="Top" Width="191" FontSize="18" Grid.Row="7" RenderTransformOrigin="0.598,-1" Grid.RowSpan="2" Grid.Column="1"/>
 
+                    <Image x:Name="errorTamanio" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="22" Stretch="UniformToFill" Source="/recursos/remove2.png" Margin="10,12,0,0" Grid.Row="3" Grid.Column="5" Visibility="Hidden"/>
+                    <Image x:Name="errorFecha" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="22" Stretch="UniformToFill" Source="/recursos/remove2.png" Margin="10,12,0,0" Grid.Column="5" Grid.Row="5" Visibility="Hidden"/>
+
                     <Button x:Name="BtnDuenio" ToolTip="Datos del dueño del perro perdido" Content="DUEÑO" Style="{StaticResource EstiloBotonMediano}" Click="BtnDuenio_Click" Grid.Column="1" Margin="26,15,0,0" Height="55" Width="152" Grid.Row="5" RenderTransformOrigin="0.182,-1.743" Grid.RowSpan="2" IsEnabled="False"/>
 
                     <Button x:Name="btnImagenPerroPerdido" Style="{StaticResource EstiloBotonCambioImagen}" Background="Transparent" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="200" Width="200" Opacity="0.5" Margin="0,52,0,0" Grid.RowSpan="5" Visibility="Hidden" Click="BtnImagenPerroPerdido_Click" IsEnabled="false">

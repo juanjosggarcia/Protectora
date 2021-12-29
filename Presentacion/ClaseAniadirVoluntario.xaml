@@ -62,6 +62,10 @@
                 <Button x:Name ="nuevoVoluntario" Style ="{StaticResource EstiloBotonMediano}" Content="Añadir nuevo voluntario" Margin="22,68,0,0" Width="250" Click="NuevoVoluntario_Click" Grid.ColumnSpan="4" Grid.Column="2" Grid.Row="3" Grid.RowSpan="2" />
                 <Button x:Name ="btnImagenVol" Style ="{StaticResource EstiloBotonLargo}" FontSize="14" Content="Buscar" Margin="5,70,0,0" Width="117" Height="35" Click="BtnImagen_Click" Grid.Column="5" Grid.Row="2" Grid.RowSpan="2" />
 
+
+                <Image x:Name="errorTelefono" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="22" Stretch="UniformToFill" Source="/recursos/remove2.png" Margin="10,273,0,0" Grid.Column="6" Grid.Row="1" Visibility="Hidden"/>
+
+
             </Grid>
         </Border>
     </Grid>

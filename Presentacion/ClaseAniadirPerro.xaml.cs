@@ -93,16 +93,16 @@ namespace Protectora.Presentacion
             catch (FormatException ex)
             {
                 Console.Write(ex);
-                ComprobarEntradaInt(txtTamanioPerro.Text, txtTamanioPerro);
-                ComprobarEntradaInt(txtPesoPerro.Text, txtPesoPerro);
-                ComprobarEntradaInt(txtEdadPerro.Text, txtEdadPerro);
-                ComprobarEntradaFecha(dateEntradaPerro.Text, dateEntradaPerro);
+                ComprobarEntradaInt(txtTamanioPerro.Text, txtTamanioPerro, errorTamanio);
+                ComprobarEntradaInt(txtPesoPerro.Text, txtPesoPerro, errorPeso);
+                ComprobarEntradaInt(txtEdadPerro.Text, txtEdadPerro, errorEdad);
+                ComprobarEntradaFecha(dateEntradaPerro.Text, dateEntradaPerro, errorFecha);
                 if ((bool)btnPadrinoRedondo.IsChecked)
                 {
 
-                    ComprobarEntradaInt(txtTelefonoPadrino.Text, txtTelefonoPadrino);
-                    ComprobarEntradaInt(txtImportePadrino.Text, txtImportePadrino);
-                    ComprobarEntradaFecha(dateComienzoPadrino.Text, dateComienzoPadrino);
+                    ComprobarEntradaInt(txtTelefonoPadrino.Text, txtTelefonoPadrino, errorTelefono);
+                    ComprobarEntradaInt(txtImportePadrino.Text, txtImportePadrino, errorImporte);
+                    ComprobarEntradaFecha(dateComienzoPadrino.Text, dateComienzoPadrino, errorFechaPadrino);
                 }
                 errorDatos.Visibility = Visibility.Visible;
 
@@ -151,6 +151,7 @@ namespace Protectora.Presentacion
             txtTamanioPerro.Text = txtTamanioPerro.Text == "Tamaño" ? string.Empty : txtTamanioPerro.Text;
             txtTamanioPerro.Foreground = new SolidColorBrush(Colors.Black);
             lblTamanio.Visibility = Visibility.Visible;
+            errorTamanio.Visibility = Visibility.Hidden;
         }
         private void RellenarTextoTamanio(object sender, EventArgs e)
         {
@@ -166,6 +167,7 @@ namespace Protectora.Presentacion
             txtPesoPerro.Text = txtPesoPerro.Text == "Peso" ? string.Empty : txtPesoPerro.Text;
             txtPesoPerro.Foreground = new SolidColorBrush(Colors.Black);
             lblPeso.Visibility = Visibility.Visible;
+            errorPeso.Visibility = Visibility.Hidden;
         }
         private void RellenarTextoPeso(object sender, EventArgs e)
         {
@@ -181,6 +183,7 @@ namespace Protectora.Presentacion
             txtEdadPerro.Text = txtEdadPerro.Text == "Edad" ? string.Empty : txtEdadPerro.Text;
             txtEdadPerro.Foreground = new SolidColorBrush(Colors.Black);
             lblEdad.Visibility = Visibility.Visible;
+            errorEdad.Visibility = Visibility.Hidden;
         }
         private void RellenarTextoEdad(object sender, EventArgs e)
         {
@@ -372,6 +375,7 @@ namespace Protectora.Presentacion
             {
                 dateEntradaPerro.Foreground = Brushes.Gray;
                 lblFechaEntrada.Visibility = Visibility.Hidden;
+                errorFecha.Visibility = Visibility.Hidden;
             }
         }
         private void LimpiarTextoFechaComienzo(object sender, RoutedEventArgs e)
@@ -410,7 +414,7 @@ namespace Protectora.Presentacion
                 }
             }
         }
-        private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada)
+        private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada, Image entradaImagen)
         {
             int num;
             bool cosa = int.TryParse(valorIntroducido, out num);
@@ -418,9 +422,10 @@ namespace Protectora.Presentacion
             {
                 componenteEntrada.Foreground = Brushes.Red;
                 componenteEntrada.ToolTip = "El dato introducido debe de ser del tipo numerico";
+                entradaImagen.Visibility = Visibility.Visible;
             }
         }
-        private void ComprobarEntradaFecha(string valorIntroducido, DatePicker componenteEntrada)
+        private void ComprobarEntradaFecha(string valorIntroducido, DatePicker componenteEntrada, Image entradaImagen)
         {
             DateTime num;
             bool cosa = DateTime.TryParse(valorIntroducido, out num);
@@ -428,7 +433,7 @@ namespace Protectora.Presentacion
             {
                 componenteEntrada.Foreground = Brushes.Red;
                 componenteEntrada.ToolTip = "El dato introducido debe de ser del tipo fecha";
-
+                entradaImagen.Visibility = Visibility.Visible;
             }
 
         }

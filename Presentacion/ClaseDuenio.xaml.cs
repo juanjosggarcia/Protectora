@@ -90,17 +90,18 @@ namespace Protectora.Presentacion
                     aviso.IdDuenio = idDuenio;
                     GestorAnimal.modificarAviso(aviso);
                 }
+                Close();
             }
             catch (FormatException ex)
             {
                 Console.Write(ex);
-                ComprobarEntradaInt(txtTelefonoDuenio.Text, txtTelefonoDuenio);
+                ComprobarEntradaInt(txtTelefonoDuenio.Text, txtTelefonoDuenio, errorTelefono);
             }
             catch (Exception ex)
             {
                 ELog.save(this, ex);
             }
-            Close();
+
         }
         private void BtnCancelarCambiosDuenio_Click(object sender, RoutedEventArgs e)
         {
@@ -110,7 +111,7 @@ namespace Protectora.Presentacion
 
         //////////////////////////////////////////////////////////////// EVENTOS AUXILIARES ////////////////////////////////////////////////////////////////
 
-        private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada)
+        private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada, Image entradaImagen)
         {
             int num;
             bool cosa = int.TryParse(valorIntroducido, out num);
@@ -118,11 +119,15 @@ namespace Protectora.Presentacion
             {
                 componenteEntrada.Foreground = Brushes.Red;
                 componenteEntrada.ToolTip = "El dato introducido debe de ser del tipo numerico";
+                entradaImagen.Visibility = Visibility.Visible;
+
             }
         }
         private void PulsarTelefono(object sender, RoutedEventArgs e)
         {
             txtTelefonoDuenio.Foreground = Brushes.Black;
+            errorTelefono.Visibility = Visibility.Hidden;
+
         }
     }
 }

@@ -88,6 +88,14 @@
                 <Label x:Name="lblFormaPagoPadrino" Content="Forma de pago:" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,50,0,0" VerticalAlignment="Top" Width="140" FontSize="12" Visibility="Hidden" Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="5"/>
                 <Label x:Name="lblFechaPadrino" Content="Comienzo de apadrinamiento:" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,110,0,0" VerticalAlignment="Top" Width="195" FontSize="12"  Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="5" Visibility="Hidden"/>
 
+                <Image x:Name="errorTamanio" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="22" Stretch="UniformToFill" Source="/recursos/remove2.png" Margin="8,185,0,0" Grid.Row="1" Grid.Column="3" Visibility="Hidden"/>
+                <Image x:Name="errorEdad" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="22" Stretch="UniformToFill" Source="/recursos/remove2.png" Margin="8,308,0,0" Grid.Column="3" Grid.Row="1" Visibility="Hidden"/>
+                <Image x:Name="errorPeso" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="22" Stretch="UniformToFill" Source="/recursos/remove2.png" Margin="10,65,0,0" Grid.Column="7" Grid.Row="1" Visibility="Hidden"/>
+                <Image x:Name="errorFecha" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="22" Stretch="UniformToFill" Source="/recursos/remove2.png" Margin="10,185,0,0" Grid.Column="7" Grid.Row="1" Visibility="Hidden"/>
+
+                <Image x:Name="errorImporte" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="22" Stretch="UniformToFill" Source="/recursos/remove2.png" Margin="10,23,0,0" Grid.Column="7" Grid.Row="3" Visibility="Hidden"/>
+                <Image x:Name="errorTelefono" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="22" Stretch="UniformToFill" Source="/recursos/remove2.png" Margin="8,143,0,0" Grid.Column="3" Grid.Row="3" Visibility="Hidden"/>
+                <Image x:Name="errorFechaPadrino" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="22" Stretch="UniformToFill" Source="/recursos/remove2.png" Margin="10,143,0,0" Grid.Column="7" Grid.Row="3" Visibility="Hidden"/>
 
 
             </Grid>

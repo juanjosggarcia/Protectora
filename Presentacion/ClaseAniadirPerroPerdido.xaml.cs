@@ -93,9 +93,9 @@ namespace Protectora.Presentacion
             catch (FormatException ex)
             {
                 Console.Write(ex);
-                ComprobarEntradaInt(txtTamanioPerroPerdido.Text, txtTamanioPerroPerdido);
-                ComprobarEntradaFecha(dateFechaPerroPerdido.Text, dateFechaPerroPerdido);
-                ComprobarEntradaInt(txtTelefonoDuenio.Text, txtTelefonoDuenio);
+                ComprobarEntradaInt(txtTamanioPerroPerdido.Text, txtTamanioPerroPerdido, errorTamanio);
+                ComprobarEntradaFecha(dateFechaPerroPerdido.Text, dateFechaPerroPerdido, errorFecha);
+                ComprobarEntradaInt(txtTelefonoDuenio.Text, txtTelefonoDuenio, errorTelefono);
                 errorDatos.Visibility = Visibility.Visible;
             }
             catch (Exception ex)
@@ -142,6 +142,8 @@ namespace Protectora.Presentacion
             txtTamanioPerroPerdido.Text = txtTamanioPerroPerdido.Text == "Tamaño" ? string.Empty : txtTamanioPerroPerdido.Text;
             txtTamanioPerroPerdido.Foreground = new SolidColorBrush(Colors.Black);
             lblTamanio.Visibility = Visibility.Visible;
+            errorTamanio.Visibility = Visibility.Hidden;
+
         }
         private void RellenarTextoTamanioPerdido(object sender, EventArgs e)
         {
@@ -277,6 +279,8 @@ namespace Protectora.Presentacion
             txtTelefonoDuenio.Text = txtTelefonoDuenio.Text == "Telefono" ? string.Empty : txtTelefonoDuenio.Text;
             txtTelefonoDuenio.Foreground = new SolidColorBrush(Colors.Black);
             lblTelefono.Visibility = Visibility.Visible;
+            errorTelefono.Visibility = Visibility.Hidden;
+
         }
         private void RellenarTelefonoDuenio(object sender, EventArgs e)
         {
@@ -291,6 +295,8 @@ namespace Protectora.Presentacion
         {
             dateFechaPerroPerdido.Foreground = Brushes.Black;
             lblFechaEntrada.Visibility = Visibility.Visible;
+            errorFecha.Visibility = Visibility.Hidden;
+
         }
         private void LimpiarFecha(object sender, RoutedEventArgs e)
         {
@@ -328,7 +334,7 @@ namespace Protectora.Presentacion
                 }
             }
         }
-        private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada)
+        private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada, Image entradaImagen)
         {
             int num;
             bool cosa = int.TryParse(valorIntroducido, out num);
@@ -336,9 +342,11 @@ namespace Protectora.Presentacion
             {
                 componenteEntrada.Foreground = Brushes.Red;
                 componenteEntrada.ToolTip = "El dato introducido debe de ser del tipo numerico";
+                entradaImagen.Visibility = Visibility.Visible;
+
             }
         }
-        private void ComprobarEntradaFecha(string valorIntroducido, DatePicker componenteEntrada)
+        private void ComprobarEntradaFecha(string valorIntroducido, DatePicker componenteEntrada, Image entradaImagen)
         {
             DateTime num;
             bool cosa = DateTime.TryParse(valorIntroducido, out num);
@@ -346,6 +354,8 @@ namespace Protectora.Presentacion
             {
                 componenteEntrada.Foreground = Brushes.Red;
                 componenteEntrada.ToolTip = "El dato introducido debe de ser del tipo fecha";
+                entradaImagen.Visibility = Visibility.Visible;
+
             }
         }
 
