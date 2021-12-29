@@ -134,6 +134,7 @@ namespace Protectora.Presentacion
 
             try
             {
+                int index = ListViewPerrosPerdidos.SelectedIndex;
                 aviso.Nombre = TextBoxNombrePerdido.Text;
                 aviso.Sexo = TextBoxSexoPerdido.Text;
                 aviso.Tamanio = Int32.Parse(TextBoxTamanioPerdido.Text);
@@ -152,6 +153,7 @@ namespace Protectora.Presentacion
                 GestorAnimal.modificarAviso(aviso);
                 DesactivarTextBoxsPerdido();
                 BtnDuenio.ToolTip = "Datos del dueño del perro perdido";
+                ListViewPerrosPerdidos.SelectedItem = ListViewPerrosPerdidos.Items[index];
 
             }
             catch (Exception ex)
@@ -163,9 +165,20 @@ namespace Protectora.Presentacion
         private void btnEditCancelarPerroPerdido_Click(object sender, RoutedEventArgs e)
         {
             Aviso aviso = (Aviso)ListViewPerrosPerdidos.Items[ListViewPerrosPerdidos.SelectedIndex];
-            SetPerroPerdido(aviso);
-            BtnDuenio.ToolTip = "Datos del dueño del perro perdido";
-            DesactivarTextBoxsPerdido();
+            string message = "¿Estas seguro que quieres cacelar la edición? Se perderan todos los cambios no guardados";
+            string caption = "Cancelar cambios";
+            MessageBoxButton buttons = MessageBoxButton.YesNo;
+            DialogResult result;
+
+            // Displays the MessageBox.
+            result = (DialogResult)System.Windows.MessageBox.Show(message, caption, buttons);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                SetPerroPerdido(aviso);
+                BtnDuenio.ToolTip = "Datos del dueño del perro perdido";
+                DesactivarTextBoxsPerdido();
+                ListViewPerrosPerdidos.SelectedItem = ListViewPerrosPerdidos.Items[ListViewPerrosPerdidos.SelectedIndex];
+            }
         }
         private void btnBuscarPerroPerdido_Click(object sender, RoutedEventArgs e)
         {
@@ -235,6 +248,8 @@ namespace Protectora.Presentacion
                 }
             }
         }
+
+
 
         //private void ComprobarEntradaInt(string valorIntroducido, TextBox componenteEntrada)
         //{
@@ -371,6 +386,24 @@ namespace Protectora.Presentacion
                 }
             }
             return fName;
+        }
+
+        private void OnKeyDownHandler(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                btnBuscarPerroPerdido_Click(sender, e);
+            }
+        }
+
+
+        private void PulsarFecha(object sender, RoutedEventArgs e)
+        {
+            TextBoxFechaPerdida.Foreground = Brushes.Black;
+        }
+        private void PulsarTamanio(object sender, RoutedEventArgs e)
+        {
+            TextBoxTamanioPerdido.Foreground = Brushes.Black;
         }
     }
 }

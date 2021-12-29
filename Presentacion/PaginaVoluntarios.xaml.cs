@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Win32;
 using Protectora.Dominio;
+using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using MessageBox = System.Windows.MessageBox;
 using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 using Path = System.IO.Path;
@@ -116,6 +117,7 @@ namespace Protectora.Presentacion
 
             try
             {
+                int index = ListViewVoluntarios.SelectedIndex;
                 voluntario.NombreCompleto = TextBoxNombreVol.Text;
                 voluntario.Dni = TextBoxDNIVol.Text;
                 voluntario.Correo = TextBoxCorreoVol.Text;
@@ -129,6 +131,8 @@ namespace Protectora.Presentacion
 
                 GestorPersona.modificarVoluntario(voluntario);
                 DesactivarTextBoxsVol();
+                ListViewVoluntarios.SelectedItem = ListViewVoluntarios.Items[index];
+
             }
             catch (Exception ex)
             {
@@ -226,6 +230,14 @@ namespace Protectora.Presentacion
         private void PulsarTelefono(object sender, RoutedEventArgs e)
         {
             TextBoxTelefonoVol.Foreground = Brushes.Black;
+        }
+
+        private void OnKeyDownHandler(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                btnBuscarVoluntario_Click(sender, e);
+            }
         }
 
 
