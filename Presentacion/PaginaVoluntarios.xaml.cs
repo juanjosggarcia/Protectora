@@ -129,9 +129,7 @@ namespace Protectora.Presentacion
                 voluntario.Horario = TextBoxHorarioVol.Text;
                 voluntario.ZonaDisponibilidad = TextBoxZonaVol.Text;
 
-                string s = ProfileImageVoluntario.Source.ToString();
-                string[] subs = s.Split('/');
-                voluntario.Foto = subs[subs.Length - 1];
+                voluntario.Foto = copiarImagen(ProfileImageVoluntario.Source.ToString());
 
                 GestorPersona.modificarVoluntario(voluntario);
                 CargarVoluntarios();

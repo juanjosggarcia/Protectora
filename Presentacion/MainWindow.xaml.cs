@@ -70,7 +70,7 @@ namespace Protectora
             catch (InvalidOperationException ex)
             {
                 ELog.save(this, ex);
-                string message = "No se puede tener acceder a la base de datos.\nPor favor asegurese de tener instalada la ultima version del proveedor";
+                string message = "No se puede tener acceder a la base de datos.\nPor favor asegurese de tener instalada la ultima version de 'AccessDatabaseEngine' en su sistema";
                 string caption = "Problema con la base de datos";
                 MessageBoxButton buttons = MessageBoxButton.OK;
                 MessageBox.Show(message, caption, buttons);

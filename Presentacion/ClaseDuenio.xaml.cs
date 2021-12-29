@@ -96,6 +96,10 @@ namespace Protectora.Presentacion
                 Console.Write(ex);
                 ComprobarEntradaInt(txtTelefonoDuenio.Text, txtTelefonoDuenio);
             }
+            catch (System.Data.OleDb.OleDbException ex)
+            {
+                Console.Write(ex);
+            }
             catch (Exception ex)
             {
                 ELog.save(this, ex);

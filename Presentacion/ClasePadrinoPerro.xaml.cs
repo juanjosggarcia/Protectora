@@ -110,6 +110,10 @@ namespace Protectora.Presentacion
                 ComprobarEntradaInt(txtImportePadrino.Text, txtImportePadrino);
                 ComprobarEntradaFecha(txtComienzoPadrino.Text, txtComienzoPadrino);
             }
+            catch (System.Data.OleDb.OleDbException ex)
+            {
+                Console.Write(ex);
+            }
             catch (Exception ex)
             {
                 ELog.save(this, ex);
