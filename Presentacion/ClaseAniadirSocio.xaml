@@ -6,17 +6,16 @@
         xmlns:local="clr-namespace:Protectora.Presentacion"
         Icon="/recursos/pawprint.ico"
         mc:Ignorable="d"
-        Title="BotonAniadir" Height="696" Width="1041"
+        Title="BotonAniadir" Height="936" Width="1041"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
-
     <Window.Background>
         <ImageBrush ImageSource="/recursos/botonAnadir.jpg"/>
     </Window.Background>
 
-    <Grid Margin="0,0,4,0" Height="666" VerticalAlignment="Top">
+    <Grid Margin="0,0,4,0" Height="906" VerticalAlignment="Top">
         <Border BorderBrush="white" Background="#FAF9F7" BorderThickness="3" CornerRadius="25" Margin="130,45,131,66">
-            <Grid Height="552" VerticalAlignment="Top" Margin="0,0,0,-3">
+            <Grid Height="792" VerticalAlignment="Top" Margin="0,0,0,-3">
                 <Grid.RowDefinitions>
 
                     <RowDefinition Height="19*"/>
@@ -37,21 +36,31 @@
                     <ColumnDefinition Width="114*"/>
                 </Grid.ColumnDefinitions>
 
+                <Label Content="Anadir nuevo socio" Grid.Column="1" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="54" Margin="75,44,0,0" VerticalAlignment="Top" Width="384" FontSize="30" Grid.ColumnSpan="6" HorizontalContentAlignment="Center" Grid.RowSpan="2"/>
+                <TextBox x:Name ="txtNombreSocio" Style="{StaticResource TextBox1}" Text="Nombre completo"  GotFocus="LimpiarTextoNombre" LostFocus="RellenarTextoNombre" FontSize="14" Foreground="Gray" Margin="0,52,0,364" Height="36" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
+                <TextBox x:Name ="txtCorreoSocio" Style="{StaticResource TextBox1}" Text="Correo" GotFocus="LimpiarTextoCorreo" LostFocus="RellenarTextoCorreo" FontSize="14" Foreground="Gray" Margin="0,176,0,242" Height="34" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
+                <TextBox x:Name ="txtDniSocio" Style="{StaticResource TextBox1}" Text="DNI" FontSize="14" GotFocus="LimpiarTextoDNI" LostFocus="RellenarTextoDNI" Foreground="Gray" Margin="0,114,0,302" Height="36" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
+                <TextBox x:Name ="txtTelefonoSocio" Style="{StaticResource TextBox1}" Text="Telefono" FontSize="14" GotFocus="LimpiarTextoTelefono" LostFocus="RellenarTextoTelefono" Foreground="Gray" Margin="0,237,0,179" Height="36" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
+                <TextBox x:Name ="txtCuantiaSocio" Style="{StaticResource TextBox1}" Text="Cuantia de la ayuda" FontSize="14" GotFocus="LimpiarTextoCuantia" LostFocus="RellenarTextoCuantia" Foreground="Gray" Margin="0,301,0,115" Height="36" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1"  />
+                <TextBox x:Name ="txtDatosBanSocio" Style="{StaticResource TextBox1}" Text="Datos bancarios" FontSize="14" GotFocus="LimpiarTextoDatosBan" LostFocus="RellenarTextoDatosBan" Foreground="Gray" Margin="0,365,0,51" Height="36" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
+                <TextBox x:Name ="txtPagoSocio" Style="{StaticResource TextBox1}" Text="Forma de pago" FontSize="14" GotFocus="LimpiarTextoFormaPago" LostFocus="RellenarTextoFormaPago" Foreground="Gray" Margin="0,430,0,94" Height="36" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" />
 
-                <TextBox x:Name ="txtNombreSocio" Style="{StaticResource TextBox1}" Text="Nombre completo"  GotFocus="LimpiarTextoNombre" LostFocus="RellenarTextoNombre" FontSize="14" Foreground="Gray" Margin="0,0,0,279" Height="36" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
-                <TextBox x:Name ="txtCorreoSocio" Style="{StaticResource TextBox1}" Text="Correo" GotFocus="LimpiarTextoCorreo" LostFocus="RellenarTextoCorreo" FontSize="14" Foreground="Gray" Margin="0,82,0,199" Height="34" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
-                <TextBox x:Name ="txtDniSocio" Style="{StaticResource TextBox1}" Text="DNI" FontSize="14" GotFocus="LimpiarTextoDNI" LostFocus="RellenarTextoDNI" Foreground="Gray" Margin="0,41,0,238" Height="36" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
-                <TextBox x:Name ="txtTelefonoSocio" Style="{StaticResource TextBox1}" Text="Telefono" FontSize="14" GotFocus="LimpiarTextoTelefono" LostFocus="RellenarTextoTelefono" Foreground="Gray" Margin="0,121,0,158" Height="36" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
-                <TextBox x:Name ="txtCuantiaSocio" Style="{StaticResource TextBox1}" Text="Cuantia de la ayuda" FontSize="14" GotFocus="LimpiarTextoCuantia" LostFocus="RellenarTextoCuantia" Foreground="Gray" Margin="0,162,0,117" Height="36" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1"  />
-                <TextBox x:Name ="txtDatosBanSocio" Style="{StaticResource TextBox1}" Text="Datos bancarios" FontSize="14" GotFocus="LimpiarTextoDatosBan" LostFocus="RellenarTextoDatosBan" Foreground="Gray" Margin="0,203,0,76" Height="36" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
-                <TextBox x:Name ="txtPagoSocio" Style="{StaticResource TextBox1}" Text="Forma de pago" FontSize="14" GotFocus="LimpiarTextoFormaPago" LostFocus="RellenarTextoFormaPago" Foreground="Gray" Margin="0,244,0,35" Height="36" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
+                <TextBox x:Name ="txtImagenSocioNuevo" Style="{StaticResource TextBox1}" Text="Imagen" GotFocus="LimpiarTextoImagen" LostFocus="RellenarTextoImagen" FontSize="14" Foreground="Gray" Margin="0,43,0,31" RenderTransformOrigin="0.5,0.5" Width="Auto" Height="34" Grid.ColumnSpan="3" VerticalAlignment="Center" Grid.Column="2" Grid.Row="2" />
 
-                <TextBox x:Name ="txtImagenSocioNuevo" Style="{StaticResource TextBox1}" Text="Imagen" GotFocus="LimpiarTextoImagen" LostFocus="RellenarTextoImagen" FontSize="14" Foreground="Gray" Margin="0,285,0,71" RenderTransformOrigin="0.5,0.5" Width="Auto" Height="34" Grid.ColumnSpan="3" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" />
+                <Label x:Name="lblNombre" Content="Nombre completo:" Grid.Column="2" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" VerticalAlignment="Top" Width="144" FontSize="12" Visibility="Hidden" RenderTransformOrigin="-1.471,0.6" Grid.Row="1" Margin="0,27,0,0" Grid.ColumnSpan="2"/>
+                <Label x:Name="lblDni" Content="DNI:" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,88,0,0" VerticalAlignment="Top" Width="68" FontSize="12" Visibility="Hidden" Grid.Row="1" Grid.Column="2"/>
+                <Label x:Name="lblCorreo" Content="Correo:" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,150,0,0" VerticalAlignment="Top" Width="68" FontSize="12" Visibility="Hidden" Grid.Row="1" Grid.Column="2" RenderTransformOrigin="0.471,-0.24"/>
+                <Label x:Name="lblTelefono" Content="Telefono:" Grid.Column="2" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,211,0,0" VerticalAlignment="Top" Width="78" FontSize="12" Visibility="Hidden" Grid.Row="1"/>
+                <Label x:Name="lblCuantia" Content="Cuantia de la ayuda:" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,275,0,0" VerticalAlignment="Top" Width="147" FontSize="12" Visibility="Hidden" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2"/>
+                <Label x:Name="lblDatosBan" Content="Datos bancarios:" Grid.Column="2" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="26" Margin="0,338,0,0" VerticalAlignment="Top" Width="115" FontSize="12" Visibility="Hidden" Grid.Row="1"/>
+                <Label x:Name="lblFormaPago" Content="Forma de pago:" Grid.Column="2" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="26" Margin="0,403,0,0" VerticalAlignment="Top" Width="115" FontSize="12" Visibility="Hidden" Grid.Row="1"/>
+                <Label x:Name="lblImagen" Content="Imagen:" Grid.Column="2" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,15,0,0" VerticalAlignment="Top" Width="93" FontSize="12" Visibility="Hidden" Grid.Row="2"/>
 
+                <Button x:Name ="nuevoSocio" Style ="{StaticResource EstiloBotonMediano}" Content="Añadir nuevo socio" Margin="23,52,0,0" Width="250" Click="NuevoSocio_Click" Grid.ColumnSpan="4" Grid.Column="2" Grid.Row="3" Grid.RowSpan="2" />
+                <Button x:Name ="btnImagen" Style ="{StaticResource EstiloBotonLargo}" FontSize="14" Content="Buscar" Margin="10,42,0,0" Width="108" Height="35" Click="BtnImagen_Click" Grid.Column="5" Grid.Row="2" />
 
+                <Label x:Name="errorDatos" Content="Los datos introducidos son incorrectos" Visibility="Hidden" HorizontalAlignment="Center" Height="30" Margin="75,0,100,56" VerticalAlignment="Center" Width="362" Grid.Row="3" Background="#00000000" FontSize="15" Foreground="#FFE00D0D" FontWeight="Normal" Grid.Column="1" Grid.ColumnSpan="6" HorizontalContentAlignment="Center"/>
 
-                <Button x:Name ="nuevoSocio" Style ="{StaticResource EstiloBotonMediano}" Content="Añadir nuevo socio" Margin="23,2,0,0" Width="250" Click="NuevoSocio_Click" Grid.ColumnSpan="4" Grid.Column="2" Grid.Row="3" />
-                <Button x:Name ="btnImagen" Style ="{StaticResource EstiloBotonLargo}" FontSize="14" Content="Buscar" Margin="14,285,0,0" Width="108" Height="35" Click="BtnImagen_Click" Grid.Column="5" Grid.Row="1" Grid.RowSpan="2" />
 
             </Grid>
         </Border>
