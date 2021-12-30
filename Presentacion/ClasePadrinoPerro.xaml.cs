@@ -76,13 +76,8 @@ namespace Protectora.Presentacion
         {
             try
             {
-                bool existe = true;
-                int idPadrino;
-                if (padrino == null)
-                {
-                    padrino = new Padrino();
-                    existe = false;
-                }
+                padrino = new Padrino();
+                padrino.Id = perro.Apadrinado;
                 padrino.NombreCompleto = txtNombrePadrino.Text;
                 padrino.Dni = txtDniPadrino.Text;
                 padrino.Correo = txtCorreoPadrino.Text;
@@ -91,13 +86,13 @@ namespace Protectora.Presentacion
                 padrino.ImporteMensual = Int32.Parse(txtImportePadrino.Text);
                 padrino.FormaPago = txtPagoPadrino.Text;
                 padrino.FechaEntrada = DateTime.Parse(txtComienzoPadrino.Text);
-                if (existe == true)
+                if (perro.Apadrinado!=0)
                 {
                     GestorPersona.modificarPadrino(padrino, perro);
                 }
                 else
                 {
-                    idPadrino = GestorPersona.addPadrino(padrino, perro);
+                    int idPadrino = GestorPersona.addPadrino(padrino, perro);
                     perro.Apadrinado = idPadrino;
                     GestorAnimal.modificarPerro(perro);
                 }

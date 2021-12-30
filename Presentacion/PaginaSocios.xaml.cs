@@ -79,6 +79,7 @@ namespace Protectora.Presentacion
                     TextBoxDatosBanSocio.Text = "";
                     TextBoxPagoSocio.Text = "";
 
+<<<<<<<<< Temporary merge branch 1
                     //string str = obtenerPath() + @"/fotosPersonas/default.jpg";
                     ////string str = @"../fotosPersonas/default.jpg";
                     //BitmapImage bitmap = new BitmapImage();
@@ -88,7 +89,11 @@ namespace Protectora.Presentacion
                     //bitmap.EndInit();
                     BitmapImage bmi = new BitmapImage(new Uri("pack://application:,,,/recursos/default.png"));
                     ProfileImageSocio.Source = bmi;
-
+                    btnAnteriorSocio.IsEnabled = false;
+                    btnNextSocio.IsEnabled = false;
+                    btnEditSocio.IsEnabled = false;
+                    btnDeleteSocio.IsEnabled = false;
+>>>>>>>>> Temporary merge branch 2
                 }
                 catch (Exception ex)
                 {
