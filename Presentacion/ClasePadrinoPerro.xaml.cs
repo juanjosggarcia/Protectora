@@ -8,10 +8,12 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TextBox = System.Windows.Controls.TextBox;
 
 namespace Protectora.Presentacion
 {
@@ -70,6 +72,32 @@ namespace Protectora.Presentacion
             txtImportePadrino.IsEnabled = true;
             txtPagoPadrino.IsEnabled = true;
             txtComienzoPadrino.IsEnabled = true;
+        }
+
+        private void eliminarPadrino()
+        {
+            string message = "¿Estas seguro que quieres eliminar el padrino seleccionado?";
+            string caption = "Eliminación de padrino";
+            MessageBoxButton buttons = MessageBoxButton.YesNo;
+            DialogResult result;
+
+            result = (DialogResult)System.Windows.MessageBox.Show(message, caption, buttons);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                try
+                {
+                    if (padrino != null)
+                    {
+                        GestorPersona.eliminarPadrino(padrino);
+                        padrino = null;
+                        mostrarPadrino();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ELog.save(this, ex);
+                }
+            }
         }
 
         private void BtnPdrino_Click(object sender, RoutedEventArgs e)
