@@ -171,7 +171,6 @@ namespace Protectora.Presentacion
                     {
                         foreach (Voluntario voluntari in voluntarios)
                         {
-                            voluntari.Foto = "default.jpg";
                             ListViewVoluntarios.Items.Add(voluntari);
                         }
                     }

@@ -119,7 +119,6 @@ namespace Protectora.Presentacion
                 }
             }
 
-
         }
         private void BtnEditPerro_Click(object sender, RoutedEventArgs e)
         {
@@ -204,6 +203,7 @@ namespace Protectora.Presentacion
                 BtnPdrino.ToolTip = "Datos del padrino del perro";
                 DesactivarTextBoxs();
                 ListViewPerros.SelectedItem = ListViewPerros.Items[ListViewPerros.SelectedIndex];
+                BtnPdrino.IsEnabled = false;
             }
         }
         private void btnBuscarPerro_Click(object sender, RoutedEventArgs e)
@@ -221,7 +221,6 @@ namespace Protectora.Presentacion
                     {
                         foreach (Perro perr in perros)
                         {
-                            perr.Foto = "default.jpg";
                             ListViewPerros.Items.Add(perr);
                         }
                     }

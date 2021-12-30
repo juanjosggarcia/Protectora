@@ -199,7 +199,6 @@ namespace Protectora.Presentacion
                     {
                         foreach (Aviso avis in avisos)
                         {
-                            avis.Foto = "default.jpg";
                             ListViewPerrosPerdidos.Items.Add(avis);
                         }
                     }

@@ -24,7 +24,6 @@ namespace Protectora.Presentacion
 {
     public partial class PaginaSocios : Page
     {
-        //public List<Socio> listaSocio = new List<Socio>();
         public PaginaSocios()
         {
             InitializeComponent();
@@ -180,7 +179,6 @@ namespace Protectora.Presentacion
                 {
                     foreach (Socio soci in socios)
                     {
-                        soci.Foto = "default.jpg";
                         ListViewSocios.Items.Add(soci);
                     }
                 }
