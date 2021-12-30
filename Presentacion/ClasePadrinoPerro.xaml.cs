@@ -62,6 +62,7 @@ namespace Protectora.Presentacion
         {
             BtnAceptarCambios.Visibility = Visibility.Visible;
             BtnCancelarCambios.Visibility = Visibility.Visible;
+            BtnEliminar.Visibility = Visibility.Visible;
             BtnAceptarCambios.IsEnabled = true;
             BtnCancelarCambios.IsEnabled = true;
             txtNombrePadrino.IsEnabled = true;
@@ -191,5 +192,9 @@ namespace Protectora.Presentacion
             errorImporte.Visibility = Visibility.Hidden;
         }
 
+        private void BtnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

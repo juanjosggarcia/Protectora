@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Protectora.Presentacion"
         Icon="/recursos/pawprint.ico"
         Title="Dueño" Height="462" Width="649"
+        MaxHeight="462" MaxWidth="649"
         WindowStartupLocation="CenterScreen">
 
     <Window.Background>

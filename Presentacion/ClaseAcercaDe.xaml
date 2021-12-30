@@ -7,15 +7,17 @@
         mc:Ignorable="d"
         Title="Acerca De" 
         Height="900" Width="1800"
-        Icon="/recursos/pawprint.ico"
+        MaxHeight="920" MaxWidth="1800"
+        WindowState="Maximized"
         WindowStartupLocation="CenterScreen"
-        ResizeMode="NoResize">
+        ResizeMode="CanResize">
 
     <Window.Background>
         <ImageBrush ImageSource="/recursos/fondo22.jpg"/>
     </Window.Background>
 
-    <Grid x:Name="GridMain">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid x:Name="GridMain">
         <Grid.RowDefinitions>
             <RowDefinition Height="205*"/>
             <RowDefinition Height="115*"/>
@@ -91,4 +93,5 @@
         <Label x:Name="especificaciones" Content="{DynamicResource specs}" Grid.Column="3" HorizontalAlignment="Center"  FontSize="50" VerticalAlignment="Center" Width="366" Height="70" Margin="143,105,101,30" FontFamily="HP Simplified"/>
 
     </Grid>
+        </ScrollViewer>
 </Window>

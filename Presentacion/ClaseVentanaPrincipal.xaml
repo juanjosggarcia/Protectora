@@ -5,10 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Protectora.Presentacion"
         mc:Ignorable="d"
-       Title="Pantalla Principal"  Height="900" Width="1800"
+        Title="Pantalla Principal"
         Icon="/recursos/pawprint.ico"
+        Height="900" Width="1800"
+        MaxHeight="900" MaxWidth="1800"
+        WindowState="Maximized"
         WindowStartupLocation="CenterScreen"
-        ResizeMode="NoResize">
+        ResizeMode="CanResize">
 
     <Window.Resources>
         <Storyboard x:Key="OpenMenu">
@@ -38,104 +41,105 @@
         <ImageBrush ImageSource="/recursos/fondo21.jpg"/>
     </Window.Background>
 
-
-    <Grid RenderTransformOrigin="0.517,0.515" Margin="0,0,4,0">
-
-
-        <Grid x:Name="GridMain" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="869" Width="1710" Margin="0,0,-5,0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="63*"/>
-                <RowDefinition Height="806*"/>
-            </Grid.RowDefinitions>
-            <Border BorderBrush="#D4B8B0" Background="#D4B8B0" BorderThickness="4" CornerRadius="0,0,20,20" Margin="0,-3,0,0" >
-                <Label x:Name="Titulo" Content="Gestion de perros" Margin="626,-4,651,-9" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="35" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            </Border>
-            <Label x:Name ="lblFinalSesion" Content="Ultimo inicio de sesión:" HorizontalAlignment="Left" Height="35" Margin="1295,20,0,0" VerticalAlignment="Top" Width="195" FontSize="18" RenderTransformOrigin="0.324,0.103"/>
-            <Label x:Name ="lblFinalFechaSesion" Content="16 de noviembre 18:35" HorizontalAlignment="Left" Height="35" Margin="1485,20,0,0" VerticalAlignment="Top" Width="195" FontSize="18" RenderTransformOrigin="0.324,0.103"/>
-
-            <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Grid.Row="1"/>
-
-        </Grid>
-        <Grid x:Name="GridMenu" Width="80" HorizontalAlignment="Left" Background="#E2CFCA">
-            <Grid.Effect>
-                <DropShadowEffect BlurRadius="2" ShadowDepth="1" Color="#FFAEAEAE"/>
-            </Grid.Effect>
-            <StackPanel>
-                <Grid Height="150" Background="White" RenderTransformOrigin="0.5,0.5">
-                    <Grid.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </Grid.RenderTransform>
-                    <Button x:Name="ButtonOpenMenu"  Style="{StaticResource EstiloBotonVolver}" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Top"   Click="ButtonOpenMenu_Click" ToolTip="Abrir menu">
-                        <StackPanel>
-                            <Image Source="/Protectora;component/recursos/menu.png" Width="27" Height="33"/>
-                        </StackPanel>
-                    </Button>
-                    <Button x:Name="ButtonCloseMenu" Visibility="Collapsed" Style="{StaticResource EstiloBotonVolver}" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top" Click="ButtonCloseMenu_Click" ToolTip="Cerrar menu">
-                        <StackPanel>
-                            <Image Source="/Protectora;component/recursos/left-chevron.png" Width="27" Height="33"/>
-                        </StackPanel>
-                    </Button>
-
-                    <Image Height="85" VerticalAlignment="Bottom"/>
-
-                </Grid>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid RenderTransformOrigin="0.517,0.515" Margin="0,0,4,0">
 
 
-                <ListView x:Name="ListViewMenu" Foreground="Black" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListViewMenu_SelectionChanged" HorizontalAlignment="Left" VerticalAlignment="Center" >
-                   
-                    <ListViewItem x:Name="ItemPerros" Height="60" Style="{StaticResource Style2}" >
-                        <Button x:Name="BotonListPerro" BorderBrush="white" Background="White" Click="BotonListPerro_Click" Height="43" HorizontalAlignment="Left" Style="{StaticResource EstiloBotonLista}" ToolTip="Gestion de perros">
-                            <StackPanel Orientation="Horizontal">
-                                <Image Source="/Protectora;component/recursos/dog.png" Width="58" Height="34" />
-                                <TextBlock Text="Gestion de perros" FontSize="16" VerticalAlignment="Center"  Margin="20 10"/>
+            <Grid x:Name="GridMain" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="869" Width="1710" Margin="0,0,-5,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="63*"/>
+                    <RowDefinition Height="806*"/>
+                </Grid.RowDefinitions>
+                <Border BorderBrush="#D4B8B0" Background="#D4B8B0" BorderThickness="4" CornerRadius="0,0,20,20" Margin="0,-3,0,0" >
+                    <Label x:Name="Titulo" Content="Gestion de perros" Margin="626,-4,651,-9" FontFamily="Lucida Sans Unicode" FontWeight="Bold" FontSize="35" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Border>
+                <Label x:Name ="lblFinalSesion" Content="Ultimo inicio de sesión:" HorizontalAlignment="Left" Height="35" Margin="1295,20,0,0" VerticalAlignment="Top" Width="195" FontSize="18" RenderTransformOrigin="0.324,0.103"/>
+                <Label x:Name ="lblFinalFechaSesion" Content="16 de noviembre 18:35" HorizontalAlignment="Left" Height="35" Margin="1485,20,0,0" VerticalAlignment="Top" Width="195" FontSize="18" RenderTransformOrigin="0.324,0.103"/>
+
+                <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Grid.Row="1"/>
+
+            </Grid>
+            <Grid x:Name="GridMenu" Width="80" HorizontalAlignment="Left" Background="#E2CFCA">
+                <Grid.Effect>
+                    <DropShadowEffect BlurRadius="2" ShadowDepth="1" Color="#FFAEAEAE"/>
+                </Grid.Effect>
+                <StackPanel>
+                    <Grid Height="150" Background="White" RenderTransformOrigin="0.5,0.5">
+                        <Grid.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Grid.RenderTransform>
+                        <Button x:Name="ButtonOpenMenu"  Style="{StaticResource EstiloBotonVolver}" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Top"   Click="ButtonOpenMenu_Click" ToolTip="Abrir menu">
+                            <StackPanel>
+                                <Image Source="/Protectora;component/recursos/menu.png" Width="27" Height="33"/>
                             </StackPanel>
                         </Button>
-                    </ListViewItem>
-                    <ListViewItem x:Name="ItemSocios" Height="60" Style="{StaticResource Style2}">
-                        <Button x:Name="BotonListSocios" Style="{StaticResource EstiloBotonLista}" Click="BotonListSocio_Click" ToolTip="Gestion de socios">
-                            <StackPanel Orientation="Horizontal">
-                                <Image Source="/Protectora;component/recursos/socios.png" Width="58" Height="34" />
-                                <TextBlock Text="Voluntarios de la protectora" FontSize="16" VerticalAlignment="Center" Margin="20 10"/>
+                        <Button x:Name="ButtonCloseMenu" Visibility="Collapsed" Style="{StaticResource EstiloBotonVolver}" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top" Click="ButtonCloseMenu_Click" ToolTip="Cerrar menu">
+                            <StackPanel>
+                                <Image Source="/Protectora;component/recursos/left-chevron.png" Width="27" Height="33"/>
                             </StackPanel>
                         </Button>
-                    </ListViewItem>
 
-                    <ListViewItem x:Name="ItemVoluntario" Height="60" Style="{StaticResource Style2}" >
-                        <Button x:Name="BotonListVoluntarios" Style="{StaticResource EstiloBotonLista}" Click="BotonListVoluntario_Click" HorizontalAlignment="Left" ToolTip="Gestion de voluntarios">
-                            <StackPanel Orientation="Horizontal">
-                                <Image Source="/Protectora;component/recursos/caridad.png" Width="58" Height="34"  />
-                                <TextBlock Text="Gestión de los socios" FontSize="16" VerticalAlignment="Center"  Margin="20 10"/>
-                            </StackPanel>
-                        </Button>
-                    </ListViewItem>
+                        <Image Height="85" VerticalAlignment="Bottom"/>
 
-                    <ListViewItem x:Name="ItemAvisos" Height="60" Style="{StaticResource Style2}" >
-                        <Button x:Name="BotonListAvisos" Style="{StaticResource EstiloBotonLista}" Click="BotonListAvisos_Click"  ToolTip="Gestion de avisos">
-                            <StackPanel Orientation="Horizontal">
-                                <Image Source="/Protectora;component/recursos/alert.png" Width="58" Height="34" />
-                                <TextBlock Text="Avisos de perros perdidos" FontSize="16" VerticalAlignment="Center"  Margin="20 10"/>
-                            </StackPanel>
-                        </Button>
-                    </ListViewItem>
-                </ListView>
+                    </Grid>
 
-            </StackPanel>
 
-            <Button x:Name="BtnCerrarSesion" HorizontalAlignment="Right" Style="{StaticResource EstiloBotonMediano2}" Click="BtnCerrarSesion_Click" Margin="0,803,0,0" ToolTip="Cerrar la sesión actual" Width="80">
-                <StackPanel Orientation="Horizontal">
-                    <Image Source="/Protectora;component/recursos/log-out.png" Width="58" Height="34" />
+                    <ListView x:Name="ListViewMenu" Foreground="Black" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListViewMenu_SelectionChanged" HorizontalAlignment="Left" VerticalAlignment="Center" >
+
+                        <ListViewItem x:Name="ItemPerros" Height="60" Style="{StaticResource Style2}" >
+                            <Button x:Name="BotonListPerro" BorderBrush="white" Background="White" Click="BotonListPerro_Click" Height="43" HorizontalAlignment="Left" Style="{StaticResource EstiloBotonLista}" ToolTip="Gestion de perros">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="/Protectora;component/recursos/dog.png" Width="58" Height="34" />
+                                    <TextBlock Text="Gestion de perros" FontSize="16" VerticalAlignment="Center"  Margin="20 10"/>
+                                </StackPanel>
+                            </Button>
+                        </ListViewItem>
+                        <ListViewItem x:Name="ItemSocios" Height="60" Style="{StaticResource Style2}">
+                            <Button x:Name="BotonListSocios" Style="{StaticResource EstiloBotonLista}" Click="BotonListSocio_Click" ToolTip="Gestion de socios">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="/Protectora;component/recursos/socios.png" Width="58" Height="34" />
+                                    <TextBlock Text="Voluntarios de la protectora" FontSize="16" VerticalAlignment="Center" Margin="20 10"/>
+                                </StackPanel>
+                            </Button>
+                        </ListViewItem>
+
+                        <ListViewItem x:Name="ItemVoluntario" Height="60" Style="{StaticResource Style2}" >
+                            <Button x:Name="BotonListVoluntarios" Style="{StaticResource EstiloBotonLista}" Click="BotonListVoluntario_Click" HorizontalAlignment="Left" ToolTip="Gestion de voluntarios">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="/Protectora;component/recursos/caridad.png" Width="58" Height="34"  />
+                                    <TextBlock Text="Gestión de los socios" FontSize="16" VerticalAlignment="Center"  Margin="20 10"/>
+                                </StackPanel>
+                            </Button>
+                        </ListViewItem>
+
+                        <ListViewItem x:Name="ItemAvisos" Height="60" Style="{StaticResource Style2}" >
+                            <Button x:Name="BotonListAvisos" Style="{StaticResource EstiloBotonLista}" Click="BotonListAvisos_Click"  ToolTip="Gestion de avisos">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="/Protectora;component/recursos/alert.png" Width="58" Height="34" />
+                                    <TextBlock Text="Avisos de perros perdidos" FontSize="16" VerticalAlignment="Center"  Margin="20 10"/>
+                                </StackPanel>
+                            </Button>
+                        </ListViewItem>
+                    </ListView>
+
                 </StackPanel>
-            </Button>
 
+                <Button x:Name="BtnCerrarSesion" HorizontalAlignment="Right" Style="{StaticResource EstiloBotonMediano2}" Click="BtnCerrarSesion_Click" Margin="0,803,0,0" ToolTip="Cerrar la sesión actual" Width="80">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Protectora;component/recursos/log-out.png" Width="58" Height="34" />
+                    </StackPanel>
+                </Button>
+
+
+            </Grid>
+            <StackPanel HorizontalAlignment="Left" Height="100" Margin="1170,515,0,0" VerticalAlignment="Top" Width="100"/>
 
         </Grid>
-        <StackPanel HorizontalAlignment="Left" Height="100" Margin="1170,515,0,0" VerticalAlignment="Top" Width="100"/>
-
-    </Grid>
+    </ScrollViewer>
 
 </Window>

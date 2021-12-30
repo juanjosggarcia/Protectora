@@ -6,99 +6,105 @@
         xmlns:local="clr-namespace:Protectora.Presentacion"
         Icon="/recursos/pawprint.ico"
         mc:Ignorable="d"
-        Title="BotonAniadir" Height="956" Width="1041"
+        Title="Añadir perro" 
+        Height="956" Width="1041"
+        MaxHeight="956" MaxWidth="1041"
+        WindowState="Maximized"
         WindowStartupLocation="CenterScreen"
-        ResizeMode="NoResize">
+        ResizeMode="CanResize"
+        >
 
     <Window.Background>
         <ImageBrush ImageSource="/recursos/botonAnadir.jpg"/>
     </Window.Background>
 
-    <Grid Margin="0,0,4,0" Height="891" VerticalAlignment="Top">
-        <Border BorderBrush="white" Background="#FAF9F7" BorderThickness="3" CornerRadius="25" Margin="85,45,85,0" Height="846" VerticalAlignment="Top">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="57*"/>
-                    <RowDefinition Height="395*"/>
-                    <RowDefinition Height="80*"/>
-                    <RowDefinition Height="175*"/>
-                    <RowDefinition Height="40*"/>
-                    <RowDefinition Height="70*"/>
-                    <RowDefinition Height="23*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="127*"/>
-                    <ColumnDefinition Width="135*"/>
-                    <ColumnDefinition Width="135*"/>
-                    <ColumnDefinition Width="30*"/>
-                    <ColumnDefinition Width="30*"/>
-                    <ColumnDefinition Width="130*"/>
-                    <ColumnDefinition Width="140*"/>
-                    <ColumnDefinition Width="128*"/>
-                </Grid.ColumnDefinitions>
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="0,0,4,0" Height="891" VerticalAlignment="Top">
+            <Border BorderBrush="white" Background="#FAF9F7" BorderThickness="3" CornerRadius="25" Margin="85,45,85,0" Height="846" VerticalAlignment="Top">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="57*"/>
+                        <RowDefinition Height="395*"/>
+                        <RowDefinition Height="80*"/>
+                        <RowDefinition Height="175*"/>
+                        <RowDefinition Height="40*"/>
+                        <RowDefinition Height="70*"/>
+                        <RowDefinition Height="23*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="127*"/>
+                        <ColumnDefinition Width="135*"/>
+                        <ColumnDefinition Width="135*"/>
+                        <ColumnDefinition Width="30*"/>
+                        <ColumnDefinition Width="30*"/>
+                        <ColumnDefinition Width="130*"/>
+                        <ColumnDefinition Width="140*"/>
+                        <ColumnDefinition Width="128*"/>
+                    </Grid.ColumnDefinitions>
 
-                <Label Content="Anadir nuevo perro" Grid.Column="2" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="54" Margin="0,37,0,0" VerticalAlignment="Top" Width="325" FontSize="30" Grid.ColumnSpan="4" Grid.RowSpan="2" HorizontalContentAlignment="Center"/>
+                    <Label Content="Anadir nuevo perro" Grid.Column="2" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="54" Margin="0,37,0,0" VerticalAlignment="Top" Width="325" FontSize="30" Grid.ColumnSpan="4" Grid.RowSpan="2" HorizontalContentAlignment="Center"/>
 
-                <Label x:Name="errorDatos" Content="Los datos introducidos son incorrectos" Visibility="Hidden" HorizontalAlignment="Center" Height="30" Margin="109,10,129,0" VerticalAlignment="Center" Width="362" Grid.Row="4" Background="#00000000" FontSize="15" Foreground="#FFE00D0D" FontWeight="Normal" Grid.Column="1" Grid.ColumnSpan="6" HorizontalContentAlignment="Center"/>
-
-
-                <RadioButton x:Name="btnPadrinoRedondo" Content="Padrino" HorizontalAlignment="Left" Height="30" Margin="10,365,0,0" VerticalAlignment="Top" Width="240" FontSize="15" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="1"/>
-
-                <TextBox x:Name ="txtNombrePerro" Style="{StaticResource TextBox1}" Text="Nombre"  GotFocus="LimpiarTextoNombre" LostFocus="RellenarTextoNombre" FontSize="14" Foreground="Gray" Margin="0,59,1,301" Height="35" Width="Auto" Grid.ColumnSpan="2" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" />
-                <TextBox x:Name ="txtSexoPerro" Style="{StaticResource TextBox1}" Text="Sexo" GotFocus="LimpiarTextoSexo" LostFocus="RellenarTextoSexo" FontSize="14" Foreground="Gray" Margin="0,119,1,241" Height="35" Width="Auto" Grid.ColumnSpan="2" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" />
-                <TextBox x:Name ="txtTamanioPerro" Style="{StaticResource TextBox1}" Text="Tamaño" FontSize="14" GotFocus="LimpiarTextoTamanio" LostFocus="RellenarTextoTamanio" Foreground="Gray" Margin="0,179,1,181" Height="35" Width="Auto" Grid.ColumnSpan="2" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" />
-                <TextBox x:Name ="txtEstadoPerro" Style="{StaticResource TextBox1}" Text="Estado" FontSize="14" GotFocus="LimpiarTextoEstado" LostFocus="RellenarTextoEstado" Foreground="Gray" Margin="0,239,1,121" Height="35" Width="Auto" Grid.ColumnSpan="2" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" />
-                <TextBox x:Name ="txtEdadPerro" Style="{StaticResource TextBox1}" Text="Edad" FontSize="14" GotFocus="LimpiarTextoEdad" LostFocus="RellenarTextoEdad" Foreground="Gray" Margin="0,301,1,59" Height="35" Width="Auto" Grid.ColumnSpan="2" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1"  />
-                <TextBox x:Name ="txtPesoPerro" Style="{StaticResource TextBox1}" Text="Peso" FontSize="14" GotFocus="LimpiarTextoPeso" LostFocus="RellenarTextoPeso" Foreground="Gray" Margin="0,59,0,301" Height="35" Width="Auto" Grid.ColumnSpan="2" VerticalAlignment="Center" Grid.Column="5" Grid.Row="1" />
-                <TextBox x:Name ="txtRazaPerro" Style="{StaticResource TextBox1}" Text="Raza" FontSize="14"  GotFocus="LimpiarTextoRaza" LostFocus="RellenarTextoRaza" Foreground="Gray" Margin="0,119,0,241" Height="35" Width="Auto" Grid.ColumnSpan="2" VerticalAlignment="Center" Grid.Column="5" Grid.Row="1" />
-                <DatePicker x:Name="dateEntradaPerro" LostFocus="LimpiarTextoFecha" GotFocus="PulsarFechaEntrada"  HorizontalAlignment="Left" Margin="0,178,0,0" VerticalAlignment="Top" Height="36" Width="267" Padding="2,4,2,2" FontSize="14" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="1" Style="{DynamicResource DatePickerStyle1}"/>
-                <TextBox x:Name ="txtDescripcionPerro" Style="{StaticResource TextBox1}" Text="Descripción" GotFocus="LimpiarTextoDescripcion" LostFocus="RellenarTextoDescripcion" FontSize="14" Foreground="Gray" Margin="0,239,0,121" Height="35" Width="Auto" Grid.ColumnSpan="2" VerticalAlignment="Center" Grid.Column="5" Grid.Row="1" />
-                <TextBox x:Name ="txtImagenPerroNuevo" Style="{StaticResource TextBox1}" Text="Imagen" GotFocus="LimpiarTextoImagen" LostFocus="RellenarTextoImagen" FontSize="14" Foreground="Gray" Margin="0,301,105,59" RenderTransformOrigin="0.5,0.5" Width="Auto" Height="35" Grid.ColumnSpan="2" VerticalAlignment="Center" Grid.Column="5" Grid.Row="1" />
+                    <Label x:Name="errorDatos" Content="Los datos introducidos son incorrectos" Visibility="Hidden" HorizontalAlignment="Center" Height="30" Margin="109,10,129,0" VerticalAlignment="Center" Width="362" Grid.Row="4" Background="#00000000" FontSize="15" Foreground="#FFE00D0D" FontWeight="Normal" Grid.Column="1" Grid.ColumnSpan="6" HorizontalContentAlignment="Center"/>
 
 
-                <TextBox x:Name ="txtNombrePadrino" Style="{StaticResource TextBox1}" GotFocus="LimpiarNombrePadrino" LostFocus="RellenarNombrePadrino" Text="Nombre del padrino"  FontSize="14" Foreground="Gray" Margin="126,35,1,10" IsEnabled="{Binding IsChecked, ElementName=btnPadrinoRedondo}" Height="35" Width="Auto" VerticalAlignment="Center" Grid.ColumnSpan="3" Grid.Row="2"/>
-                <TextBox x:Name ="txtDniPadrino" Style="{StaticResource TextBox1}" GotFocus="LimpiarDniPadrino" LostFocus="RellenarDniPadrino" Text="DNI"  FontSize="14" Foreground="Gray" Margin="0,15,0,125" IsEnabled="{Binding IsChecked, ElementName=btnPadrinoRedondo}" Height="35" Width="Auto" VerticalAlignment="Center" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="3"/>
-                <TextBox x:Name ="txtCorreoPadrino" Style="{StaticResource TextBox1}" GotFocus="LimpiarCorreoPadrino" LostFocus="RellenarCorreoPadrino" Text="Correo"  FontSize="14" Foreground="Gray" Margin="0,75,0,65" IsEnabled="{Binding IsChecked, ElementName=btnPadrinoRedondo}" Height="35" Width="Auto" VerticalAlignment="Center" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="3"/>
-                <TextBox x:Name ="txtTelefonoPadrino" Style="{StaticResource TextBox1}" GotFocus="LimpiarTelefonoPadrino" LostFocus="RellenarTelefonoPadrino" Text="Telefono"  FontSize="14" Foreground="Gray" Margin="0,135,0,5" IsEnabled="{Binding IsChecked, ElementName=btnPadrinoRedondo}" Height="35" Width="Auto" VerticalAlignment="Center" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="3"/>
-                <TextBox x:Name ="txtDatosPadrino" Style="{StaticResource TextBox1}" GotFocus="LimpiarDatosPadrino" LostFocus="RellenarDatosPadrino" Text="Datos bancarios"  FontSize="14" Foreground="Gray" Margin="0,36,0,10" IsEnabled="{Binding IsChecked, ElementName=btnPadrinoRedondo}" Height="34" Grid.Column="5" Width="Auto" VerticalAlignment="Center" Grid.ColumnSpan="2" Grid.Row="2"/>
-                <TextBox x:Name ="txtImportePadrino" Style="{StaticResource TextBox1}" GotFocus="LimpiarImportePadrino" LostFocus="RellenarImportePadrino" Text="Importe mensual"  FontSize="14" Foreground="Gray" Margin="0,15,0,125" IsEnabled="{Binding IsChecked, ElementName=btnPadrinoRedondo}" Height="35" Grid.Column="5" Width="Auto" VerticalAlignment="Center" Grid.ColumnSpan="2" Grid.Row="3"/>
-                <TextBox x:Name ="txtFormaPagoPadrino" Style="{StaticResource TextBox1}" GotFocus="LimpiarFormaPagoPadrino" LostFocus="RellenarFormaPagoPadrino" Text="Forma de pago"  FontSize="14" Foreground="Gray" Margin="0,75,0,65" IsEnabled="{Binding IsChecked, ElementName=btnPadrinoRedondo}" Height="35" Grid.Column="5" Width="Auto" VerticalAlignment="Center" Grid.ColumnSpan="2" Grid.Row="3"/>
-                <DatePicker GotFocus="PulsarFechaComienzo" LostFocus="LimpiarTextoFechaComienzo" x:Name="dateComienzoPadrino" IsEnabled="{Binding IsChecked, ElementName=btnPadrinoRedondo}" HorizontalAlignment="Left" Margin="0,135,0,0" VerticalAlignment="Top" Height="35" Width="267" Padding="2,4,2,2" FontSize="14" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="3" Style="{DynamicResource DatePickerStyle1}"/>
+                    <RadioButton x:Name="btnPadrinoRedondo" Content="Padrino" HorizontalAlignment="Left" Height="30" Margin="10,365,0,0" VerticalAlignment="Top" Width="240" FontSize="15" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="1"/>
 
-                <Button x:Name ="nuevoPerro" Style ="{StaticResource EstiloBotonMediano}" Content="Añadir nuevo perro" Margin="40,12,0,0" Width="250" Click="NuevoPerro_Click" Grid.ColumnSpan="4" Grid.Column="2" Grid.Row="5" />
-                <Button x:Name ="btnImagen" Style ="{StaticResource EstiloBotonLargo}" FontSize="14" Content="Buscar" Margin="40,301,0,0" Width="99" Height="35" Click="BtnImagen_Click" Grid.Column="6" Grid.Row="1" HorizontalAlignment="Left" />
-
-                <Label x:Name="lblNombre" Content="Nombre:" Grid.Column="1" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,34,0,0" VerticalAlignment="Top" Width="68" FontSize="12" Visibility="Hidden" RenderTransformOrigin="-1.471,0.6" Grid.Row="1"/>
-                <Label x:Name="lblSexo" Content="Sexo:" Grid.Column="1" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,94,0,0" VerticalAlignment="Top" Width="68" FontSize="12" Visibility="Hidden" Grid.Row="1"/>
-                <Label x:Name="lblTamanio" Content="Tamaño:" Grid.Column="1" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="1,154,0,0" VerticalAlignment="Top" Width="68" FontSize="12" Visibility="Hidden" Grid.Row="1"/>
-                <Label x:Name="lblEstado" Content="Estado:" Grid.Column="1" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="1,214,0,0" VerticalAlignment="Top" Width="68" FontSize="12" Visibility="Hidden" Grid.Row="1"/>
-                <Label x:Name="lblEdad" Content="Edad:" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="1,275,0,0" VerticalAlignment="Top" Width="68" FontSize="12" Visibility="Hidden" Grid.Row="1" RenderTransformOrigin="0.456,2.6" Grid.Column="1"/>
-                <Label x:Name="lblPeso" Content="Peso:" Grid.Column="5" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,34,0,0" VerticalAlignment="Top" Width="68" FontSize="12" Visibility="Hidden" Grid.Row="1"/>
-                <Label x:Name="lblRaza" Content="Raza:" Grid.Column="5" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,94,0,0" VerticalAlignment="Top" Width="68" FontSize="12" Visibility="Hidden" Grid.Row="1"/>
-                <Label x:Name="lblFechaEntrada" Content="Fecha de entrada:" LostFocus="LimpiarTextoFecha" Grid.Column="5" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,153,0,0" VerticalAlignment="Top" Width="120" Visibility="Hidden" FontSize="12" RenderTransformOrigin="-0.515,8.8" Grid.Row="1"/>
-                <Label x:Name="lblDescripcion" Content="Descripcion:" Grid.Column="5" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="3,214,0,0" VerticalAlignment="Top" Width="107" FontSize="12" Visibility="Hidden" Grid.Row="1"/>
-                <Label x:Name="lblImagen" Content="Imagen:" Grid.Column="5" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,276,0,0" VerticalAlignment="Top" Width="68" FontSize="12" Visibility="Hidden" Grid.Row="1"/>
-
-                <Label x:Name="lblNombrePadrino" Content="Nombre del padrino:" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="1,10,0,0" VerticalAlignment="Top" Width="140" FontSize="12" Visibility="Hidden" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="1"/>
-                <Label x:Name="lblDniPadrino" Content="DNI:" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="1,70,0,0" VerticalAlignment="Top" Width="140" FontSize="12" Visibility="Hidden" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="1" Grid.RowSpan="2"/>
-                <Label x:Name="lblCorreoPadrino" Content="Correo:" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="1,50,0,0" VerticalAlignment="Top" Width="140" FontSize="12" Visibility="Hidden" Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="1"/>
-                <Label x:Name="lblTelefonoPadrino" Content="Telefono:" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="1,110,0,0" VerticalAlignment="Top" Width="140" FontSize="12" Visibility="Hidden" Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="1"/>
-                <Label x:Name="lblDatosBanPadrino" Content="Datos bancarios:" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,11,0,0" VerticalAlignment="Top" Width="141" FontSize="12" Visibility="Hidden" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="5"/>
-                <Label x:Name="lblImportePadrino" Content="Importe mensual:" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,70,0,0" VerticalAlignment="Top" Width="140" FontSize="12" Visibility="Hidden" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="5" Grid.RowSpan="2"/>
-                <Label x:Name="lblFormaPagoPadrino" Content="Forma de pago:" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,50,0,0" VerticalAlignment="Top" Width="140" FontSize="12" Visibility="Hidden" Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="5"/>
-                <Label x:Name="lblFechaPadrino" Content="Comienzo de apadrinamiento:" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,110,0,0" VerticalAlignment="Top" Width="195" FontSize="12"  Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="5" Visibility="Hidden"/>
-
-                <Image x:Name="errorTamanio" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="22" Stretch="UniformToFill" Source="/recursos/remove2.png" Margin="8,185,0,0" Grid.Row="1" Grid.Column="3" Visibility="Hidden"/>
-                <Image x:Name="errorEdad" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="22" Stretch="UniformToFill" Source="/recursos/remove2.png" Margin="8,308,0,0" Grid.Column="3" Grid.Row="1" Visibility="Hidden"/>
-                <Image x:Name="errorPeso" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="22" Stretch="UniformToFill" Source="/recursos/remove2.png" Margin="10,65,0,0" Grid.Column="7" Grid.Row="1" Visibility="Hidden"/>
-                <Image x:Name="errorFecha" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="22" Stretch="UniformToFill" Source="/recursos/remove2.png" Margin="10,185,0,0" Grid.Column="7" Grid.Row="1" Visibility="Hidden"/>
-
-                <Image x:Name="errorImporte" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="22" Stretch="UniformToFill" Source="/recursos/remove2.png" Margin="10,23,0,0" Grid.Column="7" Grid.Row="3" Visibility="Hidden"/>
-                <Image x:Name="errorTelefono" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="22" Stretch="UniformToFill" Source="/recursos/remove2.png" Margin="8,143,0,0" Grid.Column="3" Grid.Row="3" Visibility="Hidden"/>
-                <Image x:Name="errorFechaPadrino" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="22" Stretch="UniformToFill" Source="/recursos/remove2.png" Margin="10,143,0,0" Grid.Column="7" Grid.Row="3" Visibility="Hidden"/>
+                    <TextBox x:Name ="txtNombrePerro" Style="{StaticResource TextBox1}" Text="Nombre"  GotFocus="LimpiarTextoNombre" LostFocus="RellenarTextoNombre" FontSize="14" Foreground="Gray" Margin="0,59,1,301" Height="35" Width="Auto" Grid.ColumnSpan="2" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" />
+                    <TextBox x:Name ="txtSexoPerro" Style="{StaticResource TextBox1}" Text="Sexo" GotFocus="LimpiarTextoSexo" LostFocus="RellenarTextoSexo" FontSize="14" Foreground="Gray" Margin="0,119,1,241" Height="35" Width="Auto" Grid.ColumnSpan="2" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" />
+                    <TextBox x:Name ="txtTamanioPerro" Style="{StaticResource TextBox1}" Text="Tamaño" FontSize="14" GotFocus="LimpiarTextoTamanio" LostFocus="RellenarTextoTamanio" Foreground="Gray" Margin="0,179,1,181" Height="35" Width="Auto" Grid.ColumnSpan="2" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" />
+                    <TextBox x:Name ="txtEstadoPerro" Style="{StaticResource TextBox1}" Text="Estado" FontSize="14" GotFocus="LimpiarTextoEstado" LostFocus="RellenarTextoEstado" Foreground="Gray" Margin="0,239,1,121" Height="35" Width="Auto" Grid.ColumnSpan="2" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" />
+                    <TextBox x:Name ="txtEdadPerro" Style="{StaticResource TextBox1}" Text="Edad" FontSize="14" GotFocus="LimpiarTextoEdad" LostFocus="RellenarTextoEdad" Foreground="Gray" Margin="0,301,1,59" Height="35" Width="Auto" Grid.ColumnSpan="2" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1"  />
+                    <TextBox x:Name ="txtPesoPerro" Style="{StaticResource TextBox1}" Text="Peso" FontSize="14" GotFocus="LimpiarTextoPeso" LostFocus="RellenarTextoPeso" Foreground="Gray" Margin="0,59,0,301" Height="35" Width="Auto" Grid.ColumnSpan="2" VerticalAlignment="Center" Grid.Column="5" Grid.Row="1" />
+                    <TextBox x:Name ="txtRazaPerro" Style="{StaticResource TextBox1}" Text="Raza" FontSize="14"  GotFocus="LimpiarTextoRaza" LostFocus="RellenarTextoRaza" Foreground="Gray" Margin="0,119,0,241" Height="35" Width="Auto" Grid.ColumnSpan="2" VerticalAlignment="Center" Grid.Column="5" Grid.Row="1" />
+                    <DatePicker x:Name="dateEntradaPerro" LostFocus="LimpiarTextoFecha" GotFocus="PulsarFechaEntrada"  HorizontalAlignment="Left" Margin="0,178,0,0" VerticalAlignment="Top" Height="36" Width="267" Padding="2,4,2,2" FontSize="14" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="1" Style="{DynamicResource DatePickerStyle1}"/>
+                    <TextBox x:Name ="txtDescripcionPerro" Style="{StaticResource TextBox1}" Text="Descripción" GotFocus="LimpiarTextoDescripcion" LostFocus="RellenarTextoDescripcion" FontSize="14" Foreground="Gray" Margin="0,239,0,121" Height="35" Width="Auto" Grid.ColumnSpan="2" VerticalAlignment="Center" Grid.Column="5" Grid.Row="1" />
+                    <TextBox x:Name ="txtImagenPerroNuevo" Style="{StaticResource TextBox1}" Text="Imagen" GotFocus="LimpiarTextoImagen" LostFocus="RellenarTextoImagen" FontSize="14" Foreground="Gray" Margin="0,301,105,59" RenderTransformOrigin="0.5,0.5" Width="Auto" Height="35" Grid.ColumnSpan="2" VerticalAlignment="Center" Grid.Column="5" Grid.Row="1" />
 
 
-            </Grid>
-        </Border>
-    </Grid>
+                    <TextBox x:Name ="txtNombrePadrino" Style="{StaticResource TextBox1}" GotFocus="LimpiarNombrePadrino" LostFocus="RellenarNombrePadrino" Text="Nombre del padrino"  FontSize="14" Foreground="Gray" Margin="126,35,1,10" IsEnabled="{Binding IsChecked, ElementName=btnPadrinoRedondo}" Height="35" Width="Auto" VerticalAlignment="Center" Grid.ColumnSpan="3" Grid.Row="2"/>
+                    <TextBox x:Name ="txtDniPadrino" Style="{StaticResource TextBox1}" GotFocus="LimpiarDniPadrino" LostFocus="RellenarDniPadrino" Text="DNI"  FontSize="14" Foreground="Gray" Margin="0,15,0,125" IsEnabled="{Binding IsChecked, ElementName=btnPadrinoRedondo}" Height="35" Width="Auto" VerticalAlignment="Center" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="3"/>
+                    <TextBox x:Name ="txtCorreoPadrino" Style="{StaticResource TextBox1}" GotFocus="LimpiarCorreoPadrino" LostFocus="RellenarCorreoPadrino" Text="Correo"  FontSize="14" Foreground="Gray" Margin="0,75,0,65" IsEnabled="{Binding IsChecked, ElementName=btnPadrinoRedondo}" Height="35" Width="Auto" VerticalAlignment="Center" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="3"/>
+                    <TextBox x:Name ="txtTelefonoPadrino" Style="{StaticResource TextBox1}" GotFocus="LimpiarTelefonoPadrino" LostFocus="RellenarTelefonoPadrino" Text="Telefono"  FontSize="14" Foreground="Gray" Margin="0,135,0,5" IsEnabled="{Binding IsChecked, ElementName=btnPadrinoRedondo}" Height="35" Width="Auto" VerticalAlignment="Center" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="3"/>
+                    <TextBox x:Name ="txtDatosPadrino" Style="{StaticResource TextBox1}" GotFocus="LimpiarDatosPadrino" LostFocus="RellenarDatosPadrino" Text="Datos bancarios"  FontSize="14" Foreground="Gray" Margin="0,36,0,10" IsEnabled="{Binding IsChecked, ElementName=btnPadrinoRedondo}" Height="34" Grid.Column="5" Width="Auto" VerticalAlignment="Center" Grid.ColumnSpan="2" Grid.Row="2"/>
+                    <TextBox x:Name ="txtImportePadrino" Style="{StaticResource TextBox1}" GotFocus="LimpiarImportePadrino" LostFocus="RellenarImportePadrino" Text="Importe mensual"  FontSize="14" Foreground="Gray" Margin="0,15,0,125" IsEnabled="{Binding IsChecked, ElementName=btnPadrinoRedondo}" Height="35" Grid.Column="5" Width="Auto" VerticalAlignment="Center" Grid.ColumnSpan="2" Grid.Row="3"/>
+                    <TextBox x:Name ="txtFormaPagoPadrino" Style="{StaticResource TextBox1}" GotFocus="LimpiarFormaPagoPadrino" LostFocus="RellenarFormaPagoPadrino" Text="Forma de pago"  FontSize="14" Foreground="Gray" Margin="0,75,0,65" IsEnabled="{Binding IsChecked, ElementName=btnPadrinoRedondo}" Height="35" Grid.Column="5" Width="Auto" VerticalAlignment="Center" Grid.ColumnSpan="2" Grid.Row="3"/>
+                    <DatePicker GotFocus="PulsarFechaComienzo" LostFocus="LimpiarTextoFechaComienzo" x:Name="dateComienzoPadrino" IsEnabled="{Binding IsChecked, ElementName=btnPadrinoRedondo}" HorizontalAlignment="Left" Margin="0,135,0,0" VerticalAlignment="Top" Height="35" Width="267" Padding="2,4,2,2" FontSize="14" Grid.ColumnSpan="2" Grid.Column="5" Grid.Row="3" Style="{DynamicResource DatePickerStyle1}"/>
+
+                    <Button x:Name ="nuevoPerro" Style ="{StaticResource EstiloBotonMediano}" Content="Añadir nuevo perro" Margin="40,12,0,0" Width="250" Click="NuevoPerro_Click" Grid.ColumnSpan="4" Grid.Column="2" Grid.Row="5" />
+                    <Button x:Name ="btnImagen" Style ="{StaticResource EstiloBotonLargo}" FontSize="14" Content="Buscar" Margin="40,301,0,0" Width="99" Height="35" Click="BtnImagen_Click" Grid.Column="6" Grid.Row="1" HorizontalAlignment="Left" />
+
+                    <Label x:Name="lblNombre" Content="Nombre:" Grid.Column="1" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,34,0,0" VerticalAlignment="Top" Width="68" FontSize="12" Visibility="Hidden" RenderTransformOrigin="-1.471,0.6" Grid.Row="1"/>
+                    <Label x:Name="lblSexo" Content="Sexo:" Grid.Column="1" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,94,0,0" VerticalAlignment="Top" Width="68" FontSize="12" Visibility="Hidden" Grid.Row="1"/>
+                    <Label x:Name="lblTamanio" Content="Tamaño:" Grid.Column="1" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="1,154,0,0" VerticalAlignment="Top" Width="68" FontSize="12" Visibility="Hidden" Grid.Row="1"/>
+                    <Label x:Name="lblEstado" Content="Estado:" Grid.Column="1" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="1,214,0,0" VerticalAlignment="Top" Width="68" FontSize="12" Visibility="Hidden" Grid.Row="1"/>
+                    <Label x:Name="lblEdad" Content="Edad:" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="1,275,0,0" VerticalAlignment="Top" Width="68" FontSize="12" Visibility="Hidden" Grid.Row="1" RenderTransformOrigin="0.456,2.6" Grid.Column="1"/>
+                    <Label x:Name="lblPeso" Content="Peso:" Grid.Column="5" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,34,0,0" VerticalAlignment="Top" Width="68" FontSize="12" Visibility="Hidden" Grid.Row="1"/>
+                    <Label x:Name="lblRaza" Content="Raza:" Grid.Column="5" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,94,0,0" VerticalAlignment="Top" Width="68" FontSize="12" Visibility="Hidden" Grid.Row="1"/>
+                    <Label x:Name="lblFechaEntrada" Content="Fecha de entrada:" LostFocus="LimpiarTextoFecha" Grid.Column="5" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,153,0,0" VerticalAlignment="Top" Width="120" Visibility="Hidden" FontSize="12" RenderTransformOrigin="-0.515,8.8" Grid.Row="1"/>
+                    <Label x:Name="lblDescripcion" Content="Descripcion:" Grid.Column="5" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="3,214,0,0" VerticalAlignment="Top" Width="107" FontSize="12" Visibility="Hidden" Grid.Row="1"/>
+                    <Label x:Name="lblImagen" Content="Imagen:" Grid.Column="5" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,276,0,0" VerticalAlignment="Top" Width="68" FontSize="12" Visibility="Hidden" Grid.Row="1"/>
+
+                    <Label x:Name="lblNombrePadrino" Content="Nombre del padrino:" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="1,10,0,0" VerticalAlignment="Top" Width="140" FontSize="12" Visibility="Hidden" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="1"/>
+                    <Label x:Name="lblDniPadrino" Content="DNI:" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="1,70,0,0" VerticalAlignment="Top" Width="140" FontSize="12" Visibility="Hidden" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="1" Grid.RowSpan="2"/>
+                    <Label x:Name="lblCorreoPadrino" Content="Correo:" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="1,50,0,0" VerticalAlignment="Top" Width="140" FontSize="12" Visibility="Hidden" Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="1"/>
+                    <Label x:Name="lblTelefonoPadrino" Content="Telefono:" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="1,110,0,0" VerticalAlignment="Top" Width="140" FontSize="12" Visibility="Hidden" Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="1"/>
+                    <Label x:Name="lblDatosBanPadrino" Content="Datos bancarios:" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,11,0,0" VerticalAlignment="Top" Width="141" FontSize="12" Visibility="Hidden" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="5"/>
+                    <Label x:Name="lblImportePadrino" Content="Importe mensual:" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,70,0,0" VerticalAlignment="Top" Width="140" FontSize="12" Visibility="Hidden" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="5" Grid.RowSpan="2"/>
+                    <Label x:Name="lblFormaPagoPadrino" Content="Forma de pago:" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,50,0,0" VerticalAlignment="Top" Width="140" FontSize="12" Visibility="Hidden" Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="5"/>
+                    <Label x:Name="lblFechaPadrino" Content="Comienzo de apadrinamiento:" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,110,0,0" VerticalAlignment="Top" Width="195" FontSize="12"  Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="5" Visibility="Hidden"/>
+
+                    <Image x:Name="errorTamanio" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="22" Stretch="UniformToFill" Source="/recursos/remove2.png" Margin="8,185,0,0" Grid.Row="1" Grid.Column="3" Visibility="Hidden"/>
+                    <Image x:Name="errorEdad" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="22" Stretch="UniformToFill" Source="/recursos/remove2.png" Margin="8,308,0,0" Grid.Column="3" Grid.Row="1" Visibility="Hidden"/>
+                    <Image x:Name="errorPeso" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="22" Stretch="UniformToFill" Source="/recursos/remove2.png" Margin="10,65,0,0" Grid.Column="7" Grid.Row="1" Visibility="Hidden"/>
+                    <Image x:Name="errorFecha" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="22" Stretch="UniformToFill" Source="/recursos/remove2.png" Margin="10,185,0,0" Grid.Column="7" Grid.Row="1" Visibility="Hidden"/>
+
+                    <Image x:Name="errorImporte" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="22" Stretch="UniformToFill" Source="/recursos/remove2.png" Margin="10,23,0,0" Grid.Column="7" Grid.Row="3" Visibility="Hidden"/>
+                    <Image x:Name="errorTelefono" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="22" Stretch="UniformToFill" Source="/recursos/remove2.png" Margin="8,143,0,0" Grid.Column="3" Grid.Row="3" Visibility="Hidden"/>
+                    <Image x:Name="errorFechaPadrino" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="22" Stretch="UniformToFill" Source="/recursos/remove2.png" Margin="10,143,0,0" Grid.Column="7" Grid.Row="3" Visibility="Hidden"/>
+
+
+                </Grid>
+            </Border>
+        </Grid>
+    </ScrollViewer>
 </Window>

@@ -79,13 +79,14 @@ namespace Protectora.Presentacion
                     TextBoxDatosBanSocio.Text = "";
                     TextBoxPagoSocio.Text = "";
 
+
                     BitmapImage bmi = new BitmapImage(new Uri("pack://application:,,,/recursos/default.png"));
                     ProfileImageSocio.Source = bmi;
-
                     btnAnteriorSocio.IsEnabled = false;
                     btnNextSocio.IsEnabled = false;
                     btnEditSocio.IsEnabled = false;
                     btnDeleteSocio.IsEnabled = false;
+
                 }
                 catch (Exception ex)
                 {

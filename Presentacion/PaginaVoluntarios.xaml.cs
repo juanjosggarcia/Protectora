@@ -78,6 +78,7 @@ namespace Protectora.Presentacion
                     TextBoxZonaVol.Text = "";
                     TextBoxHorarioVol.Text = "";
 
+                    //bitmap.EndInit();
                     BitmapImage bmi = new BitmapImage(new Uri("pack://application:,,,/recursos/default.png"));
                     ProfileImageVoluntario.Source = bmi;
 
