@@ -186,7 +186,7 @@ namespace Protectora.Presentacion
         }
         private void LimpiarTextoZonaPerdido(object sender, EventArgs e)
         {
-            txtZonaPerroPerdido.Text = txtZonaPerroPerdido.Text == "Zona de pérdida" ? string.Empty : txtZonaPerroPerdido.Text;
+            txtZonaPerroPerdido.Text = txtZonaPerroPerdido.Text == "Zona de perdida" ? string.Empty : txtZonaPerroPerdido.Text;
             txtZonaPerroPerdido.Foreground = new SolidColorBrush(Colors.Black);
             lblZona.Visibility = Visibility.Visible;
         }

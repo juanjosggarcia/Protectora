@@ -80,15 +80,16 @@ namespace Protectora.Presentacion
                     TextBoxHorarioVol.Text = "";
                     btnImagenVol.IsEnabled = true;
 
-                    string str = obtenerPath() + @"/fotosPersonas/default.jpg";
+                    //string str = obtenerPath() + @"/fotosPersonas/default.jpg";
 
-                    //string str = @".. /fotosPers/default.jpg";
-                    BitmapImage bitmap = new BitmapImage();
-                    bitmap.BeginInit();
-                    //bitmap.UriSource = new Uri(str, UriKind.Relative);
-                    bitmap.UriSource = new Uri(str);
-                    bitmap.EndInit();
-                    ProfileImageVoluntario.Source = bitmap;
+                    ////string str = @".. /fotosPers/default.jpg";
+                    //BitmapImage bitmap = new BitmapImage();
+                    //bitmap.BeginInit();
+                    ////bitmap.UriSource = new Uri(str, UriKind.Relative);
+                    //bitmap.UriSource = new Uri(str);
+                    //bitmap.EndInit();
+                    BitmapImage bmi = new BitmapImage(new Uri("pack://application:,,,/recursos/default.png"));
+                    ProfileImageVoluntario.Source = bmi;
 
 
                     btnAnteriorVoluntario.IsEnabled = false;

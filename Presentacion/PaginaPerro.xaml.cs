@@ -106,15 +106,8 @@ namespace Protectora.Presentacion
                     TextBoxDescripcion.Text = "";
                     TextBoxRaza.Text = "";
 
-                    //string str = @"../fotosPerros/default.jpg";
-
-                    string str = obtenerPath() + @"/fotosPerros/default.jpg";
-                    BitmapImage bitmap = new BitmapImage();
-                    bitmap.BeginInit();
-                    //bitmap.UriSource = new Uri(str, UriKind.Relative);
-                    bitmap.UriSource = new Uri(str);
-                    bitmap.EndInit();
-                    ProfileImage.Source = bitmap;
+                    BitmapImage bmi = new BitmapImage(new Uri("pack://application:,,,/recursos/default.png"));
+                    ProfileImage.Source = bmi;
 
                     btnEditPerro.IsEnabled = false;
                     btnDeletePerro.IsEnabled = false;

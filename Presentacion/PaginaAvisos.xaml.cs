@@ -94,14 +94,15 @@ namespace Protectora.Presentacion
                     TextBoxFechaPerdida.Text = "";
                     TextBoxDescripcionPerdida.Text = "";
                     TextBoxDescripcionAdicional.Text = "";
-                    string str = obtenerPath() + @"/fotosPerros/default.jpg";
+                    //string str = obtenerPath() + @"/fotosPerros/default.jpg";
                     //string str = @"../fotosPerros/default.jpg";
-                    BitmapImage bitmap = new BitmapImage();
-                    bitmap.BeginInit();
-                    //bitmap.UriSource = new Uri(str, UriKind.Relative);
-                    bitmap.UriSource = new Uri(str);
-                    bitmap.EndInit();
-                    ProfileImagePerroPerdido.Source = bitmap;
+                    //BitmapImage bitmap = new BitmapImage();
+                    //bitmap.BeginInit();
+                    ////bitmap.UriSource = new Uri(str, UriKind.Relative);
+                    //bitmap.UriSource = new Uri(str);
+                    //bitmap.EndInit();
+                    BitmapImage bmi = new BitmapImage(new Uri("pack://application:,,,/recursos/default.png"));
+                    ProfileImagePerroPerdido.Source = bmi;
 
                     btnAnteriorPerroPerdido.IsEnabled = false;
                     btnNextPerroPerdido.IsEnabled = false;
