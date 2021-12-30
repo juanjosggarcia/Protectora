@@ -8,10 +8,12 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TextBox = System.Windows.Controls.TextBox;
 
 namespace Protectora.Presentacion
 {
@@ -36,11 +38,16 @@ namespace Protectora.Presentacion
         {
             try
             {
-                padrino = new Padrino();
-                padrino.Id = perro.Apadrinado;
-                padrino = GestorPersona.obtenerPadrino(padrino);
-                if (padrino != null)
+                //padrino = new Padrino();
+                //padrino.Id = perro.Apadrinado;
+                //padrino = GestorPersona.obtenerPadrino(padrino);
+                //if (padrino != null)
+                if (perro.Apadrinado != 0)
                 {
+                    padrino = new Padrino();
+                    padrino.Id = perro.Apadrinado;
+                    padrino = GestorPersona.obtenerPadrino(padrino);
+
                     txtNombrePadrino.Text = padrino.NombreCompleto;
                     txtDniPadrino.Text = padrino.Dni;
                     txtCorreoPadrino.Text = padrino.Correo;
@@ -71,6 +78,36 @@ namespace Protectora.Presentacion
             txtImportePadrino.IsEnabled = true;
             txtPagoPadrino.IsEnabled = true;
             txtComienzoPadrino.IsEnabled = true;
+        }
+
+        private void BtnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+            string message = "¿Estas seguro que quieres eliminar el padrino seleccionado?";
+            string caption = "Eliminación de padrino";
+            MessageBoxButton buttons = MessageBoxButton.YesNo;
+            DialogResult result;
+
+            result = (DialogResult)System.Windows.MessageBox.Show(message, caption, buttons);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                try
+                {
+                    if (perro.Apadrinado != 0)
+                    {
+                        perro.Apadrinado = 0;
+                        GestorAnimal.modificarPerro(perro);
+
+                        GestorPersona.eliminarPadrino(padrino);
+                        padrino = null;
+                        mostrarPadrino();
+                        Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ELog.save(this, ex);
+                }
+            }
         }
 
         private void BtnPdrino_Click(object sender, RoutedEventArgs e)
@@ -164,9 +201,5 @@ namespace Protectora.Presentacion
             errorImporte.Visibility = Visibility.Hidden;
         }
 
-        private void BtnEliminar_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

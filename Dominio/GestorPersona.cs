@@ -30,6 +30,11 @@ namespace Protectora.Dominio
             padrino.actualizarDato();
         }
 
+        public static void eliminarPadrino(Padrino padrino)
+        {
+            padrino.eliminarDato();
+        }
+
         public static List<Socio> obtenerSocio(Socio socio)
         {
             socio.leerDatoXName();
