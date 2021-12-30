@@ -7,18 +7,19 @@
         mc:Ignorable="d"
 		Icon="/recursos/pawprint.ico"
         Title="Inicio" 
-        Height="900" Width="1800"
-        MaxHeight="920" MaxWidth="1800"
-        WindowState="Maximized"
+        MinHeight="920" MinWidth="1800"
+        ResizeMode="CanResize"
         WindowStartupLocation="CenterScreen"
-        ResizeMode="CanResize">
+                WindowState="Maximized"
 
-    <!--Height="900" Width="1800"-->
+        >
 
     <Window.Background>
         <ImageBrush ImageSource="/recursos/fondo20.jpg"/>
     </Window.Background>
-    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+
+    <ScrollViewer HorizontalScrollBarVisibility="auto" VerticalScrollBarVisibility="auto">
+
         <Grid x:Name="pnlInicioSesion" Margin="0,0,-6,-19" HorizontalAlignment="Right" Width="1790" Height="890" VerticalAlignment="Top" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="483*"/>

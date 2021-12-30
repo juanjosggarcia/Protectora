@@ -9,8 +9,8 @@
         Title="Añadir perro" 
         Height="956" Width="1041"
         MaxHeight="956" MaxWidth="1041"
-        WindowState="Maximized"
         WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
         ResizeMode="CanResize"
         >
 
@@ -18,7 +18,7 @@
         <ImageBrush ImageSource="/recursos/botonAnadir.jpg"/>
     </Window.Background>
 
-    <ScrollViewer VerticalScrollBarVisibility="Auto">
+    <ScrollViewer VerticalScrollBarVisibility="auto">
         <Grid Margin="0,0,4,0" Height="891" VerticalAlignment="Top">
             <Border BorderBrush="white" Background="#FAF9F7" BorderThickness="3" CornerRadius="25" Margin="85,45,85,0" Height="846" VerticalAlignment="Top">
                 <Grid>
