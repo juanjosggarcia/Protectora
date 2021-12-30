@@ -32,6 +32,9 @@ namespace Protectora
         }
         public static string copiarImagen(string sourcePath, string perroPersona)
         {
+            if (sourcePath.Contains("pack://application:,,,/")){
+                return "default.jpg";
+            }
             string foto = "imagenes";
             if (perroPersona == "perro")
             {

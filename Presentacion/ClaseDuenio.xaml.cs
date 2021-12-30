@@ -69,24 +69,19 @@ namespace Protectora.Presentacion
         {
             try
             {
-                bool existe = true;
-                int idDuenio;
-                if (persona == null)
-                {
-                    persona = new Persona();
-                    existe = false;
-                }
+                persona = new Persona();
+                persona.Id = aviso.IdDuenio;
                 persona.NombreCompleto = txtNombreDuenio.Text;
                 persona.Dni = txtDniDuenio.Text;
                 persona.Correo = txtCorreoDuenio.Text;
                 persona.Telefono = Int32.Parse(txtTelefonoDuenio.Text);
-                if (existe == true)
+                if (aviso.IdDuenio!=0)
                 {
                     GestorPersona.modificarPersona(persona);
                 }
                 else
                 {
-                    idDuenio = GestorPersona.addPersona(persona);
+                    int idDuenio = GestorPersona.addPersona(persona);
                     aviso.IdDuenio = idDuenio;
                     GestorAnimal.modificarAviso(aviso);
                 }
@@ -100,6 +95,7 @@ namespace Protectora.Presentacion
             catch (System.Data.OleDb.OleDbException ex)
             {
                 Console.Write(ex);
+                ELog.save(this, ex);
             }
             catch (Exception ex)
             {
