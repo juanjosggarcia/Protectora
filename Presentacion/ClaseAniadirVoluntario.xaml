@@ -6,67 +6,72 @@
         xmlns:local="clr-namespace:Protectora.Presentacion"
         mc:Ignorable="d"
         Icon="/recursos/pawprint.ico"
-        Title="BotonAniadir" Height="846" Width="1043"
+        Title="Añadir nuevo voluntario"
+        Height="846" Width="1043"
+        MaxHeight="846" MaxWidth="1043"
+        WindowState="Maximized"
         WindowStartupLocation="CenterScreen"
-        ResizeMode="NoResize">
+        ResizeMode="CanResize">
 
     <Window.Background>
         <ImageBrush ImageSource="/recursos/botonAnadir.jpg"/>
     </Window.Background>
 
-    <Grid Margin="0,0,4,1">
-        <Border BorderBrush="white" Background="#FAF9F7" BorderThickness="3" CornerRadius="25" Margin="130,45,131,66">
-            <Grid Height="667" VerticalAlignment="Top" Margin="0,0,0,-3">
-                <Grid.RowDefinitions>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Margin="0,0,4,1">
+            <Border BorderBrush="white" Background="#FAF9F7" BorderThickness="3" CornerRadius="25" Margin="130,45,131,66">
+                <Grid Height="667" VerticalAlignment="Top" Margin="0,0,0,-3">
+                    <Grid.RowDefinitions>
 
-                    <RowDefinition Height="19*"/>
-                    <RowDefinition Height="105*"/>
-                    <RowDefinition Height="25*"/>
-                    <RowDefinition Height="20*"/>
-                    <RowDefinition Height="15*"/>
+                        <RowDefinition Height="19*"/>
+                        <RowDefinition Height="105*"/>
+                        <RowDefinition Height="25*"/>
+                        <RowDefinition Height="20*"/>
+                        <RowDefinition Height="15*"/>
 
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="113*"/>
-                    <ColumnDefinition Width="121*"/>
-                    <ColumnDefinition Width="121*"/>
-                    <ColumnDefinition Width="27*"/>
-                    <ColumnDefinition Width="27*"/>
-                    <ColumnDefinition Width="123*"/>
-                    <ColumnDefinition Width="118*"/>
-                    <ColumnDefinition Width="114*"/>
-                </Grid.ColumnDefinitions>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="113*"/>
+                        <ColumnDefinition Width="121*"/>
+                        <ColumnDefinition Width="121*"/>
+                        <ColumnDefinition Width="27*"/>
+                        <ColumnDefinition Width="27*"/>
+                        <ColumnDefinition Width="123*"/>
+                        <ColumnDefinition Width="118*"/>
+                        <ColumnDefinition Width="114*"/>
+                    </Grid.ColumnDefinitions>
 
-                <TextBox x:Name ="txtNombreVoluntario" Style="{StaticResource TextBox1}" Text="Nombre completo"  GotFocus="LimpiarTextoNombre" LostFocus="RellenarTextoNombre" FontSize="14" Foreground="Gray" Margin="0,43,1,236" Height="36" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
-                <TextBox x:Name ="txtCorreoVoluntario" Style="{StaticResource TextBox1}" Text="Correo" GotFocus="LimpiarTextoCorreo" LostFocus="RellenarTextoCorreo" FontSize="14" Foreground="Gray" Margin="0,203,1,144" Height="34" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
-                <TextBox x:Name ="txtDniVoluntario" Style="{StaticResource TextBox1}" Text="DNI" FontSize="14" GotFocus="LimpiarTextoDNI" LostFocus="RellenarTextoDNI" Foreground="Gray" Margin="0,140,1,205" Height="36" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
-                <TextBox x:Name ="txtTelefonoVoluntario" Style="{StaticResource TextBox1}" Text="Telefono" FontSize="14" GotFocus="LimpiarTextoTelefono" LostFocus="RellenarTextoTelefono" Foreground="Gray" Margin="0,265,1,80" Height="36" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
-                <TextBox x:Name ="txtHorarioVol" Style="{StaticResource TextBox1}" Text="Horario del voluntario" FontSize="14" GotFocus="LimpiarTextoHorario" LostFocus="RellenarTextoHorario" Foreground="Gray" Margin="0,327,1,18" Height="36" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1"  />
-                <TextBox x:Name ="txtZonaDisVol" Style="{StaticResource TextBox1}" Text="Zona disponible" FontSize="14" GotFocus="LimpiarTextoZona" LostFocus="RellenarTextoZona" Foreground="Gray" Margin="0,8,1,47" Height="36" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="2" />
-                <TextBox x:Name ="txtImagenVoluntarioNuevo" Style="{StaticResource TextBox1}" Text="Imagen" GotFocus="LimpiarTextoImagen" LostFocus="RellenarTextoImagen" FontSize="14" Foreground="Gray" Margin="0,71,0,58" RenderTransformOrigin="0.5,0.5" Width="Auto" Height="34" Grid.ColumnSpan="3" VerticalAlignment="Center" Grid.Column="2" Grid.Row="2" Grid.RowSpan="2" />
+                    <TextBox x:Name ="txtNombreVoluntario" Style="{StaticResource TextBox1}" Text="Nombre completo"  GotFocus="LimpiarTextoNombre" LostFocus="RellenarTextoNombre" FontSize="14" Foreground="Gray" Margin="0,43,1,236" Height="36" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
+                    <TextBox x:Name ="txtCorreoVoluntario" Style="{StaticResource TextBox1}" Text="Correo" GotFocus="LimpiarTextoCorreo" LostFocus="RellenarTextoCorreo" FontSize="14" Foreground="Gray" Margin="0,203,1,144" Height="34" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
+                    <TextBox x:Name ="txtDniVoluntario" Style="{StaticResource TextBox1}" Text="DNI" FontSize="14" GotFocus="LimpiarTextoDNI" LostFocus="RellenarTextoDNI" Foreground="Gray" Margin="0,140,1,205" Height="36" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
+                    <TextBox x:Name ="txtTelefonoVoluntario" Style="{StaticResource TextBox1}" Text="Telefono" FontSize="14" GotFocus="LimpiarTextoTelefono" LostFocus="RellenarTextoTelefono" Foreground="Gray" Margin="0,265,1,80" Height="36" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" />
+                    <TextBox x:Name ="txtHorarioVol" Style="{StaticResource TextBox1}" Text="Horario del voluntario" FontSize="14" GotFocus="LimpiarTextoHorario" LostFocus="RellenarTextoHorario" Foreground="Gray" Margin="0,327,1,18" Height="36" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1"  />
+                    <TextBox x:Name ="txtZonaDisVol" Style="{StaticResource TextBox1}" Text="Zona disponible" FontSize="14" GotFocus="LimpiarTextoZona" LostFocus="RellenarTextoZona" Foreground="Gray" Margin="0,8,1,47" Height="36" Width="Auto" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.Column="2" Grid.Row="2" />
+                    <TextBox x:Name ="txtImagenVoluntarioNuevo" Style="{StaticResource TextBox1}" Text="Imagen" GotFocus="LimpiarTextoImagen" LostFocus="RellenarTextoImagen" FontSize="14" Foreground="Gray" Margin="0,71,0,58" RenderTransformOrigin="0.5,0.5" Width="Auto" Height="34" Grid.ColumnSpan="3" VerticalAlignment="Center" Grid.Column="2" Grid.Row="2" Grid.RowSpan="2" />
 
-                <Label Content="Anadir nuevo voluntario" Grid.Column="1" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="54" Margin="69,46,0,0" VerticalAlignment="Top" Width="384" FontSize="30" Grid.ColumnSpan="6" HorizontalContentAlignment="Center" Grid.RowSpan="2"/>
-
-
-                <Label x:Name="lblNombre" Content="Nombre completo:" Grid.Column="2" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" VerticalAlignment="Top" Width="144" FontSize="12" Visibility="Hidden" RenderTransformOrigin="-1.471,0.6" Grid.Row="1" Margin="0,51,0,0" Grid.ColumnSpan="2"/>
-                <Label x:Name="lblDni" Content="DNI:" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="1,112,0,0" VerticalAlignment="Top" Width="68" FontSize="12" Visibility="Hidden" Grid.Row="1" Grid.Column="2"/>
-                <Label x:Name="lblCorreo" Content="Correo:" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="1,176,0,0" VerticalAlignment="Top" Width="68" FontSize="12" Visibility="Hidden" Grid.Row="1" Grid.Column="2"/>
-                <Label x:Name="lblTelefono" Content="Telefono:" Grid.Column="2" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="1,237,0,0" VerticalAlignment="Top" Width="78" FontSize="12" Visibility="Hidden" Grid.Row="1"/>
-                <Label x:Name="lblHorario" Content="Horario del voluntario:" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="1,301,0,0" VerticalAlignment="Top" Width="147" FontSize="12" Visibility="Hidden" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2"/>
-                <Label x:Name="lblZona" Content="Zona disponible:" Grid.Column="2" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,363,0,0" VerticalAlignment="Top" Width="115" FontSize="12" Visibility="Hidden" Grid.Row="1" Grid.RowSpan="2"/>
-                <Label x:Name="lblImagen" Content="Imagen:" Grid.Column="2" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,44,0,0" VerticalAlignment="Top" Width="93" FontSize="12" Visibility="Hidden" Grid.Row="2"/>
-
-                <Label x:Name="errorDatos" Content="Los datos introducidos son incorrectos" Visibility="Hidden" HorizontalAlignment="Center" Height="30" Margin="91,32,86,10" VerticalAlignment="Center" Width="362" Grid.Row="3" Background="#00000000" FontSize="15" Foreground="#FFE00D0D" FontWeight="Normal" Grid.Column="1" Grid.ColumnSpan="6" HorizontalContentAlignment="Center"/>
+                    <Label Content="Anadir nuevo voluntario" Grid.Column="1" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="54" Margin="69,46,0,0" VerticalAlignment="Top" Width="384" FontSize="30" Grid.ColumnSpan="6" HorizontalContentAlignment="Center" Grid.RowSpan="2"/>
 
 
-                <Button x:Name ="nuevoVoluntario" Style ="{StaticResource EstiloBotonMediano}" Content="Añadir nuevo voluntario" Margin="22,68,0,0" Width="250" Click="NuevoVoluntario_Click" Grid.ColumnSpan="4" Grid.Column="2" Grid.Row="3" Grid.RowSpan="2" />
-                <Button x:Name ="btnImagenVol" Style ="{StaticResource EstiloBotonLargo}" FontSize="14" Content="Buscar" Margin="5,70,0,0" Width="117" Height="35" Click="BtnImagen_Click" Grid.Column="5" Grid.Row="2" Grid.RowSpan="2" />
+                    <Label x:Name="lblNombre" Content="Nombre completo:" Grid.Column="2" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" VerticalAlignment="Top" Width="144" FontSize="12" Visibility="Hidden" RenderTransformOrigin="-1.471,0.6" Grid.Row="1" Margin="0,51,0,0" Grid.ColumnSpan="2"/>
+                    <Label x:Name="lblDni" Content="DNI:" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="1,112,0,0" VerticalAlignment="Top" Width="68" FontSize="12" Visibility="Hidden" Grid.Row="1" Grid.Column="2"/>
+                    <Label x:Name="lblCorreo" Content="Correo:" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="1,176,0,0" VerticalAlignment="Top" Width="68" FontSize="12" Visibility="Hidden" Grid.Row="1" Grid.Column="2"/>
+                    <Label x:Name="lblTelefono" Content="Telefono:" Grid.Column="2" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="1,237,0,0" VerticalAlignment="Top" Width="78" FontSize="12" Visibility="Hidden" Grid.Row="1"/>
+                    <Label x:Name="lblHorario" Content="Horario del voluntario:" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="1,301,0,0" VerticalAlignment="Top" Width="147" FontSize="12" Visibility="Hidden" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2"/>
+                    <Label x:Name="lblZona" Content="Zona disponible:" Grid.Column="2" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,363,0,0" VerticalAlignment="Top" Width="115" FontSize="12" Visibility="Hidden" Grid.Row="1" Grid.RowSpan="2"/>
+                    <Label x:Name="lblImagen" Content="Imagen:" Grid.Column="2" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="25" Margin="0,44,0,0" VerticalAlignment="Top" Width="93" FontSize="12" Visibility="Hidden" Grid.Row="2"/>
+
+                    <Label x:Name="errorDatos" Content="Los datos introducidos son incorrectos" Visibility="Hidden" HorizontalAlignment="Center" Height="30" Margin="91,32,86,10" VerticalAlignment="Center" Width="362" Grid.Row="3" Background="#00000000" FontSize="15" Foreground="#FFE00D0D" FontWeight="Normal" Grid.Column="1" Grid.ColumnSpan="6" HorizontalContentAlignment="Center"/>
 
 
-                <Image x:Name="errorTelefono" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="22" Stretch="UniformToFill" Source="/recursos/remove2.png" Margin="10,273,0,0" Grid.Column="6" Grid.Row="1" Visibility="Hidden"/>
+                    <Button x:Name ="nuevoVoluntario" Style ="{StaticResource EstiloBotonMediano}" Content="Añadir nuevo voluntario" Margin="22,68,0,0" Width="250" Click="NuevoVoluntario_Click" Grid.ColumnSpan="4" Grid.Column="2" Grid.Row="3" Grid.RowSpan="2" />
+                    <Button x:Name ="btnImagenVol" Style ="{StaticResource EstiloBotonLargo}" FontSize="14" Content="Buscar" Margin="5,70,0,0" Width="117" Height="35" Click="BtnImagen_Click" Grid.Column="5" Grid.Row="2" Grid.RowSpan="2" />
 
 
-            </Grid>
-        </Border>
-    </Grid>
+                    <Image x:Name="errorTelefono" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="22" Stretch="UniformToFill" Source="/recursos/remove2.png" Margin="10,273,0,0" Grid.Column="6" Grid.Row="1" Visibility="Hidden"/>
+
+
+                </Grid>
+            </Border>
+        </Grid>
+    </ScrollViewer>
 </Window>

@@ -77,7 +77,6 @@ namespace Protectora.Presentacion
                     TextBoxTelefonoVol.Text = "";
                     TextBoxZonaVol.Text = "";
                     TextBoxHorarioVol.Text = "";
-                    btnImagenVol.IsEnabled = true;
 
                     //string str = obtenerPath() + @"/fotosPersonas/default.jpg";
 

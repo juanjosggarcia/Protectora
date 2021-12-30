@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Icon="/recursos/pawprint.ico"
         Title="Padrino" Height="562" Width="649"
+        MaxHeight="562" MaxWidth="649"
         WindowStartupLocation="CenterScreen">
 
     <Window.Background>

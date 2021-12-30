@@ -1,5 +1,4 @@
 ﻿using Protectora.Dominio;
-using Protectora.Dominio;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -80,14 +79,16 @@ namespace Protectora.Presentacion
                     TextBoxDatosBanSocio.Text = "";
                     TextBoxPagoSocio.Text = "";
 
-                    string str = obtenerPath() + @"/fotosPersonas/default.jpg";
-                    //string str = @"../fotosPersonas/default.jpg";
-                    BitmapImage bitmap = new BitmapImage();
-                    bitmap.BeginInit();
-                    //bitmap.UriSource = new Uri(str, UriKind.Relative);
-                    bitmap.UriSource = new Uri(str);
-                    bitmap.EndInit();
-                    ProfileImageSocio.Source = bitmap;
+                    //string str = obtenerPath() + @"/fotosPersonas/default.jpg";
+                    ////string str = @"../fotosPersonas/default.jpg";
+                    //BitmapImage bitmap = new BitmapImage();
+                    //bitmap.BeginInit();
+                    ////bitmap.UriSource = new Uri(str, UriKind.Relative);
+                    //bitmap.UriSource = new Uri(str);
+                    //bitmap.EndInit();
+                    BitmapImage bmi = new BitmapImage(new Uri("pack://application:,,,/recursos/default.png"));
+                    ProfileImageSocio.Source = bmi;
+
                 }
                 catch (Exception ex)
                 {

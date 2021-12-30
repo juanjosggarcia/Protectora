@@ -23,11 +23,14 @@ namespace Protectora
         {
             InitializeComponent();
             errorInicioSesion.Content = "";
+            Application.Current.MainWindow.Width = 420;
+
         }
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
             App.Current.Shutdown();
+
         }
 
         private void BtnIniciarSesion_Click(object sender, RoutedEventArgs e)
