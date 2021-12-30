@@ -8,7 +8,8 @@
         Icon="/recursos/pawprint.ico"
         Title="Añadir nuevo voluntario"
         Height="846" Width="1043"
-        MaxHeight="846" MaxWidth="1043"
+        MaxHeight="956" MaxWidth="1043"
+
         WindowState="Maximized"
         WindowStartupLocation="CenterScreen"
         ResizeMode="CanResize">
@@ -17,7 +18,7 @@
         <ImageBrush ImageSource="/recursos/botonAnadir.jpg"/>
     </Window.Background>
 
-    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
         <Grid Margin="0,0,4,1">
             <Border BorderBrush="white" Background="#FAF9F7" BorderThickness="3" CornerRadius="25" Margin="140,45,131,66">
                 <Grid Height="702" VerticalAlignment="Top" Margin="-3,0,0,-3">
@@ -32,13 +33,13 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <TextBox x:Name ="txtNombreVoluntario" Style="{StaticResource TextBox1}" Text="Nombre completo"  GotFocus="LimpiarTextoNombre" LostFocus="RellenarTextoNombre" FontSize="14" Foreground="Gray" Margin="235,36,231,398" Height="36" Width="300" VerticalAlignment="Center" Grid.Row="1" />
-                    <TextBox x:Name ="txtCorreoVoluntario" Style="{StaticResource TextBox1}" Text="Correo" GotFocus="LimpiarTextoCorreo" LostFocus="RellenarTextoCorreo" FontSize="14" Foreground="Gray" Margin="236,168,230,268" Height="34" Width="300" VerticalAlignment="Center" Grid.Row="1" />
-                    <TextBox x:Name ="txtDniVoluntario" Style="{StaticResource TextBox1}" Text="DNI" FontSize="14" GotFocus="LimpiarTextoDNI" LostFocus="RellenarTextoDNI" Foreground="Gray" Margin="236,102,230,332" Height="36" Width="300" VerticalAlignment="Center" Grid.Row="1" />
-                    <TextBox x:Name ="txtTelefonoVoluntario" Style="{StaticResource TextBox1}" Text="Telefono" FontSize="14" GotFocus="LimpiarTextoTelefono" LostFocus="RellenarTextoTelefono" Foreground="Gray" Margin="236,230,230,204" Height="36" Width="300" VerticalAlignment="Center" Grid.Row="1" />
-                    <TextBox x:Name ="txtHorarioVol" Style="{StaticResource TextBox1}" Text="Horario del voluntario" FontSize="14" GotFocus="LimpiarTextoHorario" LostFocus="RellenarTextoHorario" Foreground="Gray" Margin="236,294,230,140" Height="36" Width="300" VerticalAlignment="Center" Grid.Row="1"  />
-                    <TextBox x:Name ="txtZonaDisVol" Style="{StaticResource TextBox1}" Text="Zona disponible" FontSize="14" GotFocus="LimpiarTextoZona" LostFocus="RellenarTextoZona" Foreground="Gray" Margin="236,358,230,76" Height="36" Width="300" VerticalAlignment="Center" Grid.Row="1" />
-                    <TextBox x:Name ="txtImagenVoluntarioNuevo" Style="{StaticResource TextBox1}" Text="Imagen" GotFocus="LimpiarTextoImagen" LostFocus="RellenarTextoImagen" FontSize="14" Foreground="Gray" Margin="236,426,361,10" RenderTransformOrigin="0.5,0.5" Width="Auto" Height="34" VerticalAlignment="Center" Grid.Row="1" />
+                    <TextBox x:Name ="txtNombreVoluntario" Style="{StaticResource TextBox1}" Text="Nombre completo"  GotFocus="LimpiarTextoNombre" LostFocus="RellenarTextoNombre" FontSize="14" Foreground="Gray" Margin="236,39,224,395" Height="36" Width="Auto" VerticalAlignment="Center" Grid.Row="1" />
+                    <TextBox x:Name ="txtCorreoVoluntario" Style="{StaticResource TextBox1}" Text="Correo" GotFocus="LimpiarTextoCorreo" LostFocus="RellenarTextoCorreo" FontSize="14" Foreground="Gray" Margin="235,165,224,271" Height="34" Width="Auto" VerticalAlignment="Center" Grid.Row="1" />
+                    <TextBox x:Name ="txtDniVoluntario" Style="{StaticResource TextBox1}" Text="DNI" FontSize="14" GotFocus="LimpiarTextoDNI" LostFocus="RellenarTextoDNI" Foreground="Gray" Margin="236,105,224,329" Height="36" Width="Auto" VerticalAlignment="Center" Grid.Row="1" />
+                    <TextBox x:Name ="txtTelefonoVoluntario" Style="{StaticResource TextBox1}" Text="Telefono" FontSize="14" GotFocus="LimpiarTextoTelefono" LostFocus="RellenarTextoTelefono" Foreground="Gray" Margin="235,229,224,205" Height="36" Width="Auto" VerticalAlignment="Center" Grid.Row="1" />
+                    <TextBox x:Name ="txtHorarioVol" Style="{StaticResource TextBox1}" Text="Horario del voluntario" FontSize="14" GotFocus="LimpiarTextoHorario" LostFocus="RellenarTextoHorario" Foreground="Gray" Margin="235,295,224,139" Height="36" Width="Auto" VerticalAlignment="Center" Grid.Row="1"  />
+                    <TextBox x:Name ="txtZonaDisVol" Style="{StaticResource TextBox1}" Text="Zona disponible" FontSize="14" GotFocus="LimpiarTextoZona" LostFocus="RellenarTextoZona" Foreground="Gray" Margin="235,356,224,78" Height="36" Width="Auto" VerticalAlignment="Center" Grid.Row="1" />
+                    <TextBox x:Name ="txtImagenVoluntarioNuevo" Style="{StaticResource TextBox1}" Text="Imagen" GotFocus="LimpiarTextoImagen" LostFocus="RellenarTextoImagen" FontSize="14" Foreground="Gray" Margin="235,424,362,12" RenderTransformOrigin="0.5,0.5" Width="Auto" Height="34" VerticalAlignment="Center" Grid.Row="1" />
 
                     <Label Content="Anadir nuevo voluntario" HorizontalAlignment="Left" FontFamily="Lucida Sans Unicode" Height="54" Margin="199,58,0,0" VerticalAlignment="Top" Width="384" FontSize="30" HorizontalContentAlignment="Center"/>
 
@@ -54,7 +55,7 @@
                     <Label x:Name="errorDatos" Content="Los datos introducidos son incorrectos" Visibility="Hidden" HorizontalAlignment="Center" Height="30" Margin="199,468,205,82" VerticalAlignment="Center" Width="362" Background="#00000000" FontSize="15" Foreground="#FFE00D0D" FontWeight="Normal" HorizontalContentAlignment="Center" Grid.Row="1" Grid.RowSpan="2"/>
 
 
-                    <Button x:Name ="nuevoVoluntario" Style ="{StaticResource EstiloBotonMediano}" Content="Añadir nuevo voluntario" Margin="250,15,250,0" Width="Auto" Click="NuevoVoluntario_Click" HorizontalAlignment="Stretch" Grid.Row="2" />
+                    <Button x:Name ="nuevoVoluntario" Style ="{StaticResource EstiloBotonMediano}" Content="Añadir nuevo voluntario" Margin="250,28,250,0" Width="Auto" Click="NuevoVoluntario_Click" HorizontalAlignment="Stretch" Grid.Row="2" />
                     <Button x:Name ="btnImagenVol" Style ="{StaticResource EstiloBotonLargo}" FontSize="14" Content="Buscar" Margin="436,426,230,0" Width="Auto" Height="34" Click="BtnImagen_Click" HorizontalAlignment="Stretch" Grid.Row="1" />
 
 

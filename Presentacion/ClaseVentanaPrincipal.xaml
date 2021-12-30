@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Pantalla Principal"
         Icon="/recursos/pawprint.ico"
-        Height="900" Width="1800"
+        Height="900" Width="1820"
         MaxHeight="910" MaxWidth="1800"
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized"
