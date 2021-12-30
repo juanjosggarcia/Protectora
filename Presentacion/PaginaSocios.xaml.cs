@@ -79,7 +79,7 @@ namespace Protectora.Presentacion
                     TextBoxDatosBanSocio.Text = "";
                     TextBoxPagoSocio.Text = "";
 
-                    string str = obtenerPath() + @"/fotosPersonas/default.jpg";
+                    string str = Modulos.obtenerPath() + @"/fotosPersonas/default.jpg";
                     //string str = @"../fotosPersonas/default.jpg";
                     BitmapImage bitmap = new BitmapImage();
                     bitmap.BeginInit();
@@ -132,7 +132,7 @@ namespace Protectora.Presentacion
                 socio.Dni = TextBoxDNISocio.Text;
                 socio.FormaPago = TextBoxPagoSocio.Text;
 
-                socio.Foto = copiarImagen(ProfileImageSocio.Source.ToString());
+                socio.Foto = Modulos.copiarImagen(ProfileImageSocio.Source.ToString(), "persona");
 
                 GestorPersona.modificarSocio(socio);
                 CargarSocios();
@@ -311,22 +311,23 @@ namespace Protectora.Presentacion
                 TextBoxDatosBanSocio.Text = socio.DatosBancarios;
                 TextBoxPagoSocio.Text = socio.FormaPago;
 
-                string rutaPersonas = obtenerPath() + "/fotosPersonas";
-                string[] picListTXT = Directory.GetFiles(rutaPersonas, "*.jpg");
-                string[] picListPNG = Directory.GetFiles(rutaPersonas, "*.png");
-                string[] picList = picListTXT.Concat(picListPNG).ToArray();
+                string rutaPersonas = Path.Combine(Modulos.obtenerPath(), "imagenes\\fotosPersonas");
 
-                if (!(picList.Contains(rutaPersonas + "\\" + socio.Foto)))
-                {
-                    socio.Foto = "default.jpg";
-                }
-
-                string str = rutaPersonas + "/" + socio.Foto;
+                string dirFoto = Path.Combine(rutaPersonas, socio.Foto);
+                List<string> picList = Modulos.obtenerImagenesCarpeta(rutaPersonas);
 
                 BitmapImage bitmap = new BitmapImage();
-                bitmap.BeginInit();
-                bitmap.UriSource = new Uri(str);
-                bitmap.EndInit();
+
+                if (!(picList.Contains(dirFoto)))
+                {
+                    bitmap = new BitmapImage(new Uri("pack://application:,,,/recursos/default.png"));
+                }
+                else
+                {
+                    bitmap.BeginInit();
+                    bitmap.UriSource = new Uri(dirFoto);
+                    bitmap.EndInit();
+                }
                 ProfileImageSocio.Source = bitmap;
 
             }
@@ -355,49 +356,6 @@ namespace Protectora.Presentacion
             btnEditCancelarSocio.Visibility = Visibility.Hidden;
             btnEditConfirmarSocio.Visibility = Visibility.Hidden;
             ListViewSocios.IsEnabled = true;
-        }
-        private string obtenerPath()
-        {
-            string pathExe = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
-            string pathApp1 = pathExe.Substring(8);
-            string proc = "/Protectora/";
-            int posBin = pathApp1.IndexOf(proc);
-            string pathApp = pathApp1.Remove(posBin + proc.Length - 1);
-            return pathApp;
-        }
-        private string copiarImagen(string sourcePath)
-        {
-            string[] subs = sourcePath.Split('/');
-            string fName = subs[subs.Length - 1];
-
-            int tam = 8;
-            string sourceDir1 = sourcePath.Substring(tam);
-            string sourceDir = sourceDir1.Substring(0, (sourceDir1.Length - fName.Length - 1));
-
-            string pathApp = obtenerPath();
-
-            string backupDir = pathApp + "/fotosPersonas";
-
-            string[] picListTXT = Directory.GetFiles(backupDir, "*.jpg");
-            string[] picListPNG = Directory.GetFiles(backupDir, "*.png");
-            string[] picListGIF = Directory.GetFiles(backupDir, "*.gif");
-            string[] picListBMP = Directory.GetFiles(backupDir, "*.bmp");
-            string[] picList1 = picListTXT.Concat(picListPNG).ToArray();
-            string[] picList2 = picList1.Concat(picListGIF).ToArray();
-            string[] picList = picList2.Concat(picListBMP).ToArray();
-
-            if (!(picList.Contains(backupDir + "\\" + fName)))
-            {
-                try
-                {
-                    File.Copy(Path.Combine(sourceDir, fName), Path.Combine(backupDir, fName), true);
-                }
-                catch (DirectoryNotFoundException ex)
-                {
-                    ELog.save(this, ex);
-                }
-            }
-            return fName;
         }
 
     }

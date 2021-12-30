@@ -94,7 +94,7 @@ namespace Protectora.Presentacion
                     TextBoxFechaPerdida.Text = "";
                     TextBoxDescripcionPerdida.Text = "";
                     TextBoxDescripcionAdicional.Text = "";
-                    string str = obtenerPath() + @"/fotosPerros/default.jpg";
+                    string str = Modulos.obtenerPath() + @"/fotosPerros/default.jpg";
                     //string str = @"../fotosPerros/default.jpg";
                     BitmapImage bitmap = new BitmapImage();
                     bitmap.BeginInit();
@@ -150,7 +150,7 @@ namespace Protectora.Presentacion
                 aviso.DescripcionAnimal = TextBoxDescripcionPerdida.Text;
                 aviso.DescripcionAdicional = TextBoxDescripcionAdicional.Text;
 
-                aviso.Foto = copiarImagen(ProfileImagePerroPerdido.Source.ToString());
+                aviso.Foto = Modulos.copiarImagen(ProfileImagePerroPerdido.Source.ToString(), "perro");
 
                 GestorAnimal.modificarAviso(aviso);
                 CargarPerrosPerdidos();
@@ -341,22 +341,22 @@ namespace Protectora.Presentacion
                 TextBoxDescripcionPerdida.Text = aviso.DescripcionAnimal;
                 TextBoxDescripcionAdicional.Text = aviso.DescripcionAdicional;
 
-                string rutaPerros = obtenerPath() + "/fotosPerros";
-                string[] picListTXT = Directory.GetFiles(rutaPerros, "*.jpg");
-                string[] picListPNG = Directory.GetFiles(rutaPerros, "*.png");
-                string[] picList = picListTXT.Concat(picListPNG).ToArray();
-
-                if (!(picList.Contains(rutaPerros + "\\" + aviso.Foto)))
-                {
-                    aviso.Foto = "default.jpg";
-                }
-
-                string str = rutaPerros + "/" + aviso.Foto;
+                string rutaPerros = Path.Combine(Modulos.obtenerPath(), "imagenes\\fotosPerros");
+                string dirFoto = Path.Combine(rutaPerros, aviso.Foto);
+                List<string> picList = Modulos.obtenerImagenesCarpeta(rutaPerros);
 
                 BitmapImage bitmap = new BitmapImage();
-                bitmap.BeginInit();
-                bitmap.UriSource = new Uri(str);
-                bitmap.EndInit();
+
+                if (!(picList.Contains(dirFoto)))
+                {
+                    bitmap = new BitmapImage(new Uri("pack://application:,,,/recursos/default.png"));
+                }
+                else
+                {
+                    bitmap.BeginInit();
+                    bitmap.UriSource = new Uri(dirFoto);
+                    bitmap.EndInit();
+                }
                 ProfileImagePerroPerdido.Source = bitmap;
 
 
@@ -389,51 +389,6 @@ namespace Protectora.Presentacion
             btnEditCancelarPerroPerdido.Visibility = Visibility.Hidden;
             btnEditConfirmarPerroPerdido.Visibility = Visibility.Hidden;
             ListViewPerrosPerdidos.IsEnabled = true;
-        }
-        private string obtenerPath()
-        {
-            string pathExe = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
-            string pathApp1 = pathExe.Substring(8);
-            string proc = "/Protectora/";
-            int posBin = pathApp1.IndexOf(proc);
-            string pathApp = pathApp1.Remove(posBin + proc.Length-1);
-            return pathApp;
-        }
-        private string copiarImagen(string sourcePath)
-        {
-            string[] subs = sourcePath.Split('/');
-            string fName = subs[subs.Length - 1];
-
-            int tam = 8;
-            string sourceDir1 = sourcePath.Substring(tam);
-            string sourceDir = sourceDir1.Substring(0, (sourceDir1.Length - fName.Length - 1));
-
-            string pathApp = obtenerPath();
-
-            string backupDir = pathApp + "/fotosPerros";
-
-            //string[] picList = Directory.GetFiles(backupDir, "*.jpg");
-
-            string[] picListTXT = Directory.GetFiles(backupDir, "*.jpg");
-            string[] picListPNG = Directory.GetFiles(backupDir, "*.png");
-            string[] picListGIF = Directory.GetFiles(backupDir, "*.gif");
-            string[] picListBMP = Directory.GetFiles(backupDir, "*.bmp");
-            string[] picList1 = picListTXT.Concat(picListPNG).ToArray();
-            string[] picList2 = picList1.Concat(picListGIF).ToArray();
-            string[] picList = picList2.Concat(picListBMP).ToArray();
-
-            if (!(picList.Contains(backupDir + "\\" + fName)))
-            {
-                try
-                {
-                    File.Copy(Path.Combine(sourceDir, fName), Path.Combine(backupDir, fName), true);
-                }
-                catch (DirectoryNotFoundException ex)
-                {
-                    ELog.save(this, ex);
-                }
-            }
-            return fName;
         }
 
         private void OnKeyDownHandler(object sender, System.Windows.Input.KeyEventArgs e)
