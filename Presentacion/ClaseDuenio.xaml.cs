@@ -39,7 +39,7 @@ namespace Protectora.Presentacion
                 persona = new Persona();
                 persona.Id = aviso.IdDuenio;
                 persona = GestorPersona.obtenerPersona(persona);
-                if (persona != null)
+                if (aviso.IdDuenio!=0)
                 {
 
                     txtNombreDuenio.Text = persona.NombreCompleto;

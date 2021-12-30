@@ -38,11 +38,16 @@ namespace Protectora.Presentacion
         {
             try
             {
-                padrino = new Padrino();
-                padrino.Id = perro.Apadrinado;
-                padrino = GestorPersona.obtenerPadrino(padrino);
-                if (padrino != null)
+                //padrino = new Padrino();
+                //padrino.Id = perro.Apadrinado;
+                //padrino = GestorPersona.obtenerPadrino(padrino);
+                //if (padrino != null)
+                if (perro.Apadrinado != 0)
                 {
+                    padrino = new Padrino();
+                    padrino.Id = perro.Apadrinado;
+                    padrino = GestorPersona.obtenerPadrino(padrino);
+
                     txtNombrePadrino.Text = padrino.NombreCompleto;
                     txtDniPadrino.Text = padrino.Dni;
                     txtCorreoPadrino.Text = padrino.Correo;
@@ -75,7 +80,7 @@ namespace Protectora.Presentacion
             txtComienzoPadrino.IsEnabled = true;
         }
 
-        private void eliminarPadrino()
+        private void BtnEliminar_Click(object sender, RoutedEventArgs e)
         {
             string message = "¿Estas seguro que quieres eliminar el padrino seleccionado?";
             string caption = "Eliminación de padrino";
@@ -87,11 +92,15 @@ namespace Protectora.Presentacion
             {
                 try
                 {
-                    if (padrino != null)
+                    if (perro.Apadrinado != 0)
                     {
+                        perro.Apadrinado = 0;
+                        GestorAnimal.modificarPerro(perro);
+
                         GestorPersona.eliminarPadrino(padrino);
                         padrino = null;
                         mostrarPadrino();
+                        Close();
                     }
                 }
                 catch (Exception ex)
@@ -192,9 +201,5 @@ namespace Protectora.Presentacion
             errorImporte.Visibility = Visibility.Hidden;
         }
 
-        private void BtnEliminar_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }
