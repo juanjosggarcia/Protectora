@@ -102,6 +102,11 @@ namespace Protectora.Presentacion
                     bitmap.UriSource = new Uri(str);
                     bitmap.EndInit();
                     ProfileImagePerroPerdido.Source = bitmap;
+
+                    btnAnteriorPerroPerdido.IsEnabled = false;
+                    btnNextPerroPerdido.IsEnabled = false;
+                    btnEditPerroPerdido.IsEnabled = false;
+                    btnDeletePerroPerdido.IsEnabled = false;
                 }
                 catch (Exception ex)
                 {
@@ -336,7 +341,7 @@ namespace Protectora.Presentacion
                 TextBoxSexoPerdido.Text = aviso.Sexo;
                 TextBoxTamanioPerdido.Text = aviso.Tamanio.ToString();
                 TextBoxRazaPerdido.Text = aviso.Raza;
-                TextBoxFechaPerdida.Text = aviso.FechaPerdida.ToString();
+                TextBoxFechaPerdida.Text = aviso.FechaPerdida.ToString("dd-MM-yyyy");
                 TextBoxZonaPerdida.Text = aviso.ZonaPerdida;
                 TextBoxDescripcionPerdida.Text = aviso.DescripcionAnimal;
                 TextBoxDescripcionAdicional.Text = aviso.DescripcionAdicional;

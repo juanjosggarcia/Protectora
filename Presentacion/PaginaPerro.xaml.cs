@@ -115,12 +115,19 @@ namespace Protectora.Presentacion
                     bitmap.UriSource = new Uri(str);
                     bitmap.EndInit();
                     ProfileImage.Source = bitmap;
+
+                    btnEditPerro.IsEnabled = false;
+                    btnDeletePerro.IsEnabled = false;
+                    btnNextPerro.IsEnabled = false;
+                    btnAnteriorPerro.IsEnabled = false;
                 }
                 catch (Exception ex)
                 {
                     ELog.save(this, ex);
                 }
             }
+
+
         }
         private void BtnEditPerro_Click(object sender, RoutedEventArgs e)
         {

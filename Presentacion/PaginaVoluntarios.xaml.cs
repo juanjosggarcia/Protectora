@@ -89,6 +89,12 @@ namespace Protectora.Presentacion
                     bitmap.UriSource = new Uri(str);
                     bitmap.EndInit();
                     ProfileImageVoluntario.Source = bitmap;
+
+
+                    btnAnteriorVoluntario.IsEnabled = false;
+                    btnNextVoluntario.IsEnabled = false;
+                    btnEditVoluntario.IsEnabled = false;
+                    btnDeleteVoluntario.IsEnabled = false;
                 }
                 catch (Exception ex)
                 {

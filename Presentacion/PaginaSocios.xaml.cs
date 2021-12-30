@@ -1,4 +1,5 @@
 ﻿using Protectora.Dominio;
+using Protectora.Dominio;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -87,6 +88,11 @@ namespace Protectora.Presentacion
                     bitmap.UriSource = new Uri(str);
                     bitmap.EndInit();
                     ProfileImageSocio.Source = bitmap;
+
+                    btnAnteriorSocio.IsEnabled = false;
+                    btnNextSocio.IsEnabled = false;
+                    btnEditSocio.IsEnabled = false;
+                    btnDeleteSocio.IsEnabled = false;
                 }
                 catch (Exception ex)
                 {
