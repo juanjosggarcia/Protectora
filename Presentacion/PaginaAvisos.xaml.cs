@@ -94,14 +94,20 @@ namespace Protectora.Presentacion
                     TextBoxFechaPerdida.Text = "";
                     TextBoxDescripcionPerdida.Text = "";
                     TextBoxDescripcionAdicional.Text = "";
-                    string str = Modulos.obtenerPath() + @"/fotosPerros/default.jpg";
+                    //string str = obtenerPath() + @"/fotosPerros/default.jpg";
                     //string str = @"../fotosPerros/default.jpg";
-                    BitmapImage bitmap = new BitmapImage();
-                    bitmap.BeginInit();
-                    //bitmap.UriSource = new Uri(str, UriKind.Relative);
-                    bitmap.UriSource = new Uri(str);
-                    bitmap.EndInit();
-                    ProfileImagePerroPerdido.Source = bitmap;
+                    //BitmapImage bitmap = new BitmapImage();
+                    //bitmap.BeginInit();
+                    ////bitmap.UriSource = new Uri(str, UriKind.Relative);
+                    //bitmap.UriSource = new Uri(str);
+                    //bitmap.EndInit();
+                    BitmapImage bmi = new BitmapImage(new Uri("pack://application:,,,/recursos/default.png"));
+                    ProfileImagePerroPerdido.Source = bmi;
+
+                    btnAnteriorPerroPerdido.IsEnabled = false;
+                    btnNextPerroPerdido.IsEnabled = false;
+                    btnEditPerroPerdido.IsEnabled = false;
+                    btnDeletePerroPerdido.IsEnabled = false;
                 }
                 catch (Exception ex)
                 {
@@ -336,7 +342,7 @@ namespace Protectora.Presentacion
                 TextBoxSexoPerdido.Text = aviso.Sexo;
                 TextBoxTamanioPerdido.Text = aviso.Tamanio.ToString();
                 TextBoxRazaPerdido.Text = aviso.Raza;
-                TextBoxFechaPerdida.Text = aviso.FechaPerdida.ToString();
+                TextBoxFechaPerdida.Text = aviso.FechaPerdida.ToString("dd-MM-yyyy");
                 TextBoxZonaPerdida.Text = aviso.ZonaPerdida;
                 TextBoxDescripcionPerdida.Text = aviso.DescripcionAnimal;
                 TextBoxDescripcionAdicional.Text = aviso.DescripcionAdicional;

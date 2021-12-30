@@ -48,7 +48,7 @@ namespace Protectora.Presentacion
                     txtDatosBanPadrino.Text = padrino.DatosBancarios.ToString();
                     txtImportePadrino.Text = padrino.ImporteMensual.ToString();
                     txtPagoPadrino.Text = padrino.FormaPago;
-                    txtComienzoPadrino.Text = padrino.FechaEntrada.ToString();
+                    txtComienzoPadrino.Text = padrino.FechaEntrada.ToString("dd-MM-yyyy");
                 }
             }
             catch (Exception ex)

@@ -106,21 +106,21 @@ namespace Protectora.Presentacion
                     TextBoxDescripcion.Text = "";
                     TextBoxRaza.Text = "";
 
-                    //string str = @"../fotosPerros/default.jpg";
+                    BitmapImage bmi = new BitmapImage(new Uri("pack://application:,,,/recursos/default.png"));
+                    ProfileImage.Source = bmi;
 
-                    string str = Modulos.obtenerPath() + @"/fotosPerros/default.jpg";
-                    BitmapImage bitmap = new BitmapImage();
-                    bitmap.BeginInit();
-                    //bitmap.UriSource = new Uri(str, UriKind.Relative);
-                    bitmap.UriSource = new Uri(str);
-                    bitmap.EndInit();
-                    ProfileImage.Source = bitmap;
+                    btnEditPerro.IsEnabled = false;
+                    btnDeletePerro.IsEnabled = false;
+                    btnNextPerro.IsEnabled = false;
+                    btnAnteriorPerro.IsEnabled = false;
                 }
                 catch (Exception ex)
                 {
                     ELog.save(this, ex);
                 }
             }
+
+
         }
         private void BtnEditPerro_Click(object sender, RoutedEventArgs e)
         {
