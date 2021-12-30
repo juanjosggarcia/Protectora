@@ -8,9 +8,11 @@
         Title="Acerca De" 
         Height="900" Width="1800"
         MaxHeight="920" MaxWidth="1800"
-        WindowState="Maximized"
+        Icon="/recursos/pawprint.ico"
         WindowStartupLocation="CenterScreen"
-        ResizeMode="CanResize">
+        WindowState="Maximized"
+        ResizeMode="CanResize"
+        >
 
     <Window.Background>
         <ImageBrush ImageSource="/recursos/fondo22.jpg"/>

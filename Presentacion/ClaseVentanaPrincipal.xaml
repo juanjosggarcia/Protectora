@@ -9,9 +9,10 @@
         Icon="/recursos/pawprint.ico"
         Height="900" Width="1800"
         MaxHeight="900" MaxWidth="1800"
-        WindowState="Maximized"
         WindowStartupLocation="CenterScreen"
-        ResizeMode="CanResize">
+        WindowState="Maximized"
+        ResizeMode="CanResize"
+        >
 
     <Window.Resources>
         <Storyboard x:Key="OpenMenu">
@@ -41,7 +42,7 @@
         <ImageBrush ImageSource="/recursos/fondo21.jpg"/>
     </Window.Background>
 
-    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+    <ScrollViewer HorizontalScrollBarVisibility="auto" VerticalScrollBarVisibility="auto">
         <Grid RenderTransformOrigin="0.517,0.515" Margin="0,0,4,0">
 
 
