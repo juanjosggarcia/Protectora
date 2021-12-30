@@ -14,7 +14,13 @@ namespace Protectora
         {
             string fecha = System.DateTime.Now.ToString("yyyyMMdd");
             string hora = System.DateTime.Now.ToString("HH:mm:ss");
-            string path = obtenerPath()+"log/" + fecha + ".txt";
+
+            string pathExe = Modulos.obtenerPath(); // devuelve la ruta de la carpeta base dentro de visual
+            //string pathExe = AppDomain.CurrentDomain.BaseDirectory; // devuelve la ruta donde se encuentra el ejecutable
+
+            string pathLog = Path.Combine(pathExe, "log");
+            System.IO.Directory.CreateDirectory(pathLog);
+            string path = Path.Combine(pathLog, (fecha + ".txt"));
 
             StreamWriter sw = new StreamWriter(path, true);
 
@@ -25,16 +31,6 @@ namespace Protectora
 
             sw.Flush();
             sw.Close();
-        }
-        public static string obtenerPath()
-        {
-            string pathExe = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
-            string pathApp1 = pathExe.Substring(8);
-            //int posBin = pathApp1.IndexOf("/bin");
-            string proc = "/Protectora/";
-            int posBin = pathApp1.IndexOf(proc);
-            string pathApp = pathApp1.Remove(posBin + proc.Length);
-            return pathApp;
         }
     }
 }

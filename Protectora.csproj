@@ -126,6 +126,7 @@
     <Compile Include="Dominio\Usuario.cs" />
     <Compile Include="Dominio\Voluntario.cs" />
     <Compile Include="ELog.cs" />
+    <Compile Include="Modulos.cs" />
     <Compile Include="Persistencia\AvisoDAO.cs" />
     <Compile Include="Persistencia\IDAO.cs" />
     <Compile Include="Persistencia\PadrinoDAO .cs" />
@@ -293,39 +294,6 @@
     <Resource Include="recursos\edit.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="fotosPerros\bulldog.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="fotosPerros\bichon.jpg" />
-    <Resource Include="fotosPerros\chihuahua.jpg" />
-    <Resource Include="fotosPerros\dobermann.jpg" />
-    <Resource Include="fotosPerros\husky.jpg" />
-    <Resource Include="fotosPerros\mini.jpg" />
-    <Resource Include="fotosPerros\samoyedo.jpg" />
-    <Resource Include="fotosPerros\shiba.jpg" />
-    <Resource Include="fotosPerros\shih.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="fotosPerros\pastorDos.jpg" />
-    <Resource Include="fotosPerros\podenco.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="fotosPerros\default.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="fotosPersonas\carlos.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="fotosPersonas\chotu.jpg" />
-    <Resource Include="fotosPersonas\ibai.jpg" />
-    <Resource Include="fotosPersonas\manolo.jpg" />
-    <Resource Include="fotosPersonas\marina.jpg" />
-    <Resource Include="fotosPersonas\rosario.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="fotosPersonas\default.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="recursos\volver.png" />
   </ItemGroup>
   <ItemGroup>
@@ -335,6 +303,7 @@
     <Resource Include="recursos\conversacion.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="imagenes\" />
     <Folder Include="log\" />
   </ItemGroup>
   <ItemGroup>

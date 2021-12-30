@@ -49,24 +49,7 @@ namespace Protectora.Presentacion
                 }
                 else
                 {
-                    string[] sourcePath = extraerFName(txtImagenPerroNuevoPerdido.Text);
-                    string sourceDir = sourcePath[0];
-                    string fName = sourcePath[1];
-                    aviso.Foto = fName;
-
-                    string rutaPerros = obtenerPath() + "/fotosPerros";
-                    string[] picListTXT = Directory.GetFiles(rutaPerros, "*.jpg");
-                    string[] picListPNG = Directory.GetFiles(rutaPerros, "*.png");
-                    string[] picListGIF = Directory.GetFiles(rutaPerros, "*.gif");
-                    string[] picListBMP = Directory.GetFiles(rutaPerros, "*.bmp");
-                    string[] picList1 = picListTXT.Concat(picListPNG).ToArray();
-                    string[] picList2 = picList1.Concat(picListGIF).ToArray();
-                    string[] picList = picList2.Concat(picListBMP).ToArray();
-
-                    if (!(picList.Contains(rutaPerros + "\\" + fName)))
-                    {
-                        copiarImagen(sourceDir, fName);
-                    }
+                    aviso.Foto = Modulos.copiarImagen(txtImagenPerroNuevoPerdido.Text, "perro");
                 }
 
                 Persona persona = new Persona();
@@ -361,64 +344,5 @@ namespace Protectora.Presentacion
 
         /////////////////////////////////////////////////////////////// FUNCIONES AUXILIARES ///////////////////////////////////////////////////////////////
 
-        private string obtenerPath()
-        {
-            string pathExe = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
-            string pathApp1 = pathExe.Substring(8);
-            string proc = "/Protectora/";
-            int posBin = pathApp1.IndexOf(proc);
-            string pathApp = pathApp1.Remove(posBin + proc.Length - 1);
-            return pathApp;
-        }
-
-        private string[] extraerFName(string sourcePath)
-        {
-            string[] subs = sourcePath.Split('\\');
-            if (subs.Length == 1)
-            {
-                subs = sourcePath.Split('/');
-            }
-            string fName = subs[subs.Length - 1];
-            string sourceDir1 = sourcePath.Substring(0, (sourcePath.Length - fName.Length - 1));
-            string sourceDir;
-            if (sourceDir1.Contains("file///"))
-            {
-                sourceDir = sourcePath.Substring(8);
-            }
-            else
-            {
-                sourceDir = sourceDir1;
-            }
-            string[] datos = { sourceDir, fName };
-            return datos;
-        }
-        private string copiarImagen(string sourceDir, string fName)
-        {
-
-            string pathApp = obtenerPath();
-
-            string backupDir = pathApp + "/fotosPerros";
-
-            string[] picListTXT = Directory.GetFiles(backupDir, "*.jpg");
-            string[] picListPNG = Directory.GetFiles(backupDir, "*.png");
-            string[] picListGIF = Directory.GetFiles(backupDir, "*.gif");
-            string[] picListBMP = Directory.GetFiles(backupDir, "*.bmp");
-            string[] picList1 = picListTXT.Concat(picListPNG).ToArray();
-            string[] picList2 = picList1.Concat(picListGIF).ToArray();
-            string[] picList = picList2.Concat(picListBMP).ToArray();
-
-            if (!(picList.Contains(backupDir + "\\" + fName)))
-            {
-                try
-                {
-                    File.Copy(Path.Combine(sourceDir, fName), Path.Combine(backupDir, fName), true);
-                }
-                catch (DirectoryNotFoundException ex)
-                {
-                    ELog.save(this, ex);
-                }
-            }
-            return fName;
-        }
     }
 }
