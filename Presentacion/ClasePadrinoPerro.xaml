@@ -6,15 +6,15 @@
         xmlns:local="clr-namespace:Protectora.Presentacion"
         mc:Ignorable="d"
         Icon="/recursos/pawprint.ico"
-        Title="Padrino" Height="562" Width="649"
-        MaxHeight="562" MaxWidth="649"
+        Title="Padrino" Height="617" Width="649"
+        MaxHeight="617" MaxWidth="649"
         WindowStartupLocation="CenterScreen">
 
     <Window.Background>
         <ImageBrush ImageSource="/recursos/fondoOlvidarContrasenia2.jpg"/>
     </Window.Background>
 
-    <Border BorderBrush="white" Background="#FAF9F7" BorderThickness="4" CornerRadius="20" Margin="41,26,61,20" Grid.Row="1" Grid.Column="1">
+    <Border BorderBrush="white" Background="#FAF9F7" BorderThickness="4" CornerRadius="20" Margin="41,26,61,31" Grid.Row="1" Grid.Column="1">
         <Grid Height="481" VerticalAlignment="Top">
             <Grid.RowDefinitions>
                 <RowDefinition Height="57*"/>
@@ -53,9 +53,9 @@
             <Label x:Name="lblComienzo" Content="Fecha de apadrinamiento:" FontSize="18" HorizontalAlignment="Left" Height="34" Margin="10,281,0,0" VerticalAlignment="Top" Width="215" Grid.Row="1" Grid.Column="1"/>
             <TextBox x:Name="txtComienzoPadrino" GotFocus="PulsarFecha" ToolTip="dd-mm-aaaa, Fecha de apadrinamiento" Style="{StaticResource TextBox1}" FontSize="14" Foreground="Black"  Width="Auto" Height="Auto" Margin="0,280,0,23" RenderTransformOrigin="0.5,0.5"  IsEnabled="False" Grid.Column="2" Grid.Row="1"/>
 
-            <Button x:Name="BtnAceptarCambios" ToolTip="Confirmar los cambios realizados" Content="Confirmar" Style="{StaticResource EstiloBotonMediano}" Click="BtnPdrino_Click" Grid.Column="1" Margin="86,0,0,0" Height="44" Width="110" Grid.Row="2" RenderTransformOrigin="0.182,-1.743" Visibility="Visible"/>
-            <Button x:Name="BtnCancelarCambios" ToolTip="Cancelar los cambios realizados" Style="{StaticResource EstiloBotonMediano}" Content="Cancelar" Margin="211,0,0,0" Grid.Row="2" Height="44" Width="110" Click="BtnCancelarCambios_Click" Visibility="Visible" Grid.Column="1" Grid.ColumnSpan="2"/>
-            <Button x:Name="BtnEliminar" ToolTip="Eliminar padrino" Style="{StaticResource EstiloBotonMediano}" Content="Borrar" Margin="112,31,0,0" Grid.Row="2" Height="35" Width="85" Click="BtnEliminar_Click" Visibility="Visible" Grid.Column="2" Grid.ColumnSpan="2"/>
+            <Button x:Name="BtnAceptarCambios" ToolTip="Confirmar los cambios realizados" Content="Confirmar" Style="{StaticResource EstiloBotonMediano}" Click="BtnPdrino_Click" Grid.Column="1" Margin="86,10,0,0" Height="44" Width="110" Grid.Row="2" RenderTransformOrigin="0.182,-1.743" Visibility="Visible"/>
+            <Button x:Name="BtnCancelarCambios" ToolTip="Cancelar los cambios realizados" Style="{StaticResource EstiloBotonMediano}" Content="Cancelar" Margin="211,10,0,0" Grid.Row="2" Height="44" Width="110" Click="BtnCancelarCambios_Click" Visibility="Visible" Grid.Column="1" Grid.ColumnSpan="2"/>
+            <Button x:Name="BtnEliminar" ToolTip="Eliminar padrino" Style="{StaticResource EstiloBotonMediano}" Content="Borrar" Margin="86,71,0,-20" Grid.Row="2" Height="35" Width="235" Click="BtnEliminar_Click" Visibility="Visible" Grid.Column="1" RenderTransformOrigin="0.553,1" Grid.ColumnSpan="2"/>
 
 
             <Image x:Name="errorFecha" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="22" Stretch="UniformToFill" Source="/recursos/remove2.png" Margin="10,287,0,0" Grid.Row="1" Grid.Column="3" Visibility="Hidden"/>
