@@ -14,14 +14,15 @@ namespace Protectora.Persistencia
     {
         private static AgenteDB AgenteBD = null;
         private static OleDbConnection conexionBD = new OleDbConnection();
-        //private static string rutaBD = @".\protectoraDB.accdb";
-        private static string rutaBD = @"C:\Users\juanj\vs2019-workspace\Protectora\protectoraDB.accdb";
+        //private static string rutaBD = @"..\..\protectoraDB.accdb";
+        private static string rutaBD = obtenerPath() + @"\protectoraDB.accdb";
         private string cadenaConexionBD = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source=";
 
         private AgenteDB()
         {
             conexionBD = new OleDbConnection();
             conexionBD.ConnectionString = cadenaConexionBD + rutaBD;
+            conexionBD.Open();
         }
 
         public static AgenteDB obtenerAgente()
@@ -42,18 +43,11 @@ namespace Protectora.Persistencia
             }
             catch (Exception ex)
             {
+                Console.Write(ex);
                 return false;
             }
         }
-        /*
-        public void conectarCutre()
-        {
-            if (conexionBD.State == ConnectionState.Closed)
-            {
-                conexionBD.Open();
-            }
-        }
-        */
+
         public void desconectar()
         {
             if (conexionBD.State == ConnectionState.Open)
@@ -94,6 +88,16 @@ namespace Protectora.Persistencia
             result = com.ExecuteNonQuery();
             desconectar();
             return result;
+        }
+
+        private static string obtenerPath()
+        {
+            string pathExe = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
+            string pathApp1 = pathExe.Substring(8);
+            string proc = "/Protectora/";
+            int posBin = pathApp1.IndexOf(proc);
+            string pathApp = pathApp1.Remove(posBin + proc.Length);
+            return pathApp;
         }
 
     }

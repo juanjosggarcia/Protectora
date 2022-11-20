@@ -1,0 +1,30 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <sys:String x:Key="btnIniciarSesion">Log In</sys:String>
+    <sys:String x:Key="usuario">Username</sys:String>
+    <sys:String x:Key="contrasenia">Password</sys:String>
+    <sys:String x:Key="wrongLogin">You have entered an invalid username or password</sys:String>
+    <sys:String x:Key="contraseniaOlvidada">Forgot password?</sys:String>
+    <sys:String x:Key="tooltipoInformacion">More information</sys:String>
+    <sys:String x:Key="tooltipolvidadacontrasenia">If you forgot your password you can check it here</sys:String>
+    <sys:String x:Key="tooltipIniciarSesion">Log in in the application</sys:String>
+    <sys:String x:Key="tooltipIdioma">Change the language of the application</sys:String>
+    <sys:String x:Key="autores">Authors</sys:String>
+    <sys:String x:Key="puesto">Developer</sys:String>
+    <sys:String x:Key="specs">Specifications</sys:String>
+    <sys:String x:Key="Version">Version:</sys:String>
+    <sys:String x:Key="fechaLanzamiento">Release date:</sys:String>
+    <sys:String x:Key="iconos">Icons:</sys:String>
+    <sys:String x:Key="fondos">Background images:</sys:String>
+    <sys:String x:Key="paleta">Color scheme:</sys:String>
+    <sys:String x:Key="entorno">Development environment:</sys:String>
+    <sys:String x:Key="volver">Return to the login screen</sys:String>
+    <sys:String x:Key="nombreUsuario">User:</sys:String>
+    <sys:String x:Key="recordar">Rembember password</sys:String>
+    <sys:String x:Key="tooltipRecordar">Remember your current account password</sys:String>
+
+
+
+</ResourceDictionary>

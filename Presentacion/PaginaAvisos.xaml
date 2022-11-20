@@ -1,0 +1,119 @@
+﻿<Page x:Class="Protectora.Presentacion.PaginaAvisos"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Protectora.Presentacion"
+      mc:Ignorable="d" 
+      d:DesignHeight="869" d:DesignWidth="1710"
+      Title="PaginaAvisos">
+
+    <Grid>
+        <Grid x:Name="GridMain" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="869" Width="1710" Margin="0,0,0,2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="711.2" />
+                <ColumnDefinition Width="668.8" />
+
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="165*"/>
+                <RowDefinition Height="599*"/>
+                <RowDefinition Height="105"/>
+            </Grid.RowDefinitions>
+
+            <Border BorderBrush="white" Background="#FAF9F7" BorderThickness="4" CornerRadius="20" Margin="78,0,-193,0" Grid.Row="1" Grid.Column="1">
+                <Grid Margin="4,-4,-4,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="93*"/>
+                        <RowDefinition Height="40*"/>
+                        <RowDefinition Height="40*"/>
+                        <RowDefinition Height="40*"/>
+                        <RowDefinition Height="40*"/>
+                        <RowDefinition Height="40*"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40*"/>
+                        <RowDefinition Height="50*"/>
+                        <RowDefinition Height="105*"/>
+                        <RowDefinition Height="67*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="56*"/>
+                        <ColumnDefinition Width="201*"/>
+                        <ColumnDefinition Width="79*"/>
+                        <ColumnDefinition Width="170*"/>
+                        <ColumnDefinition Width="181*"/>
+                        <ColumnDefinition Width="90*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image x:Name="ProfileImagePerroPerdido" HorizontalAlignment="Left" Height="200" VerticalAlignment="Top" Width="200" Stretch="UniformToFill" Source="/Protectora;component/recursos/default.png" Grid.Column="1" Margin="0,52,0,0" Grid.RowSpan="5">
+                        <Image.Clip>
+                            <EllipseGeometry Center="100,100" RadiusX="100" RadiusY="100" />
+                        </Image.Clip>
+                    </Image>
+                    <TextBox x:Name="TextBoxIdPerroPer" ToolTip="Id del perro perdido" Style="{StaticResource TextBox1}" FontSize="14" Foreground="Black"  Width="180" Height="35" Margin="0,58,0,0" RenderTransformOrigin="0.5,0.5" Text="{Binding Path=Id}" IsEnabled="False" Grid.Column="4" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                    <TextBox x:Name="TextBoxSexoPerdido" ToolTip="Género del perro perdido" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontSize="14" Text="{Binding Path=Sexo}" IsEnabled="False" Grid.Column="4" Grid.Row="2"/>
+                    <TextBox x:Name="TextBoxNombrePerdido" ToolTip="Nombre del perro perdido" Style="{StaticResource TextBox1}" Height="35" Margin="0,5,1,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="Auto" FontSize="14" Text="{Binding Path=Nombre}" IsEnabled="False" Grid.Column="4" Grid.Row="1"/>
+                    <TextBox x:Name="TextBoxTamanioPerdido" GotFocus="PulsarTamanio" ToolTip="Dato, numerico Tamaño en cm del perro perdido" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="180" FontSize="14" Text="{Binding Path=Tamanio}" IsEnabled="False" Grid.Column="4" Grid.Row="3"/>
+                    <TextBox x:Name="TextBoxRazaPerdido" ToolTip="Raza del perro perdido" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontSize="14" Text="{Binding Path=Estado}" IsEnabled="False" Grid.Column="4" Grid.Row="4"/>
+                    <TextBox x:Name="TextBoxZonaPerdida"   ToolTip="Área en la que se vio por última vez o en la que se escapó" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontSize="14" Text="{Binding Path=Peso}" IsEnabled="False" Grid.Column="4" Grid.Row="6"/>
+                    <TextBox x:Name="TextBoxFechaPerdida" GotFocus="PulsarFecha" ToolTip="Fecha del dia en el que se perdió al perro" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="35" Margin="0,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontSize="14" Text="{Binding Path=Edad}" IsEnabled="False" Grid.Column="4" Grid.Row="5"/>
+                    <TextBox x:Name="TextBoxDescripcionPerdida" ToolTip="Descripción del perro" Style="{StaticResource TextBox1}" Height="80" Margin="1,10,1,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="Auto" FontSize="14" Text="{Binding Path=Entrada}" IsEnabled="False" Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
+                    <TextBox x:Name="TextBoxDescripcionAdicional" ToolTip="Descripción del perro para poder identificarlo como color del collar o alguna peculiaridad" Style="{StaticResource TextBox1}" HorizontalAlignment="Left" Height="80" Margin="1,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="428" FontSize="14" Text="{Binding Path=Descripcion}" IsEnabled="False" Grid.ColumnSpan="3" Grid.Row="9" Grid.Column="2"/>
+
+                    <Label x:Name="lblIdPerdido" Content="Id:"  HorizontalAlignment="Right" Height="37" Margin="0,58,70,0" VerticalAlignment="Top" Width="100" FontSize="18" Grid.Column="3" Grid.RowSpan="2"/>
+                    <Label x:Name="lblNombrePerdido" Content="Nombre:" HorizontalAlignment="Left" Height="37" Margin="0,0,0,38" VerticalAlignment="Bottom" Width="100" FontSize="18" Grid.Column="3" Grid.Row="1" Grid.RowSpan="2"/>
+                    <Label x:Name="lblsexoPerdido" Content="Sexo:" Height="38" VerticalAlignment="Center"  FontSize="18" Grid.Column="3" Grid.Row="2" Margin="0,0,118,2" HorizontalAlignment="Center" Width="52"/>
+                    <Label x:Name="lbltamanioPerdido" Content="Tamaño:" Height="38" Margin="0,1,90,1" VerticalAlignment="Center" Width="80" FontSize="18" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center"/>
+                    <Label x:Name="lblZonaPerdido" Content="Zona de perdida:" HorizontalAlignment="Left" Height="36"  Margin="0,4,0,0" VerticalAlignment="Top" Width="156" FontSize="18" Grid.Column="3" Grid.Row="6"/>
+                    <Label x:Name="lblFechaPerdido" Content="Fecha de perdida:" HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="156" FontSize="18" Grid.Column="3" Grid.Row="5"/>
+                    <Label x:Name="lblDescripcionAdicional" Content="Descripción adicional:" HorizontalAlignment="Left" Height="36" Margin="0,10,0,0" VerticalAlignment="Top" Width="191" FontSize="18" Grid.Column="1" Grid.Row="9"/>
+                    <Label x:Name="lblRazaPerdido" Content="Raza:" HorizontalAlignment="Left"  Height="36" Margin="0,3,0,0" VerticalAlignment="Top" Width="156" FontSize="18" Grid.Column="3" Grid.Row="4"/>
+                    <Label x:Name="lblDescrpcionPerdido" Content="Descripcion del perro:" HorizontalAlignment="Left" Height="36" Margin="0,16,0,0" VerticalAlignment="Top" Width="191" FontSize="18" Grid.Row="7" RenderTransformOrigin="0.598,-1" Grid.RowSpan="2" Grid.Column="1"/>
+
+                    <Image x:Name="errorTamanio" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="22" Stretch="UniformToFill" Source="/recursos/remove2.png" Margin="10,12,0,0" Grid.Row="3" Grid.Column="5" Visibility="Hidden"/>
+                    <Image x:Name="errorFecha" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="22" Stretch="UniformToFill" Source="/recursos/remove2.png" Margin="10,12,0,0" Grid.Column="5" Grid.Row="5" Visibility="Hidden"/>
+
+                    <Button x:Name="BtnDuenio" ToolTip="Datos del dueño del perro perdido" Content="DUEÑO" Style="{StaticResource EstiloBotonMediano}" Click="BtnDuenio_Click" Grid.Column="1" Margin="26,15,0,0" Height="55" Width="152" Grid.Row="5" RenderTransformOrigin="0.182,-1.743" Grid.RowSpan="2" IsEnabled="False"/>
+
+                    <Button x:Name="btnImagenPerroPerdido" Style="{StaticResource EstiloBotonCambioImagen}" Background="Transparent" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="200" Width="200" Opacity="0.5" Margin="0,52,0,0" Grid.RowSpan="5" Visibility="Hidden" Click="BtnImagenPerroPerdido_Click" IsEnabled="false">
+                        <!--<Image Source="/recursos/editar.png" Width="55" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
+                    </Button>
+
+
+                </Grid>
+            </Border>
+            <TextBox x:Name="TextBoxBuscarPerroPerdido" KeyDown="OnKeyDownHandler" Style="{StaticResource EstiloTextBoxBuscar}" FontSize="14" Foreground="Black"  Width="298" Height="Auto" Margin="228,42,0,522" RenderTransformOrigin="0.5,0.5" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Path=Nombre}"/>
+            <Button x:Name="btnBuscarPerroPerdido" ToolTip="Buscar por nombre un perro perdido" Style="{StaticResource EstiloBotonBuscar}" Content="Buscar" HorizontalAlignment="Left" Margin="526,0,0,522" VerticalAlignment="Bottom" Width="102" RenderTransformOrigin="0.526,1.458" Height="35" Grid.Row="1" Click="btnBuscarPerroPerdido_Click" />
+
+
+            <ListView Style="{StaticResource EstiloListView}" ToolTip="Listado de los perros perdidos" Width="400" x:Name="ListViewPerrosPerdidos" Grid.Row="1" Foreground="#333" Background="#FAFBFD" FontFamily="Corbel" Margin="228,91,84,67" Padding="-3,-1"  IsSynchronizedWithCurrentItem="True" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="ListaPerrosPerdidos_SelectionChanged" >
+                <ListView.View>
+                    <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle}">
+                        <GridViewColumn Header="ID" Width="195" DisplayMemberBinding="{Binding Id}"  />
+                        <GridViewColumn Header="NOMBRE" Width="195" DisplayMemberBinding="{Binding Nombre}" />
+
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <Border BorderBrush="white" Background="#ffffff" BorderThickness="4" CornerRadius="20" Margin="78,549,-193,0" Grid.Row="1" Grid.Column="1">
+                <Grid Margin="0,0,0,-4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="389*"/>
+                        <ColumnDefinition Width="157*"/>
+                        <ColumnDefinition Width="231*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="btnEditPerroPerdido" ToolTip="Editar datos de un aviso" Style="{StaticResource EstiloBotonMediano}" Content="Editar" HorizontalAlignment="Left" Margin="184,0,0,7" VerticalAlignment="Bottom" Width="95"     Padding="1,2,1,1" Height="34" IsEnabled="false" Click="BtnEditPerroPerdido_Click"/>
+                    <Button x:Name="btnAnteriorPerroPerdido" ToolTip="Aviso anterior" Style="{StaticResource EstiloBotonPequeño}" Content="◀ " HorizontalAlignment="Left" Margin="12,0,0,10" VerticalAlignment="Bottom" Width="34"    Padding="1" FontFamily="Corbel" FontSize="10" Height="34"  Click="BtnAnteriorPerroPerdido_Click" IsEnabled="false"/>
+                    <Button x:Name="btnNextPerroPerdido" ToolTip="Aviso siguiente" Style="{StaticResource EstiloBotonPequeño}" Content=" ▶" HorizontalAlignment="Left" Margin="179,0,0,10" VerticalAlignment="Bottom" Width="34" FontFamily="Corbel" FontSize="10" Height="34"  Click="BtnNextPerroPerdido_Click"   IsEnabled="false" Grid.Column="2"  />
+                    <Button x:Name="btnDeletePerroPerdido" Click="BtnDeletePerroPerdido_Click" ToolTip="Eliminación de un aviso" Style="{StaticResource EstiloBotonMediano}" Content="Borrar" HorizontalAlignment="Left" Margin="294,0,0,7" VerticalAlignment="Bottom" Width="95"     Padding="1,2,1,1" Height="34"  IsEnabled="false"  />
+                    <Button x:Name="btnEditCancelarPerroPerdido" Click="btnEditCancelarPerroPerdido_Click"  Style="{StaticResource EstiloBotonComprobacion}" Content="Cancelar" ToolTip="Cancelar cambios realizados" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom"     Padding="1,2,1,1" Height="34" IsEnabled="true"  Width="95" Grid.Column="1" Visibility="Hidden" />
+                    <Button x:Name="btnEditConfirmarPerroPerdido" Click="btnEditConfirmarPerroPerdido_Click" Style="{StaticResource EstiloBotonComprobacion}" Content="Confirmar" ToolTip="Confirmar cambios realizados" HorizontalAlignment="Left" Margin="284,0,0,10" VerticalAlignment="Bottom" Width="95"     Padding="1,2,1,1" Height="34" IsEnabled="true"  Visibility="Hidden"  />
+                    <Button x:Name="NuevoPerroPerdido" Click="ClickNuevoPerroPerdido" ToolTip="Añadir nuevo aviso" Style="{StaticResource EstiloBotonMediano}" Content="Nuevo" HorizontalAlignment="Left" Margin="69,0,0,7" VerticalAlignment="Bottom" Width="102"  RenderTransformOrigin="0.526,1.458" Height="34"/>
+
+                </Grid>
+            </Border>
+            <Button x:Name="btnMostrarTodos" ToolTip="Mostrar todos los avisos en la lista" Style="{StaticResource EstiloBotonMostrarTodos}" Content="Mostrar todos" HorizontalAlignment="Left" Margin="228,0,0,17" VerticalAlignment="Bottom" Width="400" RenderTransformOrigin="0.526,1.458" Height="35" Grid.Row="1" Click="btnMostrarTodosAvisos_Click"/>
+        </Grid>
+    </Grid>
+
+</Page>

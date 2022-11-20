@@ -1,0 +1,35 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <sys:String x:Key="btnIniciarSesion">Iniciar sesion</sys:String>
+    <sys:String x:Key="usuario">Nombre de usuario</sys:String>
+    <sys:String x:Key="contrasenia">Contraseña</sys:String>
+    <sys:String x:Key="wrongLogin">Ha ingresado un nombre de usuario o contraseña inválidos</sys:String>
+    <sys:String x:Key="contraseniaOlvidada">¿Olvidaste tu contraseña?</sys:String>
+    <sys:String x:Key="tooltipoInformacion">Más información</sys:String>
+    <sys:String x:Key="tooltipolvidadacontrasenia">Si ha olvidado su contraseña, puede verla aqui</sys:String>
+    <sys:String x:Key="tooltipIniciarSesion">Iniciar sesion en la aplicacion</sys:String>
+    <sys:String x:Key="tooltipIdioma">Cambiar el idioma de la aplicacion</sys:String>
+    <sys:String x:Key="puesto">Desarrollador</sys:String>
+    <sys:String x:Key="specs">Especificaciones</sys:String>
+    <sys:String x:Key="Version">Versión:</sys:String>
+    <sys:String x:Key="fechaLanzamiento">Fecha de lanzamiento:</sys:String>
+    <sys:String x:Key="autores">Autores</sys:String>
+    <sys:String x:Key="iconos">Iconos:</sys:String>
+    <sys:String x:Key="fondos">Fondos de pantalla:</sys:String>
+    <sys:String x:Key="paleta">Paleta de colores:</sys:String>
+    <sys:String x:Key="entorno">Entorno de desarrollo:</sys:String>
+    <sys:String x:Key="volver">Volver a la pantalla de inicio de sesion</sys:String>
+    <sys:String x:Key="nombreUsuario">Usuario:</sys:String>
+    <sys:String x:Key="recordar">Recordar contraseña</sys:String>
+    <sys:String x:Key="tooltipRecordar">Recordar contraseña de su cuenta actual</sys:String>
+
+
+
+
+
+
+
+
+</ResourceDictionary>

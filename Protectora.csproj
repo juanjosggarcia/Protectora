@@ -40,6 +40,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -54,31 +57,155 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
+    <ApplicationDefinition Include="Presentacion\App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
+    <Page Include="idiomas\StringResources.en-UK.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="idiomas\StringResources.es-ES.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\ClaseAcercaDe.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\ClaseAniadirPerro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\ClaseAniadirPerroPerdido.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\ClaseAniadirSocio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\ClaseAniadirVoluntario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\ClaseContraseniaOlvidada.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\ClaseDuenio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\ClasePadrinoPerro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\ClaseVentanaPrincipal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\Estilos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="App.xaml.cs">
+    <Compile Include="Dominio\Animal.cs" />
+    <Compile Include="Dominio\Aviso.cs" />
+    <Compile Include="Dominio\GestorAnimal.cs" />
+    <Compile Include="Dominio\GestorPersona.cs" />
+    <Compile Include="Dominio\GestorUsuario.cs" />
+    <Compile Include="Dominio\IDTO.cs" />
+    <Compile Include="Dominio\Padrino.cs" />
+    <Compile Include="Dominio\Perro.cs" />
+    <Compile Include="Dominio\Persona.cs" />
+    <Compile Include="Dominio\Socio.cs" />
+    <Compile Include="Dominio\Usuario.cs" />
+    <Compile Include="Dominio\Voluntario.cs" />
+    <Compile Include="ELog.cs" />
+    <Compile Include="Modulos.cs" />
+    <Compile Include="Persistencia\AvisoDAO.cs" />
+    <Compile Include="Persistencia\IDAO.cs" />
+    <Compile Include="Persistencia\PadrinoDAO .cs" />
+    <Compile Include="Persistencia\PersonaDAO.cs" />
+    <Compile Include="Persistencia\SocioDAO.cs" />
+    <Compile Include="Persistencia\UsuarioDAO.cs" />
+    <Compile Include="Persistencia\VoluntarioDAO.cs" />
+    <Compile Include="Presentacion\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Dominio\Animal.cs" />
     <Compile Include="Dominio\ClassPruebas.cs" />
-    <Compile Include="Dominio\Persona.cs" />
-    <Compile Include="Dominio\Perro.cs" />
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Presentacion\ClaseAcercaDe.xaml.cs">
+      <DependentUpon>ClaseAcercaDe.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\ClaseAniadirPerro.xaml.cs">
+      <DependentUpon>ClaseAniadirPerro.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\ClaseAniadirPerroPerdido.xaml.cs">
+      <DependentUpon>ClaseAniadirPerroPerdido.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\ClaseAniadirSocio.xaml.cs">
+      <DependentUpon>ClaseAniadirSocio.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\ClaseAniadirVoluntario.xaml.cs">
+      <DependentUpon>ClaseAniadirVoluntario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\ClaseContraseniaOlvidada.xaml.cs">
+      <DependentUpon>ClaseContraseniaOlvidada.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\ClaseDuenio.xaml.cs">
+      <DependentUpon>ClaseDuenio.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\ClasePadrinoPerro.xaml.cs">
+      <DependentUpon>ClasePadrinoPerro.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\ClaseVentanaPrincipal.xaml.cs">
+      <DependentUpon>ClaseVentanaPrincipal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Presentacion\PaginaAvisos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\PaginaPerro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\PaginaSocios.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentacion\PaginaVoluntarios.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Persistencia\AgenteDB.cs" />
     <Compile Include="Persistencia\AnimalDAO.cs" />
-    <Compile Include="Persistencia\PersonaDAO.cs" />
+    <Compile Include="Presentacion\PaginaAvisos.xaml.cs">
+      <DependentUpon>PaginaAvisos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\PaginaPerro.xaml.cs">
+      <DependentUpon>PaginaPerro.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\PaginaSocios.xaml.cs">
+      <DependentUpon>PaginaSocios.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\PaginaVoluntarios.xaml.cs">
+      <DependentUpon>PaginaVoluntarios.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -102,10 +229,85 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="Presentacion\App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Presentacion\" />
+    <Resource Include="recursos\pawprint.ico" />
+    <Resource Include="recursos\spain.png" />
+    <Resource Include="recursos\united-kingdom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\caridad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\socios.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\fondo20.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\fondo21.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\bichon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\fondoOlvidarContrasenia2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\left-chevron.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\alert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\log-out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\botonAnadir.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\fondo22.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\woman.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\man.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\editar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\volver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\dog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\conversacion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="imagenes\" />
+    <Folder Include="log\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="recursos\remove2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildBinPath)\Microsoft.WinFX.targets" />

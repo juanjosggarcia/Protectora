@@ -1,0 +1,82 @@
+﻿<Window x:Class="Protectora.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Protectora"
+        mc:Ignorable="d"
+		Icon="/recursos/pawprint.ico"
+        Title="Inicio" 
+        MaxHeight="920" MaxWidth="1800"
+        ResizeMode="CanResize"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized" >
+
+    <Window.Background>
+        <ImageBrush ImageSource="/recursos/fondo20.jpg"/>
+    </Window.Background>
+
+    <ScrollViewer HorizontalScrollBarVisibility="auto" VerticalScrollBarVisibility="auto">
+
+        <Grid x:Name="pnlInicioSesion" Margin="0,0,-6,-19" HorizontalAlignment="Right" Width="1790" Height="890" VerticalAlignment="Top" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="483*"/>
+                <ColumnDefinition Width="272*"/>
+                <ColumnDefinition Width="300*"/>
+                <ColumnDefinition Width="262*"/>
+                <ColumnDefinition Width="388*"/>
+                <ColumnDefinition Width="95*"/>
+
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+
+                <RowDefinition Height="201*" />
+                <RowDefinition Height="469*"/>
+                <RowDefinition Height="115*"/>
+                <RowDefinition Height="86*"/>
+            </Grid.RowDefinitions>
+
+            <Border BorderBrush="white" Background="#FAF9F7" Grid.Column="1" BorderThickness="3" CornerRadius="25" Margin="0,2,0,0" Grid.Row="1" Grid.ColumnSpan="3" />
+
+            <Image x:Name="imgAvatar" HorizontalAlignment="Center"
+               Source="/recursos/user.png"  Grid.Column="1" Margin="209,79,185,265" RenderTransformOrigin="0.475,0.498" Grid.Row="1" Width="178" Grid.ColumnSpan="2">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="121.948"/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <TextBox x:Name ="txtUsuario" Style="{StaticResource TextBox1}" Text="{DynamicResource usuario}" Grid.Column="2" Grid.Row="1" KeyDown="OnKeyDownHandler" PreviewMouseDown="LimpiarTexto" FontSize="17" Foreground="Gray" Margin="0,254,0,185" PreviewMouseUp="MostrarAyudaContrasenia" Width="Auto" Height="Auto"/>
+            <PasswordBox x:Name ="txtContrasenia" Grid.Column="2" FontSize="16" Style="{StaticResource PasswordBoxStyle}" Margin="0,299,0,130" Grid.Row="1" VerticalAlignment="Center" Height="40" KeyDown="OnKeyDownHandler" RenderTransformOrigin="0.452,1.5" TextBlock.Foreground="Gray" Password="Contraseña"  PreviewMouseDown="LimpiarTextoContrasenia" PreviewMouseUp="MostrarAyuda"/>
+
+            <Button Name="BtnIniciarSesion" ToolTip="{DynamicResource tooltipIniciarSesion}" Style="{StaticResource EstiloBotonMediano}" Content="{DynamicResource btnIniciarSesion}" Click="BtnIniciarSesion_Click" Margin="53,364,68,0" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Stretch" Width="Auto" >
+
+            </Button>
+            <Button Name="BtnOlvidarContraseña" Content="{DynamicResource contraseniaOlvidada}" BorderThickness="2" Style="{StaticResource EstiloBotonOlvidarContrasenia}" ToolTip="{DynamicResource tooltipolvidadacontrasenia}" HorizontalAlignment="Left" Height="34" Margin="24,425,0,0" VerticalAlignment="Top" Width="211" RenderTransformOrigin="0.591,1.088" Grid.Column="3" Grid.Row="1" FontFamily="Lucida Sans Unicode" Click="BtnOlvidarContraseña_Click" FontSize="16"/>
+
+            <ComboBox x:Name="ComboBoxIdioma" IsReadOnly="True" Style="{StaticResource EstiloComboBox}"  IsEditable="False" HorizontalAlignment="Left" Height="30" Margin="30,30,0,0" VerticalAlignment="Top" Width="155" Text="Idioma" SelectedIndex="0"  ToolTip="{DynamicResource tooltipIdioma}" SelectionChanged="ComboBox_SelectionChanged">
+                <ComboBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/recursos/spain.png" Height="20" Width="33" />
+                        <TextBlock FontSize="16" Foreground="black">Español</TextBlock>
+                    </StackPanel>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/recursos/united-kingdom.png" Height="20" Width="33" />
+                        <TextBlock  FontSize="16" Foreground="black">English</TextBlock>
+                    </StackPanel>
+                </ComboBoxItem>
+            </ComboBox>
+            <Label x:Name="errorInicioSesion" Content="{DynamicResource wrongLogin}"  HorizontalAlignment="Center" Height="30" Margin="197,219,187,220" VerticalAlignment="Center" Width="450" Grid.Row="1" FontFamily="{DynamicResource {x:Static SystemFonts.CaptionFontFamilyKey}}" Background="#00000000" FontSize="15" Foreground="#FFE00D0D" FontWeight="Normal" Grid.Column="1" Grid.ColumnSpan="3" HorizontalContentAlignment="Center"/>
+            <Button Style="{StaticResource EstiloBotonInfo}" ToolTip="{DynamicResource tooltipoInformacion}" Grid.Column="5" HorizontalAlignment="Center" Margin="0,0,23,16" Grid.Row="3" VerticalAlignment="Center" Width="72" Height="70" Click="Button_Click">
+                <Image Source="/recursos/info.png" Width="55" Height="60" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Button>
+
+        </Grid>
+    </ScrollViewer>
+
+</Window>
