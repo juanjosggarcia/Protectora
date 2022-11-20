@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Protectora.Persistencia
 {
+    class PersonaDAO : IDAO<Persona>
     {
         public readonly List<Persona> personas;
 
