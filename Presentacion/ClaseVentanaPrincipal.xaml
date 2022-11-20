@@ -100,11 +100,11 @@
                                 </StackPanel>
                             </Button>
                         </ListViewItem>
-                        <ListViewItem x:Name="ItemSocios" Height="60" Style="{StaticResource Style2}">
+                        <ListViewItem x:Name="ItemSocios" Height="60" Style="{StaticResource Style2}" HorizontalAlignment="Left">
                             <Button x:Name="BotonListSocios" Style="{StaticResource EstiloBotonLista}" Click="BotonListSocio_Click" ToolTip="Gestion de socios">
                                 <StackPanel Orientation="Horizontal">
                                     <Image Source="/Protectora;component/recursos/socios.png" Width="58" Height="34" />
-                                    <TextBlock Text="Voluntarios de la protectora" FontSize="16" VerticalAlignment="Center" Margin="20 10"/>
+                                    <TextBlock Text="Gestión de socios" FontSize="16" VerticalAlignment="Center" Margin="20 10"/>
                                 </StackPanel>
                             </Button>
                         </ListViewItem>
@@ -113,7 +113,7 @@
                             <Button x:Name="BotonListVoluntarios" Style="{StaticResource EstiloBotonLista}" Click="BotonListVoluntario_Click" HorizontalAlignment="Left" ToolTip="Gestion de voluntarios">
                                 <StackPanel Orientation="Horizontal">
                                     <Image Source="/Protectora;component/recursos/caridad.png" Width="58" Height="34"  />
-                                    <TextBlock Text="Gestión de los socios" FontSize="16" VerticalAlignment="Center"  Margin="20 10"/>
+                                    <TextBlock Text="Voluntarios de la protectora" FontSize="16" VerticalAlignment="Center"  Margin="20 10"/>
                                 </StackPanel>
                             </Button>
                         </ListViewItem>
