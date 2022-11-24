@@ -10,10 +10,10 @@ Usuario: root <br>
 Contraseña: root
 
 ### Interfaz
-![alt text for screen readers](https://github.com/juanjosggarcia/Protectora/blob/Interfaura/imagenesReadMe/Login.PNG "Text to show on mouseover")
-![alt text for screen readers](https://github.com/juanjosggarcia/Protectora/blob/Interfaura/imagenesReadMe/VentanaPrincipal.PNG "Text to show on mouseover")
-![alt text for screen readers](https://github.com/juanjosggarcia/Protectora/blob/Interfaura/imagenesReadMe/VentanaPrincipalBarra.PNG "Text to show on mouseover")
-![alt text for screen readers](https://github.com/juanjosggarcia/Protectora/blob/Interfaura/imagenesReadMe/Form.PNG "Text to show on mouseover")
+![alt text for screen readers](https://github.com/juanjosggarcia/Protectora/blob/Interfaura/imagenesReadMe/Login.jpeg "Text to show on mouseover")
+![alt text for screen readers](https://github.com/juanjosggarcia/Protectora/blob/Interfaura/imagenesReadMe/VentanaPrincipal.jpeg "Text to show on mouseover")
+![alt text for screen readers](https://github.com/juanjosggarcia/Protectora/blob/Interfaura/imagenesReadMe/VentanaSocio.jpeg "Text to show on mouseover")
+![alt text for screen readers](https://github.com/juanjosggarcia/Protectora/blob/Interfaura/imagenesReadMe/Form.jpeg "Text to show on mouseover")
 
 ### Tecnología y recursos utilizados
 • Fondos de pantalla: https://www.vecteezy.com <br>
